@@ -24,9 +24,7 @@ import update from 'immutability-helper';
 const DonatePage = () => {
     return (
         <div className='caa-donate-page'>
-            <Header/>
             <FormSection />
-            <Footer/>
         </div>
     );
 }

@@ -26,12 +26,10 @@ import update from 'immutability-helper';
 const Approval101Page = () => {
     return (
         <div className='approval-101-page'>
-            <Header/>
             <VideoSection />
             <BallotSection />
             <ClosingSection/>
             <CallToAction />
-            <Footer/>
         </div>
     );
 }

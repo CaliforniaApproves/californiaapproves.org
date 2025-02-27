@@ -26,11 +26,9 @@ import update from 'immutability-helper';
 const ContactPage = () => {
     return (
         <div className='caa-contact-page'>
-            <Header/>
             <TopSection/>
             <ContactForm/>
             <InfoSection/>
-            <Footer/>
         </div>
     );
 }

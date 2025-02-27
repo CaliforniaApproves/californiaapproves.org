@@ -1,6 +1,6 @@
 /* ****** CAA Imports ****** */
 // UI
-import Link from './common/links';
+import { Link } from "react-router-dom";
 
 // Logic
 
@@ -20,15 +20,14 @@ import Logo from '../assets/icons/California-Approves-Logo-RGB-OL.svg?react';
 // Generated
 const navigation = {
     learnMore: [
-        { name: 'About', href: '#' }
-        , { name: 'How Approval Voting Works', href: '#' }
-        , { name: 'News', href: '#' }
+        { name: 'About', href: '/about' }
+        , { name: 'FAQ', href: '/faq' }
+        , { name: 'Approval 101', href: '/approval-101' }
     ]
     , getInvolved: [
-        { name: 'Sign Up', href: '#' }
-        , { name: 'Donate', href: '#' }
-        , { name: 'Volunteer', href: '#' }
-        , { name: 'Contact Us', href: '#' }
+        { name: 'Join Us', href: '/contact' }
+        , { name: 'Donate', href: '/donate' }
+        , { name: 'Contact Us', href: 'mailto:info@californiaapproves.org' }
     ]
     ,social: [
         {
@@ -102,9 +101,9 @@ const Footer = () => {
                         <ul role="list" className="lg:space-y-4 lg:mt-6">
                             { navigation.learnMore.map((item) => (
                             <li key={item.name}>
-                                <a href={item.href}>
+                                <Link to={item.href}>
                                     {item.name}
-                                </a>
+                                </Link>
                             </li>
                             ))}
                         </ul>
@@ -114,9 +113,9 @@ const Footer = () => {
                         <ul role="list" className="lg:space-y-4 lg:mt-6">
                             { navigation.getInvolved.map((item) => (
                             <li key={item.name}>
-                                <a href={item.href}>
+                                <Link to={item.href}>
                                     {item.name}
-                                </a>
+                                </Link>
                             </li>
                             ))}
                         </ul>
@@ -138,29 +137,6 @@ const Footer = () => {
                 <div className="mt-16 border-t border-white/10 py-8 lg:mt-24 flex flex-row justify-between">
                     <a href="https://creativecommons.org/licenses/by/4.0/" className="text-xs leading-5">&copy; Creative Commons Attribution 4.0 License</a>
                     <p className="text-xs leading-5">This site is funded by California Approves: FPPC#  1440633</p>
-                    <div className='flex flex-row'>
-                        <Link
-                            to='#'
-                            color="black"
-                            className='mr-4 underline'
-                        >
-                            Privacy Policy
-                        </Link>
-                        <Link
-                            to='#'
-                            color="black"
-                            className='mr-4 underline'
-                        >
-                            Terms of Service
-                        </Link>
-                        <Link
-                            to='#'
-                            color="black"
-                            className='underline'
-                        >
-                            Cookie Settings
-                        </Link>
-                    </div>
                 </div>
             </div>
         </footer>

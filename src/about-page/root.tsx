@@ -27,12 +27,10 @@ import update from 'immutability-helper';
 const AboutPage = () => {
     return (
         <div className='caa-about-page'>
-            <Header />
             <CaaIntro />
             <Plan />
             <People />
             <JoinUs />
-            <Footer />
         </div>
     );
 }

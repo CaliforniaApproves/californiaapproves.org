@@ -2,6 +2,8 @@ import { connect, ConnectedProps } from 'react-redux';
 import React from 'react';
 import ErrorToast from './common/error-toast';
 import { PropsWithChildren } from 'react'
+import Header from './header';
+import Footer from './footer';
 
 /* ****** Assets ****** */
 import { AppReducer } from '../reducers/root';
@@ -36,7 +38,9 @@ class Root extends React.Component<PropsWithChildren<MyProps>> {
                 <div className="error-log">
                     {this.props.errors.map((error: any, index: number) => <ErrorToast key={index} error={error} index={index} />)}
                 </div>
+                <Header></Header>
                 {this.props.children}
+                <Footer></Footer>
             </div>
         );
     }

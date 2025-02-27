@@ -29,7 +29,6 @@ import React from 'react'
 const LandingPage = () => {
     return (
         <div>
-            <Header />
             <Banner/>
             <Video/>
             <AboutApproval/>
@@ -37,7 +36,6 @@ const LandingPage = () => {
             <Quotes />
             {/* <News /> */}
             <GetInvolved />
-            <Footer />
         </div>
     );
 }

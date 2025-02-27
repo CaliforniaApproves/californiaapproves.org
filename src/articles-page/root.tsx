@@ -1,7 +1,5 @@
 /* ****** Twist Imports ****** */
 // UI
-import Header from '../components/header';
-import Footer from '../components/footer';
 // Logic
 
 /* ****** Other Imports ****** */
@@ -22,8 +20,6 @@ import update from 'immutability-helper';
 const ArticlesPage = () => {
     return (
         <div className='caa-articles-page'>
-            <Header/>
-            <Footer/>
         </div>
     );
 }

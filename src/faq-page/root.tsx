@@ -14,7 +14,6 @@ const Faq = ({ question, children }: { question: string, children: ReactNode }) 
 const FaqPage = () => {
   return (
     <div className='caa-faq-page'>
-      <Header />
       <div className="px-8 py-8 mx-auto lg:w-3/5">
         <Faq question="What is California Approves?">
           California Approves is a general purpose committee formed to support candidates and ballot measures in favor of Approval Voting. We are a group of California voters dedicated to empowering people by strengthening democracy in California.
@@ -67,7 +66,6 @@ const FaqPage = () => {
           Approval Voting is often seen as more democratic because it allows voters to express support for multiple candidates, potentially leading to outcomes that better reflect the will of the electorate.
         </Faq>
       </div>
-      <Footer />
     </div>
   );
 }
