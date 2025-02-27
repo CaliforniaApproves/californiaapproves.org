@@ -52,15 +52,15 @@ const Header = () => {
     return (
         <Popover className="bg-white lg:sticky top-0 z-30">
             <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 lg:justify-start lg:space-x-10">
-                <div className="flex justify-start items-center lg:flex-1">
+                <div className="flex justify-start items-center lg:flex-auto">
                     <a href="/" className='m-4'>
                         <span className="sr-only">CA Approves</span>
                         <Logo className='w-56' />
                     </a>
-                    <Link to='/about' color="green" className='mx-4 hidden lg:block'><h5>ABOUT</h5></Link>
-                    <Link to='/faq' color="green" className='mx-4 hidden lg:block'><h5>FAQ</h5></Link>
-                    <Link to='/approval-101' color="green" className='mx-4 hidden lg:block'><h5>Approval Voting</h5></Link>
-                    {/* <Link to='/articles' color="green" className='mx-4 hidden lg:block'><h5>ARTICLES</h5></Link> */}
+                    <Link to='/about' color="green" className='ml-4 hidden lg:block'><h5>ABOUT</h5></Link>
+                    <Link to='/faq' color="green" className='ml-7 hidden lg:block'><h5>FAQ</h5></Link>
+                    <Link to='/approval-101' color="green" className='ml-7 hidden lg:block'><h5>APPROVAL&nbsp;VOTING</h5></Link>
+                    {/* <Link to='/articles' color="green" className='ml-7 hidden lg:block'><h5>ARTICLES</h5></Link> */}
                     {/* <Popover.Group as="nav" className="hidden space-x-10 lg:flex mx-4">
                         <Popover className="relative">
                             {({ open }) => (
@@ -127,9 +127,9 @@ const Header = () => {
                             )}
                         </Popover>
                     </Popover.Group> */}
-                    <Link to='https://californiaapproves.creator-spring.com/' target="_blank" color="green" className='mx-4 hidden lg:block'><h5>MERCH</h5></Link>
+                    <Link to='https://californiaapproves.creator-spring.com/' target="_blank" color="green" className='ml-7 hidden lg:block'><h5>MERCH</h5></Link>
                 </div>
-                <div className="hidden items-center justify-end lg:flex lg:flex-1 ">
+                <div className="hidden items-center justify-end lg:flex lg:flex-auto ">
                     <NavButton
                         variant='solid'
                         color='orange'
