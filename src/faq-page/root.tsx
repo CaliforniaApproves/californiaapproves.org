@@ -1,9 +1,13 @@
-import React, { ReactNode } from 'react'
+import React, { PropsWithChildren } from 'react'
 import Footer from '../components/footer';
 import Header from '../components/header';
 import CaaLink from "../components/common/links";
 
-const Faq = ({ question, children }: { question: string, children: ReactNode }) => {
+type FaqProps = {
+  question: string
+}
+
+const Faq = ({ question, children }: PropsWithChildren<FaqProps>) => {
   return (
     <div className="mt-8">
       <h2 className="text-purple">{question}</h2>
