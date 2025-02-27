@@ -32,7 +32,7 @@ const Banner = () => {
             }}
         >
             <div className='m-auto px-8 pb-14 lg:pb-0'>
-                <img src={strongArm} alt="strong arm" width="338" height="316" className='aspect-[169/158]'/>
+                <img src={strongArm} alt="strong arm" width="338" height="316" className='aspect-169/158'/>
                 <h1 className='text-green banner-drop-shadow'>
                     The <span className='text-purple'>Easiest</span> Way To Make <br className='hidden lg:inline'/>
                     The <span className='text-purple'>Biggest</span> Impact

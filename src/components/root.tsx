@@ -34,7 +34,7 @@ class Root extends React.Component<PropsWithChildren<MyProps>> {
 
     render() {
         return (
-            <div id="root-component" className="ca-approves-root max-w-screen-2xl m-auto">
+            <div id="root-component" className="ca-approves-root max-w-(--breakpoint-2xl) m-auto">
                 <div className="error-log">
                     {this.props.errors.map((error: any, index: number) => <ErrorToast key={index} error={error} index={index} />)}
                 </div>

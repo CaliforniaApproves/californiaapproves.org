@@ -28,16 +28,16 @@ const ErrorToast = ({ error, index, toggleErrorToast }: any) => (
 					<div className="max-w-sm w-full bg-surface-medium shadow-lg rounded-lg pointer-events-auto overflow-hidden">
 						<div className="p-2.5">
 							<div className="flex items-start">
-								<div className="mt-1 flex-shrink-0">
+								<div className="mt-1 shrink-0">
 									<XMarkIcon className="h-5 w-5 text-error-medium" aria-hidden="true" />
 								</div>
 								<div className="ml-2.5 w-0 flex-1 pt-0.5 text-schist">
 									<span className="text-sm font-medium">{error.title}</span> <br />
 									<span className="mt-1 text-sm">{error.message}</span>
 								</div>
-								<div className="ml-4 flex-shrink-0 flex text-schist">
+								<div className="ml-4 shrink-0 flex text-schist">
 									<button
-										className="rounded-md inline-flex text-schist hover:text-schist-low focus:outline-none focus:ring-2 focus:ring-offset-2"
+										className="rounded-md inline-flex text-schist hover:text-schist-low focus:outline-hidden focus:ring-2 focus:ring-offset-2"
 										onClick={() => toggleErrorToast({ index })}
 									>
 										<span className="sr-only">Close</span>

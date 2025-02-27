@@ -68,7 +68,7 @@ const Header = () => {
                                     <Popover.Button
                                         className={classNames(
                                             open ? 'text-gray-900' : 'text-gray-500',
-                                            'group inline-flex items-center rounded-md bg-white font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple focus:ring-offset-2'
+                                            'group inline-flex items-center rounded-md bg-white font-medium hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-purple focus:ring-offset-2'
                                         )}
                                     >
                                         <h5 className='text-green hover:text-green-high whitespace-nowrap'>Approval Voting</h5>
@@ -91,7 +91,7 @@ const Header = () => {
                                         leaveTo="opacity-0 translate-y-1"
                                     >
                                         <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-screen max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
-                                            <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                                            <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/50">
                                                 <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                                                     {education.map((item) => (
                                                         <a
@@ -99,7 +99,7 @@ const Header = () => {
                                                             href={item.href}
                                                             className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
                                                         >
-                                                            <item.icon className="h-6 w-6 flex-shrink-0 text-purple" aria-hidden="true" />
+                                                            <item.icon className="h-6 w-6 shrink-0 text-purple" aria-hidden="true" />
                                                             <div className="ml-4">
                                                                 <p className="text-base font-medium text-gray-900">{item.name}</p>
                                                                 <p className="mt-1 text-sm text-gray-500">{item.description}</p>
@@ -114,7 +114,7 @@ const Header = () => {
                                                                 href={item.href}
                                                                 className="-m-3 flex items-center rounded-md p-3 text-base font-medium text-gray-900 hover:bg-gray-100"
                                                             >
-                                                                <item.icon className="h-6 w-6 flex-shrink-0 text-purple" aria-hidden="true" />
+                                                                <item.icon className="h-6 w-6 shrink-0 text-purple" aria-hidden="true" />
                                                                 <span className="ml-3">{item.name}</span>
                                                             </a>
                                                         </div>
@@ -153,7 +153,7 @@ const Header = () => {
                                 <Popover.Button
                                     className={classNames(
                                         open ? 'text-gray-900' : 'text-gray-500',
-                                        'group inline-flex items-center rounded-md bg-white font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple focus:ring-offset-2'
+                                        'group inline-flex items-center rounded-md bg-white font-medium hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-purple focus:ring-offset-2'
                                     )}
                                 >
                                     <Bars3Icon
@@ -174,7 +174,7 @@ const Header = () => {
                                     leaveTo="opacity-0 translate-y-1"
                                 >
                                     <Popover.Panel className="absolute left-0 z-10  mt-3 w-full transform px-2 sm:px-0">
-                                        <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 text-white">
+                                        <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/50 text-white">
                                             <div className="relative w-full grid gap-6 bg-purple px-5 py-6 sm:gap-8 sm:p-8">
                                                 <Link to='/about' color="white" className='mx-4'><h2>About</h2></Link>
                                                 <Link to='/faq' color="white" className='mx-4 text-base'><h2>FAQ</h2></Link>

@@ -21,7 +21,7 @@ import update from 'immutability-helper';
 // create a component
 const FormSection = () => {
     return (
-        <div className='px-8 py-10 bg-gradient-to-bl from-purple to-tan flex flex-col items-center'>
+        <div className='px-8 py-10 bg-linear-to-bl from-purple to-tan flex flex-col items-center'>
             <div className='flex flex-col'>
                 <div className='text-white mb-10 text-center'>
                     <h1 className='mb-4'>Donate to California Approves</h1>

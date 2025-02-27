@@ -1,6 +1,150 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/forms' {
+  strategy: 'class';
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-white: #fff;
+  --color-black: #27272b;
+
+  --color-schist-higher: #27272b;
+  --color-schist-high: #66666e;
+  --color-schist-medium: #9999a1;
+  --color-schist: #e6e6e9;
+  --color-schist-low: #f4f4f6;
+  --color-schist-lower: #ffffff;
+
+  --color-green: #283620;
+  --color-green-high: #46543e;
+
+  --color-purple: #8956ff;
+  --color-purple-high: #a47dff;
+
+  --color-orange: #f16200;
+  --color-orange-accent: #d47739;
+  --color-orange-high: #ff8533;
+
+  --color-tan: #fecb8b;
+  --color-tan-high: #ffddb1;
+
+  --text-color-transparent: transparent;
+  --text-color-current: currentColor;
+  --text-color-white: #fff;
+  --text-color-black: #27272b;
+
+  --text-color-schist-higher: #27272b;
+  --text-color-schist-high: #66666e;
+  --text-color-schist-medium: #9999a1;
+  --text-color-schist: #e6e6e9;
+  --text-color-schist-low: #f4f4f6;
+  --text-color-schist-lower: #ffffff;
+
+  --text-color-green: #283620;
+  --text-color-green-high: #46543e;
+
+  --text-color-purple: #8956ff;
+  --text-color-purple-high: #a47dff;
+
+  --text-color-orange: #f16200;
+  --text-color-orange-accent: #d47739;
+  --text-color-orange-high: #ff8533;
+
+  --text-color-tan: #fecb8b;
+  --text-color-tan-high: #ffddb1;
+
+  --background-color-transparent: transparent;
+  --background-color-current: currentColor;
+  --background-color-white: #fff;
+  --background-color-black: #27272b;
+
+  --background-color-schist-higher: #27272b;
+  --background-color-schist-high: #66666e;
+  --background-color-schist-medium: #9999a1;
+  --background-color-schist: #e6e6e9;
+  --background-color-schist-low: #f4f4f6;
+  --background-color-schist-lower: #ffffff;
+
+  --background-color-green: #283620;
+  --background-color-green-high: #46543e;
+
+  --background-color-purple: #8956ff;
+  --background-color-purple-high: #a47dff;
+
+  --background-color-orange: #f16200;
+  --background-color-orange-accent: #d47739;
+  --background-color-orange-high: #ff8533;
+
+  --background-color-tan: #fecb8b;
+  --background-color-tan-high: #ffddb1;
+
+  --border-color-transparent: transparent;
+  --border-color-current: currentColor;
+  --border-color-white: #fff;
+  --border-color-black: #27272b;
+
+  --border-color-schist-higher: #27272b;
+  --border-color-schist-high: #66666e;
+  --border-color-schist-medium: #9999a1;
+  --border-color-schist: #e6e6e9;
+  --border-color-schist-low: #f4f4f6;
+  --border-color-schist-lower: #ffffff;
+
+  --border-color-green: #283620;
+  --border-color-green-high: #46543e;
+
+  --border-color-purple: #8956ff;
+  --border-color-purple-high: #a47dff;
+
+  --border-color-orange: #f16200;
+  --border-color-orange-accent: #d47739;
+  --border-color-orange-high: #ff8533;
+
+  --border-color-tan: #fecb8b;
+  --border-color-tan-high: #ffddb1;
+
+  --text-small: 18px;
+  --text-small--line-height: 24px;
+  --text-small--letter: -1%;
+  --text-small--font-weight: 400;
+  --text-base: 22px;
+  --text-base--line-height: 30px;
+  --text-base--letter: -1%;
+  --text-base--font-weight: 400;
+  --text-large: 26px;
+  --text-large--line-height: 38px;
+  --text-large--letter: -1%;
+  --text-large--font-weight: 400;
+  --text-large-bold: 26px;
+  --text-large-bold--line-height: 32px;
+  --text-large-bold--letter: -1%;
+  --text-large-bold--font-weight: 500;
+  --text-bsm: 20px, 20px;
+  --text-bsl: 22px, 26px;
+
+  --font-darker: Darker Grotesque;
+}
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+/*@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+} */
 
 @layer base {
     :root {
