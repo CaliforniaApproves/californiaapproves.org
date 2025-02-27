@@ -1,7 +1,5 @@
 /* ****** CAA Imports ****** */
 // UI
-import Header from '../components/header';
-import Footer from '../components/footer';
 import CaaIntro from './caa-intro';
 import Plan from './plan';
 import People from './people';

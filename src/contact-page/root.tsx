@@ -1,7 +1,5 @@
 /* ****** CAA Imports ****** */
 // UI
-import Header from '../components/header';
-import Footer from '../components/footer';
 import TopSection from './top-section';
 import InfoSection from './info-section';
 import ContactForm from './contact-form';

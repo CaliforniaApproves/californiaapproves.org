@@ -1,6 +1,4 @@
 import React, { PropsWithChildren } from 'react'
-import Footer from '../components/footer';
-import Header from '../components/header';
 import CaaLink from "../components/common/links";
 
 type FaqProps = {

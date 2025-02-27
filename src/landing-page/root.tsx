@@ -1,7 +1,5 @@
 /* ****** CAA Imports ****** */
 // UI
-import Header from '../components/header';
-import Footer from '../components/footer';
 import Banner from './banner';
 import Video from './video';
 import AboutApproval from './approval';

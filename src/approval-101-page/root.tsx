@@ -1,7 +1,5 @@
 /* ****** CAA Imports ****** */
 // UI
-import Header from '../components/header';
-import Footer from '../components/footer';
 import VideoSection from './video-section';
 import BallotSection from './ballot-section';
 import ClosingSection from './closing-section';
