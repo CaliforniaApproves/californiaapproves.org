@@ -1,13 +1,13 @@
 /* ****** CAA Imports ****** */
 // UI
 import { NavButton } from './common/buttons';
-import Link from './common/links';
 
 // Logic
 
 /* ****** Other Imports ****** */
 // UI
 import { Popover, Transition } from '@headlessui/react'
+import { Link } from "react-router-dom";
 
 // Logic
 import React, { Fragment, useState } from 'react'
@@ -53,10 +53,10 @@ const Header = () => {
         <Popover className="bg-white lg:sticky top-0 z-30">
             <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 lg:justify-start lg:space-x-10">
                 <div className="flex justify-start items-center lg:flex-auto">
-                    <a href="/" className='m-4'>
+                    <Link to="/" className='m-4'>
                         <span className="sr-only">CA Approves</span>
                         <Logo className='w-56' />
-                    </a>
+                    </Link>
                     <Link to='/about' color="green" className='ml-4 hidden lg:block'><h5>ABOUT</h5></Link>
                     <Link to='/faq' color="green" className='ml-7 hidden lg:block'><h5>FAQ</h5></Link>
                     <Link to='/approval-101' color="green" className='ml-7 hidden lg:block'><h5>APPROVAL&nbsp;VOTING</h5></Link>
