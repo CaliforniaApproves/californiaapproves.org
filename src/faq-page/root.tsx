@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import Footer from '../components/footer';
 import Header from '../components/header';
 import CaaLink from "../components/common/links";
 
-const Faq = ({ question, children }) => {
+const Faq = ({ question, children }: { question: string, children: ReactNode }) => {
   return (
     <div className="mt-8">
       <h2 className="text-purple">{question}</h2>
