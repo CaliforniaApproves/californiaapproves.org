@@ -5,10 +5,10 @@
 
 /* ****** Other Imports ****** */
 // UI
+import { Link } from "react-router-dom";
 
 // Logic
 import React, { PropsWithChildren } from 'react'
-import { useNavigate } from "react-router-dom";
 import classnames from 'classnames';
 
 /* ****** Assets ****** */
@@ -72,13 +72,11 @@ type NavButtonProps = ButtonProps & {
 };
 
 export const NavButton = ({variant, color, size='sm', link, children, className=''}: PropsWithChildren<NavButtonProps>) => {
-    const navigate = useNavigate();
-    const onClick = () => {
-        navigate(link)
-    }
     return (
-        <ActionButton className={className} onClick={onClick} variant={variant} color={color} size={size}>
-            {children}
-        </ActionButton>
+        <Link to={link}>
+            <ActionButton className={className} variant={variant} color={color} size={size}>
+                {children}
+            </ActionButton>
+        </Link>
     );
 }
