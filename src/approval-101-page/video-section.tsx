@@ -9,7 +9,7 @@ import Video from '../components/common/video';
 
 // Logic
 import React from 'react'
-import update from 'immutability-helper';
+
 
 /* ****** Assets ****** */
 import Background from '../assets/images/Group-39.svg';

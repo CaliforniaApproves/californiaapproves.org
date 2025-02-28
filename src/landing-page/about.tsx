@@ -9,7 +9,7 @@ import Link from '../components/common/links';
 
 // Logic
 import React, { useState } from 'react'
-import update from 'immutability-helper';
+
 import { usePopper } from 'react-popper';
 
 /* ****** Assets ****** */

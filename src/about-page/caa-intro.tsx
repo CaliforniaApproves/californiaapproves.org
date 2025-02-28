@@ -8,7 +8,7 @@
 
 // Logic
 import React, { PropsWithChildren } from 'react'
-import update from 'immutability-helper';
+
 
 /* ****** Assets ****** */
 import activists from '../assets/images/activists.webp';
