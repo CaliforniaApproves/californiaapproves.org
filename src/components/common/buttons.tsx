@@ -8,7 +8,7 @@
 import { Link } from "react-router";
 
 // Logic
-import React, { PropsWithChildren } from 'react'
+import React, { PropsWithChildren, type JSX } from 'react';
 import classnames from 'classnames';
 
 /* ****** Assets ****** */
