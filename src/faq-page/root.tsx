@@ -9,7 +9,7 @@ const Faq = ({ question, children }: PropsWithChildren<FaqProps>) => {
   return (
     <div className="mt-8">
       <h2 className="text-purple">{question}</h2>
-      <p className="text-lg mt-7 max-w-prose">{children}</p>
+      <div className="text-lg mt-7 max-w-prose">{children}</div>
     </div>)
 };
 
