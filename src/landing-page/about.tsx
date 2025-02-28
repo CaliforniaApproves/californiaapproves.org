@@ -10,7 +10,13 @@ import Link from '../components/common/links';
 // Logic
 import React, { useState } from 'react'
 
-import { usePopper } from 'react-popper';
+import {
+    useFloating,
+    autoUpdate,
+    useInteractions,
+    useClick,
+    autoPlacement
+} from '@floating-ui/react';
 
 /* ****** Assets ****** */
 import Background from '../assets/images/Illustrations-1.webp';
@@ -23,19 +29,21 @@ import Arrow from '../assets/icons/Arrow.svg?react';
 
 // create a component
 const About = () => {
-    const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>(null);
-    const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
-    const [isVisible, setIsVisible] = useState(false);
-    const { styles, attributes } = usePopper(referenceElement, popperElement, {
-        placement: 'auto-start'
-        , modifiers: [
-            { name: 'offset', options: { offset: [0, 20] } }
+    const [isOpen, setIsOpen] = useState(false);
+    const {refs, floatingStyles, context} = useFloating({
+        middleware: [
+            autoPlacement({alignment: 'start'})
         ],
+        open: isOpen,
+        onOpenChange: setIsOpen,
+        whileElementsMounted: autoUpdate
     });
 
-    const togglePopover = () => {
-        setIsVisible(!isVisible);
-    };
+    const click = useClick(context);
+
+    const {getReferenceProps, getFloatingProps} = useInteractions([
+        click,
+    ]);
 
     return (
         <div
@@ -80,17 +88,19 @@ const About = () => {
                         type="button"
                         color="white"
                         className='italic underline flex flex-row text-small align-center items-center text-center'
-                        ref={setReferenceElement}
-                        onClick={togglePopover}
+                        ref={refs.setReference}
+                        {...getReferenceProps()}
                     >
                         LEARN MORE
                         <Arrow className="fill-current w-6 h-6 ml-2"/>
                     </button>
-                    {isVisible && (
-                        <div ref={setPopperElement}
+                    {isOpen && (
+                        <div
+                            ref={refs.setFloating}
+                            style={floatingStyles}
                             className='bg-white text-black text-base w-3/4 max-w-96 mx-auto border border-black rounded-lg p-4'
-                             style={styles.popper}
-                             {...attributes.popper}>
+                            {...getFloatingProps()}
+                        >
                             The requirements for running an approval campaign in a city vary depending on the laws of
                             that city. At a minimum, there must be a city charter and someone living in the city willing
                             to sign the application to circulate a petition. If you're interested a 

@@ -11,6 +11,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.27.5",
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@headlessui/react": "1.7.14",
     "@heroicons/react": "^2.2.0",
@@ -20,7 +21,6 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-lite-youtube-embed": "^2.4.0",
-    "react-popper": "2.3.0",
     "react-router": "^7.2.0",
     "tailwindcss": "^4.0.9"
   },
