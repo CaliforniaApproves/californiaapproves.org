@@ -61,25 +61,29 @@ const NewsBlurb = ({title, body, link, tag, color}: PropsWithChildren<NewsBlurbP
                     {body}
                 </p>
                 <br/>
-                <div className='flex flex-row divide-x-2'>
-                    <div
-                        className={classnames(
-                            'mr-4 rounded-2xl border-[3px] px-2 text-center text-bsm font-bold'
-                            , {
-                                'border-purple text-purple': color === 'purple'
-                                , 'border-orange text-orange': color === 'orange'
-                            }
-                        )}
-                    >
-                        { newsTagMap[tag] }
+                <div className='flex flex-col lg:flex-row lg:grid-cols-2 lg:divide-x-2'>
+                    <div>
+                        <span
+                            className={classnames(
+                                'mr-4 rounded-2xl border-[3px] px-2 text-center text-bsm font-bold'
+                                , {
+                                    'border-purple text-purple': color === 'purple'
+                                    , 'border-orange text-orange': color === 'orange'
+                                }
+                            )}
+                        >
+                            { newsTagMap[tag] }
+                        </span>
                     </div>
-                    <Link
-                        to={link}
-                        color='black'
-                        className='underline px-8'
-                    >
-                        LEARN MORE HERE
-                    </Link>
+                    <div className='mt-3 lg:mt-0 lg:pl-8'>
+                        <Link
+                            to={link}
+                            color='black'
+                            className='underline'
+                        >
+                            LEARN MORE HERE
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

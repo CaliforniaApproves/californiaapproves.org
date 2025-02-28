@@ -43,7 +43,7 @@ const ApprovalNews = () => {
             <h2 className='text-center'>
                 Stay Plugged In
             </h2>
-            <div className='flex flex-col mx-auto lg:grid lg:grid-cols-2 lg:border-b-2'>
+            <div className='flex flex-col lg:flex-row lg:border-b-2'>
                 { news.map(news => <NewsBlurb key={news.title} {...news} />)}
             </div>
         </div>
