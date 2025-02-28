@@ -14,6 +14,6 @@ export default defineConfig({
         commonjsOptions: { include: ['node_modules/**'] }
     }
     , resolve: {
-        dedupe: ["react", "react-dom", "react-router-dom"]
+        dedupe: ["react", "react-dom", "react-router"]
     }
 })

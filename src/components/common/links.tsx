@@ -5,7 +5,7 @@
 
 /* ****** Other Imports ****** */
 // UI
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 // Logic
 import React, { PropsWithChildren } from 'react'

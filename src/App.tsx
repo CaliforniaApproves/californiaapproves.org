@@ -1,10 +1,10 @@
 import React from 'react'
 
 import {
-    BrowserRouter as Router
+    BrowserRouter
     , Routes
     , Route
-} from "react-router-dom";
+} from "react-router";
 
 import { Provider } from 'react-redux';
 
@@ -31,7 +31,7 @@ export default class App extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <Router>
+                <BrowserRouter>
                     <ErrorBoundary>
                         <Root>
                             <Routes>
@@ -45,7 +45,7 @@ export default class App extends React.Component {
                             </Routes>
                         </Root>
                     </ErrorBoundary>
-                </Router>
+                </BrowserRouter>
             </Provider>
         );
     }

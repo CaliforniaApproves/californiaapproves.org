@@ -7,7 +7,7 @@ import { NavButton } from './common/buttons';
 /* ****** Other Imports ****** */
 // UI
 import { Popover, Transition } from '@headlessui/react'
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 // Logic
 import React, { Fragment, useState } from 'react'
