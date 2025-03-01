@@ -11,7 +11,7 @@ import JoinUs from './join';
 // UI
 
 // Logic
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
 
 
 /* ****** Assets ****** */
@@ -22,7 +22,7 @@ import React, { PropsWithChildren } from 'react'
 // Generated
 
 // create a component
-const AboutPage = () => {
+export function About() {
     return (
         <div className='caa-about-page'>
             <title>About California Approves</title>
@@ -33,6 +33,3 @@ const AboutPage = () => {
         </div>
     );
 }
-
-//make this component available to the app
-export default AboutPage

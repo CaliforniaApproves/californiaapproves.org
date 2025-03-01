@@ -11,7 +11,7 @@ import React, { PropsWithChildren } from 'react'
 
 
 /* ****** Assets ****** */
-import signatures from '../assets/images/signatures.webp';
+import signatures from '../../assets/images/signatures.webp';
 
 /* ****** Constants ****** */
 // Imported

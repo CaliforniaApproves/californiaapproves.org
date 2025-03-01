@@ -10,7 +10,7 @@ import {
 import Root from './components/root';
 import FaqPage from './faq-page/root';
 import { Home } from './pages/Home/index';
-import AboutPage from './about-page/root';
+import { About } from './pages/About/index';
 import ContactPage from './contact-page/root';
 import DonatePage from './donate-page/root';
 import Approval101Page from './approval-101-page/root';
@@ -26,7 +26,7 @@ export default class App extends React.Component {
                     <Routes>
                         <Route path="/" element={<Home />}/>
                         <Route path="/faq" element={<FaqPage />}/>
-                        <Route path="/about" element={<AboutPage />}/>
+                        <Route path="/about" element={<About />}/>
                         <Route path="/contact" element={<ContactPage />}/>
                         <Route path="/donate" element={<DonatePage />}/>
                         <Route path="/approval-101" element={<Approval101Page />}/>

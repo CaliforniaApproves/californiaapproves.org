@@ -12,9 +12,9 @@ import React, { PropsWithChildren } from 'react'
 
 
 /* ****** Assets ****** */
-import alanProfile from '../assets/images/Alan-Savage-Profile.webp';
-import jeffProfile from '../assets/images/Jeff-Justice-Profile.webp';
-import kevinProfile from '../assets/images/Kevin-Gray-Profile.webp';
+import alanProfile from '../../assets/images/Alan-Savage-Profile.webp';
+import jeffProfile from '../../assets/images/Jeff-Justice-Profile.webp';
+import kevinProfile from '../../assets/images/Kevin-Gray-Profile.webp';
 
 /* ****** Constants ****** */
 // Imported

@@ -11,8 +11,8 @@ import React, { PropsWithChildren } from 'react'
 
 
 /* ****** Assets ****** */
-import activists from '../assets/images/activists.webp';
-import Background from '../assets/images/Background-Pattern.svg';
+import activists from '../../assets/images/activists.webp';
+import Background from '../../assets/images/Background-Pattern.svg';
 
 /* ****** Constants ****** */
 // Imported

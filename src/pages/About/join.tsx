@@ -9,7 +9,7 @@
 // Logic
 import React, { PropsWithChildren } from 'react'
 
-import { NavButton } from '../components/common/buttons';
+import { NavButton } from '../../components/common/buttons';
 
 /* ****** Assets ****** */
 
