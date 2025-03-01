@@ -56,9 +56,8 @@ export function Header() {
                         <span className="sr-only">CA Approves</span>
                         <Logo className='w-56' />
                     </Link>
-                    <Link to='/about' color="green" className='ml-4 hidden lg:block'><h5>ABOUT</h5></Link>
-                    <Link to='/faq' color="green" className='ml-7 hidden lg:block'><h5>FAQ</h5></Link>
                     <Link to='/approval-101' color="green" className='ml-7 hidden lg:block'><h5>APPROVAL&nbsp;VOTING</h5></Link>
+                    <Link to='/faq' color="green" className='ml-7 hidden lg:block'><h5>FAQ</h5></Link>
                     {/* <Link to='/articles' color="green" className='ml-7 hidden lg:block'><h5>ARTICLES</h5></Link> */}
                     {/* <Popover.Group as="nav" className="hidden space-x-10 lg:flex mx-4">
                         <Popover className="relative">
@@ -175,10 +174,9 @@ export function Header() {
                                     <Popover.Panel className="absolute left-0 z-10  mt-3 w-full transform px-2 sm:px-0">
                                         <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/50 text-white">
                                             <div className="relative w-full grid gap-6 bg-purple px-5 py-6 sm:gap-8 sm:p-8">
-                                                <Link to='/about' color="white" className='mx-4'><h2>About</h2></Link>
+                                                <Link to='/approval-101' color="white" className='mx-4 text-base'><h2>Approval Voting</h2></Link>
                                                 <Link to='/faq' color="white" className='mx-4 text-base'><h2>FAQ</h2></Link>
                                                 {/* <Link to='/articles' color="white" className='mx-4'><h2>Articles</h2></Link> */}
-                                                <Link to='/approval-101' color="white" className='mx-4 text-base'><h2>Approval Voting</h2></Link>
                                                 <Link to='https://californiaapproves.creator-spring.com/' target="_blank" color="white" className='mx-4 text-base'><h2>Merch</h2></Link>
                                             </div>
 
