@@ -25,6 +25,7 @@ import React, { PropsWithChildren } from 'react'
 const AboutPage = () => {
     return (
         <div className='caa-about-page'>
+            <title>About California Approves</title>
             <CaaIntro />
             <Plan />
             <People />

@@ -24,6 +24,7 @@ import React, { PropsWithChildren } from 'react'
 const Approval101Page = () => {
     return (
         <div className='approval-101-page'>
+            <title>What is Approval Voting?</title>
             <VideoSection />
             <BallotSection />
             <ClosingSection/>

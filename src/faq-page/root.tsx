@@ -16,6 +16,7 @@ const Faq = ({ question, children }: PropsWithChildren<FaqProps>) => {
 const FaqPage = () => {
   return (
     <div className='caa-faq-page'>
+      <title>California Approves FAQ</title>
       <div className="px-8 py-8 mx-auto lg:w-3/5">
         <Faq question="What is California Approves?">
           California Approves is a general purpose committee formed to support candidates and ballot measures in favor of Approval Voting. We are a group of California voters dedicated to empowering people by strengthening democracy in California.

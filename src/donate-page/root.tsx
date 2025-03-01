@@ -22,6 +22,7 @@ import React, { PropsWithChildren } from 'react'
 const DonatePage = () => {
     return (
         <div className='caa-donate-page'>
+            <title>Donate to California Approves</title>
             <FormSection />
         </div>
     );

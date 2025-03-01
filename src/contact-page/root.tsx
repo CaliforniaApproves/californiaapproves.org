@@ -24,6 +24,7 @@ import React, { PropsWithChildren } from 'react'
 const ContactPage = () => {
     return (
         <div className='caa-contact-page'>
+            <title>Contact California Approves</title>
             <TopSection/>
             <ContactForm/>
             <InfoSection/>

@@ -27,6 +27,7 @@ import React from 'react'
 const LandingPage = () => {
     return (
         <div>
+            <title>California Approves</title>
             <Banner/>
             <Video/>
             <AboutApproval/>
