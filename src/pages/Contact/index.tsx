@@ -21,7 +21,7 @@ import React, { PropsWithChildren } from 'react'
 // Generated
 
 // create a component
-const ContactPage = () => {
+export function Contact() {
     return (
         <div className='caa-contact-page'>
             <title>Contact California Approves</title>
@@ -31,6 +31,3 @@ const ContactPage = () => {
         </div>
     );
 }
-
-//make this component available to the app
-export default ContactPage

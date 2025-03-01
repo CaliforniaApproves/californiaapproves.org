@@ -19,7 +19,7 @@ import React, { PropsWithChildren } from 'react'
 // Generated
 
 // create a component
-const DonatePage = () => {
+export function Donate() {
     return (
         <div className='caa-donate-page'>
             <title>Donate to California Approves</title>
@@ -27,6 +27,3 @@ const DonatePage = () => {
         </div>
     );
 }
-
-//make this component available to the app
-export default DonatePage
