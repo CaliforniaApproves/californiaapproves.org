@@ -22,10 +22,6 @@ import { ActionButton } from '../../components/common/buttons';
 
 // create a component
 const ContactForm = () => {
-    const [firstName, setFirstName] = useState<string>();
-    const [lastName, setLastName] = useState<string>();
-    const [email, setEmail] = useState<string>();
-
     return (
         <div className='py-16 text-center flex flex-col'>
             <Logo className='w-40 m-auto' />
@@ -48,8 +44,6 @@ const ContactForm = () => {
                             <div id="mc-email-input-wrapper" className="mc-field-group">
                                 <Input
                                     color="purple"
-                                    value={email}
-                                    setValue={setEmail}
                                     label="email"
                                     labelHidden={true}
                                     type='email'

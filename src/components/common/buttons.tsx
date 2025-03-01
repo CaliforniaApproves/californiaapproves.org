@@ -5,8 +5,7 @@
 
 /* ****** Other Imports ****** */
 // UI
-import { Link } from "react-router";
-
+import { Link } from "./links";
 // Logic
 import React, { PropsWithChildren, type JSX } from 'react';
 import classnames from 'classnames';

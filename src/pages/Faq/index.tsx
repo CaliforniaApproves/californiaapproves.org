@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react'
-import CaaLink from "../../components/common/links";
+import { Link } from "../../components/common/links";
 
 type QuestionProps = {
   question: string
@@ -27,7 +27,7 @@ export function Faq() {
           It&apos;s like choosing a movie or a restaurant with a big group of friends. If there are two pizza places and a sushi restaurant and most people want pizza, then pizza should win even if some people like one pizza place more than the other.
           </p>
           <p>
-            <CaaLink color="purple" to="https://youtu.be/K7kDlctGsQM" className='font-bold' target="_blank" rel="noopener noreferrer">Check out our in-depth video!</CaaLink>
+            <Link color="purple" to="https://youtu.be/K7kDlctGsQM" className='font-bold' target="_blank" rel="noopener noreferrer">Check out our in-depth video!</Link>
           </p>
         </Question>
         <Question question="Why Approval Voting?">

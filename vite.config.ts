@@ -1,26 +1,29 @@
-import reactRefresh from '@vitejs/plugin-react';
-import { defineConfig, searchForWorkspaceRoot } from 'vite';
+import { defineConfig } from 'vite';
+import preact from '@preact/preset-vite';
 import svgr from 'vite-plugin-svgr';
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [reactRefresh(), svgr(), tailwindcss()]
-    , server: {
-        fs: {
-            allow: [searchForWorkspaceRoot(process.cwd()), '/node_modules/']
-        },
-        // https://vite.dev/guide/troubleshooting.html#dev-containers-vs-code-port-forwarding
-        host: '127.0.0.1',
-    }
-    , preview: {
-        // https://vite.dev/guide/troubleshooting.html#dev-containers-vs-code-port-forwarding
-        host: '127.0.0.1',
-    }
-    , build: {
-        commonjsOptions: { include: ['node_modules/**'] }
-    }
-    , resolve: {
-        dedupe: ["react", "react-dom", "react-router"]
-    }
-})
+	plugins: [
+		preact({
+			prerender: {
+				enabled: true,
+				renderTarget: '#app',
+				additionalPrerenderRoutes: ['/404'],
+				previewMiddlewareEnabled: true,
+				previewMiddlewareFallback: '/404',
+			},
+		}),
+		svgr(),
+		tailwindcss(),
+	],
+	server: {
+		// https://vite.dev/guide/troubleshooting.html#dev-containers-vs-code-port-forwarding
+		host: '127.0.0.1',
+	}
+	, preview: {
+		// https://vite.dev/guide/troubleshooting.html#dev-containers-vs-code-port-forwarding
+		host: '127.0.0.1',
+	}
+});

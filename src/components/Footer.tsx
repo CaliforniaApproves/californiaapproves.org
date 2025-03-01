@@ -1,6 +1,6 @@
 /* ****** CAA Imports ****** */
 // UI
-import { Link } from "react-router";
+import { Link } from "./common/links";
 
 // Logic
 

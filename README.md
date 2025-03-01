@@ -8,14 +8,15 @@ React Based Website for CaliforniaApproves.org.
 * Install Docker
 * Install Dev Container Extension
 * Choose "Open Folder In Dev Container"
-* In VSCode Terminal run `npx vite`
+* In VSCode Terminal run `npm run dev`
 
 ## Run directly with NPM
 Install Node
+
+```
 npm install
 npm run dev
-
-available on localhost:3000
+```
 
 # Deployment
 

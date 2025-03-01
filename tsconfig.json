@@ -1,35 +1,23 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["node", "vite/client", "vite-plugin-svgr/client"],
-    "baseUrl": ".",
-    "typeRoots": [
-      "node_modules/@types",
-      "typings",
-      "node_modules"
-    ],
-    "paths": {
-      "*": [
-        "node_modules/*"
-      ]
-    },
-    "allowJs": false,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react",
-    "skipLibCheck": true
-  },
-  "include": ["src/**/*"],
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"allowJs": true,
+		"checkJs": true,
+
+		/* Preact Config */
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact",
+		"skipLibCheck": true,
+		"paths": {
+			"react": ["./node_modules/preact/compat/"],
+			"react-dom": ["./node_modules/preact/compat/"]
+		}
+	},
+	"include": ["node_modules/vite/client.d.ts", "**/*"],
   "exclude": [
-    "node_modules",
-    "test"
-  ]
+		"dist",
+	]
 }

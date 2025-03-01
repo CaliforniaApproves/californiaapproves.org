@@ -1,7 +1,7 @@
 /* ****** CAA Imports ****** */
 // UI
 import Video from '../../components/common/video';
-import Link from '../../components/common/links';
+import { Link } from '../../components/common/links';
 
 // Logic
 

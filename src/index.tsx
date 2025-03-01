@@ -1,37 +1,43 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import {
-    BrowserRouter
-    , Routes
-    , Route
-} from "react-router";
-import { About } from './pages/About/index';
+// Make svgr imports work `import Logo from "./logo.svg?react";`
+/// <reference types="vite-plugin-svgr/client" />
+
+import { LocationProvider, Router, Route, hydrate, prerender as ssr } from 'preact-iso';
+
+import { About } from './pages/About';
 import { Approval101 } from './pages/Approval-101';
 import { Contact } from './pages/Contact';
 import { Donate } from './pages/Donate';
 import { Faq } from './pages/Faq';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
-import { Home } from './pages/Home/index';
-import './style.css'
+import { Home } from './pages/Home';
+import { NotFound } from './pages/_404';
+import './style.css';
 
-const container = document.getElementById('root');
-const root = createRoot(container!); // createRoot(container!) if you use TypeScript
-root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <div id="root-component" className="ca-approves-root max-w-(--breakpoint-2xl) m-auto">
-                <Header></Header>
-                    <Routes>
-                        <Route path="/" element={<Home />}/>
-                        <Route path="/faq" element={<Faq />}/>
-                        <Route path="/about" element={<About />}/>
-                        <Route path="/contact" element={<Contact />}/>
-                        <Route path="/donate" element={<Donate />}/>
-                        <Route path="/approval-101" element={<Approval101 />}/>
-                    </Routes>
-                <Footer></Footer>
-            </div>
-        </BrowserRouter>
-    </React.StrictMode>
-);
+export function App() {
+	return (
+		<LocationProvider>
+			<Header />
+			<main>
+				<Router>
+					<Route path="/" component={Home}/>
+					<Route path="/faq" component={Faq}/>
+					<Route path="/about" component={About}/>
+					<Route path="/contact" component={Contact}/>
+					<Route path="/donate" component={Donate}/>
+					<Route path="/approval-101" component={Approval101}/>
+					<Route default component={NotFound} />
+				</Router>
+			</main>
+			<Footer />
+		</LocationProvider>
+	);
+}
+
+if (typeof window !== 'undefined') {
+	hydrate(<App />, document.getElementById('app'));
+}
+
+export async function prerender(data) {
+	return await ssr(<App {...data} />);
+}

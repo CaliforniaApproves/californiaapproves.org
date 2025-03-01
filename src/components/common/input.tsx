@@ -21,16 +21,14 @@ type InputColor = 'orange'|'purple'|'green'|'black';
 
 type InputProps = JSX.IntrinsicElements["input"] & {
     className?: string;
-    value: any;
     color: InputColor;
     label?: string;
     labelHidden?: boolean;
     placeholder?: string;
-    setValue: (k: string) => void;
 };
 
 // create a component
-const Input = ({value, setValue, color, type, label, placeholder, labelHidden=false, className='', id, required=false, name}: PropsWithChildren<InputProps>) => {
+const Input = ({color, type, label, placeholder, labelHidden=false, className='', id, required=false, name}: PropsWithChildren<InputProps>) => {
     return (
         <div className={classnames(
             'caa-input'
@@ -55,8 +53,6 @@ const Input = ({value, setValue, color, type, label, placeholder, labelHidden=fa
                     }
                 )}
                 placeholder={placeholder}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
                 required={required}
             />
             </div>

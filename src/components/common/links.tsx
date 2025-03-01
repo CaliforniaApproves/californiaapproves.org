@@ -5,7 +5,6 @@
 
 /* ****** Other Imports ****** */
 // UI
-import { Link } from "react-router";
 
 // Logic
 import React, { PropsWithChildren } from 'react'
@@ -20,16 +19,16 @@ import classnames from 'classnames';
 // Generated
 type LinkColor = 'orange'|'purple'|'green'|'black'|'white';
 
-type CaaLinkProps = {
+type LinkProps = {
     className?: string;
     to: string;
-    color: LinkColor;
+    color?: LinkColor;
     target?: string;
     rel?: string;
 };
 
 // create a component
-const CaaLink = ({to, children, color, target, rel, className=''}: PropsWithChildren<CaaLinkProps>) => {
+export const Link = ({to, children, color, target, rel, className=''}: PropsWithChildren<LinkProps>) => {
     const classNames = classnames(
         'caa-link'
         , {
@@ -42,16 +41,13 @@ const CaaLink = ({to, children, color, target, rel, className=''}: PropsWithChil
         , className
     )
     return (
-        <Link
-            to={to}
-            className={classNames}
+        <a
+            href={to}
+            class={classNames}
             target={target}
             rel={rel}
         >
             {children}
-        </Link>
+        </a>
     );
 }
-
-//make this component available to the app
-export default CaaLink

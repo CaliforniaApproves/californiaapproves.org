@@ -1,6 +1,6 @@
 /* ****** CAA Imports ****** */
 // UI
-import Link from '../../components/common/links';
+import { Link } from '../../components/common/links';
 
 // Logic
 

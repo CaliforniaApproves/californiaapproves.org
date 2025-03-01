@@ -9,7 +9,7 @@ import { ActionButton } from '../../components/common/buttons';
 // UI
 
 // Logic
-import React, { useState } from 'react'
+import React from 'react'
 
 
 /* ****** Assets ****** */
@@ -21,8 +21,6 @@ import React, { useState } from 'react'
 
 // create a component
 const MailingForm = () => {
-    const [email, setEmail] = useState<string>('');
-
     return (
         <div className='bg-white border-purple rounded-[50px] border-[6px] p-12 text-center flex flex-col items-center'>
             <h2 className='text-green'>
@@ -45,8 +43,6 @@ const MailingForm = () => {
                         <div id="mc-email-input-wrapper" className="mc-field-group">
                             <Input
                                 color="purple"
-                                value={email}
-                                setValue={setEmail}
                                 label="email"
                                 labelHidden={true}
                                 type='email'

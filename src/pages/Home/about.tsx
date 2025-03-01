@@ -1,6 +1,6 @@
 /* ****** CAA Imports ****** */
 // UI
-import Link from '../../components/common/links';
+import { Link } from '../../components/common/links';
 
 // Logic
 
@@ -86,8 +86,7 @@ const About = () => {
                     <br/>
                     <button
                         type="button"
-                        color="white"
-                        className='italic underline flex flex-row text-small align-center items-center text-center'
+                        className='italic underline flex flex-row text-small align-center items-center text-center text-white hover:text-schist-low'
                         ref={refs.setReference}
                         {...getReferenceProps()}
                     >
