@@ -21,7 +21,7 @@ import React, { PropsWithChildren } from 'react'
 // Generated
 
 // create a component
-const Approval101Page = () => {
+const Approval101 = () => {
     return (
         <div className='approval-101-page'>
             <title>What is Approval Voting?</title>
@@ -34,4 +34,4 @@ const Approval101Page = () => {
 }
 
 //make this component available to the app
-export default Approval101Page
+export default Approval101

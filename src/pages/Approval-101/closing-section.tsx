@@ -11,7 +11,7 @@ import React, { PropsWithChildren } from 'react'
 
 
 /* ****** Assets ****** */
-import voteMatters from '../assets/images/vote-matters.webp';
+import voteMatters from '../../assets/images/vote-matters.webp';
 
 /* ****** Constants ****** */
 // Imported

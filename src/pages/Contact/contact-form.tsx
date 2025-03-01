@@ -1,6 +1,6 @@
 /* ****** CAA Imports ****** */
 // UI
-import Input from '../components/common/input';
+import Input from '../../components/common/input';
 
 // Logic
 
@@ -15,8 +15,8 @@ import React, { PropsWithChildren, useState } from 'react'
 
 /* ****** Constants ****** */
 // Imported
-import Logo from '../assets/icons/Circles/California-Approves-Logo-Circles-w-Checks-RGB.svg?react';
-import { ActionButton } from '../components/common/buttons';
+import Logo from '../../assets/icons/Circles/California-Approves-Logo-Circles-w-Checks-RGB.svg?react';
+import { ActionButton } from '../../components/common/buttons';
 
 // Generated
 

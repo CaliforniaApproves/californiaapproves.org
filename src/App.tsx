@@ -8,13 +8,13 @@ import {
 
 
 import Root from './components/root';
-import FaqPage from './faq-page/root';
+import FaqPage from './pages/Faq';
 import { Home } from './pages/Home/index';
 import { About } from './pages/About/index';
-import ContactPage from './contact-page/root';
-import DonatePage from './donate-page/root';
-import Approval101Page from './approval-101-page/root';
-import ArticlesPage from './articles-page/root';
+import ContactPage from './pages/Contact';
+import DonatePage from './pages/Donate';
+import Approval101 from './pages/Approval-101';
+import ArticlesPage from './pages/Articles';
 
 import './assets/stylesheets/all.scss';
 
@@ -29,7 +29,7 @@ export default class App extends React.Component {
                         <Route path="/about" element={<About />}/>
                         <Route path="/contact" element={<ContactPage />}/>
                         <Route path="/donate" element={<DonatePage />}/>
-                        <Route path="/approval-101" element={<Approval101Page />}/>
+                        <Route path="/approval-101" element={<Approval101 />}/>
                         <Route path="/articles" element={<ArticlesPage />}/>
                     </Routes>
                 </Root>

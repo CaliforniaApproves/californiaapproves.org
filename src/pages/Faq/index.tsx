@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react'
-import CaaLink from "../components/common/links";
+import CaaLink from "../../components/common/links";
 
 type FaqProps = {
   question: string

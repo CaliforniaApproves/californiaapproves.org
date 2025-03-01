@@ -11,7 +11,7 @@ import React, { PropsWithChildren } from 'react'
 
 
 /* ****** Assets ****** */
-import ballot from '../assets/images/borderless ballot.webp';
+import ballot from '../../assets/images/borderless ballot.webp';
 
 /* ****** Constants ****** */
 // Imported

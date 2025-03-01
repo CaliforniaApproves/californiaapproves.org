@@ -11,7 +11,7 @@ import React, { PropsWithChildren } from 'react'
 
 
 /* ****** Assets ****** */
-import bridge from '../assets/images/bridge.webp';
+import bridge from '../../assets/images/bridge.webp';
 
 /* ****** Constants ****** */
 // Imported

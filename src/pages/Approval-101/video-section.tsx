@@ -1,6 +1,6 @@
 /* ****** CAA Imports ****** */
 // UI
-import Video from '../components/common/video';
+import Video from '../../components/common/video';
 
 // Logic
 
@@ -12,7 +12,7 @@ import React from 'react'
 
 
 /* ****** Assets ****** */
-import Background from '../assets/images/Group-39.svg';
+import Background from '../../assets/images/Group-39.svg';
 
 /* ****** Constants ****** */
 // Imported
