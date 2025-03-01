@@ -15,8 +15,6 @@ import { Contact } from './pages/Contact';
 import { Donate } from './pages/Donate';
 import { Approval101 } from './pages/Approval-101';
 
-import './assets/stylesheets/all.scss';
-
 export default class App extends React.Component {
     render() {
         return (
