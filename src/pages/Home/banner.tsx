@@ -11,12 +11,12 @@ import MailingForm from './mailing-form';
 import React from 'react'
 
 /* ****** Assets ****** */
-import strongArm from '../assets/images/Strong-Arm 1.webp';
+import strongArm from '../../assets/images/Strong-Arm 1.webp';
 
 /* ****** Constants ****** */
 // Imported
-import Arrow from '../assets/icons/Long-Arrow.svg?react';
-import Background from '../assets/images/Group-39.svg';
+import Arrow from '../../assets/icons/Long-Arrow.svg?react';
+import Background from '../../assets/images/Group-39.svg';
 
 // Generated
 

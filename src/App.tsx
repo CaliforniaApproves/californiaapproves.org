@@ -9,7 +9,7 @@ import {
 
 import Root from './components/root';
 import FaqPage from './faq-page/root';
-import LandingPage from './landing-page/root';
+import { Home } from './pages/Home/index';
 import AboutPage from './about-page/root';
 import ContactPage from './contact-page/root';
 import DonatePage from './donate-page/root';
@@ -24,7 +24,7 @@ export default class App extends React.Component {
             <BrowserRouter>
                 <Root>
                     <Routes>
-                        <Route path="/" element={<LandingPage />}/>
+                        <Route path="/" element={<Home />}/>
                         <Route path="/faq" element={<FaqPage />}/>
                         <Route path="/about" element={<AboutPage />}/>
                         <Route path="/contact" element={<ContactPage />}/>

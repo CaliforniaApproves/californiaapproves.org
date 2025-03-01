@@ -1,7 +1,7 @@
 /* ****** CAA Imports ****** */
 // UI
-import Input from '../components/common/input';
-import { ActionButton } from '../components/common/buttons';
+import Input from '../../components/common/input';
+import { ActionButton } from '../../components/common/buttons';
 
 // Logic
 

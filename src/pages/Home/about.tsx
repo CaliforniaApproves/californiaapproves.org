@@ -1,6 +1,6 @@
 /* ****** CAA Imports ****** */
 // UI
-import Link from '../components/common/links';
+import Link from '../../components/common/links';
 
 // Logic
 
@@ -19,8 +19,8 @@ import {
 } from '@floating-ui/react';
 
 /* ****** Assets ****** */
-import Background from '../assets/images/Illustrations-1.webp';
-import Arrow from '../assets/icons/Arrow.svg?react';
+import Background from '../../assets/images/Illustrations-1.webp';
+import Arrow from '../../assets/icons/Arrow.svg?react';
 
 /* ****** Constants ****** */
 // Imported

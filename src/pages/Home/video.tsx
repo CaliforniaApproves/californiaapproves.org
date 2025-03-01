@@ -1,7 +1,7 @@
 /* ****** CAA Imports ****** */
 // UI
-import Video from '../components/common/video';
-import Link from '../components/common/links';
+import Video from '../../components/common/video';
+import Link from '../../components/common/links';
 
 // Logic
 
@@ -13,9 +13,8 @@ import React from 'react'
 
 
 /* ****** Assets ****** */
-import Background from '../assets/images/Background-Pattern.svg';
-import LightBox from '../assets/placeholders/Lightbox.png';
-import Arrow from '../assets/icons/Arrow.svg?react';
+import Background from '../../assets/images/Background-Pattern.svg';
+import Arrow from '../../assets/icons/Arrow.svg?react';
 
 /* ****** Constants ****** */
 // Imported

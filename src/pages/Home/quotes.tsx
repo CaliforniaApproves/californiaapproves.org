@@ -1,6 +1,6 @@
 /* ****** CAA Imports ****** */
 // UI
-import Carousel from '../components/common/carousel';
+import Carousel from '../../components/common/carousel';
 // Logic
 
 /* ****** Other Imports ****** */

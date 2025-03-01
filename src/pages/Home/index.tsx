@@ -24,7 +24,7 @@ import React from 'react'
 // Generated
 
 // create a component
-const LandingPage = () => {
+export function Home() {
     return (
         <div>
             <title>California Approves</title>
@@ -38,6 +38,3 @@ const LandingPage = () => {
         </div>
     );
 }
-
-//make this component available to the app
-export default LandingPage
