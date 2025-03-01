@@ -29,7 +29,7 @@ const VideoSection = () => {
                 , backgroundRepeat: 'no-repeat'
             }}
         >
-            <h2 className='mb-10 text-center'>What is Approval Voting?</h2>
+            <h1 className='mb-10 text-center'>What is Approval Voting?</h1>
             <div className='flex flex-col lg:flex-row'>
                 <div className='lg:w-1/2'>
                     <Video embedId={"K7kDlctGsQM"} title={"What Is Approval Voting?"}/>
