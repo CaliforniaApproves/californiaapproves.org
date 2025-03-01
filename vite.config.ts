@@ -8,7 +8,13 @@ export default defineConfig({
     , server: {
         fs: {
             allow: [searchForWorkspaceRoot(process.cwd()), '/node_modules/']
-        }
+        },
+        // https://vite.dev/guide/troubleshooting.html#dev-containers-vs-code-port-forwarding
+        host: '127.0.0.1',
+    }
+    , preview: {
+        // https://vite.dev/guide/troubleshooting.html#dev-containers-vs-code-port-forwarding
+        host: '127.0.0.1',
     }
     , build: {
         commonjsOptions: { include: ['node_modules/**'] }
