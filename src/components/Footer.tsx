@@ -81,8 +81,7 @@ const navigation = {
     ]
 }
 
-// create a component
-const Footer = () => {
+export function Footer() {
     return (
         <footer className="bg-white px-4 flex flex-col" aria-labelledby="footer-heading">
             <h2 id="footer-heading" className="sr-only">
@@ -142,6 +141,3 @@ const Footer = () => {
         </footer>
     )
 }
-
-//make this component available to the app
-export default Footer

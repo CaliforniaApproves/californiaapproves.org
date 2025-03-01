@@ -46,8 +46,7 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-// create a component
-const Header = () => {
+export function Header() {
     const [burgerOpen, setBurgerOpen] = useState(false);
     return (
         <Popover className="bg-white lg:sticky top-0 z-30">
@@ -212,6 +211,3 @@ const Header = () => {
         </Popover>
     );
 }
-
-//make this component available to the app
-export default Header;
