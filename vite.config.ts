@@ -1,10 +1,11 @@
 import reactRefresh from '@vitejs/plugin-react';
 import { defineConfig, searchForWorkspaceRoot } from 'vite';
 import svgr from 'vite-plugin-svgr';
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [reactRefresh(), svgr()]
+    plugins: [reactRefresh(), svgr(), tailwindcss()]
     , server: {
         fs: {
             allow: [searchForWorkspaceRoot(process.cwd()), '/node_modules/']
