@@ -31,7 +31,7 @@ const ContactForm = () => {
                 <p className='text-base'>
                     This is your first step to getting involved in Californian election reform. We will send you our discord link, our virtual meet up link, and an introductory email.
                 </p>
-                <div id="mc_embed_signup" className='w-full'>
+                <div className='w-full'>
                     <form
                         action="https://californiaapproves.us5.list-manage.com/subscribe/post?u=b4aa7540a62457c043ff00e36&amp;id=dddf3d641c&amp;f_id=003abee6f0"
                         method="post"

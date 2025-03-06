@@ -30,7 +30,7 @@ const MailingForm = () => {
                 We are creating a movement for a better democracy in California. Sign up for our newsletter to stay up to date on news, initiatives, ballot reforms and more 
             </p>
             <br/>
-            <div id="mc_embed_signup" className='w-full'>
+            <div className='w-full'>
                 <form
                     action="https://californiaapproves.us5.list-manage.com/subscribe/post?u=b4aa7540a62457c043ff00e36&amp;id=dddf3d641c&amp;f_id=003abee6f0"
                     method="post"
