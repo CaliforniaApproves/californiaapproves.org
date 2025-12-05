@@ -125,7 +125,6 @@ export function Header() {
                             )}
                         </Popover>
                     </Popover.Group> */}
-                    <Link to='https://californiaapproves.creator-spring.com/' target="_blank" color="green" className='ml-7 hidden lg:block'><h5>MERCH</h5></Link>
                 </div>
                 <div className="hidden items-center justify-end lg:flex lg:flex-auto ">
                     <NavButton
@@ -177,7 +176,6 @@ export function Header() {
                                                 <Link to='/approval-101' color="white" className='mx-4 text-base'><h2>Approval Voting</h2></Link>
                                                 <Link to='/faq' color="white" className='mx-4 text-base'><h2>FAQ</h2></Link>
                                                 {/* <Link to='/articles' color="white" className='mx-4'><h2>Articles</h2></Link> */}
-                                                <Link to='https://californiaapproves.creator-spring.com/' target="_blank" color="white" className='mx-4 text-base'><h2>Merch</h2></Link>
                                             </div>
 
                                             <div className="bg-purple px-5 py-5 flex flex-row space-y-0 sm:px-8">

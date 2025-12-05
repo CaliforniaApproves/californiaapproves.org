@@ -28,6 +28,7 @@ const navigation = {
         { name: 'Join Us', href: '/contact' }
         , { name: 'Donate', href: '/donate' }
         , { name: 'Contact Us', href: 'mailto:info@californiaapproves.org' }
+        , { name: 'Merchandise', href: 'https://californiaapproves.creator-spring.com/', newPage: true }
     ]
     ,social: [
         {
@@ -112,7 +113,7 @@ export function Footer() {
                         <ul role="list" className="lg:space-y-4 lg:mt-6">
                             { navigation.getInvolved.map((item) => (
                             <li key={item.name}>
-                                <Link to={item.href}>
+                                <Link to={item.href} target={item.newPage ? "_blank" : ""}>
                                     {item.name}
                                 </Link>
                             </li>
