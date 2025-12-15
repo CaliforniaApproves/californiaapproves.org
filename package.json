@@ -22,7 +22,7 @@
     "preact-iso": "^2.10.0",
     "preact-render-to-string": "^6.6.1",
     "react-lite-youtube-embed": "^3.3.3",
-    "tailwindcss": "^4.1.13"
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
