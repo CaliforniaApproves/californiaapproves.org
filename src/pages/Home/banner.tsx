@@ -40,7 +40,7 @@ const Banner = () => {
                 <div className='static max-w-[500px] mt-9'>
                     <Arrow className='absolute'/>
                     <p className='text-large-bold flex flex-row indent-24 font-bold lg:font-normal'>
-                        Politics doesn't have to be so polarizing. Approval Voting changes the game so we can have representatives that focus on what we agree on instead of what divides us.
+                        Politics doesn't have to be polarizing. Approval Voting changes the game so we can have representatives that focus on what we agree on instead of what divides us.
                     </p>
                 </div>
             </div>
