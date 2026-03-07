@@ -9,10 +9,10 @@ updates:
   - package-ecosystem: "devcontainers"
     directory: "/"
     schedule:
-      interval: weekly
+      interval: daily
     auto-merge: true
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: weekly
+      interval: daily
     auto-merge: true
