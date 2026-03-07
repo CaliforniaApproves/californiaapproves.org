@@ -10,7 +10,9 @@ updates:
     directory: "/"
     schedule:
       interval: weekly
+    auto-merge: true
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
       interval: weekly
+    auto-merge: true
