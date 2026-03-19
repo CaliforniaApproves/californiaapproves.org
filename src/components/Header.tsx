@@ -50,7 +50,7 @@ export function Header() {
     const [burgerOpen, setBurgerOpen] = useState(false);
     return (
         <Popover className="bg-white lg:sticky top-0 z-30">
-            <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 lg:justify-start lg:space-x-10">
+            <div className="flex items-center justify-between border-b border-purple py-6 lg:justify-start lg:space-x-10">
                 <div className="flex justify-start items-center lg:flex-auto">
                     <Link to="/" className='m-4'>
                         <span className="sr-only">CA Approves</span>
