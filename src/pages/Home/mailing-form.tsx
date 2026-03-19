@@ -22,14 +22,13 @@ import React from 'react'
 // create a component
 const MailingForm = () => {
     return (
-        <div className='bg-white border-purple rounded-[50px] border-[6px] p-12 text-center flex flex-col items-center'>
+        <div className='bg-white border-purple rounded-[50px] border-[6px] p-5 lg:p-12 text-center flex flex-col items-center gap-3'>
             <h2 className='text-green'>
                 Bring Approval <br/>Voting To California
             </h2>
             <p className='text-small mt-2'>
                 We are creating a movement for a better democracy in California. Sign up for our newsletter to stay up to date on news, initiatives, ballot reforms and more 
             </p>
-            <br/>
             <div className='w-full'>
                 <form
                     action="https://californiaapproves.us5.list-manage.com/subscribe/post?u=b4aa7540a62457c043ff00e36&amp;id=dddf3d641c&amp;f_id=003abee6f0"
@@ -89,11 +88,7 @@ const MailingForm = () => {
                         </div>
                     </div>
                 </form>
-                </div>
- 
-            <br/>
-   
-            <br/>
+            </div>
             <p className='italic text-small'>
                 By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our organization.
             </p>

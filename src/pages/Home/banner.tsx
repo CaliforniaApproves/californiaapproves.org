@@ -44,7 +44,7 @@ const Banner = () => {
                     </p>
                 </div>
             </div>
-            <div className='py-[90px] max-w-full lg:max-w-[40%] m-auto bg-purple lg:bg-transparent px-8'>
+            <div className='py-8 px-5 lg:px-8 max-w-full lg:max-w-[40%] m-auto bg-purple lg:bg-transparent '>
               <MailingForm />
             </div>
         </div>
