@@ -29,7 +29,7 @@ const FormSection = () => {
                 </div>
                 <div className='grid grid-cols-1 lg:grid-cols-2'>
                     <div className='flex justify-center'>
-                        <script src="https://donorbox.org/widget.js" data-paypalExpress="false"></script><iframe src="https://donorbox.org/embed/california-approval-voting?default_interval=o&hide_donation_meter=true" name="donorbox" data-allowpaymentrequest="allowpaymentrequest" seamless={true} frameBorder="0" scrolling="no" height="700px" width="100%" style={{maxWidth: "500px", minWidth: "250px", maxHeight:"none!important"}}></iframe>
+                        <script src="https://donorbox.org/widget.js" data-paypalExpress="false"></script><iframe src="https://donorbox.org/embed/california-approves?default_interval=o&hide_donation_meter=true" name="donorbox" data-allowpaymentrequest="allowpaymentrequest" seamless={true} frameBorder="0" scrolling="no" height="700px" width="100%" style={{maxWidth: "500px", minWidth: "250px", maxHeight:"none!important"}}></iframe>
                     </div>
                     <div className='text-white'>
                         <h2 className='mb-4'>We believe in a better democracy</h2>
@@ -38,6 +38,8 @@ const FormSection = () => {
                         <p className='text-base'>We are a group of grassroots volunteers dedicating our free time to bring better democracy to California. Donations to our organization help us educate voters on Approval Voting, fund ballot measures to get Approval Voting on the ballot, and generally bring awareness to voting reform.</p>
                         <br/>
                         <p className='text-base'>The state of California requires we gather employment information on all donations.</p>
+                        <br/>
+                        <a href="https://donorbox.org/california-approves" className='text-small underline'>Trouble seeing the form? Click here for the full page version</a>
                     </div>
                 </div>
             </div>
