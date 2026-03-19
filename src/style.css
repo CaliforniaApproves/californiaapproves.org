@@ -107,6 +107,8 @@
   --border-color-tan: #fecb8b;
   --border-color-tan-high: #ffddb1;
 
+  --breakpoint-2xl: 90rem;
+
   --text-small: 18px;
   --text-small--line-height: 24px;
   --text-small--letter: -1%;
