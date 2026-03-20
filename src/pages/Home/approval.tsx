@@ -23,7 +23,7 @@ const AboutApproval = () => {
     return (
         <div className='bg-purple flex flex-col-reverse lg:flex-row justify-around text-white pt-12 lg:pt-28'>
             <img className="w-fit h-fit" src={Ballot}/>
-            <div className='flex flex-col max-w-full gap-y-5 lg:max-w-[50%] px-6 lg:px-0 font-bold lg:font-normal pb-28'>
+            <div className='flex flex-col max-w-full gap-y-5 lg:max-w-[50%] px-6 lg:px-0 font-bold lg:font-normal pb-12 lg:pb-28'>
                 <h1 className='text-white'>
                     Simple, Effective and Affordable Reform
                 </h1>
@@ -34,19 +34,19 @@ const AboutApproval = () => {
                 <div className='flex flex-row items-center'>
                     <CheckMark/>
                     <h3 className='ml-4'>
-                        Prevents Vote-Splitting
-                    </h3>
-                </div>
-                <div className='flex flex-row items-center'>
-                    <CheckMark/>
-                    <h3 className='ml-4'>
-                        Reduces Hyper-Partisanship
+                        Reduces Polarization
                     </h3>
                 </div>
                 <div className='flex flex-row items-center'>
                     <CheckMark/>
                     <h3 className='ml-4'>
                         Elects Better Candidates
+                    </h3>
+                </div>
+                <div className='flex flex-row items-center'>
+                    <CheckMark/>
+                    <h3 className='ml-4'>
+                        Prevents Vote-Splitting
                     </h3>
                 </div>
                 <div className='flex flex-row items-center'>
