@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import React, { type JSX, PropsWithChildren } from "react";
+import React, { type JSX, type PropsWithChildren } from "react";
 
 type InputColor = "orange" | "purple" | "green" | "black";
 

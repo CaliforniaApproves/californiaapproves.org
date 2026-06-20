@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import React, { PropsWithChildren } from "react";
+import React, { type PropsWithChildren } from "react";
 
 type LinkColor = "orange" | "purple" | "green" | "black" | "white";
 

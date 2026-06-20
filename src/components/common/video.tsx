@@ -2,7 +2,7 @@ import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 import classnames from "classnames";
-import React, { PropsWithChildren } from "react";
+import React, { type PropsWithChildren } from "react";
 
 type VideoProps = {
 	embedId: string;
