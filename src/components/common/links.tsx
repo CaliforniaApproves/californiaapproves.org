@@ -1,22 +1,12 @@
-/* ****** CAA Imports ****** */
-// UI
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren } from 'react'
 
 import classnames from 'classnames';
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 type LinkColor = 'orange'|'purple'|'green'|'black'|'white';
 
 type LinkProps = {

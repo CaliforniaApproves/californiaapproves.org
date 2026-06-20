@@ -1,21 +1,11 @@
-/* ****** CAA Imports ****** */
-// UI
 import Carousel from '../../components/common/carousel';
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React from 'react'
 
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 type Quote = {
     quote: string;
     source: string;

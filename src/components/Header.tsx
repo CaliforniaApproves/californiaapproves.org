@@ -1,22 +1,13 @@
-/* ****** CAA Imports ****** */
-// UI
 import { NavButton } from './common/buttons';
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 import { Popover, Transition } from '@headlessui/react'
 import { Link } from "./common/links";
 
-// Logic
 import React, { Fragment, useState } from 'react'
 import classnames from 'classnames';
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 import {
     QuestionMarkCircleIcon
     , PlayIcon
@@ -30,7 +21,6 @@ type MenuDropDown = {
     href: string;
     icon: any;
 }
-// Generated
 const education: MenuDropDown[] = [
     {
         name: 'What is Approval Voting'

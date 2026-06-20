@@ -1,23 +1,13 @@
-/* ****** CAA Imports ****** */
-// UI
 import { Link } from '../../components/common/links';
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren } from 'react'
 
 import classnames from 'classnames';
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 export enum NewsTag {
     News
     , CaseStudy

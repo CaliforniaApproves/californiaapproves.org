@@ -1,21 +1,11 @@
-/* ****** Twist Imports ****** */
-// UI
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren } from 'react'
 
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 type PersonIntroProps = {
     title: string;
     name: string;

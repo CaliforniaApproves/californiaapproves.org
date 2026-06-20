@@ -1,21 +1,11 @@
-/* ****** CAA Imports ****** */
-// UI
 import NewsBlurb, { NewsBlurbProps, NewsTag } from './news-blurb';
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { useState } from 'react'
 
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 const placeholderNews: NewsBlurbProps[] = [
     {

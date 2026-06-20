@@ -1,22 +1,12 @@
-/* ****** CAA Imports ****** */
-// UI
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren } from 'react'
 
 
-/* ****** Assets ****** */
 import ballot from '../../assets/images/borderless ballot.webp';
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 const BallotSection = () => {

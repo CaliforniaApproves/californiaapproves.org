@@ -1,23 +1,13 @@
-/* ****** CAA Imports ****** */
-// UI
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React from 'react'
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 import PeopleTalking from '../../assets/images/people-talking-clear.webp';
 import Voting from '../../assets/images/votes-clear.webp';
 import Polling from '../../assets/images/polling-place-clear.webp';
 
-// Generated
 
 // create a component
 const GetInvolved = () => {

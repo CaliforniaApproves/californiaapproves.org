@@ -1,23 +1,13 @@
-/* ****** CAA Imports ****** */
-// UI
 import { Link } from "./common/links";
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren } from 'react'
 
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 import Logo from '../assets/icons/California-Approves-Logo-RGB-OL.svg?react';
 
-// Generated
 const navigation = {
     learnMore: [
         { name: 'About', href: '/about' }

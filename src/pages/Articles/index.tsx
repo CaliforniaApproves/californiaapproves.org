@@ -1,20 +1,10 @@
-/* ****** Twist Imports ****** */
-// UI
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren } from 'react'
 
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 const ArticlesPage = () => {

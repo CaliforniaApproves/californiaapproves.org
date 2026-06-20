@@ -1,24 +1,14 @@
-/* ****** CAA Imports ****** */
-// UI
 import Input from '../../components/common/input';
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren, useState } from 'react'
 
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 import Logo from '../../assets/icons/Circles/California-Approves-Logo-Circles-w-Checks-RGB.svg?react';
 import { ActionButton } from '../../components/common/buttons';
 
-// Generated
 
 // create a component
 const ContactForm = () => {

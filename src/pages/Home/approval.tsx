@@ -1,22 +1,12 @@
-/* ****** CAA Imports ****** */
-// UI
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React from 'react'
 
-/* ****** Assets ****** */
 import Ballot from '../../assets/images/Rectangle-102.webp';
 import CheckMark from '../../assets/icons/Yellow-Check.svg?react';
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 const AboutApproval = () => {

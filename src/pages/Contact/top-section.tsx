@@ -1,22 +1,12 @@
-/* ****** CAA Imports ****** */
-// UI
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren } from 'react'
 
 
-/* ****** Assets ****** */
 import Background from '../../assets/images/volunteer_transparent.webp';
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 const TopSection = () => {

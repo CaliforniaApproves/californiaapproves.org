@@ -1,5 +1,3 @@
-/* ****** CAA Imports ****** */
-// UI
 import Banner from './banner';
 import Video from './video';
 import AboutApproval from './approval';
@@ -8,20 +6,12 @@ import Quotes from './quotes';
 // import News from './news';
 import GetInvolved from './get-involved';
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React from 'react'
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 export function Home() {

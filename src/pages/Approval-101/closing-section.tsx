@@ -1,22 +1,12 @@
-/* ****** CAA Imports ****** */
-// UI
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren } from 'react'
 
 
-/* ****** Assets ****** */
 import voteMatters from '../../assets/images/vote-matters.webp';
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 const ClosingSection = () => {

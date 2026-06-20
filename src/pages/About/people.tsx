@@ -1,25 +1,15 @@
-/* ****** CAA Imports ****** */
-// UI
 import PersonIntro from './components/person';
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren } from 'react'
 
 
-/* ****** Assets ****** */
 import alanProfile from '../../assets/images/Alan-Savage-Profile.webp';
 import jeffProfile from '../../assets/images/Jeff-Justice-Profile.webp';
 import kevinProfile from '../../assets/images/Kevin-Gray-Profile.webp';
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 const People = () => {

@@ -1,25 +1,15 @@
-/* ****** CAA Imports ****** */
-// UI
 import Video from '../../components/common/video';
 import { Link } from '../../components/common/links';
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React from 'react'
 
 
-/* ****** Assets ****** */
 import Background from '../../assets/images/Background-Pattern.svg';
 import Arrow from '../../assets/icons/Arrow.svg?react';
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 const LandingVideo = () => {

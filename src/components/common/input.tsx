@@ -1,22 +1,12 @@
-/* ****** CAA Imports ****** */
-// UI
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren, type JSX } from 'react';
 
 import classnames from 'classnames';
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 type InputColor = 'orange'|'purple'|'green'|'black';
 
 type InputProps = JSX.IntrinsicElements["input"] & {

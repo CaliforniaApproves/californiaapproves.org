@@ -1,23 +1,13 @@
-/* ****** CAA Imports ****** */
-// UI
 import Video from '../../components/common/video';
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React from 'react'
 
 
-/* ****** Assets ****** */
 import Background from '../../assets/images/Group-39.svg';
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 const VideoSection = () => {

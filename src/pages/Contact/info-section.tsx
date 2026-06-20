@@ -1,22 +1,12 @@
-/* ****** CAA Imports ****** */
-// UI
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren } from 'react'
 
 
-/* ****** Assets ****** */
 import bridge from '../../assets/images/bridge.webp';
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 const social = [
     {
         name: 'Facebook'

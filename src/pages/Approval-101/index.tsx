@@ -1,24 +1,14 @@
-/* ****** CAA Imports ****** */
-// UI
 import VideoSection from './video-section';
 import BallotSection from './ballot-section';
 import ClosingSection from './closing-section';
 import CallToAction from './call-to-action';
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren } from 'react'
 
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 export function Approval101() {

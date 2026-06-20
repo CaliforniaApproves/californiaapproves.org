@@ -1,13 +1,7 @@
-/* ****** CAA Imports ****** */
-// UI
 import { Link } from '../../components/common/links';
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { useState } from 'react'
 
 import {
@@ -18,14 +12,10 @@ import {
     autoPlacement
 } from '@floating-ui/react';
 
-/* ****** Assets ****** */
 import Background from '../../assets/images/Illustrations-1.webp';
 import Arrow from '../../assets/icons/Arrow.svg?react';
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 const About = () => {

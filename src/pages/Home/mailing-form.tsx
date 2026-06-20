@@ -1,23 +1,13 @@
-/* ****** CAA Imports ****** */
-// UI
 import Input from '../../components/common/input';
 import { ActionButton } from '../../components/common/buttons';
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React from 'react'
 
 
-/* ****** Assets ****** */
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 
 // create a component
 const MailingForm = () => {

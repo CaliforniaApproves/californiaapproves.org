@@ -1,25 +1,15 @@
-/* ****** CAA Imports ****** */
-// UI
 
-// Logic
 
-/* ****** Other Imports ****** */
-// UI
 
-// Logic
 import React, { PropsWithChildren, useEffect, useState } from 'react'
 
 import classNames from 'classnames';
 
-/* ****** Assets ****** */
 import RightArrow from '../../assets/icons/Arrow.svg?react';
 import LeftArrow from '../../assets/icons/Back-Arrow.svg?react';
 
 
-/* ****** Constants ****** */
-// Imported
 
-// Generated
 type CarouselColors = 'tan'|'white'|'black';
 type CarouselProps = {
     className?: string;
