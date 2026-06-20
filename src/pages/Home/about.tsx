@@ -1,19 +1,18 @@
-import { Link } from '../../components/common/links';
+import {
+    autoPlacement, 
+    autoUpdate,
+    useClick,
+    useFloating,
+    useInteractions
+} from '@floating-ui/react';
 
 
 
 import React, { useState } from 'react'
-
-import {
-    useFloating,
-    autoUpdate,
-    useInteractions,
-    useClick,
-    autoPlacement
-} from '@floating-ui/react';
+import Arrow from '../../assets/icons/Arrow.svg?react';
 
 import Background from '../../assets/images/Illustrations-1.webp';
-import Arrow from '../../assets/icons/Arrow.svg?react';
+import { Link } from '../../components/common/links';
 
 
 

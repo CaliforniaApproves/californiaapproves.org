@@ -1,11 +1,8 @@
-import CaaIntro from './caa-intro';
-import Plan from './plan';
-import People from './people';
-import JoinUs from './join';
-
-
-
 import React from 'react'
+import CaaIntro from './caa-intro';
+import JoinUs from './join';
+import People from './people';
+import Plan from './plan';
 
 
 

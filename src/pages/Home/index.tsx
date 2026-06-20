@@ -1,14 +1,11 @@
-import Banner from './banner';
-import Video from './video';
-import AboutApproval from './approval';
+import React from 'react'
 import AboutUs from './about';
-import Quotes from './quotes';
+import AboutApproval from './approval';
+import Banner from './banner';
 // import News from './news';
 import GetInvolved from './get-involved';
-
-
-
-import React from 'react'
+import Quotes from './quotes';
+import Video from './video';
 
 
 

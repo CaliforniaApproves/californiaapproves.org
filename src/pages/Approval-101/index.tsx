@@ -1,10 +1,8 @@
-import VideoSection from './video-section';
-import BallotSection from './ballot-section';
-import ClosingSection from './closing-section';
-import CallToAction from './call-to-action';
-
-
 import React, { PropsWithChildren } from 'react'
+import BallotSection from './ballot-section';
+import CallToAction from './call-to-action';
+import ClosingSection from './closing-section';
+import VideoSection from './video-section';
 
 
 

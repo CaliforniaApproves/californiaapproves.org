@@ -1,11 +1,6 @@
-import Video from '../../components/common/video';
-
-
-
 import React from 'react'
-
-
 import Background from '../../assets/images/Group-39.svg';
+import Video from '../../components/common/video';
 
 
 

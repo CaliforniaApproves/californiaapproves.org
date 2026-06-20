@@ -1,9 +1,9 @@
 
 
 
-import React, { PropsWithChildren, useEffect, useState } from 'react'
 
 import classNames from 'classnames';
+import React, { PropsWithChildren, useEffect, useState } from 'react'
 
 import RightArrow from '../../assets/icons/Arrow.svg?react';
 import LeftArrow from '../../assets/icons/Back-Arrow.svg?react';

@@ -1,10 +1,7 @@
-import TopSection from './top-section';
-import InfoSection from './info-section';
-import ContactForm from './contact-form';
-
-
-
 import React, { PropsWithChildren } from 'react'
+import ContactForm from './contact-form';
+import InfoSection from './info-section';
+import TopSection from './top-section';
 
 
 

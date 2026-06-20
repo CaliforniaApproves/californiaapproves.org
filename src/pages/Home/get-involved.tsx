@@ -5,8 +5,8 @@ import React from 'react'
 
 
 import PeopleTalking from '../../assets/images/people-talking-clear.webp';
-import Voting from '../../assets/images/votes-clear.webp';
 import Polling from '../../assets/images/polling-place-clear.webp';
+import Voting from '../../assets/images/votes-clear.webp';
 
 
 // create a component

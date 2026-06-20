@@ -1,19 +1,11 @@
-import { NavButton } from './common/buttons';
-
-
 import { Popover, Transition } from '@headlessui/react'
-import { Link } from "./common/links";
-
-import React, { Fragment, useState } from 'react'
+import { Bars3Icon, ChevronDownIcon } from '@heroicons/react/20/solid'
+import { PlayIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
 import classnames from 'classnames';
-
-
-import {
-    QuestionMarkCircleIcon
-    , PlayIcon
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon, Bars3Icon } from '@heroicons/react/20/solid'
+import React, { Fragment, useState } from 'react'
 import Logo from '../assets/icons/California-Approves-Logo-RGB-OL.svg?react';
+import { NavButton } from './common/buttons';
+import { Link } from "./common/links";
 
 type MenuDropDown = {
     name: string;

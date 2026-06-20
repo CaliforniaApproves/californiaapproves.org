@@ -1,7 +1,5 @@
-import Carousel from '../../components/common/carousel';
-
-
 import React from 'react'
+import Carousel from '../../components/common/carousel';
 
 
 

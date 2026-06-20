@@ -1,13 +1,8 @@
-import Video from '../../components/common/video';
-import { Link } from '../../components/common/links';
-
-
-
 import React from 'react'
-
-
-import Background from '../../assets/images/Background-Pattern.svg';
 import Arrow from '../../assets/icons/Arrow.svg?react';
+import Background from '../../assets/images/Background-Pattern.svg';
+import { Link } from '../../components/common/links';
+import Video from '../../components/common/video';
 
 
 

@@ -1,12 +1,6 @@
-import { Link } from "./common/links";
-
-
-
 import React, { PropsWithChildren } from 'react'
-
-
-
 import Logo from '../assets/icons/California-Approves-Logo-RGB-OL.svg?react';
+import { Link } from "./common/links";
 
 const navigation = {
     learnMore: [
