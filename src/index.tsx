@@ -46,6 +46,6 @@ if (typeof window !== "undefined") {
 	}
 }
 
-export async function prerender(data) {
+export async function prerender(data: Record<string, unknown>) {
 	return await ssr(<App {...data} />);
 }
