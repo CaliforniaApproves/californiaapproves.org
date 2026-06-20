@@ -1,134 +1,134 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@plugin '@tailwindcss/forms' {
-  strategy: 'class';
+@plugin "@tailwindcss/forms" {
+	strategy: "class";
 }
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-transparent: transparent;
-  --color-current: currentColor;
-  --color-white: #fff;
-  --color-black: #27272b;
+	--color-transparent: transparent;
+	--color-current: currentColor;
+	--color-white: #fff;
+	--color-black: #27272b;
 
-  --color-schist-higher: #27272b;
-  --color-schist-high: #66666e;
-  --color-schist-medium: #9999a1;
-  --color-schist: #e6e6e9;
-  --color-schist-low: #f4f4f6;
-  --color-schist-lower: #ffffff;
+	--color-schist-higher: #27272b;
+	--color-schist-high: #66666e;
+	--color-schist-medium: #9999a1;
+	--color-schist: #e6e6e9;
+	--color-schist-low: #f4f4f6;
+	--color-schist-lower: #ffffff;
 
-  --color-green: #283620;
-  --color-green-high: #46543e;
+	--color-green: #283620;
+	--color-green-high: #46543e;
 
-  --color-purple: #8956ff;
-  --color-purple-high: #a47dff;
+	--color-purple: #8956ff;
+	--color-purple-high: #a47dff;
 
-  --color-orange: #f16200;
-  --color-orange-accent: #d47739;
-  --color-orange-high: #ff8533;
+	--color-orange: #f16200;
+	--color-orange-accent: #d47739;
+	--color-orange-high: #ff8533;
 
-  --color-tan: #fecb8b;
-  --color-tan-high: #ffddb1;
+	--color-tan: #fecb8b;
+	--color-tan-high: #ffddb1;
 
-  --text-color-transparent: transparent;
-  --text-color-current: currentColor;
-  --text-color-white: #fff;
-  --text-color-black: #27272b;
+	--text-color-transparent: transparent;
+	--text-color-current: currentColor;
+	--text-color-white: #fff;
+	--text-color-black: #27272b;
 
-  --text-color-schist-higher: #27272b;
-  --text-color-schist-high: #66666e;
-  --text-color-schist-medium: #9999a1;
-  --text-color-schist: #e6e6e9;
-  --text-color-schist-low: #f4f4f6;
-  --text-color-schist-lower: #ffffff;
+	--text-color-schist-higher: #27272b;
+	--text-color-schist-high: #66666e;
+	--text-color-schist-medium: #9999a1;
+	--text-color-schist: #e6e6e9;
+	--text-color-schist-low: #f4f4f6;
+	--text-color-schist-lower: #ffffff;
 
-  --text-color-green: #283620;
-  --text-color-green-high: #46543e;
+	--text-color-green: #283620;
+	--text-color-green-high: #46543e;
 
-  --text-color-purple: #8956ff;
-  --text-color-purple-high: #a47dff;
+	--text-color-purple: #8956ff;
+	--text-color-purple-high: #a47dff;
 
-  --text-color-orange: #f16200;
-  --text-color-orange-accent: #d47739;
-  --text-color-orange-high: #ff8533;
+	--text-color-orange: #f16200;
+	--text-color-orange-accent: #d47739;
+	--text-color-orange-high: #ff8533;
 
-  --text-color-tan: #fecb8b;
-  --text-color-tan-high: #ffddb1;
+	--text-color-tan: #fecb8b;
+	--text-color-tan-high: #ffddb1;
 
-  --background-color-transparent: transparent;
-  --background-color-current: currentColor;
-  --background-color-white: #fff;
-  --background-color-black: #27272b;
+	--background-color-transparent: transparent;
+	--background-color-current: currentColor;
+	--background-color-white: #fff;
+	--background-color-black: #27272b;
 
-  --background-color-schist-higher: #27272b;
-  --background-color-schist-high: #66666e;
-  --background-color-schist-medium: #9999a1;
-  --background-color-schist: #e6e6e9;
-  --background-color-schist-low: #f4f4f6;
-  --background-color-schist-lower: #ffffff;
+	--background-color-schist-higher: #27272b;
+	--background-color-schist-high: #66666e;
+	--background-color-schist-medium: #9999a1;
+	--background-color-schist: #e6e6e9;
+	--background-color-schist-low: #f4f4f6;
+	--background-color-schist-lower: #ffffff;
 
-  --background-color-green: #283620;
-  --background-color-green-high: #46543e;
+	--background-color-green: #283620;
+	--background-color-green-high: #46543e;
 
-  --background-color-purple: #8956ff;
-  --background-color-purple-high: #a47dff;
+	--background-color-purple: #8956ff;
+	--background-color-purple-high: #a47dff;
 
-  --background-color-orange: #f16200;
-  --background-color-orange-accent: #d47739;
-  --background-color-orange-high: #ff8533;
+	--background-color-orange: #f16200;
+	--background-color-orange-accent: #d47739;
+	--background-color-orange-high: #ff8533;
 
-  --background-color-tan: #fecb8b;
-  --background-color-tan-high: #ffddb1;
+	--background-color-tan: #fecb8b;
+	--background-color-tan-high: #ffddb1;
 
-  --border-color-transparent: transparent;
-  --border-color-current: currentColor;
-  --border-color-white: #fff;
-  --border-color-black: #27272b;
+	--border-color-transparent: transparent;
+	--border-color-current: currentColor;
+	--border-color-white: #fff;
+	--border-color-black: #27272b;
 
-  --border-color-schist-higher: #27272b;
-  --border-color-schist-high: #66666e;
-  --border-color-schist-medium: #9999a1;
-  --border-color-schist: #e6e6e9;
-  --border-color-schist-low: #f4f4f6;
-  --border-color-schist-lower: #ffffff;
+	--border-color-schist-higher: #27272b;
+	--border-color-schist-high: #66666e;
+	--border-color-schist-medium: #9999a1;
+	--border-color-schist: #e6e6e9;
+	--border-color-schist-low: #f4f4f6;
+	--border-color-schist-lower: #ffffff;
 
-  --border-color-green: #283620;
-  --border-color-green-high: #46543e;
+	--border-color-green: #283620;
+	--border-color-green-high: #46543e;
 
-  --border-color-purple: #8956ff;
-  --border-color-purple-high: #a47dff;
+	--border-color-purple: #8956ff;
+	--border-color-purple-high: #a47dff;
 
-  --border-color-orange: #f16200;
-  --border-color-orange-accent: #d47739;
-  --border-color-orange-high: #ff8533;
+	--border-color-orange: #f16200;
+	--border-color-orange-accent: #d47739;
+	--border-color-orange-high: #ff8533;
 
-  --border-color-tan: #fecb8b;
-  --border-color-tan-high: #ffddb1;
+	--border-color-tan: #fecb8b;
+	--border-color-tan-high: #ffddb1;
 
-  --breakpoint-2xl: 90rem;
+	--breakpoint-2xl: 90rem;
 
-  --text-small: 18px;
-  --text-small--line-height: 24px;
-  --text-small--letter: -1%;
-  --text-small--font-weight: 400;
-  --text-base: 22px;
-  --text-base--line-height: 30px;
-  --text-base--letter: -1%;
-  --text-base--font-weight: 400;
-  --text-large: 26px;
-  --text-large--line-height: 38px;
-  --text-large--letter: -1%;
-  --text-large--font-weight: 400;
-  --text-large-bold: 26px;
-  --text-large-bold--line-height: 32px;
-  --text-large-bold--letter: -1%;
-  --text-large-bold--font-weight: 500;
-  --text-bsm: 20px, 20px;
-  --text-bsl: 22px, 26px;
+	--text-small: 18px;
+	--text-small--line-height: 24px;
+	--text-small--letter: -1%;
+	--text-small--font-weight: 400;
+	--text-base: 22px;
+	--text-base--line-height: 30px;
+	--text-base--letter: -1%;
+	--text-base--font-weight: 400;
+	--text-large: 26px;
+	--text-large--line-height: 38px;
+	--text-large--letter: -1%;
+	--text-large--font-weight: 400;
+	--text-large-bold: 26px;
+	--text-large-bold--line-height: 32px;
+	--text-large-bold--letter: -1%;
+	--text-large-bold--font-weight: 500;
+	--text-bsm: 20px, 20px;
+	--text-bsl: 22px, 26px;
 
-  --font-darker: Darker Grotesque;
+	--font-darker: Darker Grotesque;
 }
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -149,91 +149,103 @@
 } */
 
 @layer base {
-    :root {
-        --color-schist-higher: #27272B;
-        --color-schist-high: #66666E;
-        --color-schist-medium: #9999A1;
-        --color-schist-default: #E6E6E9;
-        --color-schist-low: #f4f4f6;
-        --color-schist-lower: #ffffff;
+	:root {
+		--color-schist-higher: #27272b;
+		--color-schist-high: #66666e;
+		--color-schist-medium: #9999a1;
+		--color-schist-default: #e6e6e9;
+		--color-schist-low: #f4f4f6;
+		--color-schist-lower: #ffffff;
 
-        --color-green-default: #283620;
+		--color-green-default: #283620;
 
-        --color-purple-default: #8956ff;
+		--color-purple-default: #8956ff;
 
-        --color-orange-default: #f16200;
-        --color-orange-accent: #d47739;
+		--color-orange-default: #f16200;
+		--color-orange-accent: #d47739;
 
-        --color-tan-default: #fecb8b;
+		--color-tan-default: #fecb8b;
 
-        --bg-overlay: 0, 0, 0, 0.5;
+		--bg-overlay: 0, 0, 0, 0.5;
 
-        --bg-overlay-error: 239, 68, 68, 0.25;
-    }
+		--bg-overlay-error: 239, 68, 68, 0.25;
+	}
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-family:
+		source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    font-weight: 700; /* bold */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700; /* bold */
 }
 
-h1 { /* H1 Mobile */
-    font-size: 3rem;
-    line-height: 100%;
+h1 {
+	/* H1 Mobile */
+	font-size: 3rem;
+	line-height: 100%;
 }
 
-h2 { /* H2 Mobile */
-    font-size: 2.5rem;
-    line-height: 90%;
+h2 {
+	/* H2 Mobile */
+	font-size: 2.5rem;
+	line-height: 90%;
 }
 
-h3 { /* H3 Mobile */
-    font-size: 2rem;
-    line-height: 90%;
+h3 {
+	/* H3 Mobile */
+	font-size: 2rem;
+	line-height: 90%;
 }
 
-h4 { /* H4 Mobile */
-    font-size: 1.5rem;
-    line-height: 90%;
+h4 {
+	/* H4 Mobile */
+	font-size: 1.5rem;
+	line-height: 90%;
 }
 
-h5 { /* H5 Mobile */
-    font-size: 1.25rem;
-    line-height: 33px;
+h5 {
+	/* H5 Mobile */
+	font-size: 1.25rem;
+	line-height: 33px;
 }
 
-h6 { /* Undefined in Figma */
-    font-size: 1rem;
+h6 {
+	/* Undefined in Figma */
+	font-size: 1rem;
 }
 
 @media (min-width: 1024px) {
-    /* These are all named H1-H5 in Figma */
-    h1 {
-        font-size: 4rem;
-    }
+	/* These are all named H1-H5 in Figma */
+	h1 {
+		font-size: 4rem;
+	}
 
-    h2 {
-        font-size: 3rem;
-    }
+	h2 {
+		font-size: 3rem;
+	}
 
-    h3 {
-        font-size: 2.5rem;
-    }
+	h3 {
+		font-size: 2.5rem;
+	}
 
-    h4 {
-        font-size: 2rem;
-    }
+	h4 {
+		font-size: 2rem;
+	}
 
-    h5 {
-        font-size: 1.5rem;
-    }
+	h5 {
+		font-size: 1.5rem;
+	}
 }
 
 .banner-drop-shadow {
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* 
@@ -256,16 +268,16 @@ Large Paragraph List
 */
 
 .video-responsive {
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	position: relative;
+	height: 0;
 
-    iframe {
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-    }
+	iframe {
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		position: absolute;
+	}
 }

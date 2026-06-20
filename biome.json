@@ -6,7 +6,12 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"includes": ["**", "!!**/dist", "!!src/assets/**/*.svg", "!!public/**/*.svg"]
+		"includes": [
+			"**",
+			"!!**/dist",
+			"!!src/assets/**/*.svg",
+			"!!public/**/*.svg"
+		]
 	},
 	"css": {
 		"parser": {

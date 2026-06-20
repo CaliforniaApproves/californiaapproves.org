@@ -1,29 +1,23 @@
+import React, { PropsWithChildren } from "react";
 
-
-
-import React, { PropsWithChildren } from 'react'
-
-import { NavButton } from '../../components/common/buttons';
-
-
-
+import { NavButton } from "../../components/common/buttons";
 
 // create a component
 const JoinUs = () => {
-    return (
-        <div className='bg-purple text-white flex flex-col lg:flex-row w-full px-8 py-10 justify-around items-center'>
-            <h2 className='text-center'>Want to join the team?</h2>
-            <NavButton
-                className='w-40 my-10'
-                color='orange'
-                variant='solid'
-                link="/contact"
-            >
-                CONTACT US
-            </NavButton>
-        </div>
-    );
-}
+	return (
+		<div className="bg-purple text-white flex flex-col lg:flex-row w-full px-8 py-10 justify-around items-center">
+			<h2 className="text-center">Want to join the team?</h2>
+			<NavButton
+				className="w-40 my-10"
+				color="orange"
+				variant="solid"
+				link="/contact"
+			>
+				CONTACT US
+			</NavButton>
+		</div>
+	);
+};
 
 //make this component available to the app
-export default JoinUs
+export default JoinUs;
