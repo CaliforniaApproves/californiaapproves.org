@@ -22,13 +22,7 @@ const navigation = {
 
 export function Footer() {
 	return (
-		<footer
-			className="bg-white px-4 flex flex-col"
-			aria-labelledby="footer-heading"
-		>
-			<h2 id="footer-heading" className="sr-only">
-				Footer
-			</h2>
+		<footer className="bg-white px-4 flex flex-col">
 			<div className="w-full lg:px-44 py-10 lg:py-20">
 				<div className="flex flex-col lg:flex-row justify-between w-full">
 					<div className="space-y-8 lg:w-1/4">
