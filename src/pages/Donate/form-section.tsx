@@ -16,6 +16,7 @@ const FormSection = () => {
 							data-paypalExpress="false"
 						></script>
 						<iframe
+							title="Donate to California Approves"
 							src="https://donorbox.org/embed/california-approves?default_interval=o&hide_donation_meter=true"
 							name="donorbox"
 							data-allowpaymentrequest="allowpaymentrequest"

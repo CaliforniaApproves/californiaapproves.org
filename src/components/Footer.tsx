@@ -1,6 +1,6 @@
 import Logo from "../assets/icons/California-Approves-Logo-RGB-OL.svg?react";
-import { SocialLinks } from "./SocialLinks";
 import { Link } from "./common/links";
+import { SocialLinks } from "./SocialLinks";
 
 const navigation = {
 	learnMore: [

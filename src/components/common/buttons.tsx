@@ -21,6 +21,7 @@ export const ActionButton = ({
 	variant,
 	color,
 	size = "sm",
+	type = "button",
 	onClick,
 	children,
 	className = "",
@@ -58,7 +59,7 @@ export const ActionButton = ({
 		className,
 	);
 	return (
-		<button className={classNames} onClick={onClick}>
+		<button type={type} className={classNames} onClick={onClick}>
 			{children}
 		</button>
 	);

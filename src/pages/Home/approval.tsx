@@ -5,7 +5,7 @@ import Ballot from "../../assets/images/Rectangle-102.webp";
 const AboutApproval = () => {
 	return (
 		<div className="bg-purple flex flex-col-reverse lg:flex-row justify-around text-white pt-12 lg:pt-28">
-			<img className="w-fit h-fit" src={Ballot} />
+			<img className="w-fit h-fit" src={Ballot} alt="Approval Voting ballot" />
 			<div className="flex flex-col max-w-full gap-y-5 lg:max-w-[50%] px-6 lg:px-0 font-bold lg:font-normal pb-12 lg:pb-28">
 				<h1 className="text-white">Simple, Effective and Affordable Reform</h1>
 				<p className="text-base text-white">
