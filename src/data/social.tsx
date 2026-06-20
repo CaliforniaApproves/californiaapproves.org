@@ -6,7 +6,7 @@ type SocialLink = {
 	icon: (props: JSX.IntrinsicElements["svg"]) => JSX.Element;
 };
 
-export const social: SocialLink[] = [
+const social: SocialLink[] = [
 	{
 		name: "Facebook",
 		href: "https://www.facebook.com/CaliforniaApproves/",
@@ -76,3 +76,21 @@ export const social: SocialLink[] = [
 		),
 	},
 ];
+
+type SocialColor = "purple" | "orange";
+
+const linkColorClasses: Record<SocialColor, string> = {
+	purple: "text-purple hover:text-purple-high",
+	orange: "text-orange hover:text-orange-high",
+};
+
+export const SocialLinks = ({ color }: { color: SocialColor }) => (
+	<div className="flex space-x-6 lg:mt-6">
+		{social.map((item) => (
+			<a key={item.name} href={item.href} className={linkColorClasses[color]}>
+				<span className="sr-only">{item.name}</span>
+				<item.icon className="h-6 w-6" aria-hidden="true" />
+			</a>
+		))}
+	</div>
+);

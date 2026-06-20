@@ -1,5 +1,5 @@
 import Logo from "../assets/icons/California-Approves-Logo-RGB-OL.svg?react";
-import { social } from "../data/social";
+import { SocialLinks } from "../data/social";
 import { Link } from "./common/links";
 
 const navigation = {
@@ -70,18 +70,7 @@ export function Footer() {
 							<h3 className="text-sm font-semibold leading-6 text-orange">
 								Follow Us
 							</h3>
-							<div className="flex space-x-6 lg:mt-6">
-								{social.map((item) => (
-									<a
-										key={item.name}
-										href={item.href}
-										className="text-purple hover:text-purple-high"
-									>
-										<span className="sr-only">{item.name}</span>
-										<item.icon className="h-6 w-6" aria-hidden="true" />
-									</a>
-								))}
-							</div>
+							<SocialLinks color="purple" />
 						</div>
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 import bridge from "../../assets/images/bridge.webp";
-import { social } from "../../data/social";
+import { SocialLinks } from "../../data/social";
 
 // create a component
 const InfoSection = () => {
@@ -27,18 +27,7 @@ const InfoSection = () => {
 					<br />
 					<div>
 						<h5>SOCIAL</h5>
-						<div className="flex space-x-6 lg:mt-6">
-							{social.map((item) => (
-								<a
-									key={item.name}
-									href={item.href}
-									className="text-orange hover:text-orange-high"
-								>
-									<span className="sr-only">{item.name}</span>
-									<item.icon className="h-6 w-6" aria-hidden="true" />
-								</a>
-							))}
-						</div>
+						<SocialLinks color="orange" />
 					</div>
 				</div>
 			</div>
