@@ -1,4 +1,3 @@
-import React from "react";
 import Arrow from "../../assets/icons/Long-Arrow.svg?react";
 import Background from "../../assets/images/Group-39.svg";
 import strongArm from "../../assets/images/Strong-Arm 1.webp";

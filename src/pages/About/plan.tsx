@@ -1,5 +1,3 @@
-import React, { PropsWithChildren } from "react";
-
 import signatures from "../../assets/images/signatures.webp";
 
 // create a component

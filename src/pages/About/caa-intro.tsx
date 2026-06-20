@@ -1,5 +1,3 @@
-import React, { PropsWithChildren } from "react";
-
 import activists from "../../assets/images/activists.webp";
 import Background from "../../assets/images/Background-Pattern.svg";
 

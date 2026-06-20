@@ -1,5 +1,3 @@
-import React, { PropsWithChildren } from "react";
-
 import Background from "../../assets/images/volunteer_transparent.webp";
 
 // create a component

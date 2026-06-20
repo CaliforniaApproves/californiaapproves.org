@@ -1,4 +1,3 @@
-import React from "react";
 import CheckMark from "../../assets/icons/Yellow-Check.svg?react";
 import Ballot from "../../assets/images/Rectangle-102.webp";
 

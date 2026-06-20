@@ -1,5 +1,3 @@
-import React, { PropsWithChildren } from "react";
-
 import { NavButton } from "../../components/common/buttons";
 
 // create a component

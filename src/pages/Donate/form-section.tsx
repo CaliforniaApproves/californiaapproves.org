@@ -1,7 +1,5 @@
 /* eslint-disable react/no-unknown-property */
 
-import React, { PropsWithChildren } from "react";
-
 // create a component
 const FormSection = () => {
 	return (

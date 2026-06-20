@@ -1,5 +1,3 @@
-import React, { PropsWithChildren } from "react";
-
 import voteMatters from "../../assets/images/vote-matters.webp";
 
 // create a component

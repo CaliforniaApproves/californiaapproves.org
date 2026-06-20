@@ -1,4 +1,3 @@
-import React from "react";
 import CaaIntro from "./caa-intro";
 import JoinUs from "./join";
 import People from "./people";

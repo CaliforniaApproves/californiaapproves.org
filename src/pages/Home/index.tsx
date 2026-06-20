@@ -1,4 +1,3 @@
-import React from "react";
 import AboutUs from "./about";
 import AboutApproval from "./approval";
 import Banner from "./banner";

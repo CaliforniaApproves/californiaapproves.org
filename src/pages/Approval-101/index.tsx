@@ -1,4 +1,3 @@
-import React, { PropsWithChildren } from "react";
 import BallotSection from "./ballot-section";
 import CallToAction from "./call-to-action";
 import ClosingSection from "./closing-section";

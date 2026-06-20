@@ -1,5 +1,3 @@
-import React, { PropsWithChildren } from "react";
-
 import ballot from "../../assets/images/borderless ballot.webp";
 
 // create a component

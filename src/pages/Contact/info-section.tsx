@@ -1,5 +1,3 @@
-import React, { PropsWithChildren } from "react";
-
 import bridge from "../../assets/images/bridge.webp";
 
 const social = [

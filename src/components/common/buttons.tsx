@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import React, { type JSX, type PropsWithChildren } from "react";
+import { type JSX, type PropsWithChildren } from "react";
 import { Link } from "./links";
 
 type ButtonVariant = "solid" | "outlined" | "text";

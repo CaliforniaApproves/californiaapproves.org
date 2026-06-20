@@ -1,4 +1,3 @@
-import React, { PropsWithChildren } from "react";
 import Logo from "../assets/icons/California-Approves-Logo-RGB-OL.svg?react";
 import { Link } from "./common/links";
 
@@ -93,7 +92,7 @@ export function Footer() {
 						<h3 className="text-sm font-semibold leading-6 text-orange">
 							Learn More
 						</h3>
-						<ul role="list" className="lg:space-y-4 lg:mt-6">
+						<ul className="lg:space-y-4 lg:mt-6">
 							{navigation.learnMore.map((item) => (
 								<li key={item.name}>
 									<Link to={item.href}>{item.name}</Link>
@@ -105,7 +104,7 @@ export function Footer() {
 						<h3 className="text-sm font-semibold leading-6 text-orange">
 							Support
 						</h3>
-						<ul role="list" className="lg:space-y-4 lg:mt-6">
+						<ul className="lg:space-y-4 lg:mt-6">
 							{navigation.getInvolved.map((item) => (
 								<li key={item.name}>
 									<Link to={item.href} target={item.newPage ? "_blank" : ""}>

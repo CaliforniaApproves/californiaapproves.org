@@ -1,5 +1,3 @@
-import React, { PropsWithChildren } from "react";
-
 // create a component
 const ArticlesPage = () => {
 	return <div className="caa-articles-page"></div>;

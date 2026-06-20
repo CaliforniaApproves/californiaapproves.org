@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import NewsBlurb, { type NewsBlurbProps, NewsTag } from "./news-blurb";
 
 const placeholderNews: NewsBlurbProps[] = [

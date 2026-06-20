@@ -1,4 +1,3 @@
-import React, { PropsWithChildren } from "react";
 import alanProfile from "../../assets/images/Alan-Savage-Profile.webp";
 import jeffProfile from "../../assets/images/Jeff-Justice-Profile.webp";
 import kevinProfile from "../../assets/images/Kevin-Gray-Profile.webp";

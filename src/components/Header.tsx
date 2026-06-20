@@ -1,8 +1,8 @@
 import { Popover, Transition } from "@headlessui/react";
-import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Bars3Icon } from "@heroicons/react/20/solid";
 import { PlayIcon, QuestionMarkCircleIcon } from "@heroicons/react/24/outline";
 import classnames from "classnames";
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import Logo from "../assets/icons/California-Approves-Logo-RGB-OL.svg?react";
 import { NavButton } from "./common/buttons";
 import { Link } from "./common/links";

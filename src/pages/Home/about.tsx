@@ -6,7 +6,7 @@ import {
 	useInteractions,
 } from "@floating-ui/react";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Arrow from "../../assets/icons/Arrow.svg?react";
 
 import Background from "../../assets/images/Illustrations-1.webp";
