@@ -1,5 +1,5 @@
 import bridge from "../../assets/images/bridge.webp";
-import { SocialLinks } from "../../data/social";
+import { SocialLinks } from "../../components/SocialLinks";
 
 // create a component
 const InfoSection = () => {
