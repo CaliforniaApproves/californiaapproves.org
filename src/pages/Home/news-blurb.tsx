@@ -1,6 +1,6 @@
 import classnames from "classnames";
 
-import { type PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import { Link } from "../../components/common/links";
 
 export enum NewsTag {
