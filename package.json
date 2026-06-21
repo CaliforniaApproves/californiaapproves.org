@@ -8,6 +8,8 @@
 		"build": "tsc && vite build",
 		"preview": "vite preview",
 		"lint": "biome check .",
+		"test:visual": "playwright test",
+		"test:visual:update": "playwright test --update-snapshots",
 		"prepare": "husky"
 	},
 	"dependencies": {
@@ -26,6 +28,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.0",
+		"@playwright/test": "^1.61.0",
 		"@preact/preset-vite": "^2.10.5",
 		"husky": "^9.1.7",
 		"typescript": "^6.0.3",
