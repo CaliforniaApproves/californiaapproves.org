@@ -1,0 +1,31 @@
+name: Visual regression
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Build and run inside the project's devcontainer so the rendering
+      # environment (Chromium + fonts) is byte-identical to local development,
+      # which keeps the committed screenshot baselines reproducible.
+      - name: Run visual tests in the devcontainer
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: CI=true npm run test:visual
+          push: never
+
+      - name: Upload Playwright report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

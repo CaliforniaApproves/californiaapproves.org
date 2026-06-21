@@ -7,3 +7,9 @@ npm-debug.log
 .vscode
 /venv
 .vs/
+
+# Playwright (tests/visual/*-snapshots/ baselines are committed, not ignored)
+test-results
+playwright-report
+blob-report
+playwright/.cache
