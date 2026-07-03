@@ -20,7 +20,7 @@
 		"@tailwindcss/forms": "^0.5.10",
 		"@tailwindcss/vite": "^4.3.2",
 		"classnames": "^2.5.1",
-		"preact": "^10.29.3",
+		"preact": "^10.29.4",
 		"preact-iso": "^2.12.0",
 		"preact-render-to-string": "^6.7.0",
 		"react-lite-youtube-embed": "^3.6.0",
