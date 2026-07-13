@@ -13,7 +13,7 @@
 		"prepare": "husky"
 	},
 	"dependencies": {
-		"@floating-ui/react": "^0.27.16",
+		"@floating-ui/react": "^0.27.20",
 		"@fortawesome/fontawesome-free": "^7.3.0",
 		"@headlessui/react": "^2.2.10",
 		"@heroicons/react": "^2.2.0",
