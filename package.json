@@ -14,7 +14,7 @@
 	},
 	"dependencies": {
 		"@floating-ui/react": "^0.27.20",
-		"@fortawesome/fontawesome-free": "^7.3.0",
+		"@fortawesome/fontawesome-free": "^7.3.1",
 		"@headlessui/react": "^2.2.10",
 		"@heroicons/react": "^2.2.0",
 		"@tailwindcss/forms": "^0.5.10",
