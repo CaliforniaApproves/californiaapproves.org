@@ -29,7 +29,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.5.4",
 		"@playwright/test": "^1.61.1",
-		"@preact/preset-vite": "^2.10.5",
+		"@preact/preset-vite": "^2.10.6",
 		"husky": "^9.1.7",
 		"typescript": "^7.0.2",
 		"vite": "^8.1.5",
