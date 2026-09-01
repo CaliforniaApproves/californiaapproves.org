@@ -9,6 +9,7 @@ type InputProps = JSX.IntrinsicElements["input"] & {
 	label?: string;
 	labelHidden?: boolean;
 	placeholder?: string;
+	inputBg?: string;
 };
 
 // create a component
@@ -19,6 +20,7 @@ const Input = ({
 	placeholder,
 	labelHidden = false,
 	className = "",
+	inputBg = "bg-schist",
 	id,
 	required = false,
 	name,
@@ -37,7 +39,8 @@ const Input = ({
 				type={type}
 				name={name || label}
 				className={classnames(
-					"block w-full rounded-2xl border-0 p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset sm:text-sm lg:text-base sm:leading-6 bg-schist",
+					"block w-full rounded-2xl border-0 p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset sm:text-sm lg:text-base sm:leading-6",
+					inputBg,
 					{
 						"ring-purple focus:ring-purple-high": color === "purple",
 						"ring-green focus:ring-green-high": color === "green",

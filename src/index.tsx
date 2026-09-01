@@ -17,6 +17,7 @@ import { Contact } from "./pages/Contact";
 import { Donate } from "./pages/Donate";
 import { Faq } from "./pages/Faq";
 import { Home } from "./pages/Home";
+import { ApprovalPrimary } from "./pages/ApprovalPrimary";
 import "./style.css";
 
 export function App() {
@@ -32,6 +33,7 @@ export function App() {
 					<Route path="/donate" component={Donate} />
 					<Route path="/approval-101" component={Approval101} />
 					<Route default component={NotFound} />
+					<Route path="/our-reforms/approval-primary" component={ApprovalPrimary} />
 				</Router>
 			</main>
 			<Footer />
