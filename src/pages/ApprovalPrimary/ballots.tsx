@@ -36,7 +36,7 @@ return (
 						support in a six-way primary, mirroring a California
 						voter-nominated primary where every candidate from every
 						party appears together on one ballot. Notice how the left
-						ballot forces a choice and how the right one doesn't.
+						ballot forces a choice and how the right one <span className="italic">doesn't.</span>
 					</p>
 				</div>
 
