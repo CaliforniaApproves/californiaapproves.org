@@ -66,7 +66,7 @@ const Hero = () => {
 					</p>
 				</div>
 			</div>
-			<div className="py-8 px-5 lg:px-8 max-w-full lg:max-w-[50%] m-auto bg-orange lg:bg-transparent ">
+			<div className="py-8 px-5 lg:px-8 max-w-full lg:max-w-[45%] m-auto bg-orange lg:bg-transparent ">
 				<HeroPledge />
 			</div>
 		</div>
