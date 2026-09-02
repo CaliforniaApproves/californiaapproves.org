@@ -1,0 +1,86 @@
+name: Preview
+
+# Uploads a new Worker version *without* shifting production traffic and gives
+# it a stable preview alias, so the branch selected when running this workflow
+# can be shared as a real URL:
+#   https://<alias>-californiaapproves.<subdomain>.workers.dev
+
+on:
+  workflow_dispatch:
+    inputs:
+      alias:
+        description: 'Preview alias (defaults to the branch name)'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preview-${{ inputs.alias || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Cloudflare aliases must start with a lowercase letter and contain only
+      # lowercase letters, numbers and dashes, and `<alias>-californiaapproves`
+      # must fit in 63 characters — leaving 44 for the alias itself. Branch
+      # names like `amandatory/reform-page` need normalising to satisfy that.
+      - name: Resolve alias
+        id: alias
+        env:
+          RAW: ${{ inputs.alias || github.ref_name }}
+        run: |
+          alias=$(printf '%s' "$RAW" \
+            | tr '[:upper:]' '[:lower:]' \
+            | sed -E 's/[^a-z0-9-]+/-/g; s/-+/-/g; s/^[^a-z]+//' \
+            | cut -c1-44 \
+            | sed -E 's/-$//')
+          if [ -z "$alias" ]; then
+            echo "Could not derive a valid alias from '$RAW'" >&2
+            exit 1
+          fi
+          echo "alias=$alias" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload preview version
+        id: upload
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >-
+            versions upload
+            --preview-alias ${{ steps.alias.outputs.alias }}
+            --message "Preview of ${{ github.ref_name }}@${{ github.sha }}"
+
+      - name: Report preview URL
+        env:
+          ALIAS: ${{ steps.alias.outputs.alias }}
+          OUT: ${{ steps.upload.outputs.command-output }}
+          ERR: ${{ steps.upload.outputs.command-stderr }}
+        run: |
+          url=$(printf '%s\n%s\n' "$OUT" "$ERR" \
+            | grep -oE 'https://[a-z0-9-]+\.[a-z0-9-]+\.workers\.dev' \
+            | head -n1)
+          {
+            echo "### Preview: \`$ALIAS\`"
+            echo
+            echo "${url:-_Preview URL not found in wrangler output — check the upload step logs._}"
+          } >> "$GITHUB_STEP_SUMMARY"
