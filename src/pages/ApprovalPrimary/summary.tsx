@@ -29,11 +29,6 @@ const Summary = () => {
 						they like in the primary. Nothing else about how California 
 						elects its leaders changes.
 					</p>
-					<p className="font-semibold text-base text-white mt-3 leading-snug">
-						By measuring overlapping support, Approval Voting provides more
-						choice, creates fair competition for broad support, and delivers
-						better representation.
-					</p>
 				</div>
 
 				<div className="grid grid-cols-1 md:grid-cols-2 mt-11 border border-white/25 rounded-md overflow-hidden">
@@ -61,6 +56,13 @@ const Summary = () => {
 							))}
 						</ul>
 					</div>
+				</div>
+				<div className="max-w-full pt-6">
+					<p className="font-semibold text-large text-white mt-3 leading-snug">
+						By measuring overlapping support, Approval Voting provides more
+						choice, creates fair competition for broad support, and delivers
+						better representation.
+					</p>
 				</div>
 			</div>
 		</div>
