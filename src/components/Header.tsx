@@ -30,6 +30,13 @@ export function Header() {
 					<Link to="/faq" color="green" className="ml-7 hidden lg:block">
 						<h5>FAQ</h5>
 					</Link>
+					<Link
+						to="/our-reforms/approval-primary"
+						color="green"
+						className="ml-7 hidden lg:block"
+					>
+						<h5>PRIMARY REFORM</h5>
+					</Link>
 					{/* <Link to='/articles' color="green" className='ml-7 hidden lg:block'><h5>ARTICLES</h5></Link> */}
 				</div>
 				<div className="hidden items-center justify-end lg:flex lg:flex-auto ">
@@ -88,6 +95,13 @@ export function Header() {
 													className="mx-4 text-base"
 												>
 													<h2>FAQ</h2>
+												</Link>
+												<Link
+													to="/our-reforms/approval-primary"
+													color="white"
+													className="mx-4 text-base"
+												>
+													<h2>Primary Reform</h2>
 												</Link>
 												{/* <Link to='/articles' color="white" className='mx-4'><h2>Articles</h2></Link> */}
 											</div>
