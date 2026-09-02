@@ -62,6 +62,29 @@ const faqs = [
 const comparisonFaqs = [
 	{
 		id: "q6",
+		q: "Why not just repeal the top-two primary entirely?",
+		a: [
+			"Repeal would mean going back to closed, partisan primaries — primaries where only registered party members vote, and party leadership effectively decides who advances to November. That's the exact structure Californians voted to move away from in 2010, precisely because it fueled polarization.",
+			"The real problem today isn't the open primary itself, it's that vote-splitting in crowded primary fields is already producing nominees who don't reflect what most voters in an electorate actually want. Repeal is a step backward that doesn't even fix that problem; it just returns to a system voters already rejected. Approval Voting is the way forward: it keeps the open primary Californians chose and directly solves the issue that actually needs fixing: vote-splitting.",
+		],
+	},
+	{
+		id: "q7",
+		q: "Why not just expand the number of candidates who advance to the general election?",
+		a: [
+			"Expanding the field is a fair consideration, and it isn't mutually exclusive with this reform, but it solves a different problem than the one we're focused on. Advancing three, four, or five candidates instead of two doesn't tell you which candidates actually earned one of those spots, rather than benefitted from a divided field. If the primary still uses choose-one voting to pick them, it still can't tell a candidate with genuinely narrow support apart from one whose support was simply split among other candidates. You'd just be advancing a larger field, chosen the same flawed way, with no more certainty that the most broadly supported candidates make it out of the primary.",
+			"Approval Voting fixes that measurement problem regardless of how many candidates ultimately advance. That's why we believe it belongs in the primary no matter what the general election looks like.",
+		],
+		nested: {
+			label: "Go deeper",
+			body: [
+				"We\'re proposing Approval Voting paired with California\'s existing top-two structure because it fixes the specific, well-documented problem in front of us, and it happens to do so with the smallest possible change: no new ballot design in the general election, no additional candidates for voters to research and compare, and no elimination rounds.",
+				"A review of 1,362 real-world Ranked Choice Voting elections found the eventual winner had finished third place or lower in first-choice votes in only four of them. That\’s under 0.3% of the time. In other words, advancing three, four, or five candidates instead of two adds a lot of complexity for an outcome that almost never changes. A two-candidate general is also the only election that is completely strategy-free.",
+			],
+		},
+	},
+	{
+		id: "q8",
 		q: "How is this different from Ranked Choice Voting (RCV)?",
 		a: [
 			"RCV asks voters to rank candidates in order and eliminates them round by round. Approval Voting only asks whether you support a candidate or not, and then counts every mark on every ballot in a single tally with no rankings and no risk of eliminating a broadly-liked candidate along the way.",
@@ -71,30 +94,7 @@ const comparisonFaqs = [
 			body: [
 				"RCV fails at its core job: it can eliminate the most broadly-preferred candidate. Burlington, Vermont saw this happen first hand. They adopted RCV, watched it knock out the candidate most voters preferred over the eventual winner, and then repealed it.",
 				"There's also a scope problem specific to California: RCV only ever applies to the general election, leaving the primary completely untouched. You'd be adding real complexity at the stage that needs it least, while leaving vote-splitting exactly where it actually happens — in the primary.",
-				"Lastly, RCV has a counterintuitive practical implication: you can literally help your least favorite candidate win by ranking your preferences honestly. By contrast, you can never help your least favorite candidate win by honestly approving the candidates you want to support."
-			],
-		},
-	},
-	{
-		id: "q7",
-		q: "Why not just repeal the top-two primary entirely?",
-		a: [
-			"Repeal would mean going back to closed, party-only primaries — primaries where only registered party members vote, and party leadership effectively decides who advances to November. That's the exact structure Californians voted to move away from in 2010, precisely because it fueled polarization.",
-			"The real problem today isn't the open primary itself, it's that vote-splitting in crowded primary fields is already producing nominees who don't reflect what most voters in a district actually want. Repeal is a step backward that doesn't even fix that problem; it just returns to a system voters already rejected. Approval Voting is the way forward: it keeps the open primary Californians chose and directly solves the issue that actually needs fixing — vote-splitting.",
-		],
-	},
-	{
-		id: "q8",
-		q: "Why not just expand the number of candidates who advance to the general election?",
-		a: [
-			"Expanding the field is a fair consideration, and it isn't mutually exclusive with this reform, but it solves a different problem than the one we're focused on. Advancing three, four, or five candidates instead of two doesn't tell you which candidates actually earned one of those spots. If the primary still uses choose-one voting to pick them, it still can't tell a candidate with genuinely narrow support apart from one whose support was simply split among similar candidates. You'd just be advancing a larger field, chosen the same flawed way, with no more certainty that the most broadly supported candidates make it out of the primary.",
-			"Approval Voting fixes that measurement problem regardless of how many candidates ultimately advance. That's why we believe it belongs in the primary no matter what the general election looks like.",
-		],
-		nested: {
-			label: "Go deeper",
-			body: [
-				"We\'re proposing Approval Voting paired with California\'s existing top-two structure because it fixes the specific, well-documented problem in front of us, and it happens to do so with the smallest possible change: no new ballot design in the general election, no additional candidates for voters to research and compare, and no elimination rounds.",
-				"A review of 1,362 real-world Ranked Choice Voting elections found the eventual winner had finished third place or lower in first-choice votes in only four of them. That\’s under 0.3% of the time. In other words, advancing three, four, or five candidates instead of two adds a lot of complexity for an outcome that almost never changes. A two-candidate general is also the only election that is completely strategy-free.",
+				"Lastly, RCV has a counterintuitive practical implication: because RCV depends on the order you rank candidates, honestly ranking your preferences can sometimes help elect a candidate you don’t support, even one you ranked last. Approval Voting has no such risk. Your ballot can only ever help candidates you actually support, and never anyone you don’t."
 			],
 		},
 	},

@@ -128,6 +128,18 @@ const HeroPledge = () => {
 								to receive updates from our organization.
 							</p>
 						</div>
+						<div className="mt-5 pt-[18px] border-t border-gray-200">
+							<div className="flex justify-between text-bsm text-schist-high font-semibold mb-[7px]">
+								<span>0</span>
+								<span>of 10,000 pledges</span>
+							</div>
+							<div className="h-2 bg-white rounded-full overflow-hidden border border-gray-200">
+								<div className="h-full bg-orange rounded-full" style={{ width: "0%" }} />
+							</div>
+							<p className="text-bsm text-schist-higher mt-2">
+								Be the first to pledge — help us reach 10,000 supporters.
+							</p>
+						</div>
 					</div>
 				</form>
 			</div>
