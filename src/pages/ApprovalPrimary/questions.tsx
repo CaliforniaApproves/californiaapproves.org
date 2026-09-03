@@ -193,7 +193,7 @@ const Questions = () => {
 	return (
 		<div className="py-16 lg:py-20">
 			<div className="max-w-[720px] m-auto px-8">
-				<div className="font-bold text-orange-accent uppercase">Common Questions</div>
+				<div className="font-bold text-small text-orange-accent uppercase">Common Questions</div>
 				<h2 className="text-green mt-2 mb-8">
 					Good questions deserve straight answers.
 				</h2>
