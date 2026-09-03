@@ -28,8 +28,8 @@ const Problem = () => {
 							32%
 						</div>
 						<p className="text-[20px] text-schist-high mt-2 leading-tight">
-							was enough to win St. Louis's 2017 choose-one mayoral primary outright,
-							with support fractured across three other candidates.
+							was enough to win St. Louis's 2017 choose-one mayoral primary 
+							outright, with support fractured across three other candidates.
 						</p>
 					</div>
 					<div className="bg-white p-6">
