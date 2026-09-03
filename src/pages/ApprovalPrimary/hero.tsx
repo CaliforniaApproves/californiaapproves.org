@@ -16,7 +16,11 @@ const Hero = () => {
 			}}
 		>
 			<div className="m-auto px-8 pb-14 lg:pb-0">
-				<div className="flex flex-wrap items-center gap-3">
+				<h2 className="text-green banner-drop-shadow pt-4">
+					Approve every candidate you support. 
+					Not just one.
+				</h2>
+				<div className="flex flex-wrap items-center gap-3 pt-9">
 					<div className="flex items-center gap-2">
 						<img
 							src={purpleCircleCheck}
@@ -48,10 +52,6 @@ const Hero = () => {
 						<span className="font-bold whitespace-nowrap">Better Representation</span>
 					</div>
 				</div>
-				<h2 className="text-green banner-drop-shadow pt-4">
-					Approve every candidate you support. 
-					Not just one.
-				</h2>
 				<div className="static max-w-[650px] mt-9">
 					<p className="text-large-bold lg:font-normal">
 						When primary elections force voters to choose 
