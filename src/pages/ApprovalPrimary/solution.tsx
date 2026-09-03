@@ -42,11 +42,11 @@ const Solution = () => {
 		<div className="bg-purple text-white py-16 lg:py-20">
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
-					<div className="font-bold text-tan">THE SOLUTION</div>
+					<div className="font-bold text-tan text-small">THE SOLUTION</div>
 					<h2 className="text-white mt-2">
 						An election should measure how much support a candidate actually has.
 					</h2>
-					<p className="text-base text-white/85 mt-3">
+					<p className="text-large text-white/85 mt-3">
 						Approval Voting does exactly that and it changes nothing else
 						about how Californians vote.
 					</p>
@@ -61,7 +61,7 @@ const Solution = () => {
 							<h4 className="text-white mt-2 mb-2">
 								{step.title}
 							</h4>
-							<p className="text-white/85 text-lg leading-tight">
+							<p className="text-white/85 text-base leading-tight">
 								{step.body}
 							</p>
 						</div>

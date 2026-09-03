@@ -16,31 +16,37 @@ const Hero = () => {
 			}}
 		>
 			<div className="m-auto px-8 pb-14 lg:pb-0">
-				<div className="flex items-center gap-2">
-					<img
-						src={purpleCircleCheck}
-						alt="purple check"
-						width="24"
-						height="16"
-						className="aspect-169/158"
-					/>
-					<span className="font-bold text-[16px]">More Choice</span>
-					<img
-						src={orangeCircleCheck}
-						alt="orange check"
-						width="24"
-						height="16"
-						className="aspect-169/158"
-					/>
-					<span className="font-bold text-[16px]">Fair Competition</span>
-					<img
-						src={yellowCircleCheck}
-						alt="yellow check"
-						width="24"
-						height="16"
-						className="aspect-169/158"
-					/>
-					<span className="font-bold text-[16px]">Better Representation</span>
+				<div className="flex flex-wrap items-center gap-3">
+					<div className="flex items-center gap-2">
+						<img
+							src={purpleCircleCheck}
+							alt="purple check"
+							width="24"
+							height="16"
+							className="aspect-169/158"
+						/>
+						<span className="font-bold whitespace-nowrap">More Choice</span>
+					</div>
+					<div className="flex items-center gap-2">
+						<img
+							src={orangeCircleCheck}
+							alt="orange check"
+							width="24"
+							height="16"
+							className="aspect-169/158"
+						/>
+						<span className="font-bold whitespace-nowrap">Fair Competition</span>
+					</div>
+					<div className="flex items-center gap-2">
+						<img
+							src={yellowCircleCheck}
+							alt="yellow check"
+							width="24"
+							height="16"
+							className="aspect-169/158"
+						/>
+						<span className="font-bold whitespace-nowrap">Better Representation</span>
+					</div>
 				</div>
 				<h2 className="text-green banner-drop-shadow pt-4">
 					Approve every candidate you support. 
@@ -66,7 +72,7 @@ const Hero = () => {
 					</p>
 				</div>
 			</div>
-			<div className="py-8 px-5 lg:px-8 max-w-full lg:max-w-[45%] m-auto bg-orange lg:bg-transparent ">
+			<div className="py-8 px-5 lg:px-8 w-full max-w-full lg:max-w-[47%] m-auto bg-orange lg:bg-transparent ">
 				<HeroPledge />
 			</div>
 		</div>

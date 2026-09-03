@@ -5,9 +5,9 @@ import Input from "../../components/common/input";
 const HeroPledge = () => {
 	return (
 		<div className="bg-white border-orange rounded-[50px] border-[6px] p-5 lg:p-12 text-center flex flex-col items-center gap-3">
-			<h2 className="text-green">
+			<h3 className="text-green">
 				Pledge Your Support
-			</h2>
+			</h3>
 			<p className="text-small mt-2">
 				Add your name now, and we'll follow up once 
 				the official petition is ready to sign.
