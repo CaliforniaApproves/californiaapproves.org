@@ -29,7 +29,7 @@ return (
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="font-bold text-tan text-small">SEE IT IN ACTION</div>
 				<h2 className="text-white">Same ballot. One sentence changes everything.</h2>
-				<div className="static max-w-full mt-9">
+				<div className="static max-w-full mt-3">
 					<p className="text-large text-white/85 lg:font-normal">
 						Try marking both ballots below with candidates you'd
 						support in a five-way primary. Notice how the first
@@ -67,7 +67,7 @@ return (
 											✕
 										</div>
 										<div className="flex-1 text-bsm font-medium ">
-											<span className="uppercase">{c.name}{" "}</span>
+											<span className="font-semibold">{c.name}{" "}</span>
 											<span className="block text-bsm text-schist-high">
 												{c.desc}
 											</span>
@@ -119,7 +119,7 @@ return (
 											✓
 										</div>
 										<div className="flex-1 text-bsm font-medium">
-											<span className="uppercase">{c.name}{" "}</span>
+											<span className="font-semibold">{c.name}{" "}</span>
 											<span className="block text-bsm text-schist-high">
 												{c.desc}
 											</span>
