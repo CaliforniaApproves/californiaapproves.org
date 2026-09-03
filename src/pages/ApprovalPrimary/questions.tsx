@@ -30,6 +30,13 @@ const faqs = [
 		],
 	},
 	{
+		id: "q4",
+		q: "Won't this make voting more complicated?",
+		a: [
+			'No. If anything, it\'s simpler. Instead of narrowing down those you like to the one who seems most "electable," you can just mark every candidate you approve of. You\'ve probably already made a decision this way: when a group is scheduling a meeting and everyone\'s asked which times work for them, nobody picks just one — you check every time you\'re free, and the option most people can make wins. That\'s basically approval voting. On the ballot, it\'s the same instinct: mark everyone you want to support, and move on.',
+		],
+	},
+	{
 		id: "q2",
 		q: "Won't voters just approve of one candidate anyway?",
 		a: [
@@ -49,13 +56,6 @@ const faqs = [
 				"Approval Voting can also change how seriously a candidate is taken once they decide to run. Today, even a candidate who could appeal broadly across coalitions is often written off as \"non-viable\" the moment they enter, because choose-one voting has no way to prove that support is real until the votes are counted, by which point strategic voters have often already looked elsewhere. Approval Voting lets that support show up on the ballot itself, which can change who gets taken seriously as a real contender from day one, in any district, regardless of how it leans.",
 			],
 		},
-	},
-	{
-		id: "q4",
-		q: "Won't this make voting more complicated?",
-		a: [
-			'No. If anything, it\'s simpler. Instead of narrowing down those you like to the one who seems most "electable," you can just mark every candidate you approve of. You\'ve probably already made a decision this way: when a group is scheduling a meeting and everyone\'s asked which times work for them, nobody picks just one — you check every time you\'re free, and the option most people can make wins. That\'s basically approval voting. On the ballot, it\'s the same instinct: mark everyone you want to support, and move on.',
-		],
 	},
 	{
 		id: "q5",
