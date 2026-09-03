@@ -17,11 +17,11 @@ const Summary = () => {
 		<div className="bg-purple text-white py-16 lg:py-20">
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
-					<div className="font-bold text-tan">NOT A RADICAL DEPARTURE</div>
+					<div className="font-bold text-tan text-small">NOT A RADICAL DEPARTURE</div>
 					<h2 className="text-white mt-2">
 						This finishes the job California's open primary already started.
 					</h2>
-					<p className="text-base text-white/85 mt-3 leading-snug">
+					<p className="text-large text-white/85 mt-3 leading-snug">
 						Every candidate for state and congressional office still appears
 						on one familiar ballot. Every registered voter, regardless of
 						party affiliation, can still vote for any of them. This reform
@@ -38,7 +38,7 @@ const Summary = () => {
 						</h4>
 						<ul className="list-disc pl-5 space-y-2">
 							{doesNot.map((item) => (
-								<li key={item} className="font-semibold text-lg text-green leading-tight">
+								<li key={item} className="font-semibold text-base text-green leading-tight">
 									{item}
 								</li>
 							))}
@@ -50,7 +50,7 @@ const Summary = () => {
 						</h4>
 						<ul className="list-disc pl-5 space-y-2">
 							{does.map((item) => (
-								<li key={item} className="font-semibold text-lg text-green leading-tight">
+								<li key={item} className="font-semibold text-base text-green leading-tight">
 									{item}
 								</li>
 							))}

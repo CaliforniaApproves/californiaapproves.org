@@ -4,11 +4,11 @@ import Input from "../../components/common/input";
 const FinalPledge = () => {
 	return (
 		<div className="bg-green text-center py-16 lg:py-20">
-			<div className="max-w-[640px] m-auto px-8">
+			<div className="max-w-[700px] m-auto px-8">
 				<h2 className="text-white">
 					Help bring Approval Voting to California.
 				</h2>
-				<p className="text-white/85 mt-3">
+				<p className="text-base text-white/85 mt-3">
 					Every pledge moves this closer to the 2028 ballot. Add your name below.
 				</p>
 

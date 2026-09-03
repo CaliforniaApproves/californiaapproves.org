@@ -28,10 +28,10 @@ const Ballots = () => {
 return (
 		<div className="bg-purple text-white pt-12 lg:pt-16 pb-14">
 			<div className="max-w-[1120px] m-auto px-8">
-				<div className="font-bold text-tan">SEE IT IN ACTION</div>
+				<div className="font-bold text-tan text-small">SEE IT IN ACTION</div>
 				<h2 className="text-white">Same ballot. One sentence changes everything.</h2>
 				<div className="static max-w-full mt-9">
-					<p className="text-base text-white/85 lg:font-normal">
+					<p className="text-large text-white/85 lg:font-normal">
 						Try marking both ballots below with candidates you'd
 						support in a six-way primary, mirroring a California
 						voter-nominated primary where every candidate from every
