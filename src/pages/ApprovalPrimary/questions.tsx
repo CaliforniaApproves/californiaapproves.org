@@ -47,7 +47,7 @@ const faqs = [
 		id: "q4",
 		q: "Won't this make voting more complicated?",
 		a: [
-			'No. If anything, it\'s simpler. Instead of ranking candidates or guessing who\'s "electable," you can just mark every candidate you approve of. You\'ve probably already made a decision this way: when a group is scheduling a meeting and everyone\'s asked which times work for them, nobody picks just one — you check every time you\'re free, and the option most people can make wins. That\'s basically approval voting. On the ballot, it\'s the same instinct: mark everyone you want to support, and move on.',
+			'No. If anything, it\'s simpler. Instead of narrowing down to the one who seems most "electable," you can just mark every candidate you approve of. You\'ve probably already made a decision this way: when a group is scheduling a meeting and everyone\'s asked which times work for them, nobody picks just one — you check every time you\'re free, and the option most people can make wins. That\'s basically approval voting. On the ballot, it\'s the same instinct: mark everyone you want to support, and move on.',
 		],
 	},
 	{
