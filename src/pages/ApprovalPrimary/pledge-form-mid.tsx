@@ -9,8 +9,8 @@ const MidPledge = () => {
 					Ready to bring Approval Voting to California?
 				</h2>
 				<p className="text-base text-white/90 mt-3">
-					Pledge your support and we'll follow up the moment the real
-					petition is ready to sign. Still have questions? Answers to the
+					Pledge your support and we'll follow up with next 
+					steps. Still have questions? Answers to the
 					ones we hear most are just below.
 				</p>
 

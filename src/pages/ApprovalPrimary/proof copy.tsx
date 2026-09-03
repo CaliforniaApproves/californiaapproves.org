@@ -12,7 +12,7 @@ const timeline = [
 	{
 		year: "2021 · First Use",
 		num: "57%",
-		body: "The leading mayoral candidate advanced with broad approval — up from just 30% in the fractured 2017 race she didn't win.",
+		body: "The leading mayoral candidate advanced with broad approval, up from just 30% in the fractured 2017 race she didn't win.",
 	},
 	{
 		year: "2025 · Most Recent",

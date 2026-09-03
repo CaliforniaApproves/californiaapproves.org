@@ -9,9 +9,8 @@ const HeroPledge = () => {
 				Pledge Your Support
 			</h2>
 			<p className="text-small mt-2">
-				Add your name now, and we'll follow up the moment 
-				the official petition — with title and summary 
-				from the Attorney General — is ready to sign.
+				Add your name now, and we'll follow up once 
+				the official petition is ready to sign.
 			</p>
 			<div className="w-full">
 				<form

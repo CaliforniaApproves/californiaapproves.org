@@ -12,7 +12,7 @@ const timeline = [
 	{
 		year: "2021 · First Use",
 		num: "57%",
-		body: "The leading mayoral candidate advanced with broad approval, up from just 30% in the fractured 2017 race she didn't win.",
+		body: "The leading mayoral candidate advanced with broad approval, up from just 30% in the fractured 2017 primary race she didn't win.",
 	},
 	{
 		year: "2021 · Voter Survey",
@@ -36,7 +36,7 @@ const Proof = () => {
 						District 11. St. Louis in particular also pairs Approval 
 						Voting with an 
 						open primary that feeds into a top-two general, the same
-						structure this act would bring to California. St. Louis voters
+						structure this reform would bring to California. St. Louis voters
 						adopted this structure for municipal elections in 2020. Every
 						election since has shown the same pattern: candidates who once
 						looked narrowly supported turned out to have much broader
