@@ -2,12 +2,11 @@ import { useState } from "preact/hooks";
 
 //create components
 const candidates = [
-	{ name: "Candidate A", party: "Promises big changes, but untested when it comes to actually governing" },
-	{ name: "Candidate B", party: "Aligned with your values and seems to have a lot of momentum, even though they're not your favorite" },
-	{ name: "Candidate C", party: "Exciting option that matches your values, but seems to have less support" },
-	{ name: "Candidate D", party: "Strong at rallying supporters, doesn't share your values" },
-	{ name: "Candidate E", party: "Shares your goals, but prioritizes them differently than you would" },
-	{ name: "Candidate F", party: "You don't agree on everything, but you trust their judgment" },
+	{ name: "Candidate A", desc: "You don't agree on everything, but you trust their judgment" },
+	{ name: "Candidate B", desc: "Aligned with your values and seems to have a lot of momentum, even though they're not your favorite" },
+	{ name: "Candidate C", desc: "The one that excites you most and matches your values, but seems to have less support" },
+	{ name: "Candidate D", desc: "Strong at rallying supporters, doesn't share your values" },
+	{ name: "Candidate E", desc: "Shares your goals, but prioritizes them differently than you would" },
 ];
 
 //create components
@@ -33,7 +32,7 @@ return (
 				<div className="static max-w-full mt-9">
 					<p className="text-large text-white/85 lg:font-normal">
 						Try marking both ballots below with candidates you'd
-						support in a six-way primary. Notice how the first
+						support in a five-way primary. Notice how the first
 						ballot forces a single choice and how the second 
 						one <span className="italic">doesn't.</span>
 					</p>
@@ -70,7 +69,7 @@ return (
 										<div className="flex-1 text-bsm font-medium ">
 											<span className="uppercase">{c.name}{" "}</span>
 											<span className="block text-bsm text-schist-high">
-												{c.party}
+												{c.desc}
 											</span>
 										</div>
 										<div className="text-xs font-mono text-schist-high">
@@ -122,7 +121,7 @@ return (
 										<div className="flex-1 text-bsm font-medium">
 											<span className="uppercase">{c.name}{" "}</span>
 											<span className="block text-bsm text-schist-high">
-												{c.party}
+												{c.desc}
 											</span>
 										</div>
 										<div className="text-xs font-mono text-schist-high">
