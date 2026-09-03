@@ -57,13 +57,6 @@ const Summary = () => {
 						</ul>
 					</div>
 				</div>
-				<div className="max-w-full pt-6">
-					<p className="font-semibold text-large text-white mt-3 leading-snug">
-						By measuring overlapping support, Approval Voting provides more
-						choice, creates fair competition for broad support, and delivers
-						better representation.
-					</p>
-				</div>
 			</div>
 		</div>
 	);
