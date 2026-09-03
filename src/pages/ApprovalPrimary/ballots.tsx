@@ -2,12 +2,12 @@ import { useState } from "preact/hooks";
 
 //create components
 const candidates = [
-	{ name: "Candidate A", party: "Orange Party" },
-	{ name: "Candidate B", party: "Purple Party" },
-	{ name: "Candidate C", party: "Purple Party" },
-	{ name: "Candidate D", party: "Yellow Party" },
-	{ name: "Candidate E", party: "Orange Party" },
-	{ name: "Candidate F", party: "Orange Party" },
+	{ name: "Candidate A", party: "Promises big changes, but untested when it comes to actually governing" },
+	{ name: "Candidate B", party: "Aligned with your values and seems to have a lot of momentum, even though they're not your favorite" },
+	{ name: "Candidate C", party: "Exciting option that matches your values, but seems to have less support" },
+	{ name: "Candidate D", party: "Strong at rallying supporters, doesn't share your values" },
+	{ name: "Candidate E", party: "Shares your goals, but prioritizes them differently than you would" },
+	{ name: "Candidate F", party: "You don't agree on everything, but you trust their judgment" },
 ];
 
 //create components
@@ -33,10 +33,9 @@ return (
 				<div className="static max-w-full mt-9">
 					<p className="text-large text-white/85 lg:font-normal">
 						Try marking both ballots below with candidates you'd
-						support in a six-way primary, mirroring a California
-						voter-nominated primary where every candidate from every
-						party appears together on one ballot. Notice how the first
-						ballot forces a choice and how the second one <span className="italic">doesn't.</span>
+						support in a six-way primary. Notice how the first
+						ballot forces a single choice and how the second 
+						one <span className="italic">doesn't.</span>
 					</p>
 				</div>
 
@@ -44,7 +43,7 @@ return (
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 						{/* OLD BALLOT — choose one */}
 						<div className="bg-schist-lower text-black rounded-md p-6">
-							<span className="inline-block text-xs font-bold uppercase tracking-wide bg-tan text-orange px-3 py-1 rounded-full mb-4">
+							<span className="inline-block text-sm font-bold uppercase tracking-wide bg-tan text-orange px-3 py-1 rounded-full mb-4">
 								Today: Choose One
 							</span>
 							<h4 className="mb-1">Vote for one</h4>
@@ -68,9 +67,9 @@ return (
 										>
 											✕
 										</div>
-										<div className="flex-1 text-bsm font-medium">
-											{c.name}{" "}
-											<span className="block text-sm uppercase text-schist-high">
+										<div className="flex-1 text-bsm font-medium ">
+											<span className="uppercase">{c.name}{" "}</span>
+											<span className="block text-bsm text-schist-high">
 												{c.party}
 											</span>
 										</div>
@@ -80,7 +79,7 @@ return (
 									</div>
 								);
 							})}
-							<div className="mt-4 pt-3 border-t border-dashed border-schist text-bsm text-schist-higher">
+							<div className="mt-4 pt-3 border-t border-dashed border-schist text-small text-schist-higher">
 								{oldSelected ? (
 									<>
 										You marked <b className="text-green">{oldSelected}</b>. Your
@@ -94,7 +93,7 @@ return (
 
 						{/* NEW BALLOT — approve all you support */}
 						<div className="bg-schist-lower text-black rounded-md p-6">
-							<span className="inline-block text-xs font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full mb-4">
+							<span className="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full mb-4">
 								The Fix: Approve All You Support
 							</span>
 							<h4 className="mb-1">
@@ -121,8 +120,8 @@ return (
 											✓
 										</div>
 										<div className="flex-1 text-bsm font-medium">
-											{c.name}{" "}
-											<span className="block text-sm uppercase text-schist-high">
+											<span className="uppercase">{c.name}{" "}</span>
+											<span className="block text-bsm text-schist-high">
 												{c.party}
 											</span>
 										</div>
@@ -132,7 +131,7 @@ return (
 									</div>
 								);
 							})}
-							<div className="mt-4 pt-3 border-t border-dashed border-schist text-bsm text-schist-higher">
+							<div className="mt-4 pt-3 border-t border-dashed border-schist text-small text-schist-higher">
 								{newCount > 0 ? (
 									<>
 										You approved <b className="text-green">{newCount} candidate{newCount > 1 ? "s" : ""}</b>. Each one counted fully, with no tradeoff.

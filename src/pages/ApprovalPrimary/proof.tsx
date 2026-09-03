@@ -7,7 +7,7 @@ const timeline = [
 	{
 		year: "2020 · Reform Passes",
 		num: "68%",
-		body: "St. Louis voters approved switching their municipal elections to Approval Voting.",
+		body: "St. Louis voters approved switching their municipal primary elections to Approval Voting.",
 	},
 	{
 		year: "2021 · First Use",
