@@ -34,7 +34,7 @@ return (
 						Try marking both ballots below with candidates you'd
 						support in a five-way primary. Notice how the first
 						ballot forces a single choice and how the second 
-						one <span className="italic">doesn't.</span>
+						one leaves you free to choose one or several.
 					</p>
 				</div>
 

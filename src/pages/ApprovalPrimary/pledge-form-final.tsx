@@ -103,9 +103,9 @@ const FinalPledge = () => {
 							</label>
 
 							<ActionButton
-								color="green"
+								color="orange"
 								variant="solid"
-								className="mx-auto whitespace-nowrap px-20 mt-3 bg-green hover:bg-green-high"
+								className="mx-auto whitespace-nowrap px-20 mt-3 bg-orange hover:bg-orange-accent"
 								size="lg"
 								name="subscribe"
 								id="mc-embedded-subscribe-final"
