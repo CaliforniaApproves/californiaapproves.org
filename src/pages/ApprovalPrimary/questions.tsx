@@ -191,7 +191,7 @@ const FaqItem = ({
 };
 
 const Questions = () => {
-	const [openId, setOpenId] = useState<string | null>("q1");
+	const [openId, setOpenId] = useState<string | null>("q0");
 
 	const toggle = (id: string) => {
 		setOpenId((prev) => (prev === id ? null : id));
