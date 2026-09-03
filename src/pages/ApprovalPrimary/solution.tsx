@@ -4,17 +4,17 @@ const steps = [
 	{
 		num: "01",
 		title: "Mark every candidate you approve of",
-		body: "No limit. Just vote your conscience — mark everyone you genuinely want to support. Every registered voter can still vote for any candidate, regardless of party affiliation.",
+		body: "No limit, and no obligation. Just vote your conscience — mark one candidate or several, whoever you genuinely want to support.",
 	},
 	{
 		num: "02",
 		title: "Approvals add up, they don't divide",
-		body: "Supporting a second or third candidate never takes anything away from your first choice, and never helps candidates you don't want to advance. Overlapping support among candidates gets counted instead of split apart.",
+		body: "Overlapping support among candidates gets counted instead of split apart. A candidate with real, broad appeal is no longer penalized just because that support overlaps with others.",
 	},
 	{
 		num: "03",
 		title: "The most-approved candidates advance",
-		body: "Same general election California already runs. The only change is more choice in the primary — so the candidates with the widest genuine voter support actually advance, and the winner arrives with a real mandate to represent more than just their base.",
+		body: "Because voters have unrestricted choice in the primary, the candidates with the widest genuine voter support actually advance, and the winner arrives with a real mandate to represent more than just their base.",
 	},
 ];
 
@@ -47,8 +47,10 @@ const Solution = () => {
 						An election should measure how much support a candidate actually has.
 					</h2>
 					<p className="text-large text-white/85 mt-3">
-						Approval Voting does exactly that and it changes nothing else
-						about how Californians vote.
+						Approval Voting does exactly. By measuring overlapping 
+						support, it provides more choice, creates fair 
+						competition for broad support, and delivers better 
+						representation.
 					</p>
 				</div>
 
