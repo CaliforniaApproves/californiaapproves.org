@@ -39,7 +39,7 @@ const Problem = () => {
 						<p className="text-base text-schist-high mt-2 leading-tight">
 							St. Louis primary voters approved more than one candidate in
 							2025, proof that &ldquo;just pick one" was never the whole
-							story of what voters wanted.
+							picture of what voters wanted.
 						</p>
 					</div>
 					<div className="bg-white p-6">
