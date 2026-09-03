@@ -16,17 +16,24 @@ type FaqEntry = {
 
 const faqs = [
 	{
-		id: "q1",
-		q: "Won't voters just approve of one candidate anyway?",
+		id: "q0",
+		q: "Do I have to approve more than one candidate?",
 		a: [
-			'No. In St. Louis, roughly a third of voters approved more than one candidate, and among supporters of lesser-known candidates, over 80% did. Voters use the freedom to support everyone they genuinely like — they just weren\'t able to before.',
+			'No. If you only want to support one candidate, mark just that one. Your ballot works exactly like it does today. Approval Voting doesn\’t ask anything different of you unless you want it to. The reform isn\’t about changing how you personally vote; it\’s about giving every voter the freedom to do more if they want to, so that primaries as a whole measure support more accurately. Whether you mark one candidate or five, your vote counts fully either way.',
+		],
+	},
+	{
+		id: "q1",
+		q: "Does approving more candidates ever take away from my favorite?",
+		a: [
+			"No. Approving an additional candidate never takes support away from your favorite. You're only ever adding support for someone else, never subtracting it from anyone you've already approved. The final outcome will still reflect what the whole electorate wants, but your own ballot never reduces support for your favorite.",
 		],
 	},
 	{
 		id: "q2",
-		q: "Does approving more candidates ever take away from my favorite?",
+		q: "Won't voters just approve of one candidate anyway?",
 		a: [
-			"No. Approving an additional candidate never takes support away from your favorite. You're only ever adding support for someone else, never subtracting it from anyone you've already approved. The final outcome will still reflect what the whole electorate wants, but your own ballot never reduces support for your favorite.",
+			'No. In St. Louis, roughly a third of voters approved more than one candidate, and among supporters of lesser-known candidates, over 80% did. Voters use the freedom to support everyone they genuinely like — they just weren\'t able to before.',
 		],
 	},
 	{
@@ -47,7 +54,7 @@ const faqs = [
 		id: "q4",
 		q: "Won't this make voting more complicated?",
 		a: [
-			'No. If anything, it\'s simpler. Instead of narrowing down to the one who seems most "electable," you can just mark every candidate you approve of. You\'ve probably already made a decision this way: when a group is scheduling a meeting and everyone\'s asked which times work for them, nobody picks just one — you check every time you\'re free, and the option most people can make wins. That\'s basically approval voting. On the ballot, it\'s the same instinct: mark everyone you want to support, and move on.',
+			'No. If anything, it\'s simpler. Instead of narrowing down those you like to the one who seems most "electable," you can just mark every candidate you approve of. You\'ve probably already made a decision this way: when a group is scheduling a meeting and everyone\'s asked which times work for them, nobody picks just one — you check every time you\'re free, and the option most people can make wins. That\'s basically approval voting. On the ballot, it\'s the same instinct: mark everyone you want to support, and move on.',
 		],
 	},
 	{
@@ -123,7 +130,7 @@ const NestedToggle = ({ nested }: { nested?: NestedFaq }) => {
 			{open && (
 				<div className="pb-2">
 					{nested.body.map((p: string) => (
-						<p key={p.slice(0, 24)} className="text-bsm text-schist-high leading-relaxed mb-3 max-w-[66ch]">
+						<p key={p.slice(0, 24)} className="text-small text-schist-high leading-relaxed mb-3 max-w-[66ch]">
 							{p}
 						</p>
 					))}
@@ -160,7 +167,7 @@ const FaqItem = ({
 				onClick={onToggle}
 				className="w-full flex justify-between items-center gap-5 py-5 text-left cursor-pointer"
 			>
-				<span className="text-green text-xl font-semibold">{item.q}</span>
+				<span className="text-green text-base font-semibold">{item.q}</span>
 				<span
 					className={`font-mono text-xl text-orange-accent shrink-0 transition-transform ${
 						isOpen ? "rotate-45" : ""
@@ -172,7 +179,7 @@ const FaqItem = ({
 			{isOpen && (
 				<div className="pb-5">
 					{item.a.map((p: string) => (
-						<p key={p.slice(0, 24)} className="text-lg text-schist-high leading-relaxed mb-3 max-w-[70ch]">
+						<p key={p.slice(0, 24)} className="text-base text-schist-high leading-relaxed mb-3 max-w-[70ch]">
 							{p}
 						</p>
 					))}
