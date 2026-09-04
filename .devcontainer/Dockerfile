@@ -1,5 +1,7 @@
 FROM mcr.microsoft.com/devcontainers/typescript-node:24
 
+USER node
+
 # Install Chromium's system dependencies so Playwright can render screenshots.
 # `playwright install-deps chromium` is the official, self-maintaining apt list
 # (libnspr4, libnss3, libatk*, libgbm1, libcups2, libdrm2, ...). These libraries
@@ -10,3 +12,8 @@ FROM mcr.microsoft.com/devcontainers/typescript-node:24
 # devcontainer and the GitHub Actions run.
 # apt needs root; the base image grants the node user passwordless sudo.
 RUN sudo npx --yes playwright@1.61.0 install-deps chromium
+
+# Copy the package-lock to ensure the same Playwright version is installed in
+# the devcontainer as will be expected after the project dir is mounted.
+COPY package-lock.json ./
+RUN npx playwright install chromium
