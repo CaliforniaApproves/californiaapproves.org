@@ -14,10 +14,7 @@ const FinalPledge = () => {
 
 				<div className="bg-white rounded-[24px] p-6 lg:p-10 mt-9 text-left">
 					<form
-						onSubmit={(e) => {
-							e.preventDefault();
-							console.log("Form submitted (placeholder - no Mailchimp endpoint yet)");
-						}}
+						action="https://californiaapproves.us5.list-manage.com/subscribe/post?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=004f43edf0"
 						method="post"
 						id="mc-embedded-subscribe-form-final"
 						name="mc-embedded-subscribe-form-final"
@@ -64,18 +61,35 @@ const FinalPledge = () => {
 									required
 								/>
 							</div>
-							<div id="mc-zip-input-wrapper-final" className="mc-field-group">
-								<Input
-									color="green"
-									label="zip code"
-									labelHidden={true}
-									type="text"
-									name="MMERGE5"
-									placeholder="Zip code"
-									className="w-full"
-									id="mce-MMERGE5-final"
-								/>
+							<div className="flex gap-2">
+								<div id="mc-zip-input-wrapper-final" className="mc-field-group w-full">
+									<Input
+										color="green"
+										label="zip code"
+										labelHidden={true}
+										type="text"
+										name="ZIP"
+										placeholder="Zip code"
+										className="w-full"
+										id="mce-ZIP-final"
+									/>
+								</div>
+								<div id="mc-phone-input-wrapper-final" className="mc-field-group w-full">
+									<Input
+										color="green"
+										label="phone number"
+										labelHidden={true}
+										type="text"
+										name="PHONE"
+										placeholder="Phone number"
+										className="w-full"
+										id="mce-PHONE-final"
+									/>
+								</div>
 							</div>
+
+							{/* Auto-tags every submission through this form as "Approval Primary Pledge" */}
+							<input type="hidden" name="tags" value="4527864" />
 
 							{/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
 							<div
@@ -93,8 +107,8 @@ const FinalPledge = () => {
 							<label className="flex items-start gap-2 mt-2 mb-1 cursor-pointer">
 								<input
 									type="checkbox"
-									name="volunteer"
-									id="mce-volunteer-final"
+									name="group[384917][16]"
+									id="mce-group-384917-0-final"
 									className="mt-1 shrink-0 w-4 h-4 accent-green cursor-pointer"
 								/>
 								<span className="text-sm text-gray-500 leading-snug">
