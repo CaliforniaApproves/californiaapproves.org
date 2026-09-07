@@ -74,7 +74,7 @@ const Hero = () => {
 					</p>
 				</div>
 			</div>
-			<div className="py-8 px-5 lg:px-8 w-full max-w-full lg:max-w-[47%] m-auto bg-orange lg:bg-transparent ">
+			<div className="py-8 px-5 lg:px-8 w-full max-w-full lg:max-w-[40%] m-auto bg-orange lg:bg-transparent ">
 				<HeroCTA />
 			</div>
 		</div>

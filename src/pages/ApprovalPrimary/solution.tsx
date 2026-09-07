@@ -47,7 +47,7 @@ const Solution = () => {
 						An election should measure how much support a candidate actually has.
 					</h2>
 					<p className="text-large text-white/85 mt-3">
-						Approval Voting does exactly. By measuring overlapping 
+						Approval Voting does exactly that. By measuring overlapping 
 						support, it provides more choice, creates fair 
 						competition for broad support, and delivers better 
 						representation.
