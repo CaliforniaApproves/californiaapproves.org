@@ -1,13 +1,13 @@
 import Hero from "./hero";
-import HeroPledge from "./pledge-form-hero";
+import HeroPledge from "./cta-hero";
 import Ballots from "./ballots";
 import Problem from "./problem";
 import Solution from "./solution";
 import Proof from "./proof";
 import Summary from "./summary";
 import Questions from "./questions";
-import MidPledge from "./pledge-form-mid";
 import FinalPledge from "./pledge-form-final";
+import MidCTA from "./cta-mid";
 
 // create a component
 export function ApprovalPrimary() {
@@ -20,7 +20,7 @@ export function ApprovalPrimary() {
 			<Solution />
 			<Proof />
 			<Summary />
-			<MidPledge />
+			<MidCTA />
 			<Questions />
 			<FinalPledge />
 		</div>
