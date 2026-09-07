@@ -3,13 +3,15 @@ import Input from "../../components/common/input";
 
 const FinalPledge = () => {
 	return (
-		<div className="bg-green text-center py-16 lg:py-20">
+		<div className="bg-green text-center py-16 lg:py-20" id="pledge">
 			<div className="max-w-[700px] m-auto px-8">
 				<h2 className="text-white">
 					Help bring Approval Voting to California.
 				</h2>
 				<p className="text-base text-white/85 mt-3">
-					Every pledge moves this closer to the 2028 ballot. Add your name below.
+					Every pledge moves this closer to the 2028 ballot. 
+					Add your name below, and we'll follow up once the 
+					official petition is ready to sign.
 				</p>
 
 				<div className="bg-white rounded-[24px] p-6 lg:p-10 mt-9 text-left">
@@ -22,6 +24,19 @@ const FinalPledge = () => {
 						target="_self"
 					>
 						<div className="flex flex-col gap-2">
+							<div id="mc-email-input-wrapper-final" className="mc-field-group">
+								<Input
+									color="green"
+									label="email"
+									labelHidden={true}
+									type="email"
+									name="EMAIL"
+									placeholder="Enter your email"
+									className="w-full required email"
+									id="mce-EMAIL-final"
+									required
+								/>
+							</div>
 							<div className="flex gap-2">
 								<div id="mc-fname-input-wrapper-final" className="mc-field-group w-full">
 									<Input
@@ -48,44 +63,17 @@ const FinalPledge = () => {
 									/>
 								</div>
 							</div>
-							<div id="mc-email-input-wrapper-final" className="mc-field-group">
+							<div id="mc-zip-input-wrapper-final" className="mc-field-group w-full">
 								<Input
 									color="green"
-									label="email"
+									label="zip code"
 									labelHidden={true}
-									type="email"
-									name="EMAIL"
-									placeholder="Enter your email"
-									className="w-full required email"
-									id="mce-EMAIL-final"
-									required
+									type="text"
+									name="ZIP"
+									placeholder="Zip code"
+									className="w-full"
+									id="mce-ZIP-final"
 								/>
-							</div>
-							<div className="flex gap-2">
-								<div id="mc-zip-input-wrapper-final" className="mc-field-group w-full">
-									<Input
-										color="green"
-										label="zip code"
-										labelHidden={true}
-										type="text"
-										name="ZIP"
-										placeholder="Zip code"
-										className="w-full"
-										id="mce-ZIP-final"
-									/>
-								</div>
-								<div id="mc-phone-input-wrapper-final" className="mc-field-group w-full">
-									<Input
-										color="green"
-										label="phone number"
-										labelHidden={true}
-										type="text"
-										name="PHONE"
-										placeholder="Phone number"
-										className="w-full"
-										id="mce-PHONE-final"
-									/>
-								</div>
 							</div>
 
 							{/* Auto-tags every submission through this form as "Approval Primary Pledge" */}

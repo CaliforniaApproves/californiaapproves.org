@@ -2,7 +2,8 @@ import orangeCircleCheck from "../../assets/icons/Individual Circles/California-
 import purpleCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Purple-Circle-w-Check-RGB.svg";
 import yellowCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Yellow-Circle-w-Check-RGB.svg";
 import Background from "../../assets/images/Group-39.svg";
-import HeroPledge from "./pledge-form-hero";
+import HeroCTA from "./cta-hero";
+import HeroPledge from "./cta-hero";
 
 // create a component
 const Hero = () => {
@@ -14,6 +15,7 @@ const Hero = () => {
 				backgroundSize: "cover",
 				backgroundRepeat: "no-repeat",
 			}}
+			id = "top"
 		>
 			<div className="m-auto px-8 pb-14 lg:pb-0">
 				<h2 className="text-green banner-drop-shadow pt-4">
@@ -60,7 +62,7 @@ const Hero = () => {
 						who advance to the general election are not 
 						always the ones who best represent the electorate. 
 					</p>
-					<p className="text-large-bold lg:font-normal pt-8">
+					<p className="text-large-bold lg:font-normal pt-8 lg:pb-12">
 						<span className="font-bold">
 							Approval Voting simply eliminates the 
 							choose-one rule, 
@@ -73,7 +75,7 @@ const Hero = () => {
 				</div>
 			</div>
 			<div className="py-8 px-5 lg:px-8 w-full max-w-full lg:max-w-[47%] m-auto bg-orange lg:bg-transparent ">
-				<HeroPledge />
+				<HeroCTA />
 			</div>
 		</div>
 	);
