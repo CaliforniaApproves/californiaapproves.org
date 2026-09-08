@@ -71,10 +71,8 @@ function hostnameAllowed(hostname: string, env: Env): boolean {
 	const isProduction = (env.ENVIRONMENT ?? "production") === "production";
 
 	if (host === "localhost" || host === "127.0.0.1") return !isProduction;
-	// Preview/versioned deployments are served from *.workers.dev. The widget
-	// sitekey is itself domain-restricted, so this only widens the allowlist to
-	// hosts Cloudflare will serve this Worker on.
-	if (host === "workers.dev" || host.endsWith(".workers.dev")) return true;
+	// Preview deployments: <version>.californiaapproves.workers.dev
+	if (host.endsWith(".californiaapproves.workers.dev")) return true;
 
 	const configured = (env.TURNSTILE_ALLOWED_HOSTNAMES ?? "")
 		.split(",")
