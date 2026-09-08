@@ -220,7 +220,7 @@ export function TurnstileField({
 	);
 }
 
-export type SubscribeForm = "newsletter" | "pledge";
+export type SubscribeForm = "newsletter" | "pledge" | "contact";
 
 export type SubscribeResult = {
 	ok: boolean;
