@@ -66,8 +66,6 @@ const ContactForm = () => {
 									variant="outlined"
 									className="text-purple mx-auto"
 									size="lg"
-									name="subscribe"
-									id="mc-embedded-subscribe"
 									type="submit"
 								>
 									JOIN US

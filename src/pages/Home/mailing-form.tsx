@@ -122,8 +122,6 @@ const MailingForm = () => {
 								variant="outlined"
 								className="text-purple mx-auto"
 								size="lg"
-								name="subscribe"
-								id="mc-embedded-subscribe"
 								type="submit"
 								disabled={
 									turnstile.status !== "ready" || status === "submitting"

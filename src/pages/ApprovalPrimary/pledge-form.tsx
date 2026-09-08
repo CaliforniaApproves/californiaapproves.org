@@ -177,8 +177,6 @@ const PledgeForm = () => {
 								variant="solid"
 								className="mx-auto whitespace-nowrap px-20 mt-3 bg-orange hover:bg-orange-accent"
 								size="lg"
-								name="subscribe"
-								id="mc-embedded-subscribe-final"
 								type="submit"
 								disabled={
 									turnstile.status !== "ready" || status === "submitting"
