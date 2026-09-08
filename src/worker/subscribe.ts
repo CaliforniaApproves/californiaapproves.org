@@ -9,8 +9,10 @@
 // Optional:
 //   TURNSTILE_ALLOWED_HOSTNAMES - comma-separated hostname allowlist
 //                                 (defaults to the production domains below)
-//   ENVIRONMENT                 - set to "production" on the prod deployment;
-//                                 anything else also allows localhost tokens
+//   ENVIRONMENT                 - set to "production" on the prod deployment.
+//                                 Any other value also allows localhost tokens;
+//                                 UNSET counts as production (fail closed), so
+//                                 local runs must set it explicitly.
 
 export interface Env {
 	TURNSTILE_SECRET_KEY?: string;
@@ -182,7 +184,15 @@ export async function handleSubscribe(
 		return json({ ok: false, message: GENERIC_REJECTION }, 403);
 	}
 	if (!outcome.hostname || !hostnameAllowed(outcome.hostname, env)) {
-		console.warn(`subscribe: hostname not allowed (${outcome.hostname})`);
+		const isLocal =
+			outcome.hostname === "localhost" || outcome.hostname === "127.0.0.1";
+		// The response stays generic; only the log distinguishes the cases, so a
+		// local run doesn't look like a genuine bad-host rejection.
+		console.warn(
+			isLocal && !env.ENVIRONMENT
+				? `subscribe: rejected a ${outcome.hostname} token because ENVIRONMENT is unset, which counts as production. Set ENVIRONMENT=development in .dev.vars for local runs.`
+				: `subscribe: hostname not allowed (${outcome.hostname})`,
+		);
 		return json({ ok: false, message: GENERIC_REJECTION }, 403);
 	}
 
