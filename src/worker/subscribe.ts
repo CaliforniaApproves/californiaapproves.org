@@ -105,16 +105,44 @@ async function readParams(request: Request): Promise<URLSearchParams | null> {
 	return null;
 }
 
-// Mailchimp's post-json endpoint answers with bare JSON or, sometimes, a
-// JSONP wrapper like `/**/typeof cb === 'function' && cb({...});`.
+// Mailchimp's post-json endpoint answers with bare JSON, a JSONP wrapper like
+// `/**/typeof cb === 'function' && cb({...});`, or — when it rejects a
+// submission — several such wrappers concatenated. Scan for the first balanced
+// object rather than matching from the first `{` to the last `}`, which spans
+// two payloads and parses as nothing.
 function parseMailchimp(text: string): { result?: string; msg?: string } {
-	const match = text.match(/\{[\s\S]*\}/);
-	if (!match) return {};
-	try {
-		return JSON.parse(match[0]);
-	} catch {
-		return {};
+	for (
+		let start = text.indexOf("{");
+		start !== -1;
+		start = text.indexOf("{", start + 1)
+	) {
+		let depth = 0;
+		let inString = false;
+		let escaped = false;
+
+		for (let i = start; i < text.length; i++) {
+			const ch = text[i];
+			if (escaped) {
+				escaped = false;
+			} else if (ch === "\\" && inString) {
+				escaped = true;
+			} else if (ch === '"') {
+				inString = !inString;
+			} else if (!inString && ch === "{") {
+				depth++;
+			} else if (!inString && ch === "}") {
+				depth--;
+				if (depth === 0) {
+					try {
+						return JSON.parse(text.slice(start, i + 1));
+					} catch {
+						break; // Not JSON; try the next `{`.
+					}
+				}
+			}
+		}
 	}
+	return {};
 }
 
 export async function handleSubscribe(
