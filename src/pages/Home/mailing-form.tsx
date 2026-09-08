@@ -1,8 +1,39 @@
+import type { TargetedSubmitEvent } from "preact";
+import { useState } from "preact/hooks";
 import { ActionButton } from "../../components/common/buttons";
 import Input from "../../components/common/input";
+import {
+	submitSubscription,
+	useTurnstile,
+} from "../../components/common/turnstile";
+
+type SubmitStatus = "idle" | "submitting" | "success" | "error";
 
 // create a component
 const MailingForm = () => {
+	const { containerRef, token, reset } = useTurnstile("newsletter");
+	const [status, setStatus] = useState<SubmitStatus>("idle");
+	const [message, setMessage] = useState("");
+
+	const handleSubmit = async (event: TargetedSubmitEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		if (status === "submitting") return;
+		if (!token) {
+			setStatus("error");
+			setMessage("Please complete the verification challenge and try again.");
+			return;
+		}
+
+		const formEl = event.currentTarget;
+		setStatus("submitting");
+		setMessage("");
+		const result = await submitSubscription("newsletter", formEl, token);
+		setStatus(result.ok ? "success" : "error");
+		setMessage(result.message);
+		if (result.ok) formEl.reset();
+		reset();
+	};
+
 	return (
 		<div className="bg-white border-purple rounded-[50px] border-[6px] p-5 lg:p-12 text-center flex flex-col items-center gap-3">
 			<h2 className="text-green">
@@ -22,6 +53,7 @@ const MailingForm = () => {
 					name="mc-embedded-subscribe-form"
 					className="validate"
 					target="_self"
+					onSubmit={handleSubmit}
 				>
 					<div id="mc_embed_signup_scroll">
 						<div id="mc-email-input-wrapper" className="mc-field-group">
@@ -58,6 +90,20 @@ const MailingForm = () => {
 								defaultValue=""
 							/>
 						</div>
+						<div
+							ref={containerRef}
+							className="mt-4 flex justify-center empty:hidden"
+						/>
+						{message ? (
+							<p
+								role="status"
+								className={`text-small mt-3 ${
+									status === "error" ? "text-orange" : "text-green"
+								}`}
+							>
+								{message}
+							</p>
+						) : null}
 						<div className="mt-4">
 							<ActionButton
 								color="purple"
@@ -68,7 +114,7 @@ const MailingForm = () => {
 								id="mc-embedded-subscribe"
 								type="submit"
 							>
-								JOIN US
+								{status === "submitting" ? "Joining…" : "JOIN US"}
 							</ActionButton>
 						</div>
 					</div>

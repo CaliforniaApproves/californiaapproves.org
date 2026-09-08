@@ -1,7 +1,38 @@
+import type { TargetedSubmitEvent } from "preact";
+import { useState } from "preact/hooks";
 import { ActionButton } from "../../components/common/buttons";
 import Input from "../../components/common/input";
+import {
+	submitSubscription,
+	useTurnstile,
+} from "../../components/common/turnstile";
+
+type SubmitStatus = "idle" | "submitting" | "success" | "error";
 
 const FinalPledge = () => {
+	const { containerRef, token, reset } = useTurnstile("pledge");
+	const [status, setStatus] = useState<SubmitStatus>("idle");
+	const [message, setMessage] = useState("");
+
+	const handleSubmit = async (event: TargetedSubmitEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		if (status === "submitting") return;
+		if (!token) {
+			setStatus("error");
+			setMessage("Please complete the verification challenge and try again.");
+			return;
+		}
+
+		const formEl = event.currentTarget;
+		setStatus("submitting");
+		setMessage("");
+		const result = await submitSubscription("pledge", formEl, token);
+		setStatus(result.ok ? "success" : "error");
+		setMessage(result.message);
+		if (result.ok) formEl.reset();
+		reset();
+	};
+
 	return (
 		<div className="bg-green text-center py-16 lg:py-20" id="pledge">
 			<div className="max-w-[700px] m-auto px-8">
@@ -22,6 +53,7 @@ const FinalPledge = () => {
 						name="mc-embedded-subscribe-form-final"
 						className="validate"
 						target="_self"
+						onSubmit={handleSubmit}
 					>
 						<div className="flex flex-col gap-2">
 							<div id="mc-email-input-wrapper-final" className="mc-field-group">
@@ -113,6 +145,21 @@ const FinalPledge = () => {
 								</span>
 							</label>
 
+							<div
+								ref={containerRef}
+								className="mt-2 flex justify-center empty:hidden"
+							/>
+							{message ? (
+								<p
+									role="status"
+									className={`text-bsm text-center mt-1 leading-snug ${
+										status === "error" ? "text-orange" : "text-green"
+									}`}
+								>
+									{message}
+								</p>
+							) : null}
+
 							<ActionButton
 								color="orange"
 								variant="solid"
@@ -122,7 +169,7 @@ const FinalPledge = () => {
 								id="mc-embedded-subscribe-final"
 								type="submit"
 							>
-								ADD MY PLEDGE
+								{status === "submitting" ? "Adding…" : "ADD MY PLEDGE"}
 							</ActionButton>
 							<p className="italic text-center text-bsm mt-2 text-schist-higher leading-snug">
 								We won't spam you or share your data. You can unsubscribe
