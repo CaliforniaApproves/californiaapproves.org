@@ -23,11 +23,12 @@ export const ActionButton = ({
 	size = "sm",
 	type = "button",
 	onClick,
+	disabled = false,
 	children,
 	className = "",
 }: PropsWithChildren<ActionButtonProps>) => {
 	const classNames = classnames(
-		"caa-button rounded-2xl px-4 py-2 uppercase flex text-center tracking-[-0.01rem] justify-center items-center font-extrabold cursor-pointer",
+		"caa-button rounded-2xl px-4 py-2 uppercase flex text-center tracking-[-0.01rem] justify-center items-center font-extrabold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed",
 		{
 			"text-white": variant === "solid",
 			"border-[6px]": variant === "outlined",
@@ -59,7 +60,12 @@ export const ActionButton = ({
 		className,
 	);
 	return (
-		<button type={type} className={classNames} onClick={onClick}>
+		<button
+			type={type}
+			className={classNames}
+			onClick={onClick}
+			disabled={disabled}
+		>
 			{children}
 		</button>
 	);
