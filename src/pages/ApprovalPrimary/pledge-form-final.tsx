@@ -9,9 +9,9 @@ const FinalPledge = () => {
 					Help bring Approval Voting to California.
 				</h2>
 				<p className="text-base text-white/85 mt-3">
-					Every pledge moves this closer to the 2028 ballot. 
-					Add your name below, and we'll follow up once the 
-					official petition is ready to sign.
+					Every pledge moves this closer to the 2028 ballot. Add your name
+					below, and we'll follow up once the official petition is ready to
+					sign.
 				</p>
 
 				<div className="bg-white rounded-[24px] p-6 lg:p-10 mt-9 text-left">
@@ -38,7 +38,10 @@ const FinalPledge = () => {
 								/>
 							</div>
 							<div className="flex gap-2">
-								<div id="mc-fname-input-wrapper-final" className="mc-field-group w-full">
+								<div
+									id="mc-fname-input-wrapper-final"
+									className="mc-field-group w-full"
+								>
 									<Input
 										color="green"
 										label="first name"
@@ -50,7 +53,10 @@ const FinalPledge = () => {
 										id="mce-FNAME-final"
 									/>
 								</div>
-								<div id="mc-lname-input-wrapper-final" className="mc-field-group w-full">
+								<div
+									id="mc-lname-input-wrapper-final"
+									className="mc-field-group w-full"
+								>
 									<Input
 										color="green"
 										label="last name"
@@ -63,7 +69,10 @@ const FinalPledge = () => {
 									/>
 								</div>
 							</div>
-							<div id="mc-zip-input-wrapper-final" className="mc-field-group w-full">
+							<div
+								id="mc-zip-input-wrapper-final"
+								className="mc-field-group w-full"
+							>
 								<Input
 									color="green"
 									label="zip code"
@@ -116,7 +125,8 @@ const FinalPledge = () => {
 								ADD MY PLEDGE
 							</ActionButton>
 							<p className="italic text-center text-bsm mt-2 text-schist-higher leading-snug">
-								We won't spam you or share your data. You can unsubscribe anytime.
+								We won't spam you or share your data. You can unsubscribe
+								anytime.
 							</p>
 						</div>
 					</form>

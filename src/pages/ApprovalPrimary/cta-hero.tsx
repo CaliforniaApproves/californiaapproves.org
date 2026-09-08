@@ -9,8 +9,8 @@ const HeroCTA = () => {
 		<div className="bg-white border-orange rounded-[50px] border-[6px] p-5 lg:p-12 text-center flex flex-col items-center gap-3">
 			<h3 className="text-green">Pledge Your Support</h3>
 			<p className="text-large mt-2">
-				Add your name now, and we'll follow up once
-				the official petition is ready to sign.
+				Add your name now, and we'll follow up once the official petition is
+				ready to sign.
 			</p>
 			<ActionButton
 				color="orange"

@@ -44,13 +44,13 @@ const Solution = () => {
 				<div className="max-w-full">
 					<div className="font-bold text-tan text-small">THE SOLUTION</div>
 					<h2 className="text-white mt-2">
-						An election should measure how much support a candidate actually has.
+						An election should measure how much support a candidate actually
+						has.
 					</h2>
 					<p className="text-large text-white/85 mt-3">
-						Approval Voting does exactly that. By measuring overlapping 
-						support, it provides more choice, creates fair 
-						competition for broad support, and delivers better 
-						representation.
+						Approval Voting does exactly that. By measuring overlapping support,
+						it provides more choice, creates fair competition for broad support,
+						and delivers better representation.
 					</p>
 				</div>
 
@@ -60,9 +60,7 @@ const Solution = () => {
 							<div className="font-mono text-tan text-sm font-semibold">
 								{step.num}
 							</div>
-							<h4 className="text-white mt-2 mb-2">
-								{step.title}
-							</h4>
+							<h4 className="text-white mt-2 mb-2">{step.title}</h4>
 							<p className="text-white/85 text-base leading-tight">
 								{step.body}
 							</p>
