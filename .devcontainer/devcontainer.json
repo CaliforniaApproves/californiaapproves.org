@@ -20,7 +20,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo chown -R node:node /home/node/.claude",
+	"postCreateCommand": "sudo chown -R node:node /home/node/.claude && npm install",
 
 	// Configure tool-specific properties.
 	"customizations": {
