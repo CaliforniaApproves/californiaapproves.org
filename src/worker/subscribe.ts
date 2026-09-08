@@ -130,7 +130,10 @@ export async function handleSubscribe(
 	}
 
 	const formKey = params.get("form") ?? "";
-	if (!(formKey in FORMS)) {
+	// hasOwn, not `in`: `in` walks the prototype chain, so form=constructor or
+	// form=__proto__ would clear this check and reach siteverify with an
+	// undefined config.
+	if (!Object.hasOwn(FORMS, formKey)) {
 		return json({ ok: false, message: "Unknown form." }, 400);
 	}
 	const config = FORMS[formKey as FormKey];
