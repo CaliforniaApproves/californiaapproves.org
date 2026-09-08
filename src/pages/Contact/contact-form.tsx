@@ -1,9 +1,51 @@
+import type { TargetedSubmitEvent } from "preact";
+import { useState } from "preact/hooks";
 import Logo from "../../assets/icons/Circles/California-Approves-Logo-Circles-w-Checks-RGB.svg?react";
 import { ActionButton } from "../../components/common/buttons";
 import Input from "../../components/common/input";
+import {
+	submitSubscription,
+	TurnstileField,
+	useTurnstile,
+} from "../../components/common/turnstile";
+
+type SubmitStatus = "idle" | "submitting" | "success" | "error";
+
+const FALLBACK_EMAIL = "contact@californiaapproves.org";
 
 // create a component
 const ContactForm = () => {
+	const turnstile = useTurnstile("contact");
+	const { token, reset } = turnstile;
+	const [status, setStatus] = useState<SubmitStatus>("idle");
+	const [message, setMessage] = useState("");
+
+	const handleSubmit = async (event: TargetedSubmitEvent<HTMLFormElement>) => {
+		event.preventDefault();
+		if (status === "submitting") return;
+		if (turnstile.status === "unavailable") {
+			setStatus("error");
+			setMessage(
+				`Verification couldn't load, so we can't accept the form. Email ${FALLBACK_EMAIL} and we'll get you set up.`,
+			);
+			return;
+		}
+		if (!token) {
+			setStatus("error");
+			setMessage("Please complete the verification challenge and try again.");
+			return;
+		}
+
+		const formEl = event.currentTarget;
+		setStatus("submitting");
+		setMessage("");
+		const result = await submitSubscription("contact", formEl, token);
+		setStatus(result.ok ? "success" : "error");
+		setMessage(result.message);
+		if (result.ok) formEl.reset();
+		reset();
+	};
+
 	return (
 		<div className="py-16 text-center flex flex-col">
 			<Logo className="w-40 m-auto" />
@@ -16,13 +58,14 @@ const ContactForm = () => {
 					and an introductory email.
 				</p>
 				<div className="w-full">
+					{/* No native action: submissions go through /api/subscribe, which
+					    verifies the Turnstile token before forwarding to Mailchimp. A
+					    Mailchimp action here would let anyone post around that check. */}
 					<form
-						action="https://californiaapproves.us5.list-manage.com/subscribe/post?u=b4aa7540a62457c043ff00e36&amp;id=dddf3d641c&amp;f_id=003abee6f0"
-						method="post"
 						id="mc-embedded-subscribe-form"
 						name="mc-embedded-subscribe-form"
 						className="validate"
-						target="_self"
+						onSubmit={handleSubmit}
 					>
 						<div id="mc_embed_signup_scroll">
 							<div id="mc-email-input-wrapper" className="mc-field-group">
@@ -60,6 +103,21 @@ const ContactForm = () => {
 									readOnly
 								/>
 							</div>
+							<TurnstileField
+								widget={turnstile}
+								fallbackEmail={FALLBACK_EMAIL}
+								className="mt-4"
+							/>
+							{message ? (
+								<p
+									role="status"
+									className={`text-small mt-3 text-center ${
+										status === "error" ? "text-orange" : "text-green"
+									}`}
+								>
+									{message}
+								</p>
+							) : null}
 							<div className="mt-4">
 								<ActionButton
 									color="purple"
@@ -67,12 +125,21 @@ const ContactForm = () => {
 									className="text-purple mx-auto"
 									size="lg"
 									type="submit"
+									disabled={
+										turnstile.status !== "ready" || status === "submitting"
+									}
 								>
-									JOIN US
+									{status === "submitting" ? "Joining…" : "JOIN US"}
 								</ActionButton>
 							</div>
 						</div>
 					</form>
+					<noscript>
+						<p className="text-small text-orange mt-3">
+							This form needs JavaScript for its spam check. Email{" "}
+							{FALLBACK_EMAIL} and we'll get you set up.
+						</p>
+					</noscript>
 				</div>
 
 				<br />

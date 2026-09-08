@@ -30,7 +30,7 @@ Pushing to any other branch will automatically push to
 
 ## Environment variables
 
-The newsletter and pledge forms are protected by Cloudflare Turnstile and
+The newsletter, pledge, and contact forms are protected by Cloudflare Turnstile and
 submit through the `functions/api/subscribe.ts` Pages Function, which verifies
 the token server-side before forwarding to Mailchimp. Set these on the Pages
 project (Settings → Environment variables), for both Production and Preview:
