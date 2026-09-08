@@ -32,11 +32,11 @@ export function App() {
 					<Route path="/contact" component={Contact} />
 					<Route path="/donate" component={Donate} />
 					<Route path="/approval-101" component={Approval101} />
-					<Route default component={NotFound} />
 					<Route
 						path="/our-reforms/approval-primary"
 						component={ApprovalPrimary}
 					/>
+					<Route default component={NotFound} />
 				</Router>
 			</main>
 			<Footer />
