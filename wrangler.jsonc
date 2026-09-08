@@ -1,7 +1,9 @@
 {
 	"name": "californiaapproves",
 	"compatibility_date": "2025-09-20",
+	"main": "src/worker/index.ts",
 	"assets": {
-		"directory": "./dist"
+		"directory": "./dist",
+		"binding": "ASSETS"
 	}
 }
