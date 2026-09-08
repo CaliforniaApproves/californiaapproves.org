@@ -8,6 +8,10 @@ npm-debug.log
 /venv
 .vs/
 
+# Wrangler / Cloudflare Pages local secrets (e.g. TURNSTILE_SECRET_KEY)
+.dev.vars
+.wrangler/
+
 # Playwright (tests/visual/*-snapshots/ baselines are committed, not ignored)
 test-results
 playwright-report
