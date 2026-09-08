@@ -4,19 +4,30 @@ import { ActionButton } from "../../components/common/buttons";
 import Input from "../../components/common/input";
 import {
 	submitSubscription,
+	TurnstileField,
 	useTurnstile,
 } from "../../components/common/turnstile";
 
 type SubmitStatus = "idle" | "submitting" | "success" | "error";
 
+const FALLBACK_EMAIL = "pledge@californiaapproves.org";
+
 const PledgeForm = () => {
-	const { containerRef, token, reset } = useTurnstile("pledge");
+	const turnstile = useTurnstile("pledge");
+	const { token, reset } = turnstile;
 	const [status, setStatus] = useState<SubmitStatus>("idle");
 	const [message, setMessage] = useState("");
 
 	const handleSubmit = async (event: TargetedSubmitEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		if (status === "submitting") return;
+		if (turnstile.status === "unavailable") {
+			setStatus("error");
+			setMessage(
+				`Verification couldn't load, so we can't accept your pledge. Email ${FALLBACK_EMAIL} and we'll add you.`,
+			);
+			return;
+		}
 		if (!token) {
 			setStatus("error");
 			setMessage("Please complete the verification challenge and try again.");
@@ -46,13 +57,13 @@ const PledgeForm = () => {
 				</p>
 
 				<div className="bg-white rounded-[24px] p-6 lg:p-10 mt-9 text-left">
+					{/* No native action: submissions go through /api/subscribe, which
+					    verifies the Turnstile token before forwarding to Mailchimp. A
+					    Mailchimp action here would let anyone post around that check. */}
 					<form
-						action="https://californiaapproves.us5.list-manage.com/subscribe/post?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=004f43edf0"
-						method="post"
 						id="mc-embedded-subscribe-form-final"
 						name="mc-embedded-subscribe-form-final"
 						className="validate"
-						target="_self"
 						onSubmit={handleSubmit}
 					>
 						<div className="flex flex-col gap-2">
@@ -145,9 +156,10 @@ const PledgeForm = () => {
 								</span>
 							</label>
 
-							<div
-								ref={containerRef}
-								className="mt-2 flex justify-center empty:hidden"
+							<TurnstileField
+								widget={turnstile}
+								fallbackEmail={FALLBACK_EMAIL}
+								className="mt-2"
 							/>
 							{message ? (
 								<p
@@ -168,6 +180,9 @@ const PledgeForm = () => {
 								name="subscribe"
 								id="mc-embedded-subscribe-final"
 								type="submit"
+								disabled={
+									turnstile.status !== "ready" || status === "submitting"
+								}
 							>
 								{status === "submitting" ? "Adding…" : "ADD MY PLEDGE"}
 							</ActionButton>
@@ -176,6 +191,12 @@ const PledgeForm = () => {
 								anytime.
 							</p>
 						</div>
+						<noscript>
+							<p className="text-bsm text-orange text-center mt-2 leading-snug">
+								This form needs JavaScript for its spam check. Email{" "}
+								{FALLBACK_EMAIL} and we'll add your pledge.
+							</p>
+						</noscript>
 					</form>
 				</div>
 			</div>

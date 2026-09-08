@@ -4,20 +4,31 @@ import { ActionButton } from "../../components/common/buttons";
 import Input from "../../components/common/input";
 import {
 	submitSubscription,
+	TurnstileField,
 	useTurnstile,
 } from "../../components/common/turnstile";
 
 type SubmitStatus = "idle" | "submitting" | "success" | "error";
 
+const FALLBACK_EMAIL = "newsletter@californiaapproves.org";
+
 // create a component
 const MailingForm = () => {
-	const { containerRef, token, reset } = useTurnstile("newsletter");
+	const turnstile = useTurnstile("newsletter");
+	const { token, reset } = turnstile;
 	const [status, setStatus] = useState<SubmitStatus>("idle");
 	const [message, setMessage] = useState("");
 
 	const handleSubmit = async (event: TargetedSubmitEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		if (status === "submitting") return;
+		if (turnstile.status === "unavailable") {
+			setStatus("error");
+			setMessage(
+				`Verification couldn't load, so we can't accept the form. Email ${FALLBACK_EMAIL} and we'll add you.`,
+			);
+			return;
+		}
 		if (!token) {
 			setStatus("error");
 			setMessage("Please complete the verification challenge and try again.");
@@ -46,13 +57,13 @@ const MailingForm = () => {
 				reforms and more
 			</p>
 			<div className="w-full">
+				{/* No native action: submissions go through /api/subscribe, which
+				    verifies the Turnstile token before forwarding to Mailchimp. A
+				    Mailchimp action here would let anyone post around that check. */}
 				<form
-					action="https://californiaapproves.us5.list-manage.com/subscribe/post?u=b4aa7540a62457c043ff00e36&amp;id=dddf3d641c&amp;f_id=003abee6f0"
-					method="post"
 					id="mc-embedded-subscribe-form"
 					name="mc-embedded-subscribe-form"
 					className="validate"
-					target="_self"
 					onSubmit={handleSubmit}
 				>
 					<div id="mc_embed_signup_scroll">
@@ -90,9 +101,10 @@ const MailingForm = () => {
 								defaultValue=""
 							/>
 						</div>
-						<div
-							ref={containerRef}
-							className="mt-4 flex justify-center empty:hidden"
+						<TurnstileField
+							widget={turnstile}
+							fallbackEmail={FALLBACK_EMAIL}
+							className="mt-4"
 						/>
 						{message ? (
 							<p
@@ -113,12 +125,21 @@ const MailingForm = () => {
 								name="subscribe"
 								id="mc-embedded-subscribe"
 								type="submit"
+								disabled={
+									turnstile.status !== "ready" || status === "submitting"
+								}
 							>
 								{status === "submitting" ? "Joining…" : "JOIN US"}
 							</ActionButton>
 						</div>
 					</div>
 				</form>
+				<noscript>
+					<p className="text-small text-orange mt-3">
+						This form needs JavaScript for its spam check. Email{" "}
+						{FALLBACK_EMAIL} and we'll add you to the newsletter.
+					</p>
+				</noscript>
 			</div>
 			<p className="italic text-small">
 				By subscribing you agree to with our Privacy Policy and provide consent
