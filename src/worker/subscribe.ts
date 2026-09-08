@@ -27,24 +27,29 @@ interface SiteVerifyResponse {
 	"error-codes"?: string[];
 }
 
+// The `c` (JSONP callback) parameter is REQUIRED: without it post-json renders
+// the hosted signup page as HTML instead of answering with JSON, and every
+// submission looks like a failure. The wrapper it adds is stripped by
+// parseMailchimp below.
 const MAILCHIMP_BASE =
 	"https://californiaapproves.us5.list-manage.com/subscribe/post-json";
+const MAILCHIMP_CALLBACK = "c=cb";
 
 // Client form id -> the Turnstile action it must carry and its Mailchimp form.
 const FORMS = {
 	newsletter: {
 		action: "newsletter",
-		mailchimp: `${MAILCHIMP_BASE}?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=003abee6f0`,
+		mailchimp: `${MAILCHIMP_BASE}?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=003abee6f0&${MAILCHIMP_CALLBACK}`,
 	},
 	pledge: {
 		action: "pledge",
-		mailchimp: `${MAILCHIMP_BASE}?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=004f43edf0`,
+		mailchimp: `${MAILCHIMP_BASE}?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=004f43edf0&${MAILCHIMP_CALLBACK}`,
 	},
 	// Same audience and form id as the newsletter; separate Turnstile action so
 	// a token minted on one page cannot be replayed against the other.
 	contact: {
 		action: "contact",
-		mailchimp: `${MAILCHIMP_BASE}?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=003abee6f0`,
+		mailchimp: `${MAILCHIMP_BASE}?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=003abee6f0&${MAILCHIMP_CALLBACK}`,
 	},
 } as const;
 
@@ -202,7 +207,10 @@ export async function handleSubscribe(
 	// --- Gate passed: forward to Mailchimp ---------------------------------
 	const mailchimpBody = new URLSearchParams();
 	for (const [key, value] of params.entries()) {
-		if (key === "form" || key === "cf-turnstile-response") continue;
+		// `c` is ours, set on the URL above; don't let a client override it.
+		if (key === "form" || key === "cf-turnstile-response" || key === "c") {
+			continue;
+		}
 		mailchimpBody.append(key, value);
 	}
 
@@ -224,7 +232,12 @@ export async function handleSubscribe(
 		);
 	}
 
-	const cleanMsg = (result.msg ?? "").replace(/<[^>]*>/g, "").trim();
+	// Mailchimp prefixes field errors with the field index ("0 - An email
+	// address must contain a single @."); strip it along with any markup.
+	const cleanMsg = (result.msg ?? "")
+		.replace(/<[^>]*>/g, "")
+		.replace(/^\s*\d{1,2}\s*-\s*/, "")
+		.trim();
 
 	if (result.result === "success") {
 		return json({
