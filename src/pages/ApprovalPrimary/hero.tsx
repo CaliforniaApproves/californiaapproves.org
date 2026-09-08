@@ -31,7 +31,7 @@ const Hero = () => {
 							height="16"
 							className="aspect-169/158"
 						/>
-						<span className="font-bold whitespace-nowrap">More Choice</span>
+						<span className="text-small font-bold whitespace-nowrap">More Choice</span>
 					</div>
 					<div className="flex items-center gap-2">
 						<img
@@ -41,7 +41,7 @@ const Hero = () => {
 							height="16"
 							className="aspect-169/158"
 						/>
-						<span className="font-bold whitespace-nowrap">Fair Competition</span>
+						<span className="text-small font-bold whitespace-nowrap">Fair Competition</span>
 					</div>
 					<div className="flex items-center gap-2">
 						<img
@@ -51,7 +51,7 @@ const Hero = () => {
 							height="16"
 							className="aspect-169/158"
 						/>
-						<span className="font-bold whitespace-nowrap">Better Representation</span>
+						<span className="text-small font-bold whitespace-nowrap">Better Representation</span>
 					</div>
 				</div>
 				<div className="static max-w-[650px] mt-9">

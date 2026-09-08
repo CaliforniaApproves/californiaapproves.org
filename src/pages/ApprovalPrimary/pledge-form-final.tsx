@@ -99,7 +99,7 @@ const FinalPledge = () => {
 									id="mce-group-384917-0-final"
 									className="mt-1 shrink-0 w-4 h-4 accent-green cursor-pointer"
 								/>
-								<span className="text-sm text-gray-500 leading-snug">
+								<span className="text-bsm text-schist-higher leading-snug">
 									I'm interested in volunteering to help gather signatures
 								</span>
 							</label>
@@ -115,6 +115,9 @@ const FinalPledge = () => {
 							>
 								ADD MY PLEDGE
 							</ActionButton>
+							<p className="italic text-center text-bsm mt-2 text-schist-higher leading-snug">
+								We won't spam you or share your data. You can unsubscribe anytime.
+							</p>
 						</div>
 					</form>
 				</div>
