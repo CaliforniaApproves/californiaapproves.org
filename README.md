@@ -59,7 +59,7 @@ Deploy to prod by pushing to `main`.
 
 Pushing to any other branch creates a preview deployment. Preview hostnames
 have to be covered by the Turnstile hostname allowlist or every form submission
-is rejected with a 403 — `*.workers.dev` passes by default; set
+is rejected with a 403 — `*.californiaapproves.workers.dev` passes by default; set
 `TURNSTILE_ALLOWED_HOSTNAMES` if previews are served from anywhere else.
 
 ## Environment variables
@@ -72,6 +72,6 @@ the token server-side before forwarding to Mailchimp. Set these on the Worker
 | Variable | Required | Notes |
 | --- | --- | --- |
 | `TURNSTILE_SECRET_KEY` | yes | Secret key paired with the widget site key in `src/components/common/turnstile.tsx`. |
-| `TURNSTILE_ALLOWED_HOSTNAMES` | no | Comma-separated hostname allowlist. Defaults to `californiaapproves.org,www.californiaapproves.org` plus any `*.workers.dev` preview. |
+| `TURNSTILE_ALLOWED_HOSTNAMES` | no | Comma-separated hostname allowlist. Defaults to `californiaapproves.org,www.californiaapproves.org` plus any `*.californiaapproves.workers.dev` preview. |
 | `ENVIRONMENT` | no | Any value other than `production` also accepts `localhost` Turnstile tokens. Note that **unset** counts as `production`, so local runs must set it explicitly. |
 
