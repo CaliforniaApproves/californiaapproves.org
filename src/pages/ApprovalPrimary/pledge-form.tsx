@@ -9,7 +9,7 @@ import {
 
 type SubmitStatus = "idle" | "submitting" | "success" | "error";
 
-const FinalPledge = () => {
+const PledgeForm = () => {
 	const { containerRef, token, reset } = useTurnstile("pledge");
 	const [status, setStatus] = useState<SubmitStatus>("idle");
 	const [message, setMessage] = useState("");
@@ -183,4 +183,4 @@ const FinalPledge = () => {
 	);
 };
 
-export default FinalPledge;
+export default PledgeForm;
