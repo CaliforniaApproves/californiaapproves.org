@@ -144,10 +144,15 @@ const PledgeForm = () => {
 								/>
 							</div>
 
+							{/* value="16" is required, not decorative: a checkbox with no
+							    value attribute submits "on", but Mailchimp identifies the
+							    interest group by its id (the 16 in the field name). Without
+							    it the volunteering opt-in is silently dropped. */}
 							<label className="flex items-start gap-2 mt-2 mb-1 cursor-pointer">
 								<input
 									type="checkbox"
 									name="group[384917][16]"
+									value="16"
 									id="mce-group-384917-0-final"
 									className="mt-1 shrink-0 w-4 h-4 accent-green cursor-pointer"
 								/>
