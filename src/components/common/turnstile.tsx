@@ -130,9 +130,16 @@ export function useTurnstile(action: string): TurnstileWidget {
 						sitekey: TURNSTILE_SITE_KEY,
 						action,
 						callback: (value) => setToken(value),
-						// Transient challenge errors are retried by Turnstile itself and
-						// surfaced in its own widget UI; just drop the stale token.
-						"error-callback": () => setToken(null),
+						"error-callback": (code) => {
+							setToken(null);
+							// 110* is the sitekey/domain family (110200 = domain not
+							// allowed, 110100 = bad sitekey, 110500 = unsupported
+							// browser). Retrying cannot fix any of them and no widget
+							// renders, so the form must not sit there looking submittable.
+							// Everything else is transient — Turnstile retries those
+							// itself and shows its own error UI.
+							if (code?.startsWith("110")) setStatus("unavailable");
+						},
 						"expired-callback": () => setToken(null),
 						"timeout-callback": () => setToken(null),
 						"unsupported-callback": () => setStatus("unavailable"),
