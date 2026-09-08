@@ -24,16 +24,16 @@ npm run dev
 not run anything in `functions/`. `/api/subscribe` returns a 404 there, so the
 newsletter, pledge, and contact forms all fail on submit with "Network error".
 
-To exercise a real submission you need Wrangler, which compiles `functions/`
-and serves it alongside the built assets:
+To exercise a real submission you need Wrangler, which runs `src/worker/`
+alongside the built assets:
 
 ```
 npm run build
-npx wrangler pages dev dist
+npx wrangler dev
 ```
 
-That serves on <http://localhost:8788>. There is no hot reload — re-run
-`npm run build` after each change.
+That serves on <http://localhost:8787>. There is no hot reload for the
+assets — re-run `npm run build` after each change.
 
 Put the secrets in a git-ignored `.dev.vars` file in the repo root:
 
@@ -51,24 +51,27 @@ local work.
 
 # Deployment
 
-The app is hosted using Cloudflare pages. 
+The app is hosted on Cloudflare Workers with static assets: `./dist` is
+served directly, and anything that doesn't match a file there is handled by
+`src/worker/index.ts` (see `wrangler.jsonc`). 
 
 Deploy to prod by pushing to `main`.
 
-Pushing to any other branch will automatically push to
-`{branch}.californiaapproves.pages.dev`. For example, pushing branch
-`alan/something` will deploy to `alan-something.californiaapproves.pages.dev`.
+Pushing to any other branch creates a preview deployment. Preview hostnames
+have to be covered by the Turnstile hostname allowlist or every form submission
+is rejected with a 403 — `*.workers.dev` passes by default; set
+`TURNSTILE_ALLOWED_HOSTNAMES` if previews are served from anywhere else.
 
 ## Environment variables
 
 The newsletter, pledge, and contact forms are protected by Cloudflare Turnstile
-and submit through the `functions/api/subscribe.ts` Pages Function, which verifies
-the token server-side before forwarding to Mailchimp. Set these on the Pages
-project (Settings → Environment variables), for both Production and Preview:
+and submit through `/api/subscribe` (`src/worker/subscribe.ts`), which verifies
+the token server-side before forwarding to Mailchimp. Set these on the Worker
+(Settings → Variables and Secrets), for both production and preview:
 
 | Variable | Required | Notes |
 | --- | --- | --- |
 | `TURNSTILE_SECRET_KEY` | yes | Secret key paired with the widget site key in `src/components/common/turnstile.tsx`. |
-| `TURNSTILE_ALLOWED_HOSTNAMES` | no | Comma-separated hostname allowlist. Defaults to `californiaapproves.org,www.californiaapproves.org` plus any `*.californiaapproves.pages.dev` preview. |
+| `TURNSTILE_ALLOWED_HOSTNAMES` | no | Comma-separated hostname allowlist. Defaults to `californiaapproves.org,www.californiaapproves.org` plus any `*.workers.dev` preview. |
 | `ENVIRONMENT` | no | Any value other than `production` also accepts `localhost` Turnstile tokens. Note that **unset** counts as `production`, so local runs must set it explicitly. |
 

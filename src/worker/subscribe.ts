@@ -1,10 +1,10 @@
-// Cloudflare Pages Function: POST /api/subscribe
+// Handler for POST /api/subscribe, routed from src/worker/index.ts.
 //
 // Verifies a Cloudflare Turnstile token server-side, then (and only then)
-// forwards the submission to the correct Mailchimp audience. The browser never
-// talks to Mailchimp directly, so the Turnstile check cannot be bypassed.
+// forwards the submission to the correct Mailchimp audience. No form posts to
+// Mailchimp directly, so the Turnstile check cannot be bypassed.
 //
-// Required Pages environment variable:
+// Required Worker environment variable:
 //   TURNSTILE_SECRET_KEY        - secret key paired with the widget site key
 // Optional:
 //   TURNSTILE_ALLOWED_HOSTNAMES - comma-separated hostname allowlist
@@ -12,15 +12,10 @@
 //   ENVIRONMENT                 - set to "production" on the prod deployment;
 //                                 anything else also allows localhost tokens
 
-interface Env {
+export interface Env {
 	TURNSTILE_SECRET_KEY?: string;
 	TURNSTILE_ALLOWED_HOSTNAMES?: string;
 	ENVIRONMENT?: string;
-}
-
-interface RequestContext {
-	request: Request;
-	env: Env;
 }
 
 interface SiteVerifyResponse {
@@ -76,8 +71,10 @@ function hostnameAllowed(hostname: string, env: Env): boolean {
 	const isProduction = (env.ENVIRONMENT ?? "production") === "production";
 
 	if (host === "localhost" || host === "127.0.0.1") return !isProduction;
-	// Branch preview deployments: <branch>.californiaapproves.pages.dev
-	if (host.endsWith(".californiaapproves.pages.dev")) return true;
+	// Preview/versioned deployments are served from *.workers.dev. The widget
+	// sitekey is itself domain-restricted, so this only widens the allowlist to
+	// hosts Cloudflare will serve this Worker on.
+	if (host === "workers.dev" || host.endsWith(".workers.dev")) return true;
 
 	const configured = (env.TURNSTILE_ALLOWED_HOSTNAMES ?? "")
 		.split(",")
@@ -115,11 +112,10 @@ function parseMailchimp(text: string): { result?: string; msg?: string } {
 	}
 }
 
-export async function onRequestPost(
-	context: RequestContext,
+export async function handleSubscribe(
+	request: Request,
+	env: Env,
 ): Promise<Response> {
-	const { request, env } = context;
-
 	if (!env.TURNSTILE_SECRET_KEY) {
 		console.error("subscribe: TURNSTILE_SECRET_KEY is not configured");
 		return json(
