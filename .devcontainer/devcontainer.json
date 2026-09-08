@@ -9,9 +9,13 @@
 	},
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
-		"ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+		"ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
-	"mounts": ["source=claude-code-config,target=/home/node/.claude,type=volume"],
+	"mounts": [
+		"source=claude-code-config,target=/home/node/.claude,type=volume",
+		"source=californiaapproves-gh-config,target=/home/node/.config/gh,type=volume"
+	],
 	"containerEnv": {
 		"CLAUDE_CONFIG_DIR": "/home/node/.claude" // match remoteUser
 	},
@@ -20,7 +24,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo chown -R node:node /home/node/.claude && npm install",
+	"postCreateCommand": "sudo chown -R node:node /home/node/.claude /home/node/.config/gh && npm install",
 
 	// Configure tool-specific properties.
 	"customizations": {
