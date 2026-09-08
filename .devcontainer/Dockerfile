@@ -13,7 +13,7 @@ USER node
 # apt needs root; the base image grants the node user passwordless sudo.
 RUN sudo npx --yes playwright@1.61.0 install-deps chromium
 
-# Copy the package-lock to ensure the same Playwright version is installed in
-# the devcontainer as will be expected after the project dir is mounted.
-COPY package-lock.json ./
-RUN npx playwright install chromium
+# This installs the latest chromium-headless-shell binary. If you get
+# errors about the missing executable, try an `npm update` to get the
+# latest @playwright/test version, then rebuild the devcontainer.
+RUN npx playwright install chromium-headless-shell
