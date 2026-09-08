@@ -19,7 +19,7 @@ const faqs = [
 		id: "q0",
 		q: "Do I have to approve more than one candidate?",
 		a: [
-			'No. If you only want to support one candidate, mark just that one. Your ballot works exactly like it does today. Approval Voting doesn\’t ask anything different of you unless you want it to. The reform isn\’t about changing how you personally vote; it\’s about giving every voter the freedom to do more if they want to, so that primaries as a whole measure support more accurately. Whether you mark one candidate or five, your vote counts fully either way.',
+			"No. If you only want to support one candidate, mark just that one. Your ballot works exactly like it does today. Approval Voting doesn’t ask anything different of you unless you want it to. The reform isn’t about changing how you personally vote; it’s about giving every voter the freedom to do more if they want to, so that primaries as a whole measure support more accurately. Whether you mark one candidate or five, your vote counts fully either way.",
 		],
 	},
 	{
@@ -33,14 +33,14 @@ const faqs = [
 		id: "q4",
 		q: "Won't this make voting more complicated?",
 		a: [
-			'No. If anything, it\'s simpler. Instead of narrowing down those you like to the one who seems most "electable," you can just mark every candidate you approve of. You\'ve probably already made a decision this way: when a group is scheduling a meeting and everyone\'s asked which times work for them, nobody picks just one — you check every time you\'re free, and the option most people can make wins. That\'s basically approval voting. On the ballot, it\'s the same instinct: mark everyone you want to support, and move on.',
+			"No. If anything, it's simpler. Instead of narrowing down those you like to the one who seems most \"electable,\" you can just mark every candidate you approve of. You've probably already made a decision this way: when a group is scheduling a meeting and everyone's asked which times work for them, nobody picks just one — you check every time you're free, and the option most people can make wins. That's basically approval voting. On the ballot, it's the same instinct: mark everyone you want to support, and move on.",
 		],
 	},
 	{
 		id: "q2",
 		q: "Won't voters just approve of one candidate anyway?",
 		a: [
-			'No. In St. Louis, roughly a third of voters approved more than one candidate, and among supporters of lesser-known candidates, over 80% did. Voters use the freedom to support everyone they genuinely like — they just weren\'t able to before.',
+			"No. In St. Louis, roughly a third of voters approved more than one candidate, and among supporters of lesser-known candidates, over 80% did. Voters use the freedom to support everyone they genuinely like — they just weren't able to before.",
 		],
 	},
 	{
@@ -53,7 +53,7 @@ const faqs = [
 			label: "Go deeper",
 			body: [
 				"Approval Voting doesn't just change who advances, it can change who decides to run in the first place. Under choose-one voting, entering a race alongside similar candidates risks splitting your own base and handing the race to someone else, so candidates have real reason to avoid running against same-lane rivals at all. Candidates with genuine cross-coalition appeal face the opposite barrier: in a zero-sum system, they rarely have a built-in base large enough to outcompete an established partisan machine, so many are discouraged from running at all. Under Approval Voting, both barriers disappear: voters can approve every candidate they like, so entering a race no longer threatens to divide anyone's support, and candidates can decide to run based on their own appeal, regardless of who else is in the field. Breadth of appeal becomes an advantage rather than a liability, and candidates compete purely on how broadly they can earn voter support — including voters outside their own base — because that's what it actually takes to win.",
-				"Approval Voting can also change how seriously a candidate is taken once they decide to run. Today, even a candidate who could appeal broadly across coalitions is often written off as \"non-viable\" the moment they enter, because choose-one voting has no way to prove that support is real until the votes are counted, by which point strategic voters have often already looked elsewhere. Approval Voting lets that support show up on the ballot itself, which can change who gets taken seriously as a real contender from day one, in any district, regardless of how it leans.",
+				'Approval Voting can also change how seriously a candidate is taken once they decide to run. Today, even a candidate who could appeal broadly across coalitions is often written off as "non-viable" the moment they enter, because choose-one voting has no way to prove that support is real until the votes are counted, by which point strategic voters have often already looked elsewhere. Approval Voting lets that support show up on the ballot itself, which can change who gets taken seriously as a real contender from day one, in any district, regardless of how it leans.',
 			],
 		},
 	},
@@ -85,7 +85,7 @@ const comparisonFaqs = [
 		nested: {
 			label: "Go deeper",
 			body: [
-				"We\'re proposing Approval Voting paired with California\'s existing top-two structure because it fixes the specific, well-documented problem in front of us, and it happens to do so with the smallest possible change: no new ballot design in the general election, no additional candidates for voters to research and compare, and no multiple rounds to sort through.",
+				"We're proposing Approval Voting paired with California's existing top-two structure because it fixes the specific, well-documented problem in front of us, and it happens to do so with the smallest possible change: no new ballot design in the general election, no additional candidates for voters to research and compare, and no multiple rounds to sort through.",
 				"A two-candidate general also has a property none of the more complex alternatives share: it's the only election that is completely strategy-free, since there's no reason to vote for anyone but your honest favorite.",
 			],
 		},
@@ -101,7 +101,7 @@ const comparisonFaqs = [
 			body: [
 				"RCV fails at its core job: it can eliminate the most broadly-preferred candidate. Burlington, Vermont saw this happen first hand. They adopted RCV, watched it knock out the candidate most voters preferred over the eventual winner, and then repealed it.",
 				"There's also a scope problem specific to California: RCV only ever applies to the general election, leaving the primary completely untouched. You'd be adding real complexity at the stage that needs it least, while leaving vote-splitting exactly where it actually happens — in the primary.",
-				"Lastly, RCV has a counterintuitive practical implication: because RCV depends on the order you rank candidates, honestly ranking your preferences can sometimes help elect a candidate you don’t support. Approval Voting has no such risk. Your ballot can only ever help candidates you actually support, and never anyone you don’t."
+				"Lastly, RCV has a counterintuitive practical implication: because RCV depends on the order you rank candidates, honestly ranking your preferences can sometimes help elect a candidate you don’t support. Approval Voting has no such risk. Your ballot can only ever help candidates you actually support, and never anyone you don’t.",
 			],
 		},
 	},
@@ -130,7 +130,10 @@ const NestedToggle = ({ nested }: { nested?: NestedFaq }) => {
 			{open && (
 				<div className="pb-2">
 					{nested.body.map((p: string) => (
-						<p key={p.slice(0, 24)} className="text-small text-schist-high leading-relaxed mb-3 max-w-[66ch]">
+						<p
+							key={p.slice(0, 24)}
+							className="text-small text-schist-high leading-relaxed mb-3 max-w-[66ch]"
+						>
 							{p}
 						</p>
 					))}
@@ -179,7 +182,10 @@ const FaqItem = ({
 			{isOpen && (
 				<div className="pb-5">
 					{item.a.map((p: string) => (
-						<p key={p.slice(0, 24)} className="text-base text-schist-high leading-relaxed mb-3 max-w-[70ch]">
+						<p
+							key={p.slice(0, 24)}
+							className="text-base text-schist-high leading-relaxed mb-3 max-w-[70ch]"
+						>
 							{p}
 						</p>
 					))}
@@ -200,7 +206,9 @@ const Questions = () => {
 	return (
 		<div className="py-16 lg:py-20">
 			<div className="max-w-[720px] m-auto px-8">
-				<div className="font-bold text-small text-orange-accent uppercase">Common Questions</div>
+				<div className="font-bold text-small text-orange-accent uppercase">
+					Common Questions
+				</div>
 				<h2 className="text-green mt-2 mb-8">
 					Good questions deserve straight answers.
 				</h2>

@@ -2,11 +2,26 @@ import { useState } from "preact/hooks";
 
 //create components
 const candidates = [
-	{ name: "Candidate A", desc: "You don't agree on everything, but you trust their judgment" },
-	{ name: "Candidate B", desc: "Aligned with your values and seems to have a lot of momentum, even though they're not your favorite" },
-	{ name: "Candidate C", desc: "The one that excites you most and matches your values, but seems to have less support" },
-	{ name: "Candidate D", desc: "Strong at rallying supporters, doesn't share your values" },
-	{ name: "Candidate E", desc: "Shares your goals, but prioritizes them differently than you would" },
+	{
+		name: "Candidate A",
+		desc: "You don't agree on everything, but you trust their judgment",
+	},
+	{
+		name: "Candidate B",
+		desc: "Aligned with your values and seems to have a lot of momentum, even though they're not your favorite",
+	},
+	{
+		name: "Candidate C",
+		desc: "The one that excites you most and matches your values, but seems to have less support",
+	},
+	{
+		name: "Candidate D",
+		desc: "Strong at rallying supporters, doesn't share your values",
+	},
+	{
+		name: "Candidate E",
+		desc: "Shares your goals, but prioritizes them differently than you would",
+	},
 ];
 
 //create components
@@ -24,17 +39,18 @@ const Ballots = () => {
 		setNewSelected((prev) => ({ ...prev, [name]: !prev[name] }));
 	};
 
-return (
+	return (
 		<div className="bg-purple text-white pt-12 lg:pt-16 pb-14">
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="font-bold text-tan text-small">SEE IT IN ACTION</div>
-				<h2 className="text-white">Same ballot. One sentence changes everything.</h2>
+				<h2 className="text-white">
+					Same ballot. One sentence changes everything.
+				</h2>
 				<div className="static max-w-full mt-3">
 					<p className="text-large text-white/85 lg:font-normal">
-						Try marking both ballots below with candidates you'd
-						support in a five-way primary. Notice how the first
-						ballot forces a single choice and how the second 
-						one leaves you free to choose one or several.
+						Try marking both ballots below with candidates you'd support in a
+						five-way primary. Notice how the first ballot forces a single choice
+						and how the second one leaves you free to choose one or several.
 					</p>
 				</div>
 
@@ -52,10 +68,11 @@ return (
 							{candidates.map((c) => {
 								const marked = oldSelected === c.name;
 								return (
-									<div
+									<button
+										type="button"
 										key={c.name}
 										onClick={() => toggleOld(c.name)}
-										className="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low"
+										className="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left"
 									>
 										<div
 											className={`w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold ${
@@ -67,7 +84,7 @@ return (
 											✕
 										</div>
 										<div className="flex-1 text-bsm font-medium ">
-											<span className="font-semibold">{c.name}{" "}</span>
+											<span className="font-semibold">{c.name} </span>
 											<span className="block text-bsm text-schist-high">
 												{c.desc}
 											</span>
@@ -75,14 +92,15 @@ return (
 										<div className="text-xs font-mono text-schist-high">
 											{marked ? "1 vote" : "0"}
 										</div>
-									</div>
+									</button>
 								);
 							})}
 							<div className="mt-4 pt-3 border-t border-dashed border-schist text-small text-schist-higher">
 								{oldSelected ? (
 									<>
 										You marked <b className="text-green">{oldSelected}</b>. Your
-										support for anyone else on the ballot is invisible to the count.
+										support for anyone else on the ballot is invisible to the
+										count.
 									</>
 								) : (
 									"Voters who back multiple candidates are divided across two or three names each, even when they would be satisfied with more than one."
@@ -95,19 +113,18 @@ return (
 							<span className="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full mb-4">
 								The Fix: Approve All You Support
 							</span>
-							<h4 className="mb-1">
-								Vote for AS MANY as you approve of
-							</h4>
+							<h4 className="mb-1">Vote for AS MANY as you approve of</h4>
 							<p className="text-lg text-schist-high mb-4">
 								No limit. Support as many as you genuinely want.
 							</p>
 							{candidates.map((c) => {
 								const marked = !!newSelected[c.name];
 								return (
-									<div
+									<button
+										type="button"
 										key={c.name}
 										onClick={() => toggleNew(c.name)}
-										className="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low"
+										className="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left"
 									>
 										<div
 											className={`w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold ${
@@ -119,7 +136,7 @@ return (
 											✓
 										</div>
 										<div className="flex-1 text-bsm font-medium">
-											<span className="font-semibold">{c.name}{" "}</span>
+											<span className="font-semibold">{c.name} </span>
 											<span className="block text-bsm text-schist-high">
 												{c.desc}
 											</span>
@@ -127,13 +144,17 @@ return (
 										<div className="text-xs font-mono text-schist-high">
 											{marked ? "1 approval" : "0"}
 										</div>
-									</div>
+									</button>
 								);
 							})}
 							<div className="mt-4 pt-3 border-t border-dashed border-schist text-small text-schist-higher">
 								{newCount > 0 ? (
 									<>
-										You approved <b className="text-green">{newCount} candidate{newCount > 1 ? "s" : ""}</b>. Each one counted fully, with no tradeoff.
+										You approved{" "}
+										<b className="text-green">
+											{newCount} candidate{newCount > 1 ? "s" : ""}
+										</b>
+										. Each one counted fully, with no tradeoff.
 									</>
 								) : (
 									"Overlapping support among candidates now adds up instead of dividing."
@@ -145,11 +166,10 @@ return (
 
 				<div className="static max-w-full mt-9">
 					<p className="italic text-base lg:font-normal">
-						In our current system, needing to guess who's 
-						&ldquo;electable" can pressure any voter to abandon 
-						their favorite candidates, even when they have
-						no competition for their party's support. 
-						Approval Voting removes that pressure everywhere.
+						In our current system, needing to guess who's &ldquo;electable" can
+						pressure any voter to abandon their favorite candidates, even when
+						they have no competition for their party's support. Approval Voting
+						removes that pressure everywhere.
 					</p>
 				</div>
 			</div>

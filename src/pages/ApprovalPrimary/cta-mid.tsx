@@ -12,9 +12,8 @@ const MidCTA = () => {
 					Ready to bring Approval Voting to California?
 				</h2>
 				<p className="text-large text-white/85 mt-3">
-					Pledge your support and we'll follow up with next
-					steps. Still have questions? Answers to the
-					ones we hear most are just below.
+					Pledge your support and we'll follow up with next steps. Still have
+					questions? Answers to the ones we hear most are just below.
 				</p>
 				<ActionButton
 					color="green"

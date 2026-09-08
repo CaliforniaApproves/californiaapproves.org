@@ -3,7 +3,6 @@ import purpleCircleCheck from "../../assets/icons/Individual Circles/California-
 import yellowCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Yellow-Circle-w-Check-RGB.svg";
 import Background from "../../assets/images/Group-39.svg";
 import HeroCTA from "./cta-hero";
-import HeroPledge from "./cta-hero";
 
 // create a component
 const Hero = () => {
@@ -15,12 +14,11 @@ const Hero = () => {
 				backgroundSize: "cover",
 				backgroundRepeat: "no-repeat",
 			}}
-			id = "top"
+			id="top"
 		>
 			<div className="m-auto px-8 pb-14 lg:pb-0">
 				<h2 className="text-green banner-drop-shadow pt-4">
-					Approve every candidate you support. 
-					Not just one.
+					Approve every candidate you support. Not just one.
 				</h2>
 				<div className="flex flex-wrap items-center gap-3 pt-9">
 					<div className="flex items-center gap-2">
@@ -31,7 +29,9 @@ const Hero = () => {
 							height="16"
 							className="aspect-169/158"
 						/>
-						<span className="text-small font-bold whitespace-nowrap">More Choice</span>
+						<span className="text-small font-bold whitespace-nowrap">
+							More Choice
+						</span>
 					</div>
 					<div className="flex items-center gap-2">
 						<img
@@ -41,7 +41,9 @@ const Hero = () => {
 							height="16"
 							className="aspect-169/158"
 						/>
-						<span className="text-small font-bold whitespace-nowrap">Fair Competition</span>
+						<span className="text-small font-bold whitespace-nowrap">
+							Fair Competition
+						</span>
 					</div>
 					<div className="flex items-center gap-2">
 						<img
@@ -51,26 +53,25 @@ const Hero = () => {
 							height="16"
 							className="aspect-169/158"
 						/>
-						<span className="text-small font-bold whitespace-nowrap">Better Representation</span>
+						<span className="text-small font-bold whitespace-nowrap">
+							Better Representation
+						</span>
 					</div>
 				</div>
 				<div className="static max-w-[650px] mt-9">
 					<p className="text-large-bold lg:font-normal">
-						When primary elections force voters to choose 
-						only one candidate, voters often settle — or 
-						risk “wasting” their vote — and the candidates 
-						who advance to the general election are not 
-						always the ones who best represent the electorate. 
+						When primary elections force voters to choose only one candidate,
+						voters often settle — or risk “wasting” their vote — and the
+						candidates who advance to the general election are not always the
+						ones who best represent the electorate.
 					</p>
 					<p className="text-large-bold lg:font-normal pt-8 lg:pb-12">
 						<span className="font-bold">
-							Approval Voting simply eliminates the 
-							choose-one rule, 
-						</span>
-						{" "}giving voters the freedom to choose all the candidates 
-						they like and forcing candidates to earn broad support 
-						to advance. Whoever reaches the general has earned it, 
-						not benefitted from a divided field.
+							Approval Voting simply eliminates the choose-one rule,
+						</span>{" "}
+						giving voters the freedom to choose all the candidates they like and
+						forcing candidates to earn broad support to advance. Whoever reaches
+						the general has earned it, not benefitted from a divided field.
 					</p>
 				</div>
 			</div>

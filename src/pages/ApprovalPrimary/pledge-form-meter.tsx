@@ -5,19 +5,18 @@ import Input from "../../components/common/input";
 const HeroPledge = () => {
 	return (
 		<div className="bg-white border-orange rounded-[50px] border-[6px] p-5 lg:p-12 text-center flex flex-col items-center gap-3">
-			<h2 className="text-green">
-				Pledge Your Support
-			</h2>
+			<h2 className="text-green">Pledge Your Support</h2>
 			<p className="text-small mt-2">
-				Add your name now, and we'll follow up the moment 
-				the official petition — with title and summary 
-				from the Attorney General — is ready to sign.
+				Add your name now, and we'll follow up the moment the official petition
+				— with title and summary from the Attorney General — is ready to sign.
 			</p>
 			<div className="w-full">
 				<form
 					onSubmit={(e) => {
 						e.preventDefault();
-						console.log("Form submitted (placeholder - no Mailchimp endpoint yet)");
+						console.log(
+							"Form submitted (placeholder - no Mailchimp endpoint yet)",
+						);
 					}}
 					method="post"
 					id="mc-embedded-subscribe-form"
@@ -41,7 +40,10 @@ const HeroPledge = () => {
 							<span id="mce-EMAIL-HELPERTEXT" className="helper_text"></span>
 						</div>
 						<div className="flex gap-2">
-							<div id="mc-fname-input-wrapper" className="mc-field-group w-full">
+							<div
+								id="mc-fname-input-wrapper"
+								className="mc-field-group w-full"
+							>
 								<Input
 									color="orange"
 									label="first name"
@@ -53,7 +55,10 @@ const HeroPledge = () => {
 									id="mce-FNAME"
 								/>
 							</div>
-							<div id="mc-lname-input-wrapper" className="mc-field-group w-full">
+							<div
+								id="mc-lname-input-wrapper"
+								className="mc-field-group w-full"
+							>
 								<Input
 									color="orange"
 									label="last name"
@@ -124,8 +129,8 @@ const HeroPledge = () => {
 								ADD MY PLEDGE
 							</ActionButton>
 							<p className="italic text-bsm mt-2">
-								By subscribing you agree to with our Privacy Policy and provide consent
-								to receive updates from our organization.
+								By subscribing you agree to with our Privacy Policy and provide
+								consent to receive updates from our organization.
 							</p>
 						</div>
 						<div className="mt-5 pt-[18px] border-t border-gray-200">
@@ -134,7 +139,10 @@ const HeroPledge = () => {
 								<span>of 10,000 pledges</span>
 							</div>
 							<div className="h-2 bg-white rounded-full overflow-hidden border border-gray-200">
-								<div className="h-full bg-orange rounded-full" style={{ width: "0%" }} />
+								<div
+									className="h-full bg-orange rounded-full"
+									style={{ width: "0%" }}
+								/>
 							</div>
 							<p className="text-bsm text-schist-higher mt-2">
 								Be the first to pledge — help us reach 10,000 supporters.
