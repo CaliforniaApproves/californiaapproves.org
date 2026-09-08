@@ -1,7 +1,7 @@
 import Ballots from "./ballots";
 import MidCTA from "./cta-mid";
 import Hero from "./hero";
-import FinalPledge from "./pledge-form-final";
+import PledgeForm from "./pledge-form";
 import Problem from "./problem";
 import Proof from "./proof";
 import Questions from "./questions";
@@ -21,7 +21,7 @@ export function ApprovalPrimary() {
 			<Summary />
 			<MidCTA />
 			<Questions />
-			<FinalPledge />
+			<PledgeForm />
 		</div>
 	);
 }
