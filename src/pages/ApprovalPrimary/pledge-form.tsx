@@ -147,7 +147,25 @@ const PledgeForm = () => {
 							{/* value="16" is required, not decorative: a checkbox with no
 							    value attribute submits "on", but Mailchimp identifies the
 							    interest group by its id (the 16 in the field name). Without
-							    it the volunteering opt-in is silently dropped. */}
+							    it the volunteering opt-in is silently dropped.
+
+							    Known limitation: this is additive only. Ticking the box adds
+							    the interest; leaving it unticked does NOT remove it from
+							    someone who already has it, because an unchecked checkbox
+							    submits no field at all and Mailchimp cannot tell "cleared"
+							    from "not managed by this form".
+
+							    Tried against the post-json endpoint (2026-09-08), all
+							    no-ops — the interest stayed set and the endpoint returned
+							    "your profile has been updated" every time:
+							      group[384917][16]=        (empty)
+							      group[384917][16]=false
+							      group[384917][16]=0
+							    Removal needs Marketing API v3
+							    (PUT /lists/{id}/members/{hash} with interests:{"16":false}),
+							    which would mean an API key secret on the Worker. Deemed not
+							    worth it for a one-time signup: the label reads as an action,
+							    not a preference toggle. */}
 							<label className="flex items-start gap-2 mt-2 mb-1 cursor-pointer">
 								<input
 									type="checkbox"

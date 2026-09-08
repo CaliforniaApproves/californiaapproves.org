@@ -233,6 +233,10 @@ export async function handleSubscribe(
 	}
 
 	// --- Gate passed: forward to Mailchimp ---------------------------------
+	// Note: interest groups are additive through this endpoint. An unticked
+	// checkbox sends no field, and no false-y value removes an existing
+	// interest — see the comment on the volunteer checkbox in
+	// src/pages/ApprovalPrimary/pledge-form.tsx for what was tried.
 	const mailchimpBody = new URLSearchParams();
 	for (const [key, value] of params.entries()) {
 		// `c` is ours, set on the URL above; don't let a client override it.
