@@ -4,6 +4,7 @@ import { expect, test } from "@playwright/test";
 const routes: { path: string; name: string }[] = [
 	{ path: "/", name: "home" },
 	{ path: "/approval-101", name: "approval-101" },
+	{ path: "/our-reforms/approval-primary", name: "approval-primary" },
 	{ path: "/faq", name: "faq" },
 	{ path: "/about", name: "about" },
 	{ path: "/contact", name: "contact" },
