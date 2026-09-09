@@ -204,7 +204,7 @@ const Questions = () => {
 	};
 
 	return (
-		<div className="py-16 lg:py-20">
+		<section aria-label="Common questions">
 			<div className="max-w-[720px] m-auto px-8">
 				<div className="font-bold text-small text-orange-accent uppercase">
 					Common Questions
@@ -235,7 +235,7 @@ const Questions = () => {
 					/>
 				))}
 			</div>
-		</div>
+		</section>
 	);
 };
 

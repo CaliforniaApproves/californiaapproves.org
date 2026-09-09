@@ -45,7 +45,11 @@ const PledgeForm = () => {
 	};
 
 	return (
-		<div className="bg-green text-center py-16 lg:py-20" id="pledge">
+		<section
+			aria-label="Pledge your support"
+			className="bg-green text-center"
+			id="pledge"
+		>
 			<div className="max-w-[700px] m-auto px-8">
 				<h2 className="text-white">
 					Help bring Approval Voting to California.
@@ -221,7 +225,7 @@ const PledgeForm = () => {
 					</form>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

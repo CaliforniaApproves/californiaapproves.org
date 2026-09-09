@@ -10,8 +10,15 @@ const Hero = () => {
 		// then the explanatory paragraphs. A grid puts them
 		// together on desktop, where the heading and paragraphs share the
 		// left column and the CTA spans both rows on the right.
-		<div
-			className="caa-home-page-banner w-full grid grid-cols-1 justify-center pt-[30px] lg:grid-cols-[auto_40%] lg:content-center"
+		//
+		// On mobile the three cells stack and each carries its own section-sized
+		// vertical padding (py-16) so the orange CTA band in particular reads as a
+		// full section; the outer edges are trimmed to 0 because the <section>'s
+		// own padding-block already supplies them. From lg up the cells only pad
+		// the gap between the two left-column rows.
+		<section
+			aria-label="Introduction"
+			className="caa-home-page-banner w-full grid grid-cols-1 justify-center lg:grid-cols-[auto_40%] lg:content-center"
 			style={{
 				backgroundImage: `url(${Background})`,
 				backgroundSize: "cover",
@@ -19,11 +26,11 @@ const Hero = () => {
 			}}
 			id="top"
 		>
-			<div className="px-8 pb-14 lg:pb-0 lg:col-start-1 lg:row-start-1">
-				<h2 className="text-green banner-drop-shadow pt-4">
+			<div className="pb-16 px-8 lg:pb-8 max-w-[650px] lg:col-start-1 lg:row-start-1">
+				<h2 className="text-green banner-drop-shadow">
 					Approve every candidate you support. Not just one.
 				</h2>
-				<div className="flex flex-wrap items-center gap-3 pt-9">
+				<div className="flex flex-wrap items-center gap-3 mt-9">
 					<div className="flex items-center gap-2">
 						<img
 							src={purpleCircleCheck}
@@ -62,28 +69,26 @@ const Hero = () => {
 					</div>
 				</div>
 			</div>
-			<div className="py-8 px-5 lg:px-8 w-full max-w-full bg-orange lg:bg-transparent lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center">
+			<div className="py-16 px-5 lg:py-8 lg:px-8 w-full max-w-full bg-orange lg:bg-transparent lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center">
 				<HeroCTA />
 			</div>
-			<div className="px-8 pb-14 lg:pb-0 lg:col-start-1 lg:row-start-2">
-				<div className="static lg:max-w-[650px] mt-9">
-					<p className="text-large-bold lg:font-normal">
-						When primary elections force voters to choose only one candidate,
-						voters often settle — or risk “wasting” their vote — and the
-						candidates who advance to the general election are not always the
-						ones who best represent the electorate.
-					</p>
-					<p className="text-large-bold lg:font-normal pt-8 lg:pb-12">
-						<span className="font-bold">
-							Approval Voting simply eliminates the choose-one rule,
-						</span>{" "}
-						giving voters the freedom to choose all the candidates they like and
-						forcing candidates to earn broad support to advance. Whoever reaches
-						the general has earned it, not benefitted from a divided field.
-					</p>
-				</div>
+			<div className="pt-16 px-8 lg:pt-8 max-w-[650px] lg:col-start-1 lg:row-start-2">
+				<p className="text-large-bold lg:font-normal">
+					When primary elections force voters to choose only one candidate,
+					voters often settle — or risk “wasting” their vote — and the
+					candidates who advance to the general election are not always the ones
+					who best represent the electorate.
+				</p>
+				<p className="text-large-bold lg:font-normal pt-8">
+					<span className="font-bold">
+						Approval Voting simply eliminates the choose-one rule,
+					</span>{" "}
+					giving voters the freedom to choose all the candidates they like and
+					forcing candidates to earn broad support to advance. Whoever reaches
+					the general has earned it, not benefitted from a divided field.
+				</p>
 			</div>
-		</div>
+		</section>
 	);
 };
 

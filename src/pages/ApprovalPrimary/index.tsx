@@ -11,7 +11,7 @@ import Summary from "./summary";
 // create a component
 export function ApprovalPrimary() {
 	return (
-		<div>
+		<div className="approval-primary">
 			<title>Approval Primary Reform - California Approves</title>
 			<Hero />
 			<Ballots />

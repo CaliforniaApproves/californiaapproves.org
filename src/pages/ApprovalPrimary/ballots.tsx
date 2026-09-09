@@ -40,7 +40,7 @@ const Ballots = () => {
 	};
 
 	return (
-		<div className="bg-purple text-white pt-12 lg:pt-16 pb-14">
+		<section aria-label="See it in action" className="bg-purple text-white">
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="font-bold text-tan text-small">SEE IT IN ACTION</div>
 				<h2 className="text-white">
@@ -173,7 +173,7 @@ const Ballots = () => {
 					</p>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

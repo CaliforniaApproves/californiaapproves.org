@@ -39,7 +39,7 @@ const checklist = [
 
 const Solution = () => {
 	return (
-		<div className="bg-purple text-white py-16 lg:py-20">
+		<section aria-label="The solution" className="bg-purple text-white">
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
 					<div className="font-bold text-tan text-small">THE SOLUTION</div>
@@ -90,7 +90,7 @@ const Solution = () => {
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

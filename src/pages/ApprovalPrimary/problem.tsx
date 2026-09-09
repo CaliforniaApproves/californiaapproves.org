@@ -1,6 +1,6 @@
 const Problem = () => {
 	return (
-		<div className="py-16 lg:py-20">
+		<section aria-label="The problem">
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
 					<div className="font-bold text-orange text-small">THE PROBLEM</div>
@@ -54,7 +54,7 @@ const Problem = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 
