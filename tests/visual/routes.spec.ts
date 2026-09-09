@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, type Page, test } from "@playwright/test";
 
 // One full-page screenshot per prerendered route.
 const routes: { path: string; name: string }[] = [
@@ -29,14 +29,38 @@ test.beforeEach(async ({ page }) => {
 	});
 });
 
-for (const { path, name } of routes) {
-	test(`visual: ${name} (${path})`, async ({ page }) => {
-		await page.goto(path, { waitUntil: "load" });
-		// Wait for icon/web fonts (e.g. FontAwesome) before snapshotting.
-		await page.evaluate(() => document.fonts.ready);
-		await expect(page).toHaveScreenshot(`${name}.png`, {
-			fullPage: true,
-			mask: [page.locator(dynamicRegions)],
-		});
+async function snapshotRoute(page: Page, path: string, name: string) {
+	await page.goto(path, { waitUntil: "load" });
+	// Wait for icon/web fonts (e.g. FontAwesome) before snapshotting.
+	await page.evaluate(() => document.fonts.ready);
+	await expect(page).toHaveScreenshot(`${name}.png`, {
+		fullPage: true,
+		mask: [page.locator(dynamicRegions)],
 	});
 }
+
+for (const { path, name } of routes) {
+	test(`visual: ${name} (${path})`, async ({ page }) => {
+		await snapshotRoute(page, path, name);
+	});
+}
+
+// Narrow-viewport baselines. Layouts that reorder across the `lg` breakpoint
+// (the approval-primary hero stacks its heading, CTA and paragraphs in a
+// different order than the desktop two-column arrangement) are invisible to
+// the 1280px snapshots above, so they get their own baseline.
+test.describe("mobile", () => {
+	// iPhone 12/13/14 logical viewport; below Tailwind's `lg` (1024px) and
+	// `md` (768px), so mobile-only branches of the layout are exercised.
+	test.use({ viewport: { width: 390, height: 844 } });
+
+	test("visual: approval-primary mobile (/our-reforms/approval-primary)", async ({
+		page,
+	}) => {
+		await snapshotRoute(
+			page,
+			"/our-reforms/approval-primary",
+			"approval-primary-mobile",
+		);
+	});
+});
