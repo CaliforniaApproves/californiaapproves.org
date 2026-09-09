@@ -23,7 +23,7 @@ const timeline = [
 
 const Proof = () => {
 	return (
-		<div className="py-16 lg:py-20">
+		<section aria-label="Proven, not theoretical">
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
 					<div className="font-bold text-orange text-small">
@@ -69,7 +69,7 @@ const Proof = () => {
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 

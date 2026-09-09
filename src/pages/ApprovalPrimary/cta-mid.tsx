@@ -6,7 +6,7 @@ const MidCTA = () => {
 	};
 
 	return (
-		<div className="bg-orange text-center py-16 lg:py-20">
+		<section aria-label="Call to action" className="bg-orange text-center">
 			<div className="max-w-[700px] m-auto px-8">
 				<h2 className="text-white">
 					Ready to bring Approval Voting to California?
@@ -25,7 +25,7 @@ const MidCTA = () => {
 					ADD MY PLEDGE
 				</ActionButton>
 			</div>
-		</div>
+		</section>
 	);
 };
 

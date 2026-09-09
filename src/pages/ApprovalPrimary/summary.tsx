@@ -14,7 +14,10 @@ const does = [
 
 const Summary = () => {
 	return (
-		<div className="bg-purple text-white py-16 lg:py-20">
+		<section
+			aria-label="What the reform does and does not do"
+			className="bg-purple text-white"
+		>
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
 					<div className="font-bold text-tan text-small">
@@ -62,7 +65,7 @@ const Summary = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	);
 };
 
