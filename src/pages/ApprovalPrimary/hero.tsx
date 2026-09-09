@@ -4,11 +4,14 @@ import yellowCircleCheck from "../../assets/icons/Individual Circles/California-
 import Background from "../../assets/images/Group-39.svg";
 import HeroCTA from "./cta-hero";
 
-// create a component
 const Hero = () => {
 	return (
+		// The banner reads in mobile order: heading + value props, then the CTA,
+		// then the explanatory paragraphs. A grid puts them
+		// together on desktop, where the heading and paragraphs share the
+		// left column and the CTA spans both rows on the right.
 		<div
-			className="caa-home-page-banner w-full flex flex-col lg:flex-row items-center justify-center pt-[30px]"
+			className="caa-home-page-banner w-full grid grid-cols-1 justify-center pt-[30px] lg:grid-cols-[auto_40%] lg:content-center"
 			style={{
 				backgroundImage: `url(${Background})`,
 				backgroundSize: "cover",
@@ -16,7 +19,7 @@ const Hero = () => {
 			}}
 			id="top"
 		>
-			<div className="m-auto px-8 pb-14 lg:pb-0">
+			<div className="px-8 pb-14 lg:pb-0 lg:col-start-1 lg:row-start-1">
 				<h2 className="text-green banner-drop-shadow pt-4">
 					Approve every candidate you support. Not just one.
 				</h2>
@@ -58,7 +61,12 @@ const Hero = () => {
 						</span>
 					</div>
 				</div>
-				<div className="static max-w-[650px] mt-9">
+			</div>
+			<div className="py-8 px-5 lg:px-8 w-full max-w-full bg-orange lg:bg-transparent lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center">
+				<HeroCTA />
+			</div>
+			<div className="px-8 pb-14 lg:pb-0 lg:col-start-1 lg:row-start-2">
+				<div className="static lg:max-w-[650px] mt-9">
 					<p className="text-large-bold lg:font-normal">
 						When primary elections force voters to choose only one candidate,
 						voters often settle — or risk “wasting” their vote — and the
@@ -74,9 +82,6 @@ const Hero = () => {
 						the general has earned it, not benefitted from a divided field.
 					</p>
 				</div>
-			</div>
-			<div className="py-8 px-5 lg:px-8 w-full max-w-full lg:max-w-[40%] m-auto bg-orange lg:bg-transparent ">
-				<HeroCTA />
 			</div>
 		</div>
 	);
