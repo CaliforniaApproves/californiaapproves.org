@@ -23,7 +23,7 @@
 		"preact": "^10.29.8",
 		"preact-iso": "^2.12.2",
 		"preact-render-to-string": "^6.7.0",
-		"react-lite-youtube-embed": "^3.6.2",
+		"react-lite-youtube-embed": "^3.7.0",
 		"tailwindcss": "^4.3.0"
 	},
 	"devDependencies": {
