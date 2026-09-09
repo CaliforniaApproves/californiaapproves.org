@@ -1,5 +1,6 @@
 import type { TargetedSubmitEvent } from "preact";
 import { useState } from "preact/hooks";
+import purpleCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Purple-Circle-w-Check-RGB.svg";
 import { ActionButton } from "../../components/common/buttons";
 import Input from "../../components/common/input";
 import {
@@ -61,94 +62,121 @@ const PledgeForm = () => {
 				</p>
 
 				<div className="bg-white rounded-[24px] p-6 lg:p-10 mt-9 text-left">
-					{/* No native action: submissions go through /api/subscribe, which
-					    verifies the Turnstile token before forwarding to Mailchimp. A
-					    Mailchimp action here would let anyone post around that check. */}
-					<form
-						id="mc-embedded-subscribe-form-final"
-						name="mc-embedded-subscribe-form-final"
-						className="validate"
-						onSubmit={handleSubmit}
-					>
-						<div className="flex flex-col gap-2">
-							<div id="mc-email-input-wrapper-final" className="mc-field-group">
-								<Input
-									color="green"
-									label="email"
-									labelHidden={true}
-									type="email"
-									name="EMAIL"
-									placeholder="Enter your email"
-									className="w-full required email"
-									id="mce-EMAIL-final"
-									required
-								/>
-							</div>
-							<div className="flex gap-2">
-								<div
-									id="mc-fname-input-wrapper-final"
-									className="mc-field-group w-full"
-								>
-									<Input
-										color="green"
-										label="first name"
-										labelHidden={true}
-										type="text"
-										name="FNAME"
-										placeholder="First name"
-										className="w-full"
-										id="mce-FNAME-final"
-									/>
-								</div>
-								<div
-									id="mc-lname-input-wrapper-final"
-									className="mc-field-group w-full"
-								>
-									<Input
-										color="green"
-										label="last name"
-										labelHidden={true}
-										type="text"
-										name="LNAME"
-										placeholder="Last name"
-										className="w-full"
-										id="mce-LNAME-final"
-									/>
-								</div>
-							</div>
-							<div
-								id="mc-zip-input-wrapper-final"
-								className="mc-field-group w-full"
+					{status === "success" ? (
+						<div className="text-center py-6" role="status">
+							<img
+								src={purpleCircleCheck}
+								alt=""
+								width="72"
+								height="72"
+								className="mx-auto aspect-169/158 w-[72px] h-auto"
+							/>
+							<h3 className="text-green mt-5">You're on the list.</h3>
+							<p className="text-base text-schist-higher mt-3 leading-snug">
+								{message ||
+									"Thanks for pledging your support. Watch your inbox for the official petition."}
+							</p>
+							<a
+								href="#top"
+								className="inline-block mt-7 text-bsm font-extrabold uppercase tracking-[-0.01rem] text-green underline underline-offset-4 hover:text-green-high"
 							>
-								<Input
-									color="green"
-									label="zip code"
-									labelHidden={true}
-									type="text"
-									name="ZIP"
-									placeholder="Zip code"
-									className="w-full"
-									id="mce-ZIP-final"
-								/>
-							</div>
-
-							{/* Auto-tags every submission through this form as "Approval Primary Pledge" */}
-							<input type="hidden" name="tags" value="4527864" />
-
-							{/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
-							<div
-								style={{ position: "absolute", left: "-5000px" }}
-								aria-hidden="true"
+								Back to top
+							</a>
+						</div>
+					) : (
+						<>
+							{/* No native action: submissions go through /api/subscribe,
+							    which verifies the Turnstile token before forwarding to
+							    Mailchimp. A Mailchimp action here would let anyone post
+							    around that check. */}
+							<form
+								id="mc-embedded-subscribe-form-final"
+								name="mc-embedded-subscribe-form-final"
+								className="validate"
+								onSubmit={handleSubmit}
 							>
-								<input
-									type="text"
-									name="b_b4aa7540a62457c043ff00e36_dddf3d641c"
-									tabIndex={-1}
-									defaultValue=""
-								/>
-							</div>
+								<div className="flex flex-col gap-2">
+									<div
+										id="mc-email-input-wrapper-final"
+										className="mc-field-group"
+									>
+										<Input
+											color="green"
+											label="email"
+											labelHidden={true}
+											type="email"
+											name="EMAIL"
+											placeholder="Enter your email"
+											className="w-full required email"
+											id="mce-EMAIL-final"
+											required
+										/>
+									</div>
+									<div className="flex gap-2">
+										<div
+											id="mc-fname-input-wrapper-final"
+											className="mc-field-group w-full"
+										>
+											<Input
+												color="green"
+												label="first name"
+												labelHidden={true}
+												type="text"
+												name="FNAME"
+												placeholder="First name"
+												className="w-full"
+												id="mce-FNAME-final"
+											/>
+										</div>
+										<div
+											id="mc-lname-input-wrapper-final"
+											className="mc-field-group w-full"
+										>
+											<Input
+												color="green"
+												label="last name"
+												labelHidden={true}
+												type="text"
+												name="LNAME"
+												placeholder="Last name"
+												className="w-full"
+												id="mce-LNAME-final"
+											/>
+										</div>
+									</div>
+									<div
+										id="mc-zip-input-wrapper-final"
+										className="mc-field-group w-full"
+									>
+										<Input
+											color="green"
+											label="zip code"
+											labelHidden={true}
+											type="text"
+											name="ZIP"
+											placeholder="Zip code"
+											className="w-full"
+											id="mce-ZIP-final"
+										/>
+									</div>
 
-							{/* value="16" is required, not decorative: a checkbox with no
+									{/* Auto-tags every submission through this form as "Approval Primary Pledge" */}
+									<input type="hidden" name="tags" value="4527864" />
+
+									{/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
+									<div
+										style={{ position: "absolute", left: "-5000px" }}
+										aria-hidden="true"
+									>
+										<input
+											type="text"
+											name="b_b4aa7540a62457c043ff00e36_dddf3d641c"
+											tabIndex={-1}
+											defaultValue=""
+										/>
+									</div>
+
+									{/* value="16" is required, not decorative: a checkbox with no
 							    value attribute submits "on", but Mailchimp identifies the
 							    interest group by its id (the 16 in the field name). Without
 							    it the volunteering opt-in is silently dropped.
@@ -170,59 +198,61 @@ const PledgeForm = () => {
 							    which would mean an API key secret on the Worker. Deemed not
 							    worth it for a one-time signup: the label reads as an action,
 							    not a preference toggle. */}
-							<label className="flex items-start gap-2 mt-2 mb-1 cursor-pointer">
-								<input
-									type="checkbox"
-									name="group[384917][16]"
-									value="16"
-									id="mce-group-384917-0-final"
-									className="mt-1 shrink-0 w-4 h-4 accent-green cursor-pointer"
-								/>
-								<span className="text-bsm text-schist-higher leading-snug">
-									I'm interested in volunteering to help gather signatures
-								</span>
-							</label>
+									<label className="flex items-start gap-2 mt-2 mb-1 cursor-pointer">
+										<input
+											type="checkbox"
+											name="group[384917][16]"
+											value="16"
+											id="mce-group-384917-0-final"
+											className="mt-1 shrink-0 w-4 h-4 accent-green cursor-pointer"
+										/>
+										<span className="text-bsm text-schist-higher leading-snug">
+											I'm interested in volunteering to help gather signatures
+										</span>
+									</label>
 
-							<TurnstileField
-								widget={turnstile}
-								fallbackEmail={FALLBACK_EMAIL}
-								className="mt-2"
-							/>
-							{message ? (
-								<p
-									role="status"
-									className={`text-bsm text-center mt-1 leading-snug ${
-										status === "error" ? "text-orange" : "text-green"
-									}`}
-								>
-									{message}
-								</p>
-							) : null}
+									<TurnstileField
+										widget={turnstile}
+										fallbackEmail={FALLBACK_EMAIL}
+										className="mt-2"
+									/>
+									{message ? (
+										<p
+											role="status"
+											className={`text-bsm text-center mt-1 leading-snug ${
+												status === "error" ? "text-orange" : "text-green"
+											}`}
+										>
+											{message}
+										</p>
+									) : null}
 
-							<ActionButton
-								color="orange"
-								variant="solid"
-								className="mx-auto whitespace-nowrap px-20 mt-3 bg-orange hover:bg-orange-accent"
-								size="lg"
-								type="submit"
-								disabled={
-									turnstile.status !== "ready" || status === "submitting"
-								}
-							>
-								{status === "submitting" ? "Adding…" : "ADD MY PLEDGE"}
-							</ActionButton>
-							<p className="italic text-center text-bsm mt-2 text-schist-higher leading-snug">
-								We won't spam you or share your data. You can unsubscribe
-								anytime.
-							</p>
-						</div>
-						<noscript>
-							<p className="text-bsm text-orange text-center mt-2 leading-snug">
-								This form needs JavaScript for its spam check. Email{" "}
-								{FALLBACK_EMAIL} and we'll add your pledge.
-							</p>
-						</noscript>
-					</form>
+									<ActionButton
+										color="orange"
+										variant="solid"
+										className="mx-auto whitespace-nowrap px-20 mt-3 bg-orange hover:bg-orange-accent"
+										size="lg"
+										type="submit"
+										disabled={
+											turnstile.status !== "ready" || status === "submitting"
+										}
+									>
+										{status === "submitting" ? "Adding…" : "ADD MY PLEDGE"}
+									</ActionButton>
+									<p className="italic text-center text-bsm mt-2 text-schist-higher leading-snug">
+										We won't spam you or share your data. You can unsubscribe
+										anytime.
+									</p>
+								</div>
+								<noscript>
+									<p className="text-bsm text-orange text-center mt-2 leading-snug">
+										This form needs JavaScript for its spam check. Email{" "}
+										{FALLBACK_EMAIL} and we'll add your pledge.
+									</p>
+								</noscript>
+							</form>
+						</>
+					)}
 				</div>
 			</div>
 		</section>
