@@ -250,16 +250,6 @@ export async function submitSubscription(
 	body.set("form", form);
 	body.set("cf-turnstile-response", token);
 
-	// TODO(debug): verbose tracing added to chase a "server returned ok:true but
-	// the UI showed an error" report on the preview deploy. Field names only, no
-	// values, so nothing a visitor typed reaches the console. Remove once the
-	// cause is found.
-	console.info("[subscribe] POST /api/subscribe", {
-		form,
-		fields: [...body.keys()].filter((k) => k !== "cf-turnstile-response"),
-		hasToken: Boolean(token),
-	});
-
 	let response: Response;
 	try {
 		response = await fetch("/api/subscribe", {
@@ -268,59 +258,34 @@ export async function submitSubscription(
 			body: body.toString(),
 		});
 	} catch (error) {
-		console.error(
-			"[subscribe] fetch threw before any response — request blocked (extension/filter list), offline, or DNS/TLS failure",
-			error,
-		);
+		console.error("subscribe: request never reached the server", error);
 		return {
 			ok: false,
 			message: "Network error — please check your connection and try again.",
 		};
 	}
 
-	console.info("[subscribe] response headers", {
-		status: response.status,
-		statusText: response.statusText,
-		httpOk: response.ok,
-		type: response.type, // "opaque" here means the response was blocked/no-cors
-		redirected: response.redirected,
-		url: response.url,
-		contentType: response.headers.get("content-type"),
-		contentLength: response.headers.get("content-length"),
-	});
-
-	// Read the body as text first so the raw payload is visible even when it is
-	// not JSON — .json() alone would swallow it and every failure would look the
-	// same.
+	// Read the body as text first so a non-JSON response (an HTML error page, or
+	// a payload swapped by an extension or proxy) is logged rather than silently
+	// swallowed by .json().
 	let raw: string;
 	try {
 		raw = await response.text();
 	} catch (error) {
-		console.error("[subscribe] could not read the response body", error);
+		console.error("subscribe: could not read the response body", error);
 		return { ok: false, message: "Something went wrong. Please try again." };
 	}
-	console.info(
-		`[subscribe] raw body (${raw.length} chars):`,
-		JSON.stringify(raw.slice(0, 500)),
-	);
 
 	let data: SubscribeResult | null = null;
 	try {
-		data = raw ? (JSON.parse(raw) as SubscribeResult) : null;
+		data = JSON.parse(raw) as SubscribeResult;
 	} catch (error) {
 		console.error(
-			"[subscribe] response body is not valid JSON — a browser extension, service worker, or proxy likely replaced it",
+			`subscribe: response was not JSON (status ${response.status})`,
+			raw.slice(0, 500),
 			error,
 		);
 	}
-
-	if (data && typeof data.ok === "boolean") {
-		console.info("[subscribe] parsed result", data);
-		return data;
-	}
-	console.error(
-		"[subscribe] no usable { ok, message } in the response — falling back to a generic error",
-		{ data, rawLength: raw.length },
-	);
+	if (data && typeof data.ok === "boolean") return data;
 	return { ok: false, message: "Something went wrong. Please try again." };
 }

@@ -21,14 +21,8 @@ const PledgeForm = () => {
 
 	const handleSubmit = async (event: TargetedSubmitEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		// TODO(debug): remove the [pledge] logging once the preview success-state
-		// report is resolved.
-		if (status === "submitting") {
-			console.warn("[pledge] ignored submit: already submitting");
-			return;
-		}
+		if (status === "submitting") return;
 		if (turnstile.status === "unavailable") {
-			console.warn("[pledge] blocked submit: turnstile unavailable");
 			setStatus("error");
 			setMessage(
 				`Verification couldn't load, so we can't accept your pledge. Email ${FALLBACK_EMAIL} and we'll add you.`,
@@ -36,7 +30,6 @@ const PledgeForm = () => {
 			return;
 		}
 		if (!token) {
-			console.warn("[pledge] blocked submit: no turnstile token yet");
 			setStatus("error");
 			setMessage("Please complete the verification challenge and try again.");
 			return;
@@ -46,14 +39,7 @@ const PledgeForm = () => {
 		setStatus("submitting");
 		setMessage("");
 		const result = await submitSubscription("pledge", formEl, token);
-		const nextStatus = result.ok ? "success" : "error";
-		console.info("[pledge] submitSubscription resolved", {
-			ok: result.ok,
-			okType: typeof result.ok,
-			message: result.message,
-			nextStatus,
-		});
-		setStatus(nextStatus);
+		setStatus(result.ok ? "success" : "error");
 		setMessage(result.message);
 		if (result.ok) formEl.reset();
 		reset();
