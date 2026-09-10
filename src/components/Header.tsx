@@ -1,7 +1,7 @@
 import { Popover, Transition } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/20/solid";
 import classnames from "classnames";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Logo from "../assets/icons/California-Approves-Logo-RGB-OL.svg?react";
 import { NavButton } from "./common/buttons";
 import { Link } from "./common/links";
@@ -12,11 +12,26 @@ function classNames(...classes: string[]) {
 
 export function Header() {
 	const [burgerOpen, setBurgerOpen] = useState(false);
+	const [scrolled, setScrolled] = useState(false);
+
+	useEffect(() => {
+		const onScroll = () => setScrolled(window.scrollY > 8);
+		onScroll();
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => window.removeEventListener("scroll", onScroll);
+	}, []);
+
 	return (
-		<Popover className="bg-white lg:sticky top-0 z-30">
-			<div className="flex items-center justify-between border-b border-purple py-6 lg:justify-start lg:space-x-10">
+		<Popover className="sticky top-0 z-30 bg-transparent lg:bg-white">
+			<div className="flex items-center justify-between py-6 lg:justify-start lg:space-x-10 lg:border-b lg:border-purple">
 				<div className="flex justify-start items-center lg:flex-auto">
-					<Link to="/" className="m-4">
+					<Link
+						to="/"
+						className={classNames(
+							"m-4 transition-opacity duration-300 lg:pointer-events-auto lg:opacity-100",
+							scrolled ? "pointer-events-none opacity-0" : "opacity-100",
+						)}
+					>
 						<span className="sr-only">CA Approves</span>
 						<Logo className="w-56" />
 					</Link>
@@ -59,7 +74,10 @@ export function Header() {
 								<Popover.Button
 									className={classNames(
 										open ? "text-gray-900" : "text-gray-500",
-										"group inline-flex items-center rounded-md bg-white font-medium hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-purple focus:ring-offset-2",
+										"group inline-flex items-center rounded-md font-medium transition duration-300 hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-purple focus:ring-offset-2 lg:bg-white",
+										open || scrolled
+											? "bg-white/25 shadow-sm"
+											: "bg-transparent",
 									)}
 								>
 									<Bars3Icon
