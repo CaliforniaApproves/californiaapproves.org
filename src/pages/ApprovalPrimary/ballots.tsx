@@ -164,13 +164,17 @@ const Ballots = () => {
 					</div>
 				</div>
 
-				<div className="static max-w-full mt-9">
+				<div className="pb-8 static max-w-full mt-9">
 					<p className="italic text-base lg:font-normal">
 						In our current system, needing to guess who's &ldquo;electable" can
 						pressure any voter to abandon their favorite candidates, even when
 						they have no competition for their party's support. Approval Voting
 						removes that pressure everywhere.
 					</p>
+				</div>
+				<div className="border-t border-white/25 pt-8 text-center">
+					<p className="text-3xl font-bold text-white">Same ballot. More choice, that's it.</p>
+					<p className="text-3xl font-bold text-tan">Mark all you support.</p>
 				</div>
 			</div>
 		</section>

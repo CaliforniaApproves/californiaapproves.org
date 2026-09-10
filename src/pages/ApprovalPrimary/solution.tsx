@@ -68,7 +68,7 @@ const Solution = () => {
 					))}
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5 mt-11 pt-8 border-t border-white/25">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5 mt-11 pt-8 pb-8 border-t border-white/25">
 					{checklist.map((item) => (
 						<div key={item.title} className="flex items-start gap-3.5">
 							<img
@@ -88,6 +88,10 @@ const Solution = () => {
 							</div>
 						</div>
 					))}
+				</div>
+				<div className="border-t border-white/25 pt-8 text-center">
+					<p className="text-3xl font-bold text-white">Same ballot. More choice, that's it.</p>
+					<p className="text-3xl font-bold text-tan">Mark all you support.</p>
 				</div>
 			</div>
 		</section>
