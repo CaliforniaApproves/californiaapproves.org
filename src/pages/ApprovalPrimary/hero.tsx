@@ -18,7 +18,7 @@ const Hero = () => {
 		// the gap between the two left-column rows.
 		<section
 			aria-label="Introduction"
-			className="caa-home-page-banner w-full grid grid-cols-1 justify-center lg:grid-cols-[auto_40%] lg:content-center"
+			className="caa-home-page-banner w-full grid grid-cols-1 justify-center lg:grid-cols-[auto_40%] lg:content-center border-t border-purple lg:border-t-0"
 			style={{
 				backgroundImage: `url(${Background})`,
 				backgroundSize: "cover",
@@ -26,8 +26,8 @@ const Hero = () => {
 			}}
 			id="top"
 		>
-			<div className="pb-16 px-8 lg:pb-8 max-w-[650px] lg:col-start-1 lg:row-start-1">
-				<h2 className="text-green banner-drop-shadow">
+			<div className="pb-12 px-8 lg:pb-0 max-w-[650px] lg:col-start-1 lg:row-start-1">
+				<h2 className="text-green ">
 					Approve every candidate you support. Not just one.
 				</h2>
 				<div className="flex flex-wrap items-center gap-3 mt-9">
@@ -72,7 +72,7 @@ const Hero = () => {
 			<div className="py-16 px-5 lg:py-8 lg:px-8 w-full max-w-full bg-orange lg:bg-transparent lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center">
 				<HeroCTA />
 			</div>
-			<div className="pt-16 px-8 lg:pt-8 max-w-[650px] lg:col-start-1 lg:row-start-2">
+			<div className="pt-12 px-8 lg:pt-8 max-w-[650px] lg:col-start-1 lg:row-start-2">
 				<p className="text-large-bold lg:font-normal">
 					When primary elections force voters to choose only one candidate,
 					voters often settle — or risk “wasting” their vote — and the
