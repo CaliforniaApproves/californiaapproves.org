@@ -26,7 +26,7 @@ const Hero = () => {
 			}}
 			id="top"
 		>
-			<div className="pb-12 px-8 lg:pb-0 max-w-[650px] lg:col-start-1 lg:row-start-1">
+			<div className="pb-8 px-8 lg:pb-0 max-w-[650px] lg:col-start-1 lg:row-start-1">
 				<h2 className="text-green ">
 					Approve every candidate you support. Not just one.
 				</h2>
@@ -72,7 +72,7 @@ const Hero = () => {
 			<div className="py-16 px-5 lg:py-8 lg:px-8 w-full max-w-full bg-orange lg:bg-transparent lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center">
 				<HeroCTA />
 			</div>
-			<div className="pt-12 px-8 lg:pt-8 max-w-[650px] lg:col-start-1 lg:row-start-2">
+			<div className="pt-8 px-8 lg:pt-8 max-w-[650px] lg:col-start-1 lg:row-start-2">
 				<p className="text-large-bold lg:font-normal">
 					When primary elections force voters to choose only one candidate,
 					voters often settle — or risk “wasting” their vote — and the

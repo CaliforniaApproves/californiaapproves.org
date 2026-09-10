@@ -106,7 +106,7 @@ const PledgeForm = () => {
 											labelHidden={true}
 											type="email"
 											name="EMAIL"
-											placeholder="Enter your email"
+											placeholder="Enter your email *"
 											className="w-full required email"
 											id="mce-EMAIL-final"
 											required
@@ -157,6 +157,18 @@ const PledgeForm = () => {
 											placeholder="Zip code"
 											className="w-full"
 											id="mce-ZIP-final"
+										/>
+									</div>
+									<div id="mc-why-input-wrapper-final" className="mc-field-group w-full">
+										<Input
+											color="green"
+											label="why does this matter to you"
+											labelHidden={true}
+											type="text"
+											name="WHY"
+											placeholder="Why does this matter to you?"
+											className="w-full"
+											id="mce-WHY-final"
 										/>
 									</div>
 
