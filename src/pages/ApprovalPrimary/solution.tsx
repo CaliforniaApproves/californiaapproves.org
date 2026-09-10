@@ -9,7 +9,7 @@ const steps = [
 	{
 		num: "02",
 		title: "Approvals add up, they don't divide",
-		body: "Overlapping support among candidates gets counted instead of split apart. A candidate with real, broad appeal is no longer penalized just because that support overlaps with others.",
+		body: "Overlapping support among candidates gets counted instead of split apart. Candidates with real, broad appeal are no longer penalized just because their support overlaps with others.",
 	},
 	{
 		num: "03",

@@ -64,7 +64,7 @@ const Summary = () => {
 						</ul>
 					</div>
 				</div>
-				<div className="border-t border-white/25 pt-8 text-center">
+				<div className="pt-8 text-center">
 					<p className="text-3xl font-bold text-white">Same ballot. More choice, that's it.</p>
 					<p className="text-3xl font-bold text-tan">Mark all you support.</p>
 				</div>
