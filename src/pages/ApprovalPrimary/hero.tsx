@@ -18,7 +18,7 @@ const Hero = () => {
 		// the gap between the two left-column rows.
 		<section
 			aria-label="Introduction"
-			className="caa-home-page-banner w-full grid grid-cols-1 justify-center lg:grid-cols-[auto_40%] lg:content-center border-t border-purple lg:border-t-0"
+			className="caa-home-page-banner w-full grid grid-cols-1 justify-center lg:grid-cols-[auto_40%] lg:content-center"
 			style={{
 				backgroundImage: `url(${Background})`,
 				backgroundSize: "cover",
