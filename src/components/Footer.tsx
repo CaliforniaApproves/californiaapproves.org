@@ -34,10 +34,10 @@ export function Footer() {
 						</p>
 					</div>
 					<div className="lg:w-1/4 lg:px-8">
-						<h3 className="text-sm font-semibold leading-6 text-orange">
+						<h3 className="py-2 lg:text-sm font-semibold leading-6 text-orange">
 							Learn More
 						</h3>
-						<ul className="lg:space-y-4 lg:mt-6">
+						<ul className="py-3 space-y-3 lg:space-y-4 lg:pt-6">
 							{navigation.learnMore.map((item) => (
 								<li key={item.name}>
 									<Link to={item.href}>{item.name}</Link>
@@ -46,10 +46,10 @@ export function Footer() {
 						</ul>
 					</div>
 					<div className="lg:w-1/4 lg:px-8">
-						<h3 className="text-sm font-semibold leading-6 text-orange">
+						<h3 className="py-2 lg:text-sm font-semibold leading-6 text-orange">
 							Support
 						</h3>
-						<ul className="lg:space-y-4 lg:mt-6">
+						<ul className="py-3 space-y-3 lg:space-y-4 lg:pt-6">
 							{navigation.getInvolved.map((item) => (
 								<li key={item.name}>
 									<Link to={item.href} target={item.newPage ? "_blank" : ""}>
@@ -61,10 +61,12 @@ export function Footer() {
 					</div>
 					<div className="lg:w-1/4">
 						<div>
-							<h3 className="text-sm font-semibold leading-6 text-orange">
+							<h3 className="py-2 lg:text-sm font-semibold leading-6 text-orange">
 								Follow Us
 							</h3>
-							<SocialLinks color="purple" />
+							<div className="py-3 lg:pt-0">
+								<SocialLinks color="purple" />
+							</div>
 						</div>
 					</div>
 				</div>
