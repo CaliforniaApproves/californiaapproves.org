@@ -55,7 +55,7 @@ const PledgeForm = () => {
 				<h2 className="text-white">
 					Help bring Approval Voting to California.
 				</h2>
-				<p className="text-base text-white/85 mt-3">
+				<p className="text-base text-white/85 pt-3">
 					Every pledge moves this closer to the 2028 ballot. Add your name
 					below, and we'll follow up once the official petition is ready to
 					sign.
@@ -71,14 +71,14 @@ const PledgeForm = () => {
 								height="72"
 								className="mx-auto aspect-169/158 w-[72px] h-auto"
 							/>
-							<h3 className="text-green mt-5">You're on the list.</h3>
-							<p className="text-base text-schist-higher mt-3 leading-snug">
+							<h3 className="text-green pt-5">You're on the list.</h3>
+							<p className="text-base text-schist-higher pt-3 leading-snug">
 								{message ||
 									"Thanks for pledging your support. Watch your inbox for the official petition."}
 							</p>
 							<a
 								href="#top"
-								className="inline-block mt-7 text-bsm font-extrabold uppercase tracking-[-0.01rem] text-green underline underline-offset-4 hover:text-green-high"
+								className="inline-block pt-7 text-bsm font-extrabold uppercase tracking-[-0.01rem] text-green underline underline-offset-4 hover:text-green-high"
 							>
 								Back to top
 							</a>
@@ -106,7 +106,7 @@ const PledgeForm = () => {
 											labelHidden={true}
 											type="email"
 											name="EMAIL"
-											placeholder="Enter your email *"
+											placeholder="Enter your email"
 											className="w-full required email"
 											id="mce-EMAIL-final"
 											required
@@ -198,7 +198,7 @@ const PledgeForm = () => {
 							    which would mean an API key secret on the Worker. Deemed not
 							    worth it for a one-time signup: the label reads as an action,
 							    not a preference toggle. */}
-									<label className="flex items-start gap-2 mt-2 mb-1 cursor-pointer">
+									<label className="flex items-start gap-2 pt-2 mb-1 cursor-pointer">
 										<input
 											type="checkbox"
 											name="group[384917][16]"
@@ -210,7 +210,10 @@ const PledgeForm = () => {
 											I'm interested in volunteering to help gather signatures
 										</span>
 									</label>
-									<div id="mc-why-input-wrapper-final" className="mc-field-group w-full">
+									<div
+										id="mc-why-input-wrapper-final"
+										className="mc-field-group w-full"
+									>
 										<Input
 											color="green"
 											label="why does this matter to you"
@@ -222,16 +225,16 @@ const PledgeForm = () => {
 											id="mce-WHY-final"
 										/>
 									</div>
-									
+
 									<TurnstileField
 										widget={turnstile}
 										fallbackEmail={FALLBACK_EMAIL}
-										className="mt-2"
+										className="pt-2"
 									/>
 									{message ? (
 										<p
 											role="status"
-											className={`text-bsm text-center mt-1 leading-snug ${
+											className={`text-bsm text-center pt-1 leading-snug ${
 												status === "error" ? "text-orange" : "text-green"
 											}`}
 										>
@@ -251,13 +254,13 @@ const PledgeForm = () => {
 									>
 										{status === "submitting" ? "Adding…" : "ADD MY PLEDGE"}
 									</ActionButton>
-									<p className="italic text-center text-bsm mt-2 text-schist-higher leading-snug">
+									<p className="italic text-center text-bsm pt-2 text-schist-higher leading-snug">
 										We won't spam you or share your data. You can unsubscribe
 										anytime.
 									</p>
 								</div>
 								<noscript>
-									<p className="text-bsm text-orange text-center mt-2 leading-snug">
+									<p className="text-bsm text-orange text-center pt-2 leading-snug">
 										This form needs JavaScript for its spam check. Email{" "}
 										{FALLBACK_EMAIL} and we'll add your pledge.
 									</p>

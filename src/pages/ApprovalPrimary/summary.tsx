@@ -23,10 +23,10 @@ const Summary = () => {
 					<div className="font-bold text-tan text-small">
 						NOT A RADICAL DEPARTURE
 					</div>
-					<h2 className="text-white mt-2">
+					<h2 className="text-white py-2">
 						This finishes the job California's open primary already started.
 					</h2>
-					<p className="text-large text-white/85 mt-3 leading-snug">
+					<p className="text-large text-white/85 py-2 leading-snug">
 						Every candidate for state and congressional office still appears on
 						one familiar ballot. Every registered voter, regardless of party
 						affiliation, can still vote for any of them. This reform simply
@@ -65,7 +65,9 @@ const Summary = () => {
 					</div>
 				</div>
 				<div className="pt-8 text-center">
-					<p className="text-3xl font-bold text-white">Same ballot. More choice, that's it.</p>
+					<p className="text-3xl font-bold text-white">
+						Same ballot. More choice, that's it.
+					</p>
 					<p className="text-3xl font-bold text-tan">Mark all you support.</p>
 				</div>
 			</div>

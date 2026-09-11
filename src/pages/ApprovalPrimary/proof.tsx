@@ -24,15 +24,15 @@ const timeline = [
 const Proof = () => {
 	return (
 		<section aria-label="Proven, not theoretical">
-			<div className="max-w-[1120px] m-auto px-8">
+			<div className="max-w-[1120px] m-auto px-8 flex flex-col gap-12">
 				<div className="max-w-full">
 					<div className="font-bold text-orange text-small">
 						PROVEN, NOT THEORETICAL
 					</div>
-					<h2 className="text-green mt-2">
+					<h2 className="text-green pt-2">
 						St. Louis already made this switch.
 					</h2>
-					<p className="text-large mt-3 leading-snug">
+					<p className="text-large pt-3 leading-snug">
 						Approval Voting has already been used for municipal and legislative
 						offices in Fargo, St. Louis, and Utah's Senate District 11. St.
 						Louis in particular also pairs Approval Voting with an open primary
@@ -44,7 +44,7 @@ const Proof = () => {
 					</p>
 				</div>
 
-				<div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mt-12">
+				<div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 					{timeline.map((item) => (
 						<div key={item.year}>
 							<div className="font-mono text-sm font-semibold text-orange-accent mb-2.5">

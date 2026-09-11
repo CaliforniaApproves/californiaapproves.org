@@ -114,7 +114,7 @@ const NestedToggle = ({ nested }: { nested?: NestedFaq }) => {
 	if (!nested) return null;
 
 	return (
-		<div className="mt-2 pl-3 border-l-2 border-schist">
+		<div className="pl-3 border-l-2 border-schist">
 			<button
 				type="button"
 				onClick={() => setOpen((prev) => !prev)}
@@ -209,7 +209,7 @@ const Questions = () => {
 				<div className="font-bold text-small text-orange-accent uppercase">
 					Common Questions
 				</div>
-				<h2 className="text-green mt-2 mb-8">
+				<h2 className="text-green py-2 mb-8">
 					Good questions deserve straight answers.
 				</h2>
 
