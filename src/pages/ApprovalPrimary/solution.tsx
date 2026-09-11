@@ -43,24 +43,24 @@ const Solution = () => {
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
 					<div className="font-bold text-tan text-small">THE SOLUTION</div>
-					<h2 className="text-white mt-2">
+					<h2 className="text-white py-2">
 						An election should measure how much support a candidate actually
 						has.
 					</h2>
-					<p className="text-large text-white/85 mt-3">
+					<p className="text-large text-white/85 py-2">
 						Approval Voting does exactly that. By measuring overlapping support,
 						it provides more choice, creates fair competition for broad support,
 						and delivers better representation.
 					</p>
 				</div>
 
-				<div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
+				<div className="grid grid-cols-1 lg:grid-cols-3 gap-8 py-6">
 					{steps.map((step) => (
-						<div key={step.num} className="border-t-2 border-tan pt-4">
+						<div key={step.num} className="border-t-2 border-tan py-4">
 							<div className="font-mono text-tan text-sm font-semibold">
 								{step.num}
 							</div>
-							<h4 className="text-white mt-2 mb-2">{step.title}</h4>
+							<h4 className="text-white py-2">{step.title}</h4>
 							<p className="text-white/85 text-base leading-tight">
 								{step.body}
 							</p>
@@ -68,7 +68,7 @@ const Solution = () => {
 					))}
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5 mt-11 pt-8 pb-8 border-t border-white/25">
+				<div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5 mt-11 py-6 border-t border-white/25">
 					{checklist.map((item) => (
 						<div key={item.title} className="flex items-start gap-3.5">
 							<img
@@ -76,7 +76,7 @@ const Solution = () => {
 								alt="orange check"
 								width="24"
 								height="16"
-								className="aspect-169/158 shrink-0 mt-0.5"
+								className="aspect-169/158 shrink-0 pt-0.5"
 							/>
 							<div>
 								<b className="block text-white text-base font-bold mb-0.5">
@@ -89,8 +89,10 @@ const Solution = () => {
 						</div>
 					))}
 				</div>
-				<div className="border-t border-white/25 pt-8 text-center">
-					<p className="text-3xl font-bold text-white">Same ballot. More choice, that's it.</p>
+				<div className="border-t border-white/25 py-4 text-center">
+					<p className="text-3xl font-bold text-white">
+						Same ballot. More choice, that's it.
+					</p>
 					<p className="text-3xl font-bold text-tan">Mark all you support.</p>
 				</div>
 			</div>

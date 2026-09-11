@@ -26,11 +26,11 @@ const Hero = () => {
 			}}
 			id="top"
 		>
-			<div className="pb-8 px-8 lg:pb-0 max-w-[650px] lg:col-start-1 lg:row-start-1">
+			<div className="pb-8 px-8 lg:pb-0 max-w-[650px] lg:col-start-1 lg:row-start-1 flex flex-col gap-9">
 				<h2 className="text-green ">
 					Approve every candidate you support. Not just one.
 				</h2>
-				<div className="flex flex-wrap items-center gap-3 mt-9">
+				<div className="flex flex-wrap items-center gap-3">
 					<div className="flex items-center gap-2">
 						<img
 							src={purpleCircleCheck}
