@@ -32,7 +32,7 @@ const Proof = () => {
 						Already proven to work.
 					</h2>
 					<p className="text-large pt-3 leading-snug">
-						Approval Voting isn’t an experiment. It’s already been used to 
+						Approval Voting has already been used to 
 						elect leaders in multiple places across the country, and it’s 
 						the way many people already make group decisions. When a group 
 						picks a meeting time, nobody votes for just one slot. Everyone 
