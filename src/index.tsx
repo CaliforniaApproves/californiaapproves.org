@@ -20,9 +20,15 @@ import { Faq } from "./pages/Faq";
 import { Home } from "./pages/Home";
 import "./style.css";
 
+// Every page is prerendered, so skip client-side navigation: a scope that
+// matches no link makes every click a full page load. That lets the browser
+// handle fragment jumps like `#pledge` and resets per-page UI state (e.g. the
+// mobile menu) on its own.
+const NO_CLIENT_ROUTES = /(?!)/;
+
 export function App() {
 	return (
-		<LocationProvider>
+		<LocationProvider scope={NO_CLIENT_ROUTES}>
 			<Header />
 			<main>
 				<Router>
