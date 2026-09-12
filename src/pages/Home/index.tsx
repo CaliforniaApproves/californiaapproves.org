@@ -3,6 +3,7 @@ import AboutApproval from "./approval";
 import Banner from "./banner";
 // import News from './news';
 import GetInvolved from "./get-involved";
+import PrimaryCallout from "./primary-callout";
 import Quotes from "./quotes";
 import Video from "./video";
 
@@ -12,6 +13,7 @@ export function Home() {
 		<div>
 			<title>California Approves</title>
 			<Banner />
+			<PrimaryCallout />
 			<Video />
 			<AboutApproval />
 			<AboutUs />
