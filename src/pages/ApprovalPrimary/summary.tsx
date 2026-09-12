@@ -1,3 +1,6 @@
+import orangeCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Orange-Circle-w-Check-RGB-KO.svg";
+import yellowCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Yellow-Circle-w-Check-RGB-KO.svg";
+
 const doesNot = [
 	"Does not bring back closed, party primaries",
 	"Does not restrict who can run or who can vote",
@@ -7,7 +10,7 @@ const doesNot = [
 
 const does = [
 	"Gives primary voters the freedom to choose all candidates they like",
-	"Reveals overlapping support that choose-one voting hides",
+	"Reveals how much support candidates really have, instead of hiding it",
 	"Advances the most widely approved candidates",
 	"Gives winners a stronger mandate to represent more voters",
 ];
@@ -20,9 +23,13 @@ const Summary = () => {
 		>
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
-					<div className="font-bold text-tan text-small">
-						NOT A RADICAL DEPARTURE
-					</div>
+					<img
+						src={orangeCircleCheck}
+						alt="orange check"
+						width="24"
+						height="16"
+						className="aspect-169/158 shrink-0 pt-0.5"
+					/>
 					<h2 className="text-white py-2">
 						This finishes the job California's open primary already started.
 					</h2>
