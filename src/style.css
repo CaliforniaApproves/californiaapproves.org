@@ -285,19 +285,6 @@ Large Paragraph List
 	}
 }
 
-/*
-  Approval Primary page: every top-level <section>, hero included, shares one
-  vertical rhythm (4rem, 5rem from lg up — matching the old py-16/py-20), so the
-  section components don't each re-declare their own padding and drift out of
-  sync. The hero's grid cells only pad the gaps between their stacked blocks and
-  let this rule own the top and bottom edge.
-*/
 .approval-primary > section {
-	padding-block: 4rem;
-}
-
-@media (min-width: 1024px) {
-	.approval-primary > section {
-		padding-block: 5rem;
-	}
+	padding-block: 3rem;
 }
