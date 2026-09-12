@@ -2,15 +2,15 @@ import orangeCircleCheck from "../../assets/icons/Individual Circles/California-
 import yellowCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Yellow-Circle-w-Check-RGB-KO.svg";
 
 const doesNot = [
-	"Does not bring back closed, party primaries",
 	"Does not restrict who can run or who can vote",
-	"Does not touch the ballot layout or how the general election works",
+	"Does not change the ballot layout or how the general election works",
 	"Does not require new voting machines or software",
+	"Does not add cost for counties to administer",
 ];
 
 const does = [
-	"Gives primary voters the freedom to choose all candidates they like",
-	"Reveals how much support candidates really have, instead of hiding it",
+	"Gives voters the freedom to mark every candidates they support",
+	"Reveals how much support each candidates really has, instead of hiding it",
 	"Advances the most widely approved candidates",
 	"Gives winners a stronger mandate to represent more voters",
 ];
@@ -23,23 +23,24 @@ const Summary = () => {
 		>
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
-					<img
-						src={orangeCircleCheck}
-						alt="orange check"
-						width="24"
-						height="16"
-						className="aspect-169/158 shrink-0 pt-0.5"
-					/>
-					<h2 className="text-white py-2">
-						This finishes the job California's open primary already started.
+					<h2 className="text-white py-2 flex gap-2">
+						<img
+							src={orangeCircleCheck}
+							alt="orange check"
+							width="33"
+							height="22"
+							className="aspect-169/158 shrink-0 pt-2.5"
+						/>
+						<span>The simplest change that works.</span>
 					</h2>
 					<p className="text-large text-white/85 py-2 leading-snug">
-						Every candidate for state and congressional office still appears on
-						one familiar ballot. Every registered voter, regardless of party
-						affiliation, can still vote for any of them. This reform simply
-						gives voters the freedom to support all the candidates they like in
-						the primary. Nothing else about how California elects its leaders
-						changes.
+						Every candidate for state and congressional office still 
+						appears on one familiar ballot. Every registered voter 
+						can still vote for any of them. This reform simply gives 
+						voters the freedom to support all the candidates they 
+						like in the primary. Nothing else about how elections 
+						are run has to change, and nothing new has to be bought, 
+						built, or learned.
 					</p>
 				</div>
 
