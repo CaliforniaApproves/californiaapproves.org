@@ -28,15 +28,15 @@ const Proof = () => {
 		<section aria-label="Proven, not theoretical">
 			<div className="max-w-[1120px] m-auto px-8 flex flex-col gap-12">
 				<div className="max-w-full">
-					<img
-						src={purpleCircleCheck}
-						alt="purple check"
-						width="24"
-						height="16"
-						className="aspect-169/158 shrink-0 pt-0.5"
-					/>
-					<h2 className="text-green pt-2">
-						Already proven to work.
+					<h2 className="text-green pt-2 flex gap-3">
+						<img
+							src={purpleCircleCheck}
+							alt="purple check"
+							width="33"
+							height="22"
+							className="aspect-169/158 shrink-0 pt-3"
+						/>
+						<span>Already proven to work.</span>
 					</h2>
 					<p className="text-large pt-3 leading-snug">
 						Approval Voting isn’t an experiment. It’s already been used to 
