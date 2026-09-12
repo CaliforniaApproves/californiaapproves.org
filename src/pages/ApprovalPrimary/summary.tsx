@@ -1,6 +1,3 @@
-import orangeCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Orange-Circle-w-Check-RGB-KO.svg";
-import yellowCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Yellow-Circle-w-Check-RGB-KO.svg";
-
 const doesNot = [
 	"Does not restrict who can run or who can vote",
 	"Does not change the ballot layout or how the general election works",

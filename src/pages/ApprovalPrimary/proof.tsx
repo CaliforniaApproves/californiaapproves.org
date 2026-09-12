@@ -1,5 +1,3 @@
-import purpleCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Purple-Circle-w-Check-RGB.svg";
-
 const timeline = [
 	{
 		year: "2017 · Choose-One",
@@ -45,7 +43,7 @@ const Proof = () => {
 						St. Louis followed in 2021, using it for city primaries. In 
 						2025, Utah’s Forward Party used it to fill a vacant state 
 						Senate seat. Each time, the process was the same: mark every 
-						candidate you support, and the most-approved candidate wins.
+						candidate you support, and the most-approved candidates win.
 					</p>
 					<p className="text-large pt-3 leading-snug">
 						Here’s what that looked like in St. Louis:

@@ -1,6 +1,3 @@
-import orangeCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Orange-Circle-w-Check-RGB-KO.svg";
-import yellowCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Yellow-Circle-w-Check-RGB-KO.svg";
-
 const Problem = () => {
 	return (
 		<section aria-label="The problem" className="bg-purple text-white/85">
