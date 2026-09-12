@@ -7,7 +7,7 @@ const MidCTA = () => {
 
 	return (
 		<section aria-label="Call to action" className="bg-orange text-center">
-			<div className="max-w-[700px] m-auto px-8">
+			<div className="max-w-[700px] m-auto px-8 flex flex-col gap-6">
 				<h2 className="text-white">
 					Ready to bring Approval Voting to California?
 				</h2>
