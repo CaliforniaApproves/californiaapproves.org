@@ -17,7 +17,7 @@ const SupportCTA = () => {
 					link="/our-reforms/approval-primary#pledge"
 					className="w-auto! whitespace-nowrap px-10"
 				>
-					Pledge my support
+					Pledge your support
 				</NavButton>
 				<NavButton
 					variant="outlined"
@@ -26,7 +26,7 @@ const SupportCTA = () => {
 					link="/our-reforms/approval-primary"
 					className="w-auto! whitespace-nowrap px-10 text-orange"
 				>
-					Learn more
+					See the plan
 				</NavButton>
 			</div>
 		</div>
