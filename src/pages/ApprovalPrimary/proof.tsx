@@ -30,20 +30,19 @@ const Proof = () => {
 						Already proven to work.
 					</h2>
 					<p className="text-large pt-3 leading-snug">
-						Approval Voting has already been used to 
-						elect leaders in multiple places across the country, and it’s 
-						the way many people already make group decisions. When a group 
-						picks a meeting time, nobody votes for just one slot. Everyone 
-						marks every time that works, and the option most people can 
-						make wins. Approval Voting brings that same simple logic to 
-						the ballot.
+						Approval Voting has already been used to elect leaders in multiple
+						places across the country, and it’s the way many people already make
+						group decisions. When a group picks a meeting time, nobody votes for
+						just one slot. Everyone marks every time that works, and the option
+						most people can make wins. Approval Voting brings that same simple
+						logic to the ballot.
 					</p>
 					<p className="text-large pt-3 leading-snug">
-						Fargo, North Dakota adopted it for city elections in 2020. 
-						St. Louis followed in 2021, using it for city primaries. In 
-						2025, Utah’s Forward Party used it to fill a vacant state 
-						Senate seat. Each time, the process was the same: mark every 
-						candidate you support, and the most-approved candidates win.
+						Fargo, North Dakota adopted it for city elections in 2020. St. Louis
+						followed in 2021, using it for city primaries. In 2025, Utah’s
+						Forward Party used it to fill a vacant state Senate seat. Each time,
+						the process was the same: mark every candidate you support, and the
+						most-approved candidates win.
 					</p>
 					<p className="text-large pt-3 leading-snug">
 						Here’s what that looked like in St. Louis:

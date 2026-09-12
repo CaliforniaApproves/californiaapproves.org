@@ -43,8 +43,8 @@ const Solution = () => {
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
 					<h2 className="text-green py-2">
-							An election should measure how much support a 
-							candidate actually has.
+						An election should measure how much support a candidate actually
+						has.
 					</h2>
 					<p className="text-large py-2">
 						Approval Voting does exactly that. By measuring overlapping support,
@@ -55,14 +55,15 @@ const Solution = () => {
 
 				<div className="grid grid-cols-1 lg:grid-cols-3 gap-8 py-6">
 					{steps.map((step) => (
-						<div key={step.num} className="border-t-2 border-orange-accent py-4">
+						<div
+							key={step.num}
+							className="border-t-2 border-orange-accent py-4"
+						>
 							<div className="font-mono text-orange-accent text-sm font-semibold">
 								{step.num}
 							</div>
 							<h4 className="text-green py-2">{step.title}</h4>
-							<p className="text-base leading-tight">
-								{step.body}
-							</p>
+							<p className="text-base leading-tight">{step.body}</p>
 						</div>
 					))}
 				</div>

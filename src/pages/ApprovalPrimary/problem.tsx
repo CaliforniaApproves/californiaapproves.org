@@ -4,22 +4,20 @@ const Problem = () => {
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
 					<h2 className="text-tan pt-2">
-							Your vote should count for who you actually 
-							support, not just who you think can win.
+						Your vote should count for who you actually support, not just who
+						you think can win.
 					</h2>
 					<p className="text-large pt-3">
-						Too many people vote for whoever seems “safe,” 
-						afraid their real favorite doesn’t stand a 
-						chance. That fear becomes the reason they 
-						lose. The result is a self-fulfilling 
-						prophecy: elections that reflect who voters 
-						feared losing to, not who they actually wanted.
+						Too many people vote for whoever seems “safe,” afraid their real
+						favorite doesn’t stand a chance. That fear becomes the reason they
+						lose. The result is a self-fulfilling prophecy: elections that
+						reflect who voters feared losing to, not who they actually wanted.
 					</p>
 				</div>
 
 				<p className="font-semibold text-large text-white/85 pt-8 mb-6">
-					This isn't hypothetical. It happened in St. Louis, 
-					Missouri, before the city switched to Approval Voting.
+					This isn't hypothetical. It happened in St. Louis, Missouri, before
+					the city switched to Approval Voting.
 				</p>
 
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-schist border border-schist rounded-md overflow-hidden">
@@ -28,8 +26,8 @@ const Problem = () => {
 							32%
 						</div>
 						<p className="text-base text-schist-high leading-tight">
-							was enough to win St. Louis's 2017 “choose-one” mayoral primary 
-							outright, with support fractured across three other candidates, 
+							was enough to win St. Louis's 2017 “choose-one” mayoral primary
+							outright, with support fractured across three other candidates,
 							who together may have reflected what most voters actually wanted.
 						</p>
 					</div>
@@ -38,9 +36,9 @@ const Problem = () => {
 							1 in 3
 						</div>
 						<p className="text-base text-schist-high leading-tight">
-							St. Louis primary voters approved more than one candidate in 
-							2025, proof that “just pick one” never captured the full picture 
-							of their support.
+							St. Louis primary voters approved more than one candidate in 2025,
+							proof that “just pick one” never captured the full picture of
+							their support.
 						</p>
 					</div>
 					<div className="bg-white p-6 flex flex-col gap-2">
@@ -48,8 +46,8 @@ const Problem = () => {
 							84%
 						</div>
 						<p className="text-base text-schist-high leading-tight">
-							of St. Louis voters who supported a lesser-known 2025 mayoral 
-							candidate also approved of someone else — preferences the old 
+							of St. Louis voters who supported a lesser-known 2025 mayoral
+							candidate also approved of someone else — preferences the old
 							system would have never let them show.
 						</p>
 					</div>

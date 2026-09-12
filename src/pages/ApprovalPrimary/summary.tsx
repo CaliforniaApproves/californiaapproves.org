@@ -20,16 +20,13 @@ const Summary = () => {
 		>
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
-					<h2 className="text-tan py-2">
-						The simplest change that works.
-					</h2>
+					<h2 className="text-tan py-2">The simplest change that works.</h2>
 					<p className="text-large text-white/85 py-2 leading-snug">
-						Every candidate for state and congressional office still 
-						appears on one familiar ballot. Every registered voter 
-						can still vote for any of them. This reform simply gives 
-						voters the freedom to support all the candidates they 
-						like in the primary. Nothing else about how elections 
-						are run has to change, and nothing new has to be bought, 
+						Every candidate for state and congressional office still appears on
+						one familiar ballot. Every registered voter can still vote for any
+						of them. This reform simply gives voters the freedom to support all
+						the candidates they like in the primary. Nothing else about how
+						elections are run has to change, and nothing new has to be bought,
 						built, or learned.
 					</p>
 				</div>
