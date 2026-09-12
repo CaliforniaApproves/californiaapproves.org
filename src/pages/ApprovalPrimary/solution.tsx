@@ -42,18 +42,9 @@ const Solution = () => {
 		<section aria-label="The solution">
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
-					<h2 className="text-green py-2 flex items-start gap-3">
-						<img
-							src={orangeCircleCheck}
-							alt="orange check"
-							width="33"
-							height="22"
-							className="aspect-169/158 shrink-0 mt-3"
-						/>
-						<span>
+					<h2 className="text-green py-2">
 							An election should measure how much support a 
 							candidate actually has.
-						</span>
 					</h2>
 					<p className="text-large py-2">
 						Approval Voting does exactly that. By measuring overlapping support,
