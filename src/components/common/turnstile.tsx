@@ -227,7 +227,7 @@ export function TurnstileField({
 	);
 }
 
-export type SubscribeForm = "newsletter" | "pledge" | "contact";
+export type SubscribeForm = "pledge" | "contact";
 
 export type SubscribeResult = {
 	ok: boolean;

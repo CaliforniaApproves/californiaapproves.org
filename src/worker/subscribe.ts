@@ -37,16 +37,10 @@ const MAILCHIMP_CALLBACK = "c=cb";
 
 // Client form id -> the Turnstile action it must carry and its Mailchimp form.
 const FORMS = {
-	newsletter: {
-		action: "newsletter",
-		mailchimp: `${MAILCHIMP_BASE}?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=003abee6f0&${MAILCHIMP_CALLBACK}`,
-	},
 	pledge: {
 		action: "pledge",
 		mailchimp: `${MAILCHIMP_BASE}?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=004f43edf0&${MAILCHIMP_CALLBACK}`,
 	},
-	// Same audience and form id as the newsletter; separate Turnstile action so
-	// a token minted on one page cannot be replayed against the other.
 	contact: {
 		action: "contact",
 		mailchimp: `${MAILCHIMP_BASE}?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=003abee6f0&${MAILCHIMP_CALLBACK}`,
