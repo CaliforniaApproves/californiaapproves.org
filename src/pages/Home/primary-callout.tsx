@@ -46,18 +46,16 @@ const PrimaryCallout = () => {
 					<NavButton
 						variant="solid"
 						color="orange"
-						size="lg"
 						link="/our-reforms/approval-primary#pledge"
-						className="w-auto! whitespace-nowrap px-10"
+						className="whitespace-nowrap px-10 h-[52px] w-[200px]"
 					>
 						Pledge your support
 					</NavButton>
 					<NavButton
 						variant="outlined"
 						color="orange"
-						size="lg"
 						link="/our-reforms/approval-primary"
-						className="w-auto! whitespace-nowrap px-10 text-white"
+						className="whitespace-nowrap px-10 text-white h-[52px] w-[200px]"
 					>
 						See the plan
 					</NavButton>
