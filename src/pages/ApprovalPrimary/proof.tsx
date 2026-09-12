@@ -29,14 +29,7 @@ const Proof = () => {
 			<div className="max-w-[1120px] m-auto px-8 flex flex-col gap-12">
 				<div className="max-w-full">
 					<h2 className="text-green pt-2 flex gap-3">
-						<img
-							src={purpleCircleCheck}
-							alt="purple check"
-							width="33"
-							height="22"
-							className="aspect-169/158 shrink-0 pt-3"
-						/>
-						<span>Already proven to work.</span>
+						Already proven to work.
 					</h2>
 					<p className="text-large pt-3 leading-snug">
 						Approval Voting isn’t an experiment. It’s already been used to 

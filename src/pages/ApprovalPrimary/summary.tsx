@@ -23,15 +23,8 @@ const Summary = () => {
 		>
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
-					<h2 className="text-white py-2 flex gap-2">
-						<img
-							src={orangeCircleCheck}
-							alt="orange check"
-							width="33"
-							height="22"
-							className="aspect-169/158 shrink-0 pt-2.5"
-						/>
-						<span>The simplest change that works.</span>
+					<h2 className="text-tan py-2">
+						The simplest change that works.
 					</h2>
 					<p className="text-large text-white/85 py-2 leading-snug">
 						Every candidate for state and congressional office still 
