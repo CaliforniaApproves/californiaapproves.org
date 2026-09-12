@@ -15,6 +15,9 @@ export default defineConfig({
 	retries: process.env.CI ? 1 : 0,
 	reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",
 	expect: {
+		// Full-page screenshots of the longer routes can exceed the 5s default
+		// when all tests run in parallel.
+		timeout: 10_000,
 		toHaveScreenshot: {
 			// Baselines and CI render in the same devcontainer, so rendering is
 			// deterministic; a small cushion only absorbs rare sub-pixel noise
