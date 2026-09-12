@@ -245,7 +245,7 @@ const PledgeForm = () => {
 									<ActionButton
 										color="orange"
 										variant="solid"
-										className="mx-auto whitespace-nowrap px-20 mt-3 bg-orange hover:bg-orange-accent"
+										className="mx-auto whitespace-nowrap px-20 bg-orange hover:bg-orange-accent"
 										size="lg"
 										type="submit"
 										disabled={
