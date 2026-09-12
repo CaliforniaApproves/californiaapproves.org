@@ -81,7 +81,8 @@ const Hero = () => {
 				</p>
 				<p className="text-large-bold lg:font-normal pt-8">
 					<span className="font-bold">
-						Approval Voting simply eliminates the choose-one rule,
+						The Approval Voting for Primary Elections Act simply eliminates 
+						the “choose-one” rule,
 					</span>{" "}
 					giving voters the freedom to choose all the candidates they like and
 					forcing candidates to earn broad support to advance. Whoever reaches

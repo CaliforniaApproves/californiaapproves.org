@@ -160,7 +160,7 @@ const Ballots = () => {
 					</div>
 				</div>
 
-				<p className="max-w-full italic text-base lg:font-normal">
+				<p className="max-w-full italic text-base py-2 lg:font-normal">
 					In our current system, needing to guess who's &ldquo;electable" can
 					pressure any voter to abandon their favorite candidates, even when
 					they have no competition for their party's support. Approval Voting

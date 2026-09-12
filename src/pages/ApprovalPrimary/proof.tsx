@@ -1,3 +1,5 @@
+import purpleCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Purple-Circle-w-Check-RGB.svg";
+
 const timeline = [
 	{
 		year: "2017 · Choose-One",
@@ -26,21 +28,34 @@ const Proof = () => {
 		<section aria-label="Proven, not theoretical">
 			<div className="max-w-[1120px] m-auto px-8 flex flex-col gap-12">
 				<div className="max-w-full">
-					<div className="font-bold text-orange text-small">
-						PROVEN, NOT THEORETICAL
-					</div>
+					<img
+						src={purpleCircleCheck}
+						alt="purple check"
+						width="24"
+						height="16"
+						className="aspect-169/158 shrink-0 pt-0.5"
+					/>
 					<h2 className="text-green pt-2">
-						St. Louis already made this switch.
+						Already proven to work.
 					</h2>
 					<p className="text-large pt-3 leading-snug">
-						Approval Voting has already been used for municipal and legislative
-						offices in Fargo, St. Louis, and Utah's Senate District 11. St.
-						Louis in particular also pairs Approval Voting with an open primary
-						that feeds into a top-two general, the same structure this reform
-						would bring to California. St. Louis voters adopted this structure
-						for municipal elections in 2020. Every election since has shown the
-						same pattern: candidates who once looked narrowly supported turned
-						out to have much broader appeal once the ballot let voters show it.
+						Approval Voting isn’t an experiment. It’s already been used to 
+						elect leaders in multiple places across the country, and it’s 
+						the way many people already make group decisions. When a group 
+						picks a meeting time, nobody votes for just one slot. Everyone 
+						marks every time that works, and the option most people can 
+						make wins. Approval Voting brings that same simple logic to 
+						the ballot.
+					</p>
+					<p className="text-large pt-3 leading-snug">
+						Fargo, North Dakota adopted it for city elections in 2020. 
+						St. Louis followed in 2021, using it for city primaries. In 
+						2025, Utah’s Forward Party used it to fill a vacant state 
+						Senate seat. Each time, the process was the same: mark every 
+						candidate you support, and the most-approved candidate wins.
+					</p>
+					<p className="text-large pt-3 leading-snug">
+						Here’s what that looked like in St. Louis:
 					</p>
 				</div>
 
