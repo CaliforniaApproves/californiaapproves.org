@@ -1,7 +1,7 @@
 import Arrow from "../../assets/icons/Long-Arrow.svg?react";
 import Background from "../../assets/images/Group-39.svg";
 import strongArm from "../../assets/images/Strong-Arm 1.webp";
-import MailingForm from "./mailing-form";
+import SupportCTA from "./support-cta";
 
 // create a component
 const Banner = () => {
@@ -36,7 +36,7 @@ const Banner = () => {
 				</div>
 			</div>
 			<div className="py-8 px-5 lg:px-8 max-w-full lg:max-w-[40%] m-auto bg-purple lg:bg-transparent ">
-				<MailingForm />
+				<SupportCTA />
 			</div>
 		</div>
 	);

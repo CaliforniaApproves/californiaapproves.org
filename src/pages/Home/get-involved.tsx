@@ -22,9 +22,9 @@ const GetInvolved = () => {
 					<h3>Join Our Movement</h3>
 					<br />
 					<p className="text-base">
-						Our newsletter is your go-to resource for Approval Voting in
-						California. Stay up-to-date on the latest news, events, fundraising
-						initiatives and more.
+						Add your support for the Approval Primary Act and join a growing
+						movement for a better democracy in California. We'll keep you posted
+						on news, events, and ballot reforms as it moves forward.
 					</p>
 				</div>
 				<div
