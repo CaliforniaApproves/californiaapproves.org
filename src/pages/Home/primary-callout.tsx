@@ -19,12 +19,13 @@ const PrimaryCallout = () => {
 			<div className="max-w-[760px] mx-auto flex flex-col items-center gap-5">
 				<h4 className="text-tan">OUR PRIMARY REFORM</h4>
 				<h2 className="text-white">
-					Fix California's primaries with one sentence on the ballot
+					Improve California's primaries with one sentence on the ballot
 				</h2>
 				<p className="text-base text-white/85 max-w-[620px]">
-					Choose-one primaries split the vote and send forward candidates most
-					voters never wanted. The Approval Primary Act lets voters support
-					every candidate they approve of — no limit, nothing new to learn.
+					The Approval Voting for Primary Elections Act finds where Californians
+					agree by letting voters support every candidate they approve of.
+					Pledge your support now, and we'll follow up when the official
+					petition is ready to sign.
 				</p>
 				<div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 mt-1">
 					{checkmarks.map((p) => (

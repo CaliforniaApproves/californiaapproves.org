@@ -1,4 +1,3 @@
-import Arrow from "../../assets/icons/Long-Arrow.svg?react";
 import Background from "../../assets/images/Group-39.svg";
 import strongArm from "../../assets/images/Strong-Arm 1.webp";
 import SupportCTA from "./support-cta";
@@ -26,16 +25,8 @@ const Banner = () => {
 					Approval Voting <br class="hidden lg:inline"></br>
 					Unites Us
 				</h1>
-				<div className="static max-w-[500px] mt-9">
-					<Arrow className="absolute" />
-					<p className="text-large-bold flex flex-row indent-24 font-bold lg:font-normal">
-						Politics doesn't have to be polarizing. Approval Voting changes the
-						game so we can have representatives that focus on what we agree on
-						instead of what divides us.
-					</p>
-				</div>
 			</div>
-			<div className="py-8 px-5 lg:px-8 max-w-full lg:max-w-[40%] m-auto bg-purple lg:bg-transparent ">
+			<div className="hidden py-8 px-5 lg:block lg:px-8 max-w-full lg:max-w-[40%] m-auto bg-purple lg:bg-transparent ">
 				<SupportCTA />
 			</div>
 		</div>
