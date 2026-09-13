@@ -49,7 +49,7 @@ const PledgeForm = () => {
 	return (
 		<section
 			aria-label="Pledge your support"
-			className="bg-green text-center"
+			className="bg-green text-center lg:scroll-mt-36"
 			id="pledge"
 		>
 			<div className="max-w-[700px] m-auto px-8">
