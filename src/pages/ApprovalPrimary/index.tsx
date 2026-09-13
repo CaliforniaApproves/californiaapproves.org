@@ -19,8 +19,6 @@ export function ApprovalPrimary() {
 			<Problem />
 			<Proof />
 			<Summary />
-			<MidCTA />
-			<Questions />
 			<PledgeForm />
 		</div>
 	);
