@@ -108,7 +108,7 @@ const Ballots = () => {
 					{/* NEW BALLOT — approve all you support */}
 					<div className="bg-schist-lower text-black rounded-md p-6 flex flex-col gap-4">
 						<span className="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full">
-							The Fix: Approve All You Support
+							Our Reform: Approve All You Support
 						</span>
 						<h4>Vote for AS MANY as you approve of</h4>
 						<p className="text-lg text-schist-high">
