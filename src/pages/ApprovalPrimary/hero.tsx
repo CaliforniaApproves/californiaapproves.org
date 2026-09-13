@@ -23,7 +23,7 @@ const Hero = () => {
 		// the gap between the two left-column rows.
 		<section
 			aria-label="Introduction"
-			className="caa-home-page-banner w-full grid grid-cols-1 lg:content-center bg-orange md:bg-white"
+			className="caa-home-page-banner w-full grid grid-cols-1 lg:content-center bg-orange sm:bg-white"
 			style={{
 				backgroundImage: `url(${Background})`,
 				backgroundSize: "cover",
@@ -33,8 +33,9 @@ const Hero = () => {
 		>
 			<div className="max-w-[900px] m-auto px-8 flex flex-col gap-4">
 				<div className="bg-white border-orange rounded-[50px] border-[6px] p-12 lg:p-12 text-center flex flex-col items-center gap-8">
-					<h4 className="text-green uppercase">Our primary reform</h4>
-					<h2 className="text-green">Improve California's primaries with one sentence on the ballot</h2>
+					<h4 className="hidden sm:block text-green uppercase">Our primary reform</h4>
+					<h2 className="sm:hidden text-green uppercase">Our primary reform</h2>
+					<h2 className="hidden sm:block text-green">Improve California's primaries with one sentence on the ballot</h2>
 					<p className="text-base">
 						The Approval Voting for Primary Elections Act finds where Californians 
 						agree by giving voters the freedom to support every candidate they 
