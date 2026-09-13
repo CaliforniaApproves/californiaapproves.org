@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from "react";
 import { Link } from "../../components/common/links";
-import Questions from "./questions";
 import CTA from "./cta";
+import Questions from "./questions";
 
 type QuestionProps = {
 	question: string;
@@ -148,7 +148,7 @@ export function Faq() {
 				</Question>
 			</div>
 			<CTA />
-			<Questions />			
+			<Questions />
 		</div>
 	);
 }

@@ -15,7 +15,7 @@ const CTA = () => {
 				</h2>
 				<p className="text-base text-white/85 pt-3">
 					Pledge your support and we'll follow up with next steps. Still have
-					questions about our reform? Answers to the ones we hear most are just 
+					questions about our reform? Answers to the ones we hear most are just
 					below.
 				</p>
 				<span className="flex gap-8 justify-center">
