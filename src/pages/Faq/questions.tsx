@@ -206,9 +206,7 @@ const Questions = () => {
 	return (
 		<section aria-label="Common questions about our reform">
 			<div className="max-w-[900px] m-auto px-8 py-8">
-				<h2 className="text-green py-2">
-					Common questions about our reform.
-				</h2>
+				<h2 className="text-green py-2">Common questions about our reform.</h2>
 
 				{faqs.map((item) => (
 					<FaqItem

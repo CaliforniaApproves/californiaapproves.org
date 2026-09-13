@@ -2,9 +2,7 @@ import orangeCircleCheck from "../../assets/icons/Individual Circles/California-
 import purpleCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Purple-Circle-w-Check-RGB.svg";
 import yellowCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Yellow-Circle-w-Check-RGB.svg";
 import Background from "../../assets/images/Group-39.svg";
-import HeroCTA from "./cta-hero";
 import { ActionButton } from "../../components/common/buttons";
-
 
 const Hero = () => {
 	const scrollToPledge = () => {
@@ -33,14 +31,18 @@ const Hero = () => {
 		>
 			<div className="max-w-[900px] m-auto px-8 flex flex-col gap-4">
 				<div className="bg-white border-orange rounded-[50px] border-[6px] p-12 lg:p-12 text-center flex flex-col items-center gap-8">
-					<h4 className="hidden sm:block text-green uppercase">Our primary reform</h4>
+					<h4 className="hidden sm:block text-green uppercase">
+						Our primary reform
+					</h4>
 					<h2 className="sm:hidden text-green uppercase">Our primary reform</h2>
-					<h2 className="hidden sm:block text-green">Improve California's primaries with one sentence on the ballot</h2>
+					<h2 className="hidden sm:block text-green">
+						Improve California's primaries with one sentence on the ballot
+					</h2>
 					<p className="text-base">
-						The Approval Voting for Primary Elections Act finds where Californians 
-						agree by giving voters the freedom to support every candidate they 
-						approve of. Pledge your support now, and we'll follow up when the 
-						official petition is ready to sign.
+						The Approval Voting for Primary Elections Act finds where
+						Californians agree by giving voters the freedom to support every
+						candidate they approve of. Pledge your support now, and we'll follow
+						up when the official petition is ready to sign.
 					</p>
 					<div className="flex flex-wrap justify-center gap-3">
 						<div className="flex items-center gap-2">
@@ -79,7 +81,7 @@ const Hero = () => {
 								Better Representation
 							</span>
 						</div>
-					</div>				
+					</div>
 					<ActionButton
 						color="orange"
 						variant="outlined"

@@ -76,7 +76,7 @@ const Solution = () => {
 								alt="orange check"
 								width="24"
 								height="16"
-								className="aspect-169/158 shrink-0 pt-0.5"
+								className="aspect-169/158 shrink-0 mt-1"
 							/>
 							<div>
 								<b className="block text-green text-base font-bold mb-0.5">
