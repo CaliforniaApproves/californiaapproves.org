@@ -1,55 +1,54 @@
 const Problem = () => {
 	return (
-		<section aria-label="The problem">
+		<section aria-label="The problem" className="bg-purple text-white/85">
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
-					<div className="font-bold text-orange text-small">THE PROBLEM</div>
-					<h2 className="text-green mt-2">
-						Choose-one voting can't tell the difference between
-						&ldquo;unpopular" and &ldquo;divided."
+					<h2 className="text-tan pt-2">
+						Your vote should count for who you actually support, not just who
+						you think can win.
 					</h2>
-					<p className="text-large mt-3">
-						When several appealing candidates run, choose-one voting splits
-						their support instead of adding it up. Voters abandon candidates
-						they actually prefer for whoever seems most &ldquo;electable," and
-						the general election ends up reflecting who voters feared losing to,
-						not who they wanted.
+					<p className="text-large pt-3">
+						Too many people vote for whoever seems “safe,” afraid their real
+						favorite doesn’t stand a chance. That fear becomes the reason they
+						lose. The result is a self-fulfilling prophecy: elections that
+						reflect who voters feared losing to, not who they actually wanted.
 					</p>
 				</div>
 
-				<p className="font-semibold text-large text-green mt-8 mb-6">
-					This isn't hypothetical. St. Louis, Missouri lived this exact problem
-					before switching to Approval Voting, and the numbers show it plainly.
+				<p className="font-semibold text-large text-white/85 pt-8 mb-6">
+					This isn't hypothetical. It happened in St. Louis, Missouri, before
+					the city switched to Approval Voting.
 				</p>
 
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-schist border border-schist rounded-md overflow-hidden">
-					<div className="bg-white p-6">
+					<div className="bg-white p-6 flex flex-col gap-2">
 						<div className="font-mono text-4xl font-semibold text-orange">
 							32%
 						</div>
-						<p className="text-base text-schist-high mt-2 leading-tight">
-							was enough to win St. Louis's 2017 choose-one mayoral primary
-							outright, with support fractured across three other candidates.
+						<p className="text-base text-schist-high leading-tight">
+							was enough to win St. Louis's 2017 “choose-one” mayoral primary
+							outright, with support fractured across three other candidates,
+							who together may have reflected what most voters actually wanted.
 						</p>
 					</div>
-					<div className="bg-white p-6">
+					<div className="bg-white p-6 flex flex-col gap-2">
 						<div className="font-mono text-4xl font-semibold text-orange">
 							1 in 3
 						</div>
-						<p className="text-base text-schist-high mt-2 leading-tight">
+						<p className="text-base text-schist-high leading-tight">
 							St. Louis primary voters approved more than one candidate in 2025,
-							proof that &ldquo;just pick one" was never the whole picture of
-							what voters wanted.
+							proof that “just pick one” never captured the full picture of
+							their support.
 						</p>
 					</div>
-					<div className="bg-white p-6">
+					<div className="bg-white p-6 flex flex-col gap-2">
 						<div className="font-mono text-4xl font-semibold text-orange">
 							84%
 						</div>
-						<p className="text-base text-schist-high mt-2 leading-tight">
-							of voters who supported lesser-known 2025 St. Louis candidates
-							also approved of at least one other candidate — preferences
-							choose-one voting would have erased entirely.
+						<p className="text-base text-schist-high leading-tight">
+							of St. Louis voters who supported a lesser-known 2025 mayoral
+							candidate also approved of someone else — preferences the old
+							system would have never let them show.
 						</p>
 					</div>
 				</div>

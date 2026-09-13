@@ -2,6 +2,7 @@ import type { TargetedSubmitEvent } from "preact";
 import { useState } from "preact/hooks";
 import purpleCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Purple-Circle-w-Check-RGB.svg";
 import { ActionButton } from "../../components/common/buttons";
+import { Link } from "../../components/common/links";
 import Input from "../../components/common/input";
 import {
 	submitSubscription,
@@ -48,17 +49,16 @@ const PledgeForm = () => {
 	return (
 		<section
 			aria-label="Pledge your support"
-			className="bg-green text-center"
+			className="bg-green text-center lg:scroll-mt-36"
 			id="pledge"
 		>
 			<div className="max-w-[700px] m-auto px-8">
 				<h2 className="text-white">
-					Help bring Approval Voting to California.
+					Ready to bring Approval Voting to California?
 				</h2>
-				<p className="text-base text-white/85 mt-3">
-					Every pledge moves this closer to the 2028 ballot. Add your name
-					below, and we'll follow up once the official petition is ready to
-					sign.
+				<p className="text-base text-white/85 pt-3">
+					Every pledge moves our reform closer to the 2028 ballot. Add your 
+					name below, and we'll follow up with next steps.
 				</p>
 
 				<div className="bg-white rounded-[24px] p-6 lg:p-10 mt-9 text-left">
@@ -71,14 +71,14 @@ const PledgeForm = () => {
 								height="72"
 								className="mx-auto aspect-169/158 w-[72px] h-auto"
 							/>
-							<h3 className="text-green mt-5">You're on the list.</h3>
-							<p className="text-base text-schist-higher mt-3 leading-snug">
+							<h3 className="text-green pt-5">You're on the list.</h3>
+							<p className="text-base text-schist-higher pt-3 leading-snug">
 								{message ||
 									"Thanks for pledging your support. Watch your inbox for the official petition."}
 							</p>
 							<a
 								href="#top"
-								className="inline-block mt-7 text-bsm font-extrabold uppercase tracking-[-0.01rem] text-green underline underline-offset-4 hover:text-green-high"
+								className="inline-block pt-7 text-bsm font-extrabold uppercase tracking-[-0.01rem] text-green underline underline-offset-4 hover:text-green-high"
 							>
 								Back to top
 							</a>
@@ -198,7 +198,7 @@ const PledgeForm = () => {
 							    which would mean an API key secret on the Worker. Deemed not
 							    worth it for a one-time signup: the label reads as an action,
 							    not a preference toggle. */}
-									<label className="flex items-start gap-2 mt-2 mb-1 cursor-pointer">
+									<label className="flex items-start gap-2 pt-2 mb-1 cursor-pointer">
 										<input
 											type="checkbox"
 											name="group[384917][16]"
@@ -210,16 +210,31 @@ const PledgeForm = () => {
 											I'm interested in volunteering to help gather signatures
 										</span>
 									</label>
+									<div
+										id="mc-why-input-wrapper-final"
+										className="mc-field-group w-full"
+									>
+										<Input
+											color="green"
+											label="why does this matter to you"
+											labelHidden={true}
+											type="text"
+											name="WHY"
+											placeholder="Why does this matter to you?"
+											className="w-full"
+											id="mce-WHY-final"
+										/>
+									</div>
 
 									<TurnstileField
 										widget={turnstile}
 										fallbackEmail={FALLBACK_EMAIL}
-										className="mt-2"
+										className="pt-2"
 									/>
 									{message ? (
 										<p
 											role="status"
-											className={`text-bsm text-center mt-1 leading-snug ${
+											className={`text-bsm text-center pt-1 leading-snug ${
 												status === "error" ? "text-orange" : "text-green"
 											}`}
 										>
@@ -230,7 +245,7 @@ const PledgeForm = () => {
 									<ActionButton
 										color="orange"
 										variant="solid"
-										className="mx-auto whitespace-nowrap px-20 mt-3 bg-orange hover:bg-orange-accent"
+										className="mx-auto whitespace-nowrap px-20 bg-orange hover:bg-orange-accent"
 										size="lg"
 										type="submit"
 										disabled={
@@ -239,13 +254,13 @@ const PledgeForm = () => {
 									>
 										{status === "submitting" ? "Adding…" : "ADD MY PLEDGE"}
 									</ActionButton>
-									<p className="italic text-center text-bsm mt-2 text-schist-higher leading-snug">
+									<p className="italic text-center text-bsm pt-2 text-schist-higher leading-snug">
 										We won't spam you or share your data. You can unsubscribe
 										anytime.
 									</p>
 								</div>
 								<noscript>
-									<p className="text-bsm text-orange text-center mt-2 leading-snug">
+									<p className="text-bsm text-orange text-center pt-2 leading-snug">
 										This form needs JavaScript for its spam check. Email{" "}
 										{FALLBACK_EMAIL} and we'll add your pledge.
 									</p>
@@ -254,6 +269,11 @@ const PledgeForm = () => {
 						</>
 					)}
 				</div>
+				<p className="text-base text-white/85 pt-8">
+					<Link to="/faq" className="hover:underline text-white">
+						Still have questions? Check out our FAQs.
+					</Link>
+				</p>
 			</div>
 		</section>
 	);

@@ -15,12 +15,10 @@ export function ApprovalPrimary() {
 			<title>Approval Primary Reform - California Approves</title>
 			<Hero />
 			<Ballots />
-			<Problem />
 			<Solution />
+			<Problem />
 			<Proof />
 			<Summary />
-			<MidCTA />
-			<Questions />
 			<PledgeForm />
 		</div>
 	);

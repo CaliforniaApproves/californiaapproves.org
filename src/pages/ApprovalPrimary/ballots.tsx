@@ -41,136 +41,136 @@ const Ballots = () => {
 
 	return (
 		<section aria-label="See it in action" className="bg-purple text-white">
-			<div className="max-w-[1120px] m-auto px-8">
+			<div className="max-w-[1120px] m-auto px-8 flex flex-col gap-4">
 				<div className="font-bold text-tan text-small">SEE IT IN ACTION</div>
 				<h2 className="text-white">
 					Same ballot. One sentence changes everything.
 				</h2>
-				<div className="static max-w-full mt-3">
-					<p className="text-large text-white/85 lg:font-normal">
-						Try marking both ballots below with candidates you'd support in a
-						five-way primary. Notice how the first ballot forces a single choice
-						and how the second one leaves you free to choose one or several.
-					</p>
-				</div>
+				<p className="max-w-full text-large text-white/85 lg:font-normal">
+					Try marking both ballots below with candidates you'd support in a
+					five-way primary. Notice how the first ballot forces a single choice
+					and how the second one leaves you free to choose one or several.
+				</p>
 
-				<div className="mt-9">
-					<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-						{/* OLD BALLOT — choose one */}
-						<div className="bg-schist-lower text-black rounded-md p-6">
-							<span className="inline-block text-sm font-bold uppercase tracking-wide bg-tan text-orange px-3 py-1 rounded-full mb-4">
-								Today: Choose One
-							</span>
-							<h4 className="mb-1">Vote for one</h4>
-							<p className="text-lg text-schist-high mb-4">
-								Selecting a second candidate is not allowed.
-							</p>
-							{candidates.map((c) => {
-								const marked = oldSelected === c.name;
-								return (
-									<button
-										type="button"
-										key={c.name}
-										onClick={() => toggleOld(c.name)}
-										className="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left"
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+					{/* OLD BALLOT — choose one */}
+					<div className="bg-schist-lower text-black rounded-md p-6 flex flex-col gap-4">
+						<span className="inline-block text-sm font-bold uppercase tracking-wide bg-tan text-orange px-3 py-1 rounded-full">
+							Today: Choose One
+						</span>
+						<h4 className="mb-1">Vote for one</h4>
+						<p className="text-lg text-schist-high">
+							Selecting a second candidate is not allowed.
+						</p>
+						{candidates.map((c) => {
+							const marked = oldSelected === c.name;
+							return (
+								<button
+									type="button"
+									key={c.name}
+									onClick={() => toggleOld(c.name)}
+									className="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left"
+								>
+									<div
+										className={`w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold ${
+											marked
+												? "bg-orange border-orange text-white"
+												: "bg-white border-schist-medium text-transparent"
+										}`}
 									>
-										<div
-											className={`w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold ${
-												marked
-													? "bg-orange border-orange text-white"
-													: "bg-white border-schist-medium text-transparent"
-											}`}
-										>
-											✕
-										</div>
-										<div className="flex-1 text-bsm font-medium ">
-											<span className="font-semibold">{c.name} </span>
-											<span className="block text-bsm text-schist-high">
-												{c.desc}
-											</span>
-										</div>
-										<div className="text-xs font-mono text-schist-high">
-											{marked ? "1 vote" : "0"}
-										</div>
-									</button>
-								);
-							})}
-							<div className="mt-4 pt-3 border-t border-dashed border-schist text-small text-schist-higher">
-								{oldSelected ? (
-									<>
-										You marked <b className="text-green">{oldSelected}</b>. Your
-										support for anyone else on the ballot is invisible to the
-										count.
-									</>
-								) : (
-									"Voters who back multiple candidates are divided across two or three names each, even when they would be satisfied with more than one."
-								)}
-							</div>
+										✕
+									</div>
+									<div className="flex-1 text-bsm font-medium ">
+										<span className="font-semibold">{c.name} </span>
+										<span className="block text-bsm text-schist-high">
+											{c.desc}
+										</span>
+									</div>
+									<div className="text-xs font-mono text-schist-high">
+										{marked ? "1 vote" : "0"}
+									</div>
+								</button>
+							);
+						})}
+						<div className="py-3 border-t border-dashed border-schist text-small text-schist-higher">
+							{oldSelected ? (
+								<>
+									You marked <b className="text-green">{oldSelected}</b>. Your
+									support for anyone else on the ballot is invisible to the
+									count.
+								</>
+							) : (
+								"Voters who back multiple candidates are divided across two or three names each, even when they would be satisfied with more than one."
+							)}
 						</div>
+					</div>
 
-						{/* NEW BALLOT — approve all you support */}
-						<div className="bg-schist-lower text-black rounded-md p-6">
-							<span className="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full mb-4">
-								The Fix: Approve All You Support
-							</span>
-							<h4 className="mb-1">Vote for AS MANY as you approve of</h4>
-							<p className="text-lg text-schist-high mb-4">
-								No limit. Support as many as you genuinely want.
-							</p>
-							{candidates.map((c) => {
-								const marked = !!newSelected[c.name];
-								return (
-									<button
-										type="button"
-										key={c.name}
-										onClick={() => toggleNew(c.name)}
-										className="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left"
+					{/* NEW BALLOT — approve all you support */}
+					<div className="bg-schist-lower text-black rounded-md p-6 flex flex-col gap-4">
+						<span className="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full">
+							Our Reform: Approve All You Support
+						</span>
+						<h4>Vote for AS MANY as you approve of</h4>
+						<p className="text-lg text-schist-high">
+							No limit. Support as many as you genuinely want.
+						</p>
+						{candidates.map((c) => {
+							const marked = !!newSelected[c.name];
+							return (
+								<button
+									type="button"
+									key={c.name}
+									onClick={() => toggleNew(c.name)}
+									className="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left"
+								>
+									<div
+										className={`w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold ${
+											marked
+												? "bg-orange border-orange text-white"
+												: "bg-white border-schist-medium text-transparent"
+										}`}
 									>
-										<div
-											className={`w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold ${
-												marked
-													? "bg-orange border-orange text-white"
-													: "bg-white border-schist-medium text-transparent"
-											}`}
-										>
-											✓
-										</div>
-										<div className="flex-1 text-bsm font-medium">
-											<span className="font-semibold">{c.name} </span>
-											<span className="block text-bsm text-schist-high">
-												{c.desc}
-											</span>
-										</div>
-										<div className="text-xs font-mono text-schist-high">
-											{marked ? "1 approval" : "0"}
-										</div>
-									</button>
-								);
-							})}
-							<div className="mt-4 pt-3 border-t border-dashed border-schist text-small text-schist-higher">
-								{newCount > 0 ? (
-									<>
-										You approved{" "}
-										<b className="text-green">
-											{newCount} candidate{newCount > 1 ? "s" : ""}
-										</b>
-										. Each one counted fully, with no tradeoff.
-									</>
-								) : (
-									"Overlapping support among candidates now adds up instead of dividing."
-								)}
-							</div>
+										✓
+									</div>
+									<div className="flex-1 text-bsm font-medium">
+										<span className="font-semibold">{c.name} </span>
+										<span className="block text-bsm text-schist-high">
+											{c.desc}
+										</span>
+									</div>
+									<div className="text-xs font-mono text-schist-high">
+										{marked ? "1 approval" : "0"}
+									</div>
+								</button>
+							);
+						})}
+						<div className="py-3 border-t border-dashed border-schist text-small text-schist-higher">
+							{newCount > 0 ? (
+								<>
+									You approved{" "}
+									<b className="text-green">
+										{newCount} candidate{newCount > 1 ? "s" : ""}
+									</b>
+									. Each one counted fully, with no tradeoff.
+								</>
+							) : (
+								"Overlapping support among candidates now adds up instead of dividing."
+							)}
 						</div>
 					</div>
 				</div>
 
-				<div className="static max-w-full mt-9">
-					<p className="italic text-base lg:font-normal">
-						In our current system, needing to guess who's &ldquo;electable" can
-						pressure any voter to abandon their favorite candidates, even when
-						they have no competition for their party's support. Approval Voting
-						removes that pressure everywhere.
+				<p className="max-w-full italic text-base py-2 lg:font-normal">
+					In our current system, needing to guess who's &ldquo;electable" can
+					pressure any voter to abandon their favorite candidates, even when
+					they have no competition for their party's support. Approval Voting
+					removes that pressure everywhere.
+				</p>
+				<div className="border-t border-white/25 py-4 text-center">
+					<p className="text-3xl font-bold text-white">
+						Same ballot. More choice, that's it.
 					</p>
+					<p className="text-3xl font-bold text-tan">Mark all you support.</p>
 				</div>
 			</div>
 		</section>

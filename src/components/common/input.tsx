@@ -45,7 +45,7 @@ const Input = ({
 						"ring-black focus:ring-black-high": color === "black",
 					},
 				)}
-				placeholder={placeholder}
+				placeholder={required ? `${placeholder} (required)` : placeholder}
 				required={required}
 			/>
 		</div>

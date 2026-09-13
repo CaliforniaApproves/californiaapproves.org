@@ -3,8 +3,13 @@ import purpleCircleCheck from "../../assets/icons/Individual Circles/California-
 import yellowCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Yellow-Circle-w-Check-RGB.svg";
 import Background from "../../assets/images/Group-39.svg";
 import HeroCTA from "./cta-hero";
+import { ActionButton } from "../../components/common/buttons";
+
 
 const Hero = () => {
+	const scrollToPledge = () => {
+		document.getElementById("pledge")?.scrollIntoView({ behavior: "smooth" });
+	};
 	return (
 		// The banner reads in mobile order: heading + value props, then the CTA,
 		// then the explanatory paragraphs. A grid puts them
@@ -18,7 +23,7 @@ const Hero = () => {
 		// the gap between the two left-column rows.
 		<section
 			aria-label="Introduction"
-			className="caa-home-page-banner w-full grid grid-cols-1 justify-center lg:grid-cols-[auto_40%] lg:content-center"
+			className="caa-home-page-banner w-full grid grid-cols-1 lg:content-center bg-orange sm:bg-white"
 			style={{
 				backgroundImage: `url(${Background})`,
 				backgroundSize: "cover",
@@ -26,67 +31,65 @@ const Hero = () => {
 			}}
 			id="top"
 		>
-			<div className="pb-16 px-8 lg:pb-8 max-w-[650px] lg:col-start-1 lg:row-start-1">
-				<h2 className="text-green banner-drop-shadow">
-					Approve every candidate you support. Not just one.
-				</h2>
-				<div className="flex flex-wrap items-center gap-3 mt-9">
-					<div className="flex items-center gap-2">
-						<img
-							src={purpleCircleCheck}
-							alt="purple check"
-							width="24"
-							height="16"
-							className="aspect-169/158"
-						/>
-						<span className="text-small font-bold whitespace-nowrap">
-							More Choice
-						</span>
-					</div>
-					<div className="flex items-center gap-2">
-						<img
-							src={orangeCircleCheck}
-							alt="orange check"
-							width="24"
-							height="16"
-							className="aspect-169/158"
-						/>
-						<span className="text-small font-bold whitespace-nowrap">
-							Fair Competition
-						</span>
-					</div>
-					<div className="flex items-center gap-2">
-						<img
-							src={yellowCircleCheck}
-							alt="yellow check"
-							width="24"
-							height="16"
-							className="aspect-169/158"
-						/>
-						<span className="text-small font-bold whitespace-nowrap">
-							Better Representation
-						</span>
-					</div>
+			<div className="max-w-[900px] m-auto px-8 flex flex-col gap-4">
+				<div className="bg-white border-orange rounded-[50px] border-[6px] p-12 lg:p-12 text-center flex flex-col items-center gap-8">
+					<h4 className="hidden sm:block text-green uppercase">Our primary reform</h4>
+					<h2 className="sm:hidden text-green uppercase">Our primary reform</h2>
+					<h2 className="hidden sm:block text-green">Improve California's primaries with one sentence on the ballot</h2>
+					<p className="text-base">
+						The Approval Voting for Primary Elections Act finds where Californians 
+						agree by giving voters the freedom to support every candidate they 
+						approve of. Pledge your support now, and we'll follow up when the 
+						official petition is ready to sign.
+					</p>
+					<div className="flex flex-wrap justify-center gap-3">
+						<div className="flex items-center gap-2">
+							<img
+								src={purpleCircleCheck}
+								alt="purple check"
+								width="24"
+								height="16"
+								className="aspect-169/158"
+							/>
+							<span className="text-small font-bold whitespace-nowrap">
+								More Choice
+							</span>
+						</div>
+						<div className="flex items-center gap-2">
+							<img
+								src={orangeCircleCheck}
+								alt="orange check"
+								width="24"
+								height="16"
+								className="aspect-169/158"
+							/>
+							<span className="text-small font-bold whitespace-nowrap">
+								Fair Competition
+							</span>
+						</div>
+						<div className="flex items-center gap-2">
+							<img
+								src={yellowCircleCheck}
+								alt="yellow check"
+								width="24"
+								height="16"
+								className="aspect-169/158"
+							/>
+							<span className="text-small font-bold whitespace-nowrap">
+								Better Representation
+							</span>
+						</div>
+					</div>				
+					<ActionButton
+						color="orange"
+						variant="outlined"
+						className="text-orange mx-auto whitespace-nowrap px-25"
+						size="lg"
+						onClick={scrollToPledge}
+					>
+						PLEDGE YOUR SUPPORT
+					</ActionButton>
 				</div>
-			</div>
-			<div className="py-16 px-5 lg:py-8 lg:px-8 w-full max-w-full bg-orange lg:bg-transparent lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center">
-				<HeroCTA />
-			</div>
-			<div className="pt-16 px-8 lg:pt-8 max-w-[650px] lg:col-start-1 lg:row-start-2">
-				<p className="text-large-bold lg:font-normal">
-					When primary elections force voters to choose only one candidate,
-					voters often settle — or risk “wasting” their vote — and the
-					candidates who advance to the general election are not always the ones
-					who best represent the electorate.
-				</p>
-				<p className="text-large-bold lg:font-normal pt-8">
-					<span className="font-bold">
-						Approval Voting simply eliminates the choose-one rule,
-					</span>{" "}
-					giving voters the freedom to choose all the candidates they like and
-					forcing candidates to earn broad support to advance. Whoever reaches
-					the general has earned it, not benefitted from a divided field.
-				</p>
 			</div>
 		</section>
 	);

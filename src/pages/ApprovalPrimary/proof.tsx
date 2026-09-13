@@ -24,27 +24,32 @@ const timeline = [
 const Proof = () => {
 	return (
 		<section aria-label="Proven, not theoretical">
-			<div className="max-w-[1120px] m-auto px-8">
+			<div className="max-w-[1120px] m-auto px-8 flex flex-col gap-12">
 				<div className="max-w-full">
-					<div className="font-bold text-orange text-small">
-						PROVEN, NOT THEORETICAL
-					</div>
-					<h2 className="text-green mt-2">
-						St. Louis already made this switch.
+					<h2 className="text-green pt-2 flex gap-3">
+						Already proven to work.
 					</h2>
-					<p className="text-large mt-3 leading-snug">
-						Approval Voting has already been used for municipal and legislative
-						offices in Fargo, St. Louis, and Utah's Senate District 11. St.
-						Louis in particular also pairs Approval Voting with an open primary
-						that feeds into a top-two general, the same structure this reform
-						would bring to California. St. Louis voters adopted this structure
-						for municipal elections in 2020. Every election since has shown the
-						same pattern: candidates who once looked narrowly supported turned
-						out to have much broader appeal once the ballot let voters show it.
+					<p className="text-large pt-3 leading-snug">
+						Approval Voting has already been used to elect leaders in multiple
+						places across the country, and it’s the way many people already make
+						group decisions. When a group picks a meeting time, nobody votes for
+						just one slot. Everyone marks every time that works, and the option
+						most people can make wins. Approval Voting brings that same simple
+						logic to the ballot.
+					</p>
+					<p className="text-large pt-3 leading-snug">
+						Fargo, North Dakota adopted it for city elections in 2020. St. Louis
+						followed in 2021, using it for city primaries. In 2025, Utah’s
+						Forward Party used it to fill a vacant state Senate seat. Each time,
+						the process was the same: mark every candidate you support, and the
+						most-approved candidates win.
+					</p>
+					<p className="text-large pt-3 leading-snug">
+						Here’s what that looked like in St. Louis:
 					</p>
 				</div>
 
-				<div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mt-12">
+				<div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 					{timeline.map((item) => (
 						<div key={item.year}>
 							<div className="font-mono text-sm font-semibold text-orange-accent mb-2.5">

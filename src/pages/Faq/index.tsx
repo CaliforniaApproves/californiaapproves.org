@@ -1,5 +1,7 @@
 import type { PropsWithChildren } from "react";
 import { Link } from "../../components/common/links";
+import Questions from "./questions";
+import CTA from "./cta";
 
 type QuestionProps = {
 	question: string;
@@ -145,6 +147,8 @@ export function Faq() {
 					to outcomes that better reflect the will of the electorate.
 				</Question>
 			</div>
+			<CTA />
+			<Questions />			
 		</div>
 	);
 }

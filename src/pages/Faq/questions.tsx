@@ -204,13 +204,10 @@ const Questions = () => {
 	};
 
 	return (
-		<section aria-label="Common questions">
-			<div className="max-w-[720px] m-auto px-8">
-				<div className="font-bold text-small text-orange-accent uppercase">
-					Common Questions
-				</div>
-				<h2 className="text-green py-2 mb-8">
-					Good questions deserve straight answers.
+		<section aria-label="Common questions about our reform">
+			<div className="max-w-[900px] m-auto px-8 py-8">
+				<h2 className="text-green py-2">
+					Common questions about our reform.
 				</h2>
 
 				{faqs.map((item) => (

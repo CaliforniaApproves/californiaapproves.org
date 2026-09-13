@@ -1,13 +1,13 @@
 const doesNot = [
-	"Does not bring back closed, party primaries",
 	"Does not restrict who can run or who can vote",
-	"Does not touch the ballot layout or how the general election works",
+	"Does not change the ballot layout or how the general election works",
 	"Does not require new voting machines or software",
+	"Does not add cost for counties to administer",
 ];
 
 const does = [
-	"Gives primary voters the freedom to choose all candidates they like",
-	"Reveals overlapping support that choose-one voting hides",
+	"Gives voters the freedom to mark every candidates they support",
+	"Reveals how much support each candidates really has, instead of hiding it",
 	"Advances the most widely approved candidates",
 	"Gives winners a stronger mandate to represent more voters",
 ];
@@ -20,19 +20,14 @@ const Summary = () => {
 		>
 			<div className="max-w-[1120px] m-auto px-8">
 				<div className="max-w-full">
-					<div className="font-bold text-tan text-small">
-						NOT A RADICAL DEPARTURE
-					</div>
-					<h2 className="text-white mt-2">
-						This finishes the job California's open primary already started.
-					</h2>
-					<p className="text-large text-white/85 mt-3 leading-snug">
+					<h2 className="text-tan py-2">The simplest change that works.</h2>
+					<p className="text-large text-white/85 py-2 leading-snug">
 						Every candidate for state and congressional office still appears on
-						one familiar ballot. Every registered voter, regardless of party
-						affiliation, can still vote for any of them. This reform simply
-						gives voters the freedom to support all the candidates they like in
-						the primary. Nothing else about how California elects its leaders
-						changes.
+						one familiar ballot. Every registered voter can still vote for any
+						of them. This reform simply gives voters the freedom to support all
+						the candidates they like in the primary. Nothing else about how
+						elections are run has to change, and nothing new has to be bought,
+						built, or learned.
 					</p>
 				</div>
 
@@ -63,6 +58,12 @@ const Summary = () => {
 							))}
 						</ul>
 					</div>
+				</div>
+				<div className="pt-8 text-center">
+					<p className="text-3xl font-bold text-white">
+						Same ballot. More choice, that's it.
+					</p>
+					<p className="text-3xl font-bold text-tan">Mark all you support.</p>
 				</div>
 			</div>
 		</section>
