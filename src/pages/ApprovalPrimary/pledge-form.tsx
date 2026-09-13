@@ -2,6 +2,7 @@ import type { TargetedSubmitEvent } from "preact";
 import { useState } from "preact/hooks";
 import purpleCircleCheck from "../../assets/icons/Individual Circles/California-Approves-Logo-Purple-Circle-w-Check-RGB.svg";
 import { ActionButton } from "../../components/common/buttons";
+import { Link } from "../../components/common/links";
 import Input from "../../components/common/input";
 import {
 	submitSubscription,
@@ -53,12 +54,11 @@ const PledgeForm = () => {
 		>
 			<div className="max-w-[700px] m-auto px-8">
 				<h2 className="text-white">
-					Help bring Approval Voting to California.
+					Ready to bring Approval Voting to California?
 				</h2>
 				<p className="text-base text-white/85 pt-3">
-					Every pledge moves this closer to the 2028 ballot. Add your name
-					below, and we'll follow up once the official petition is ready to
-					sign.
+					Every pledge moves our reform closer to the 2028 ballot. Add your 
+					name below, and we'll follow up with next steps.
 				</p>
 
 				<div className="bg-white rounded-[24px] p-6 lg:p-10 mt-9 text-left">
@@ -269,6 +269,11 @@ const PledgeForm = () => {
 						</>
 					)}
 				</div>
+				<p className="text-base text-white/85 pt-8">
+					<Link to="/faq" className="hover:underline text-white">
+						Still have questions? Check out our FAQs.
+					</Link>
+				</p>
 			</div>
 		</section>
 	);
