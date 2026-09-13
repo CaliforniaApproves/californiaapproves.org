@@ -270,7 +270,7 @@ const PledgeForm = () => {
 					)}
 				</div>
 				<p className="text-base text-white/85 pt-8">
-					<Link to="/faq" className="hover:underline text-white">
+					<Link to="/faq" className="underline text-white">
 						Still have questions? Check out our FAQs.
 					</Link>
 				</p>
