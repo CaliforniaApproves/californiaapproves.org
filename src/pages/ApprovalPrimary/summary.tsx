@@ -6,7 +6,7 @@ const doesNot = [
 ];
 
 const does = [
-	"Gives voters the freedom to mark every candidates they support",
+	"Gives voters the freedom to mark every candidate they support",
 	"Reveals how much support each candidates really has, instead of hiding it",
 	"Advances the most widely approved candidates",
 	"Gives winners a stronger mandate to represent more voters",
@@ -60,10 +60,10 @@ const Summary = () => {
 					</div>
 				</div>
 				<div className="pt-8 text-center">
-					<p className="text-3xl font-bold text-white">
+					<p className="text-large sm:text-3xl font-bold text-white">
 						Same ballot. More choice, that's it.
 					</p>
-					<p className="text-3xl font-bold text-tan">Mark all you support.</p>
+					<p className="text-large sm:text-3xl font-bold text-tan">Mark all you support.</p>
 				</div>
 			</div>
 		</section>
