@@ -29,7 +29,7 @@ const Hero = () => {
 			}}
 			id="top"
 		>
-			<div className="max-w-[900px] m-auto px-8 flex flex-col gap-4">
+			<div className="max-w-[850px] m-auto px-8 flex flex-col gap-4">
 				<div className="bg-white border-orange rounded-[50px] border-[6px] p-12 lg:p-12 text-center flex flex-col items-center gap-8">
 					<h4 className="hidden sm:block text-green uppercase">
 						Our primary reform
@@ -39,10 +39,12 @@ const Hero = () => {
 						Improve California's primaries with one sentence on the ballot
 					</h2>
 					<p className="text-base">
-						The Approval Voting for Primary Elections Act finds where
-						Californians agree by giving voters the freedom to support every
-						candidate they approve of. Pledge your support now, and we'll follow
-						up when the official petition is ready to sign.
+						After a governor's primary drew 61 candidates and allowed voters to 
+						pick just one, California Approves filed a statewide initiative to 
+						change that. The Approval Voting for Primary Elections Act finds 
+						where Californians agree by giving voters the freedom to support 
+						every candidate they approve of. Pledge your support now, and we'll 
+						follow up when the official petition is ready to sign.
 					</p>
 					<div className="flex flex-wrap justify-center gap-3">
 						<div className="flex items-center gap-2">
