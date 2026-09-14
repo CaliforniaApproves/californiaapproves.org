@@ -29,7 +29,7 @@
 		"tailwindcss": "^4.3.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.12",
+		"@biomejs/biome": "2.5.13",
 		"@playwright/test": "^1.63.0",
 		"@preact/preset-vite": "^2.10.6",
 		"husky": "^9.1.7",
