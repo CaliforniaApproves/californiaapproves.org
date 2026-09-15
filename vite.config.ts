@@ -4,13 +4,12 @@ import tailwindcss from "@tailwindcss/vite";
 import Handlebars from "handlebars";
 import { defineConfig } from "vite";
 import handlebars from "vite-plugin-handlebars";
-import { cleanUrls } from "./vite-plugin-clean-urls.ts";
 
 const fromRoot = (file: string) =>
 	fileURLToPath(new URL(file, import.meta.url));
 
 // Every page of the site, served at its folder's URL (faq/index.html is
-// /faq). Add new pages here.
+// /faq/). Add new pages here.
 const pages = {
 	home: "index.html",
 	notFound: "404/index.html",
@@ -52,6 +51,7 @@ function svg(file: string, options: Handlebars.HelperOptions) {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	// Multi-page: an unknown URL is a 404, not the home page.
 	appType: "mpa",
 	plugins: [
 		// Shared markup: {{> header}} includes src/partials/header.html.
@@ -59,7 +59,6 @@ export default defineConfig({
 			partialDirectory: fromRoot("src/partials"),
 			helpers: { svg },
 		}),
-		cleanUrls({ pages: Object.values(pages), notFound: pages.notFound }),
 		tailwindcss(),
 	],
 	build: {

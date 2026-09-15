@@ -7,8 +7,13 @@ few Web Components, built with Vite. There is no UI framework.
 
 - Pages follow Vite's [multi-page layout](https://vite.dev/guide/build#multi-page-app):
   `index.html` is the home page and each other route is a folder with an
-  `index.html` (`faq/index.html` is `/faq`). Add a page by adding its folder
+  `index.html` (`faq/index.html` is `/faq/`). Add a page by adding its folder
   and listing it in `pages` in `vite.config.ts`.
+
+  Link to pages with the trailing slash (`/faq/`, `/our-reforms/approval-primary/#pledge`).
+  That's the URL both Vite's dev server and the production host serve a folder's
+  `index.html` at; production redirects `/faq` to `/faq/`, and `vite dev` doesn't
+  serve it at all.
 - `src/partials/` — the `<head>`, header, and footer shared by every page,
   included with [Handlebars](https://handlebarsjs.com/guide/partials.html)
   partials via `vite-plugin-handlebars`:
@@ -29,8 +34,6 @@ few Web Components, built with Vite. There is no UI framework.
   is in the HTML and renders before any script runs.
 - `src/main.ts` — loaded by every page; registers the custom elements.
 - `src/style.css` — Tailwind CSS setup and global styles.
-- `vite-plugin-clean-urls.ts` — serves `/faq`-style URLs and the 404 page in
-  `vite dev` and `vite preview`, as production does.
 
 # Development
 
