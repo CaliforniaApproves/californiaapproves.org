@@ -68,4 +68,8 @@ test.describe("mobile", () => {
 			"approval-primary-mobile",
 		);
 	});
+
+	test("visual: approval-101 mobile (/approval-101/)", async ({ page }) => {
+		await snapshotRoute(page, "/approval-101/", "approval-101-mobile");
+	});
 });

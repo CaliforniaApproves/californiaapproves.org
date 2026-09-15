@@ -12,13 +12,18 @@
 					<section aria-label="What is Approval Voting" style="background-image:url(/src/assets/images/Group-39.svg);background-size:cover;background-repeat:no-repeat;" id="top" class="caa-home-page-banner w-full grid grid-cols-1 lg:content-center">
 						<div class="max-w-[1150px] m-auto px-8 py-12 flex flex-col gap-4">
 							{{!--
-								The ballot and the explanation are siblings in mobile order, ballot
-								first. The lg: placement rules put the explanation back in the left
-								column and the ballot in the right.
+								The heading, the ballot and the explanation are siblings in mobile
+								order: heading, ballot, explanation. The lg: placement rules stack the
+								heading on the explanation in the left column, styled as one card, and
+								put the ballot in the right column spanning both rows.
 							--}}
-							<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+							<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-y-0 items-center">
+								<h2 class="text-green banner-drop-shadow text-center lg:bg-schist-lower lg:rounded-t-md lg:px-6 lg:pb-8 lg:col-start-1 lg:row-start-1 lg:self-end">
+									What is Approval Voting?
+								</h2>
+
 								{{!-- An Approval Voting ballot: mark every candidate you support. --}}
-								{{#> ballot class="border-purple-high border-6 lg:col-start-2 lg:row-start-1"}}
+								{{#> ballot class="border-purple-high border-6 lg:col-start-2 lg:row-start-1 lg:row-span-2"}}
 									<span class="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full">Approval Voting Ballot</span>
 									<h4 class="text-green">Vote for AS MANY as you approve of</h4>
 									<p class="text-lg text-schist-higher">
@@ -35,10 +40,7 @@
 									<template data-summary-marked>You approved <b class="text-schist-higher" data-summary-value></b>. Each one counted fully, with no tradeoff.</template>
 								{{/ballot}}
 
-								<div class="bg-schist-lower text-black rounded-md px-6 flex flex-col gap-4 lg:col-start-1 lg:row-start-1">
-									<h2 class="text-green banner-drop-shadow text-center pb-8">
-										What is Approval Voting?
-									</h2>
+								<div class="bg-schist-lower text-black rounded-md lg:rounded-t-none px-6 pt-4 flex flex-col gap-4 lg:col-start-1 lg:row-start-2 lg:self-start">
 									<p class="max-w-full text-4xl pb-4">
 										<span class="font-bold text-green">Approval Voting lets you vote for every
 										candidate you support</span>, not just one. The candidate with the most votes
