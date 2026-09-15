@@ -1,0 +1,13 @@
+{{!-- One candidate on a {{#> ballot}}: name="Candidate A", and optionally a
+     second line with description="…". The mark's shape comes from the
+     enclosing ballot. --}}
+<button type="button" data-candidate="{{name}}" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
+	<div data-mark class="w-6 h-6 shrink-0 {{#if single}}rounded-full{{else}}rounded{{/if}} border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">{{#if single}}✕{{else}}✓{{/if}}</div>
+	<div class="flex-1 text-bsm font-medium">
+		<span class="font-semibold">{{name}}</span>
+		{{#if description}}
+		<span class="block text-bsm text-schist-high">{{description}}</span>
+		{{/if}}
+	</div>
+	<div data-count class="text-xs font-mono text-schist-high">0</div>
+</button>

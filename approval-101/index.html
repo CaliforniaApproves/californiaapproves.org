@@ -32,42 +32,22 @@
 								</div>
 
 								{{!-- An Approval Voting ballot: mark every candidate you support. --}}
-								<caa-ballot unit="approval" class="border-purple-high border-6 bg-white text-black rounded-md p-6 flex flex-col gap-4">
+								{{#> ballot class="border-purple-high border-6"}}
 									<span class="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full">Approval Voting Ballot</span>
 									<h4 class="text-green">Vote for AS MANY as you approve of</h4>
 									<p class="text-lg text-schist-higher">
 										No limit. Support as many as you genuinely want.
 									</p>
-									<button type="button" data-candidate="Hero 1" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
-										<div class="flex-1 text-bsm font-medium"><span class="font-semibold text-schist-high">Hero 1 </span></div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Hero 2" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
-										<div class="flex-1 text-bsm font-medium"><span class="font-semibold text-schist-high">Hero 2 </span></div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Acceptable" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
-										<div class="flex-1 text-bsm font-medium"><span class="font-semibold text-schist-high">Acceptable </span></div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Villain 1" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
-										<div class="flex-1 text-bsm font-medium"><span class="font-semibold text-schist-high">Villain 1 </span></div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Villain 2" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
-										<div class="flex-1 text-bsm font-medium"><span class="font-semibold text-schist-high">Villain 2 </span></div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
+									{{> ballot-candidate name="Hero 1"}}
+									{{> ballot-candidate name="Hero 2"}}
+									{{> ballot-candidate name="Acceptable"}}
+									{{> ballot-candidate name="Villain 1"}}
+									{{> ballot-candidate name="Villain 2"}}
 									<div data-summary class="py-3 border-t border-dashed border-schist text-small text-schist-higher">
 										Overlapping support among candidates now adds up instead of dividing.
 									</div>
 									<template data-summary-marked>You approved <b class="text-schist-higher" data-summary-value></b>. Each one counted fully, with no tradeoff.</template>
-								</caa-ballot>
+								{{/ballot}}
 							</div>
 						</div>
 					</section>

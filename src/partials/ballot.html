@@ -1,0 +1,22 @@
+{{!--
+	A sample ballot: the markup for the caa-ballot element
+	(src/elements/caa-ballot.ts). The block holds the ballot's heading, a
+	{{> ballot-candidate}} per candidate, and the [data-summary] line with its
+	template[data-summary-marked].
+
+	  single=true  A choose-one ballot: round ✕ marks, counted as "1 vote".
+	               Without it, any number can be approved: square ✓ marks,
+	               counted as "1 approval".
+	  class        Added to the card (optional), e.g. a border.
+
+	{{#> ballot single=true}}
+		<h4>Vote for one</h4>
+		{{> ballot-candidate name="Candidate A" description="A second line."}}
+		…
+		<div data-summary>Nothing marked yet.</div>
+		<template data-summary-marked>You marked <b data-summary-value></b>.</template>
+	{{/ballot}}
+--}}
+<caa-ballot mode="{{#if single}}single{{else}}approval{{/if}}" unit="{{#if single}}vote{{else}}approval{{/if}}" class="bg-schist-lower text-black rounded-md p-6 flex flex-col gap-4{{#if class}} {{class}}{{/if}}">
+	{{> @partial-block}}
+</caa-ballot>

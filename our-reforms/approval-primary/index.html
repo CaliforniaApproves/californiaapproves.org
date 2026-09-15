@@ -57,112 +57,43 @@
 								free to choose one or several.
 							</p>
 							<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+								{{!-- Both ballots list the same five candidates. --}}
+								{{#*inline "candidates"}}
+									{{> ballot-candidate name="Candidate A" description="You don't agree on everything, but you trust their judgment"}}
+									{{> ballot-candidate name="Candidate B" description="Aligned with your values and seems to have a lot of momentum, even though they're not your favorite"}}
+									{{> ballot-candidate name="Candidate C" description="The one that excites you most and matches your values, but seems to have less support"}}
+									{{> ballot-candidate name="Candidate D" description="Strong at rallying supporters, doesn't share your values"}}
+									{{> ballot-candidate name="Candidate E" description="Shares your goals, but prioritizes them differently than you would"}}
+								{{/inline}}
+
 								{{!-- Today's ballot: choose one. --}}
-								<caa-ballot mode="single" unit="vote" class="bg-schist-lower text-black rounded-md p-6 flex flex-col gap-4">
+								{{#> ballot single=true}}
 									<span class="inline-block text-sm font-bold uppercase tracking-wide bg-tan text-orange px-3 py-1 rounded-full">Today: Choose One</span>
 									<h4 class="mb-1">Vote for one</h4>
 									<p class="text-lg text-schist-high">
 										Selecting a second candidate is not allowed.
 									</p>
-									<button type="button" data-candidate="Candidate A" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✕</div>
-										<div class="flex-1 text-bsm font-medium">
-											<span class="font-semibold">Candidate A </span>
-											<span class="block text-bsm text-schist-high">You don't agree on everything, but you trust their judgment</span>
-										</div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Candidate B" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✕</div>
-										<div class="flex-1 text-bsm font-medium">
-											<span class="font-semibold">Candidate B </span>
-											<span class="block text-bsm text-schist-high">Aligned with your values and seems to have a lot of momentum, even though they're not your favorite</span>
-										</div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Candidate C" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✕</div>
-										<div class="flex-1 text-bsm font-medium">
-											<span class="font-semibold">Candidate C </span>
-											<span class="block text-bsm text-schist-high">The one that excites you most and matches your values, but seems to have less support</span>
-										</div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Candidate D" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✕</div>
-										<div class="flex-1 text-bsm font-medium">
-											<span class="font-semibold">Candidate D </span>
-											<span class="block text-bsm text-schist-high">Strong at rallying supporters, doesn't share your values</span>
-										</div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Candidate E" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✕</div>
-										<div class="flex-1 text-bsm font-medium">
-											<span class="font-semibold">Candidate E </span>
-											<span class="block text-bsm text-schist-high">Shares your goals, but prioritizes them differently than you would</span>
-										</div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
+									{{> candidates}}
 									<div data-summary class="py-3 border-t border-dashed border-schist text-small text-schist-higher">
 										Voters who back multiple candidates are divided across two or three names each, even
 										when they would be satisfied with more than one.
 									</div>
 									<template data-summary-marked>You marked <b class="text-green" data-summary-value></b>. Your support for anyone else on the ballot is invisible to the count.</template>
-								</caa-ballot>
+								{{/ballot}}
 
 								{{!-- Our reform: approve all you support. --}}
-								<caa-ballot unit="approval" class="bg-schist-lower text-black rounded-md p-6 flex flex-col gap-4">
+								{{#> ballot}}
 									<span class="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full">Our Reform: Approve All You Support</span>
 									<h4>Vote for AS MANY as you approve of</h4>
 									<p class="text-lg text-schist-high">
 										No limit. Support as many as you genuinely want.
 									</p>
-									<button type="button" data-candidate="Candidate A" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
-										<div class="flex-1 text-bsm font-medium">
-											<span class="font-semibold">Candidate A </span>
-											<span class="block text-bsm text-schist-high">You don't agree on everything, but you trust their judgment</span>
-										</div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Candidate B" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
-										<div class="flex-1 text-bsm font-medium">
-											<span class="font-semibold">Candidate B </span>
-											<span class="block text-bsm text-schist-high">Aligned with your values and seems to have a lot of momentum, even though they're not your favorite</span>
-										</div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Candidate C" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
-										<div class="flex-1 text-bsm font-medium">
-											<span class="font-semibold">Candidate C </span>
-											<span class="block text-bsm text-schist-high">The one that excites you most and matches your values, but seems to have less support</span>
-										</div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Candidate D" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
-										<div class="flex-1 text-bsm font-medium">
-											<span class="font-semibold">Candidate D </span>
-											<span class="block text-bsm text-schist-high">Strong at rallying supporters, doesn't share your values</span>
-										</div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
-									<button type="button" data-candidate="Candidate E" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
-										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
-										<div class="flex-1 text-bsm font-medium">
-											<span class="font-semibold">Candidate E </span>
-											<span class="block text-bsm text-schist-high">Shares your goals, but prioritizes them differently than you would</span>
-										</div>
-										<div data-count class="text-xs font-mono text-schist-high">0</div>
-									</button>
+									{{> candidates}}
 									<div data-summary class="py-3 border-t border-dashed border-schist text-small text-schist-higher">
 										Overlapping support among candidates now adds up instead of dividing.
 									</div>
 									<template data-summary-marked>You approved <b class="text-green" data-summary-value></b>. Each one counted fully, with no tradeoff.</template>
-								</caa-ballot>
+								{{/ballot}}
 							</div>
 							<p class="max-w-full italic text-base py-2 lg:font-normal">
 								In our current system, needing to guess who's “electable" can pressure any voter to

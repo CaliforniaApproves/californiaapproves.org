@@ -16,6 +16,8 @@
 //     <div data-summary>Nothing marked yet.</div>
 //     <template data-summary-marked>You marked <b data-summary-value></b>.</template>
 //   </caa-ballot>
+//
+// Pages build this markup with the ballot partials in src/partials/.
 
 const MARKED = ["bg-orange", "border-orange", "text-white"];
 const UNMARKED = ["bg-white", "border-schist-medium", "text-transparent"];

@@ -14,9 +14,11 @@ few Web Components, built with Vite. There is no UI framework.
   That's the URL both Vite's dev server and the production host serve a folder's
   `index.html` at; production redirects `/faq` to `/faq/`, and `vite dev` doesn't
   serve it at all.
-- `src/partials/` — the `<head>`, header, and footer shared by every page,
-  included with [Handlebars](https://handlebarsjs.com/guide/partials.html)
-  partials via `vite-plugin-handlebars`:
+- `src/partials/` — markup shared between pages: the `<head>`, header, and
+  footer on every page, and the sample ballots (`ballot.html` documents its
+  parameters). They're included with
+  [Handlebars](https://handlebarsjs.com/guide/partials.html) partials via
+  `vite-plugin-handlebars`:
 
   ```handlebars
   {{> footer}}
