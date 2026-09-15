@@ -3,7 +3,9 @@ import { defineConfig } from "@playwright/test";
 const PORT = 4173;
 const BASE_URL = `http://127.0.0.1:${PORT}`;
 
-// Visual regression config for the prerendered Preact site.
+// Visual regression config for the static site: a full-page snapshot of every
+// route (routes.spec.ts) and the interaction states of its custom elements
+// (interactions.spec.ts).
 // Baselines are environment-sensitive (font rendering differs across OSes), so
 // the authoritative snapshots are generated in CI inside the pinned Playwright
 // container (see .github/workflows/visual.yml). Locally, use
