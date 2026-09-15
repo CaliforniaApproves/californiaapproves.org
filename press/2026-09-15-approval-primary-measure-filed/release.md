@@ -18,7 +18,7 @@ The measure would change one thing about California's voter-nominated primaries 
 
 ### **Sixty-one candidates, one allowed mark**
 
-Sixty-one candidates appeared on the June 2, 2026 primary ballot for governor. Voters could mark exactly one of them. The two candidates who advanced to November had just 28% and 24.6% each; the rest were divided among candidates who were eliminated.
+Sixty-one candidates appeared on the June 2, 2026 primary ballot for governor. Voters could mark exactly one of them. The two candidates who advanced to November had just 28% and 24.6% each; the rest of the vote was divided among candidates who were eliminated.
 
 By counting every approval instead of forcing voters to pick just one, the Approval Voting for Primary Elections Act advances candidates that are more broadly supported by the electorate.
 
