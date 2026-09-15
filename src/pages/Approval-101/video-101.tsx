@@ -4,11 +4,11 @@ import Video from "../../components/common/video";
 const Video101 = () => {
 	return (
 		<div className="flex flex-col px-8 py-12 bg-purple">
-			<div className="flex flex-col lg:flex-row items-center">
-				<div className="lg:w-1/2">
+			<div className="flex flex-col lg:flex-row lg:items-center">
+				<div className="lg:w-1/2 pb-8 lg:pb-0">
 					<Video embedId={"K7kDlctGsQM"} title={"What Is Approval Voting?"} />
 				</div>
-				<div className="lg:w-1/2 px-8 my-auto">
+				<div className="lg:w-1/2 px-8">
 					<span className="text-4xl text-white font-semibold">
 						Today, when you enter the polling booth, you can only vote for one
 						candidate. That single choice can cause lots
