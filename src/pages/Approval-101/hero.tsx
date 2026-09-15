@@ -22,22 +22,17 @@ const candidates = [
 
 //create components
 const Hero = () => {
-	const [oldSelected, setOldSelected] = useState<string | null>(null);
 	const [newSelected, setNewSelected] = useState<Record<string, boolean>>({});
 
 	const newCount = Object.values(newSelected).filter(Boolean).length;
-
-	const toggleOld = (name: string) => {
-		setOldSelected((prev) => (prev === name ? null : name));
-	};
 
 	const toggleNew = (name: string) => {
 		setNewSelected((prev) => ({ ...prev, [name]: !prev[name] }));
 	};
 
 	return (
-		<section 
-			aria-label="What is Approval Voting" 
+		<section
+			aria-label="What is Approval Voting"
 			className="caa-home-page-banner w-full grid grid-cols-1 lg:content-center"
 			style={{
 				backgroundImage: `url(${Background})`,
@@ -54,15 +49,19 @@ const Hero = () => {
 							What is Approval Voting?
 						</h2>
 						<p className="max-w-full text-4xl pb-4">
-							<span className="font-bold text-green">Approval Voting lets you vote for every candidate you support</span>, 
-							not just one. The candidate with the most votes wins. It's as 
+							<span className="font-bold text-green">
+								Approval Voting lets you vote for every candidate you support
+							</span>
+							, not just one. The candidate with the most votes wins. It's as
 							simple as that!
 						</p>
 						<div className="border-t border-schist py-4 text-center">
 							<p className="text-large sm:text-3xl font-extrabold text-orange">
 								Same ballot. More choice, that's it.
 							</p>
-							<p className="text-large sm:text-3xl font-bold text-orange/85">Mark all you support.</p>
+							<p className="text-large sm:text-3xl font-bold text-orange/85">
+								Mark all you support.
+							</p>
 						</div>
 					</div>
 
@@ -94,7 +93,9 @@ const Hero = () => {
 										✓
 									</div>
 									<div className="flex-1 text-bsm font-medium">
-										<span className="font-semibold text-schist-high">{c.name} </span>
+										<span className="font-semibold text-schist-high">
+											{c.name}{" "}
+										</span>
 									</div>
 									<div className="text-xs font-mono text-schist-high">
 										{marked ? "1 approval" : "0"}

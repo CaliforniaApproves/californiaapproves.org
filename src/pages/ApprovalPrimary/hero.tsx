@@ -39,11 +39,11 @@ const Hero = () => {
 						Improve California's primaries with one sentence on the ballot
 					</h2>
 					<p className="text-base">
-						After a governor's primary drew 61 candidates and allowed voters to 
-						pick just one, California Approves filed a statewide initiative to 
-						change that. The Approval Voting for Primary Elections Act finds 
-						where Californians agree by giving voters the freedom to support 
-						every candidate they approve of. Pledge your support now, and we'll 
+						After a governor's primary drew 61 candidates and allowed voters to
+						pick just one, California Approves filed a statewide initiative to
+						change that. The Approval Voting for Primary Elections Act finds
+						where Californians agree by giving voters the freedom to support
+						every candidate they approve of. Pledge your support now, and we'll
 						follow up when the official petition is ready to sign.
 					</p>
 					<div className="flex flex-wrap justify-center gap-3">
