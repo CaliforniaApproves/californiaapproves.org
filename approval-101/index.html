@@ -11,8 +11,31 @@
 				<div class="approval-101-page">
 					<section aria-label="What is Approval Voting" style="background-image:url(/src/assets/images/Group-39.svg);background-size:cover;background-repeat:no-repeat;" id="top" class="caa-home-page-banner w-full grid grid-cols-1 lg:content-center">
 						<div class="max-w-[1150px] m-auto px-8 py-12 flex flex-col gap-4">
+							{{!--
+								The ballot and the explanation are siblings in mobile order, ballot
+								first. The lg: placement rules put the explanation back in the left
+								column and the ballot in the right.
+							--}}
 							<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-								<div class="bg-schist-lower text-black rounded-md px-6 flex flex-col gap-4">
+								{{!-- An Approval Voting ballot: mark every candidate you support. --}}
+								{{#> ballot class="border-purple-high border-6 lg:col-start-2 lg:row-start-1"}}
+									<span class="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full">Approval Voting Ballot</span>
+									<h4 class="text-green">Vote for AS MANY as you approve of</h4>
+									<p class="text-lg text-schist-higher">
+										No limit. Support as many as you genuinely want.
+									</p>
+									{{> ballot-candidate name="Hero 1"}}
+									{{> ballot-candidate name="Hero 2"}}
+									{{> ballot-candidate name="Acceptable"}}
+									{{> ballot-candidate name="Villain 1"}}
+									{{> ballot-candidate name="Villain 2"}}
+									<div data-summary class="py-3 border-t border-dashed border-schist text-small text-schist-higher">
+										Overlapping support among candidates now adds up instead of dividing.
+									</div>
+									<template data-summary-marked>You approved <b class="text-schist-higher" data-summary-value></b>. Each one counted fully, with no tradeoff.</template>
+								{{/ballot}}
+
+								<div class="bg-schist-lower text-black rounded-md px-6 flex flex-col gap-4 lg:col-start-1 lg:row-start-1">
 									<h2 class="text-green banner-drop-shadow text-center pb-8">
 										What is Approval Voting?
 									</h2>
@@ -30,24 +53,6 @@
 										</p>
 									</div>
 								</div>
-
-								{{!-- An Approval Voting ballot: mark every candidate you support. --}}
-								{{#> ballot class="border-purple-high border-6"}}
-									<span class="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full">Approval Voting Ballot</span>
-									<h4 class="text-green">Vote for AS MANY as you approve of</h4>
-									<p class="text-lg text-schist-higher">
-										No limit. Support as many as you genuinely want.
-									</p>
-									{{> ballot-candidate name="Hero 1"}}
-									{{> ballot-candidate name="Hero 2"}}
-									{{> ballot-candidate name="Acceptable"}}
-									{{> ballot-candidate name="Villain 1"}}
-									{{> ballot-candidate name="Villain 2"}}
-									<div data-summary class="py-3 border-t border-dashed border-schist text-small text-schist-higher">
-										Overlapping support among candidates now adds up instead of dividing.
-									</div>
-									<template data-summary-marked>You approved <b class="text-schist-higher" data-summary-value></b>. Each one counted fully, with no tradeoff.</template>
-								{{/ballot}}
 							</div>
 						</div>
 					</section>
