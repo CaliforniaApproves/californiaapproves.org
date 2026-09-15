@@ -13,8 +13,8 @@ const routes: { path: string; name: string }[] = [
 ];
 
 // Third-party embeds whose regions are dynamic and excluded from snapshots:
-// the YouTube lite-embed (.yt-lite) and the Donorbox donation iframe.
-const dynamicRegions = '.yt-lite, iframe[name="donorbox"]';
+// the YouTube embed (<caa-youtube>) and the Donorbox donation iframe.
+const dynamicRegions = 'caa-youtube, iframe[name="donorbox"]';
 
 test.beforeEach(async ({ page }) => {
 	// Keep snapshots hermetic and deterministic: serve only the site's own
