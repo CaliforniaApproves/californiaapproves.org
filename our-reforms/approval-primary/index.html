@@ -1,19 +1,19 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<!--#include file="/src/partials/head.html" -->
+		{{> head}}
 		<title>Approval Primary Reform - California Approves</title>
 	</head>
 	<body>
 		<div class="text-black font-darker ca-approves-root max-w-(--breakpoint-2xl) m-auto">
-			<!--#include file="/src/partials/header.html" -->
+			{{> header}}
 			<main>
 				<div class="approval-primary">
-					<!--
+					{{!--
 						The banner reads in mobile order: heading + value props, then the CTA,
 						then the explanatory paragraphs. On mobile the orange background shows
 						around the white card so it reads as a full section.
-					-->
+					--}}
 					<section aria-label="Introduction" style="background-image:url(/src/assets/images/Group-39.svg);background-size:cover;background-repeat:no-repeat;" id="top" class="caa-home-page-banner w-full grid grid-cols-1 lg:content-center bg-orange sm:bg-white">
 						<div class="max-w-[850px] m-auto px-8 flex flex-col gap-4">
 							<div class="bg-white border-orange rounded-[50px] border-[6px] p-12 lg:p-12 text-center flex flex-col items-center gap-8">
@@ -57,7 +57,7 @@
 								free to choose one or several.
 							</p>
 							<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-								<!-- Today's ballot: choose one. -->
+								{{!-- Today's ballot: choose one. --}}
 								<caa-ballot mode="single" unit="vote" class="bg-schist-lower text-black rounded-md p-6 flex flex-col gap-4">
 									<span class="inline-block text-sm font-bold uppercase tracking-wide bg-tan text-orange px-3 py-1 rounded-full">Today: Choose One</span>
 									<h4 class="mb-1">Vote for one</h4>
@@ -111,7 +111,7 @@
 									<template data-summary-marked>You marked <b class="text-green" data-summary-value></b>. Your support for anyone else on the ballot is invisible to the count.</template>
 								</caa-ballot>
 
-								<!-- Our reform: approve all you support. -->
+								{{!-- Our reform: approve all you support. --}}
 								<caa-ballot unit="approval" class="bg-schist-lower text-black rounded-md p-6 flex flex-col gap-4">
 									<span class="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full">Our Reform: Approve All You Support</span>
 									<h4>Vote for AS MANY as you approve of</h4>
@@ -419,7 +419,7 @@
 								we'll follow up with next steps.
 							</p>
 							<caa-subscribe-form form-key="pledge" busy-label="Adding…" unavailable-message="Verification couldn't load, so we can't accept your pledge. Email pledge@californiaapproves.org and we'll add you." class="bg-white rounded-[24px] p-6 lg:p-10 mt-9 text-left">
-								<!-- Replaces the form once a pledge goes through. -->
+								{{!-- Replaces the form once a pledge goes through. --}}
 								<div data-success role="status" hidden class="text-center py-6">
 									<img src="/src/assets/icons/Individual%20Circles/California-Approves-Logo-Purple-Circle-w-Check-RGB.svg" alt="" width="72" height="72" class="mx-auto aspect-169/158 w-[72px] h-auto">
 									<h3 class="text-green pt-5">You're on the list.</h3>
@@ -428,9 +428,9 @@
 									</p>
 									<a href="#top" class="inline-block pt-7 text-bsm font-extrabold uppercase tracking-[-0.01rem] text-green underline underline-offset-4 hover:text-green-high">Back to top</a>
 								</div>
-								<!-- No native action: submissions go through /api/subscribe, which
+								{{!-- No native action: submissions go through /api/subscribe, which
 								     verifies the Turnstile token before forwarding to Mailchimp. A
-								     Mailchimp action here would let anyone post around that check. -->
+								     Mailchimp action here would let anyone post around that check. --}}
 								<form id="mc-embedded-subscribe-form-final" name="mc-embedded-subscribe-form-final" class="validate">
 									<div class="flex flex-col gap-2">
 										<div id="mc-email-input-wrapper-final" class="mc-field-group">
@@ -460,15 +460,15 @@
 											</div>
 										</div>
 
-										<!-- Auto-tags every submission through this form as "Approval Primary Pledge" -->
+										{{!-- Auto-tags every submission through this form as "Approval Primary Pledge" --}}
 										<input type="hidden" name="tags" value="4527864">
 
-										<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+										{{!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups --}}
 										<div style="position:absolute;left:-5000px;" aria-hidden="true">
 											<input type="text" name="b_b4aa7540a62457c043ff00e36_dddf3d641c" tabindex="-1" value="">
 										</div>
 
-										<!-- value="16" is required, not decorative: a checkbox with no
+										{{!-- value="16" is required, not decorative: a checkbox with no
 										     value attribute submits "on", but Mailchimp identifies the
 										     interest group by its id (the 16 in the field name). Without
 										     it the volunteering opt-in is silently dropped.
@@ -489,7 +489,7 @@
 										     (PUT /lists/{id}/members/{hash} with interests:{"16":false}),
 										     which would mean an API key secret on the Worker. Deemed not
 										     worth it for a one-time signup: the label reads as an action,
-										     not a preference toggle. -->
+										     not a preference toggle. --}}
 										<label class="flex items-start gap-2 pt-2 mb-1 cursor-pointer">
 											<input type="checkbox" name="group[384917][16]" value="16" id="mce-group-384917-0-final" class="mt-1 shrink-0 w-4 h-4 accent-green cursor-pointer">
 											<span class="text-bsm text-schist-higher leading-snug">I'm interested in volunteering to help gather signatures</span>
@@ -531,7 +531,7 @@
 					</section>
 				</div>
 			</main>
-			<!--#include file="/src/partials/footer.html" -->
+			{{> footer}}
 		</div>
 	</body>
 </html>

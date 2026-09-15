@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<!--#include file="/src/partials/head.html" -->
+		{{> head}}
 		<title>California Approves</title>
 	</head>
 	<body>
 		<div class="text-black font-darker ca-approves-root max-w-(--breakpoint-2xl) m-auto">
-			<!--#include file="/src/partials/header.html" -->
+			{{> header}}
 			<main>
 				<div>
 					<div style="background-image:url(/src/assets/images/Group-39.svg);background-size:cover;background-repeat:no-repeat;" class="caa-home-page-banner w-full flex flex-col lg:flex-row items-center justify-center py-[30px]">
@@ -74,7 +74,7 @@
 						</p>
 						<a href="/approval-101" aria-label="Learn more about Approval Voting" class="caa-link text-orange hover:text-orange-high flex flex-row text-small align-center items-center text-center">
 							LEARN MORE
-							<!--#include file="/src/assets/icons/Arrow.svg" class="fill-current w-6 h-6 ml-2" -->
+							{{svg "Arrow.svg" class="fill-current w-6 h-6 ml-2"}}
 						</a>
 					</div>
 					<div class="bg-purple flex flex-col-reverse lg:flex-row justify-around text-white pt-12 lg:pt-28">
@@ -88,19 +88,19 @@
 							</p>
 							<br>
 							<div class="flex flex-row items-center">
-								<!--#include file="/src/assets/icons/Yellow-Check.svg" -->
+								{{svg "Yellow-Check.svg"}}
 								<h3 class="ml-4">Reduces Polarization</h3>
 							</div>
 							<div class="flex flex-row items-center">
-								<!--#include file="/src/assets/icons/Yellow-Check.svg" -->
+								{{svg "Yellow-Check.svg"}}
 								<h3 class="ml-4">Elects Better Candidates</h3>
 							</div>
 							<div class="flex flex-row items-center">
-								<!--#include file="/src/assets/icons/Yellow-Check.svg" -->
+								{{svg "Yellow-Check.svg"}}
 								<h3 class="ml-4">Prevents Vote-Splitting</h3>
 							</div>
 							<div class="flex flex-row items-center">
-								<!--#include file="/src/assets/icons/Yellow-Check.svg" -->
+								{{svg "Yellow-Check.svg"}}
 								<h3 class="ml-4">Delivers Fair &amp; Accurate Results</h3>
 							</div>
 						</div>
@@ -117,7 +117,7 @@
 								<br>
 								<a href="https://calendly.com/alan-approves/30min" target="_blank" class="caa-link text-white hover:text-schist-low italic underline flex flex-row text-small align-center items-center text-center">
 									BOOK NOW
-									<!--#include file="/src/assets/icons/Arrow.svg" class="fill-current w-6 h-6 ml-2" -->
+									{{svg "Arrow.svg" class="fill-current w-6 h-6 ml-2"}}
 								</a>
 							</div>
 							<div class="bg-orange text-white lg:w-80 py-[50px] px-6 lg:rounded-b-2xl">
@@ -130,7 +130,7 @@
 								<caa-popover>
 									<button type="button" aria-expanded="false" aria-controls="campaign-requirements" class="italic underline flex flex-row text-small align-center items-center text-center text-white hover:text-schist-low">
 										LEARN MORE
-										<!--#include file="/src/assets/icons/Arrow.svg" class="fill-current w-6 h-6 ml-2" -->
+										{{svg "Arrow.svg" class="fill-current w-6 h-6 ml-2"}}
 									</button>
 									<div id="campaign-requirements" data-popover-panel hidden class="bg-white text-black text-base w-3/4 max-w-96 mx-auto border border-black rounded-lg p-4">
 										The requirements for running an approval campaign in a city vary depending on the
@@ -149,14 +149,14 @@
 								<br>
 								<a href="mailto:info@californiaapproves.org" target="_blank" class="caa-link text-white hover:text-schist-low italic underline flex flex-row text-small align-center items-center text-center">
 									GET IN TOUCH
-									<!--#include file="/src/assets/icons/Arrow.svg" class="fill-current w-6 h-6 ml-2" -->
+									{{svg "Arrow.svg" class="fill-current w-6 h-6 ml-2"}}
 								</a>
 							</div>
 						</div>
 					</div>
 					<div class="bg-orange px-8 py-[112px]">
 						<caa-carousel class="caa-carousel flex flex-col lg:flex-row justify-around items-center text-center lg:text-left m-auto">
-							<!--#include file="/src/assets/icons/Back-Arrow.svg" class="fill-current w-14 h-14 mx-2 hidden lg:flex text-tan hover:text-tan-high" data-prev="" -->
+							{{svg "Back-Arrow.svg" class="fill-current w-14 h-14 mx-2 hidden lg:flex text-tan hover:text-tan-high" data-prev=""}}
 							<div data-slide class="lg:max-w-[50%] text-white hover:text-white">
 								<h2>
 									Approval Voting is a simple way to have more candidates who represent our interests.
@@ -200,8 +200,8 @@
 								<h2>Tyler McGettigan, Conservative Voter</h2>
 							</div>
 							<div class="flex flex-row items-center mt-6 lg:mt-0">
-								<!--#include file="/src/assets/icons/Back-Arrow.svg" class="fill-current w-14 h-14 mx-2 flex lg:hidden text-tan hover:text-tan-high" data-prev="" -->
-								<!--#include file="/src/assets/icons/Arrow.svg" class="fill-current w-14 h-14 mx-2 text-tan hover:text-tan-high" data-next="" -->
+								{{svg "Back-Arrow.svg" class="fill-current w-14 h-14 mx-2 flex lg:hidden text-tan hover:text-tan-high" data-prev=""}}
+								{{svg "Arrow.svg" class="fill-current w-14 h-14 mx-2 text-tan hover:text-tan-high" data-next=""}}
 							</div>
 						</caa-carousel>
 					</div>
@@ -240,7 +240,7 @@
 					</div>
 				</div>
 			</main>
-			<!--#include file="/src/partials/footer.html" -->
+			{{> footer}}
 		</div>
 	</body>
 </html>

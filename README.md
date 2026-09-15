@@ -5,25 +5,32 @@ few Web Components, built with Vite. There is no UI framework.
 
 # Project structure
 
-- `src/pages/` — one HTML file per route, laid out like the URLs:
-  `src/pages/faq/index.html` is `/faq`. Add a page by adding a folder.
-- `src/partials/` — the `<head>`, header, and footer shared by every page.
+- Pages follow Vite's [multi-page layout](https://vite.dev/guide/build#multi-page-app):
+  `index.html` is the home page and each other route is a folder with an
+  `index.html` (`faq/index.html` is `/faq`). Add a page by adding its folder
+  and listing it in `pages` in `vite.config.ts`.
+- `src/partials/` — the `<head>`, header, and footer shared by every page,
+  included with [Handlebars](https://handlebarsjs.com/guide/partials.html)
+  partials via `vite-plugin-handlebars`:
+
+  ```handlebars
+  {{> footer}}
+  {{svg "Arrow.svg" class="w-6 h-6"}}
+  {{!-- A note that won't appear in the built page. --}}
+  ```
+
+  `svg` (defined in `vite.config.ts`) inlines an icon from
+  `src/assets/icons/`, adding the given attributes, so it can be styled with
+  Tailwind classes. Plain `<!-- -->` comments are published with the page;
+  use `{{!-- --}}` for notes.
 - `src/elements/` — [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements)
   for the interactive parts (mobile menu, carousel, sample ballots, signup
   forms, …). They enhance markup that is already in the page, so all content
   is in the HTML and renders before any script runs.
 - `src/main.ts` — loaded by every page; registers the custom elements.
 - `src/style.css` — Tailwind CSS setup and global styles.
-- `vite-plugin-pages.ts` — builds every page and expands include directives:
-
-  ```html
-  <!--#include file="/src/partials/footer.html" -->
-  <!--#include file="/src/assets/icons/Arrow.svg" class="w-6 h-6" -->
-  ```
-
-  Other attributes (like `class` above) are added to the included file's
-  first element, which is how inline SVG icons get styled. HTML comments are
-  stripped from the built pages, so notes left in the sources don't ship.
+- `vite-plugin-clean-urls.ts` — serves `/faq`-style URLs and the 404 page in
+  `vite dev` and `vite preview`, as production does.
 
 # Development
 

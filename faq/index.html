@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<!--#include file="/src/partials/head.html" -->
+		{{> head}}
 		<title>California Approves FAQ</title>
 	</head>
 	<body>
 		<div class="text-black font-darker ca-approves-root max-w-(--breakpoint-2xl) m-auto">
-			<!--#include file="/src/partials/header.html" -->
+			{{> header}}
 			<main>
 				<div class="caa-faq-page">
 					<div class="px-8 py-8 mx-auto lg:w-3/5">
@@ -161,12 +161,13 @@
 						</div>
 					</section>
 
-					<!--
+					{{!--
 						Accordion of common questions. Items sharing name="reform-faq" are
 						exclusive: the browser closes the open one when another opens. A
-						"go deeper" <details> can sit inside an answer; the named Tailwind
-						groups (group/faq, group/deeper) keep each icon tied to its own item.
-					-->
+						nested "go deeper" details element can sit inside an answer; the named
+						Tailwind groups (group/faq, group/deeper) keep each icon tied to its
+						own item.
+					--}}
 					<section aria-label="Common questions about our reform">
 						<div class="max-w-[900px] m-auto px-8 py-8">
 							<h2 class="text-green py-2">Common questions about our reform.</h2>
@@ -420,7 +421,7 @@
 					</section>
 				</div>
 			</main>
-			<!--#include file="/src/partials/footer.html" -->
+			{{> footer}}
 		</div>
 	</body>
 </html>

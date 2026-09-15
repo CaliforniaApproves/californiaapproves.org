@@ -230,7 +230,7 @@ export async function handleSubscribe(
 	// Note: interest groups are additive through this endpoint. An unticked
 	// checkbox sends no field, and no false-y value removes an existing
 	// interest — see the comment on the volunteer checkbox in
-	// src/pages/our-reforms/approval-primary/index.html for what was tried.
+	// our-reforms/approval-primary/index.html for what was tried.
 	const mailchimpBody = new URLSearchParams();
 	for (const [key, value] of params.entries()) {
 		// `c` is ours, set on the URL above; don't let a client override it.

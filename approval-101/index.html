@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<!--#include file="/src/partials/head.html" -->
+		{{> head}}
 		<title>What is Approval Voting?</title>
 	</head>
 	<body>
 		<div class="text-black font-darker ca-approves-root max-w-(--breakpoint-2xl) m-auto">
-			<!--#include file="/src/partials/header.html" -->
+			{{> header}}
 			<main>
 				<div class="approval-101-page">
 					<section aria-label="What is Approval Voting" style="background-image:url(/src/assets/images/Group-39.svg);background-size:cover;background-repeat:no-repeat;" id="top" class="caa-home-page-banner w-full grid grid-cols-1 lg:content-center">
@@ -31,7 +31,7 @@
 									</div>
 								</div>
 
-								<!-- An Approval Voting ballot: mark every candidate you support. -->
+								{{!-- An Approval Voting ballot: mark every candidate you support. --}}
 								<caa-ballot unit="approval" class="border-purple-high border-6 bg-white text-black rounded-md p-6 flex flex-col gap-4">
 									<span class="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full">Approval Voting Ballot</span>
 									<h4 class="text-green">Vote for AS MANY as you approve of</h4>
@@ -144,7 +144,7 @@
 					</section>
 				</div>
 			</main>
-			<!--#include file="/src/partials/footer.html" -->
+			{{> footer}}
 		</div>
 	</body>
 </html>
