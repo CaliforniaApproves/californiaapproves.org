@@ -9,7 +9,7 @@ const CTA = () => {
 	};
 	return (
 		<section aria-label="Call to action" className="bg-green text-center">
-			<div className="max-w-[700px] m-auto px-16 py-16 flex flex-col gap-2">
+			<div className="max-w-[700px] m-auto px-12 py-16 flex flex-col gap-2">
 				<h2 className="text-white">
 					Ready to bring Approval Voting to California?
 				</h2>

@@ -3,7 +3,7 @@ import voteMatters from "../../assets/images/vote-matters.webp";
 // create a component
 const Benefits = () => {
 	return (
-		<div className="py-10 px-8 flex flex-col lg:flex-row">
+		<div className="py-12 px-8 flex flex-col lg:flex-row">
 			<div className="lg:w-1/2">
 				<img
 					className="rounded-2xl"
