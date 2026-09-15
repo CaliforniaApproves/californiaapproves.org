@@ -9,7 +9,7 @@ const Video101 = () => {
 					<Video embedId={"K7kDlctGsQM"} title={"What Is Approval Voting?"} />
 				</div>
 				<div className="lg:w-1/2 px-8 my-auto">
-					<span className="text-2xl text-white font-semibold">
+					<span className="text-4xl text-white font-semibold">
 						Today, when you enter the polling booth, you can only vote for one
 						candidate. That single choice can cause lots
 						of problems:

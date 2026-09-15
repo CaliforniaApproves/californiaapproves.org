@@ -47,13 +47,13 @@ const Hero = () => {
 			id="top"
 		>
 			<div className="max-w-[1120px] m-auto px-8 py-12 flex flex-col gap-4">
-				<div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+				<div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
 					{/* OLD BALLOT — choose one */}
-					<div className="bg-schist-lower text-black rounded-md p-6 flex flex-col gap-4">
+					<div className="bg-schist-lower text-black rounded-md px-6 flex flex-col gap-4">
 						<h2 className="text-green banner-drop-shadow text-center pb-8">
 							What is Approval Voting?
 						</h2>
-						<p className="max-w-full text-4xl pb-4">
+						<p className="max-w-full text-3xl pb-4">
 							<span className="font-bold text-green">Approval Voting lets you vote for every candidate you support</span>, 
 							not just one. The candidate with the most votes wins. It's as 
 							simple as that!
