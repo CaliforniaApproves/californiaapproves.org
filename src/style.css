@@ -306,3 +306,50 @@ Large Paragraph List
 .approval-primary > section {
 	padding-block: 3rem;
 }
+
+/* Press releases (src/partials/press-release.html). Unlayered, like the
+   heading sizes above, so these win over them — and over utility classes, so
+   leave the elements they style unclassed. */
+.press-release h1 {
+	font-size: 2.5rem;
+	line-height: 1;
+}
+
+.press-release-body {
+	font-size: var(--text-base);
+	line-height: var(--text-base--line-height);
+}
+
+.press-release-body > * + * {
+	margin-top: 1.25rem;
+}
+
+.press-release-body h2 {
+	margin-top: 2.5rem;
+	font-size: 1.75rem;
+	line-height: 1.1;
+	color: var(--color-green);
+}
+
+.press-release-body a {
+	color: var(--color-purple);
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	/* The link text is often a bare URL, too long for a phone's width. */
+	overflow-wrap: anywhere;
+
+	&:hover {
+		color: var(--color-purple-high);
+	}
+}
+
+@media (min-width: 1024px) {
+	.press-release h1 {
+		font-size: 3rem;
+	}
+
+	.press-release-body h2 {
+		font-size: 2rem;
+	}
+}

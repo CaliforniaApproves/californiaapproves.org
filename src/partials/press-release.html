@@ -1,0 +1,50 @@
+{{!--
+	A press release: a link back to the press list, the heading and media
+	contact, then the block (the release's body, from its dateline paragraph
+	on) followed by the standard About paragraph, the FPPC disclosure, and ###.
+	The block's paragraphs, h2 section headings, and links are styled by
+	.press-release-body in src/style.css, so leave them unclassed.
+
+	  date          ISO date the release was issued, e.g. "2026-09-14".
+	  dateLabel     The same date as it's written, e.g. "September 14, 2026".
+	  title         The headline.
+	  subtitle      The subheadline.
+	  contactName   Media contact for this release, with their
+	  contactEmail  email address
+	  contactPhone  and phone number, as written.
+
+	{{#> press-release date="2026-09-14" dateLabel="September 14, 2026" title="…" …}}
+		<p><strong>SACRAMENTO, Calif. — September 14, 2026</strong> — …</p>
+		<h2>What happens next</h2>
+		…
+	{{/press-release}}
+--}}
+<article class="press-release max-w-[850px] mx-auto px-8 py-12 lg:py-16">
+	<a href="/press/" class="caa-link inline-block text-bsm font-extrabold uppercase tracking-[-0.01rem] text-purple hover:text-purple-high">← All press releases</a>
+	<header class="mt-10">
+		<p class="text-small font-bold uppercase tracking-wide text-orange">
+			For immediate release · <time datetime="{{date}}">{{dateLabel}}</time>
+		</p>
+		<h1 class="text-green mt-3">{{title}}</h1>
+		<p class="text-large text-schist-high mt-5 leading-snug">{{subtitle}}</p>
+		<p class="text-small text-schist-higher mt-8 py-4 border-y border-schist">
+			<b>Contact:</b> {{contactName}}, California Approves ·
+			<a href="mailto:{{contactEmail}}" class="caa-link underline underline-offset-2 hover:text-purple">{{contactEmail}}</a> ·
+			<span class="whitespace-nowrap">{{contactPhone}}</span>
+		</p>
+	</header>
+	<div class="press-release-body mt-10">
+		{{> @partial-block}}
+		<h2>About California Approves</h2>
+		<p>
+			California Approves is a grassroots organization working to improve democracy, reduce
+			political polarization, and make progress on the things Californians can agree on. It
+			advances approval voting in California through ballot measures at the state and local
+			level.
+		</p>
+	</div>
+	<footer class="mt-10 text-small text-schist-high">
+		<p class="italic">Paid for by California Approves. FPPC ID #1440633.</p>
+		<p class="mt-8 text-center font-bold tracking-widest">###</p>
+	</footer>
+</article>

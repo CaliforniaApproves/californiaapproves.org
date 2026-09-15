@@ -19,6 +19,9 @@ const pages = {
 	contact: "contact/index.html",
 	donate: "donate/index.html",
 	faq: "faq/index.html",
+	press: "press/index.html",
+	pressApprovalPrimaryFiled:
+		"press/2026-09-15-approval-primary-measure-filed/index.html",
 };
 
 /**
