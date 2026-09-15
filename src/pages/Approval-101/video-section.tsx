@@ -26,7 +26,7 @@ const VideoSection = () => {
 					<ul className="list-disc pl-10 pt-4 text-base">
 						<li>
 							If your favorite isn’t the front runner, you can’t vote for them
-							without risking helping your least favorite with. This is called
+							without risking helping your least favorite win. This is called
 							“the spoiler effect”.
 						</li>
 						<li>
