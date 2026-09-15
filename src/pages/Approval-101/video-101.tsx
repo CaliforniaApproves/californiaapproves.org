@@ -3,7 +3,7 @@ import Video from "../../components/common/video";
 // create a component
 const Video101 = () => {
 	return (
-		<div className="flex flex-col px-8 py-10 bg-purple">
+		<div className="flex flex-col px-8 py-12 bg-purple">
 			<div className="flex flex-col lg:flex-row items-center">
 				<div className="lg:w-1/2">
 					<Video embedId={"K7kDlctGsQM"} title={"What Is Approval Voting?"} />
