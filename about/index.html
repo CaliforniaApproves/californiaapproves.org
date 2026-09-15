@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<!--#include file="/src/partials/head.html" -->
+		{{> head}}
 		<title>About California Approves</title>
 	</head>
 	<body>
 		<div class="text-black font-darker ca-approves-root max-w-(--breakpoint-2xl) m-auto">
-			<!--#include file="/src/partials/header.html" -->
+			{{> header}}
 			<main>
 				<div class="caa-about-page">
 					<div style="background-image:url(/src/assets/images/Background-Pattern.svg);background-size:cover;background-repeat:no-repeat;" class="caa-intro flex flex-col lg:flex-row items-center justify-center py-10">
@@ -62,7 +62,7 @@
 					</div>
 				</div>
 			</main>
-			<!--#include file="/src/partials/footer.html" -->
+			{{> footer}}
 		</div>
 	</body>
 </html>

@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<!--#include file="/src/partials/head.html" -->
+		{{> head}}
 		<title>Donate to California Approves</title>
 	</head>
 	<body>
 		<div class="text-black font-darker ca-approves-root max-w-(--breakpoint-2xl) m-auto">
-			<!--#include file="/src/partials/header.html" -->
+			{{> header}}
 			<main>
 				<div class="caa-donate-page">
 					<div class="px-8 py-10 bg-linear-to-bl from-purple to-tan flex flex-col items-center">
@@ -48,7 +48,7 @@
 					</div>
 				</div>
 			</main>
-			<!--#include file="/src/partials/footer.html" -->
+			{{> footer}}
 		</div>
 	</body>
 </html>
