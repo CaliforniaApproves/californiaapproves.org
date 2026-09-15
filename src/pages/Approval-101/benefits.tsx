@@ -12,7 +12,7 @@ const Benefits = () => {
 				/>
 			</div>
 			<div className="lg:w-1/2 lg:ml-4 my-auto px-4">
-				<div className="text-green text-5xl">
+				<div className="text-green text-4xl">
 					<span className="font-bold">Our elections don't have to be like this! </span>
 					Approval Voting is the simple tweak that offers enormous benefits:
 				</div>
