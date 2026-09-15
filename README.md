@@ -1,6 +1,29 @@
 # CaliforniaApproves.org
 
-React Based Website for CaliforniaApproves.org.
+Website for CaliforniaApproves.org: static HTML pages, Tailwind CSS, and a
+few Web Components, built with Vite. There is no UI framework.
+
+# Project structure
+
+- `src/pages/` — one HTML file per route, laid out like the URLs:
+  `src/pages/faq/index.html` is `/faq`. Add a page by adding a folder.
+- `src/partials/` — the `<head>`, header, and footer shared by every page.
+- `src/elements/` — [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements)
+  for the interactive parts (mobile menu, carousel, sample ballots, signup
+  forms, …). They enhance markup that is already in the page, so all content
+  is in the HTML and renders before any script runs.
+- `src/main.ts` — loaded by every page; registers the custom elements.
+- `src/style.css` — Tailwind CSS setup and global styles.
+- `vite-plugin-pages.ts` — builds every page and expands include directives:
+
+  ```html
+  <!--#include file="/src/partials/footer.html" -->
+  <!--#include file="/src/assets/icons/Arrow.svg" class="w-6 h-6" -->
+  ```
+
+  Other attributes (like `class` above) are added to the included file's
+  first element, which is how inline SVG icons get styled. HTML comments are
+  stripped from the built pages, so notes left in the sources don't ship.
 
 # Development
 
@@ -21,7 +44,7 @@ npm run dev
 ## Testing the forms locally
 
 `npm run dev` is Vite only — it serves the site and hot-reloads, but it does
-not run anything in `functions/`. `/api/subscribe` returns a 404 there, so the
+not run anything in `src/worker/`. `/api/subscribe` returns a 404 there, so the
 newsletter, pledge, and contact forms all fail on submit with "Network error".
 
 To exercise a real submission you need Wrangler, which runs `src/worker/`
@@ -71,7 +94,7 @@ the token server-side before forwarding to Mailchimp. Set these on the Worker
 
 | Variable | Required | Notes |
 | --- | --- | --- |
-| `TURNSTILE_SECRET_KEY` | yes | Secret key paired with the widget site key in `src/components/common/turnstile.tsx`. |
+| `TURNSTILE_SECRET_KEY` | yes | Secret key paired with the widget site key in `src/lib/turnstile.ts`. |
 | `TURNSTILE_ALLOWED_HOSTNAMES` | no | Comma-separated hostname allowlist. Defaults to `californiaapproves.org,www.californiaapproves.org` plus any `*.californiaapproves.workers.dev` preview. |
 | `ENVIRONMENT` | no | Any value other than `production` also accepts `localhost` Turnstile tokens. Note that **unset** counts as `production`, so local runs must set it explicitly. |
 

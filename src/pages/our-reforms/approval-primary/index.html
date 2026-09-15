@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--#include file="/src/partials/head.html" -->
+		<title>Approval Primary Reform - California Approves</title>
+	</head>
+	<body>
+		<div class="text-black font-darker ca-approves-root max-w-(--breakpoint-2xl) m-auto">
+			<!--#include file="/src/partials/header.html" -->
+			<main>
+				<div class="approval-primary">
+					<!--
+						The banner reads in mobile order: heading + value props, then the CTA,
+						then the explanatory paragraphs. On mobile the orange background shows
+						around the white card so it reads as a full section.
+					-->
+					<section aria-label="Introduction" style="background-image:url(/src/assets/images/Group-39.svg);background-size:cover;background-repeat:no-repeat;" id="top" class="caa-home-page-banner w-full grid grid-cols-1 lg:content-center bg-orange sm:bg-white">
+						<div class="max-w-[850px] m-auto px-8 flex flex-col gap-4">
+							<div class="bg-white border-orange rounded-[50px] border-[6px] p-12 lg:p-12 text-center flex flex-col items-center gap-8">
+								<h4 class="hidden sm:block text-green uppercase">Our primary reform</h4>
+								<h2 class="sm:hidden text-green uppercase">Our primary reform</h2>
+								<h2 class="hidden sm:block text-green">Improve California's primaries with one sentence on the ballot</h2>
+								<p class="text-base">
+									After a governor's primary drew 61 candidates and allowed voters to pick just one,
+									California Approves filed a statewide initiative to change that. The Approval Voting
+									for Primary Elections Act finds where Californians agree by giving voters the freedom
+									to support every candidate they approve of. Pledge your support now, and we'll follow
+									up when the official petition is ready to sign.
+								</p>
+								<div class="flex flex-wrap justify-center gap-3">
+									<div class="flex items-center gap-2">
+										<img src="/src/assets/icons/Individual%20Circles/California-Approves-Logo-Purple-Circle-w-Check-RGB.svg" alt="purple check" width="24" height="16" class="aspect-169/158">
+										<span class="text-small font-bold whitespace-nowrap">More Choice</span>
+									</div>
+									<div class="flex items-center gap-2">
+										<img src="/src/assets/icons/Individual%20Circles/California-Approves-Logo-Orange-Circle-w-Check-RGB.svg" alt="orange check" width="24" height="16" class="aspect-169/158">
+										<span class="text-small font-bold whitespace-nowrap">Fair Competition</span>
+									</div>
+									<div class="flex items-center gap-2">
+										<img src="/src/assets/icons/Individual%20Circles/California-Approves-Logo-Yellow-Circle-w-Check-RGB.svg" alt="yellow check" width="24" height="16" class="aspect-169/158">
+										<span class="text-small font-bold whitespace-nowrap">Better Representation</span>
+									</div>
+								</div>
+								<caa-scroll-to target="pledge">
+									<button type="button" class="caa-button rounded-2xl px-4 py-2 uppercase flex text-center tracking-[-0.01rem] justify-center items-center font-extrabold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed border-[6px] border-orange hover:border-orange-high text-bsl h-[52px] w-[136px] text-orange mx-auto whitespace-nowrap px-25">PLEDGE YOUR SUPPORT</button>
+								</caa-scroll-to>
+							</div>
+						</div>
+					</section>
+					<section aria-label="See it in action" class="bg-purple text-white">
+						<div class="max-w-[1120px] m-auto px-8 flex flex-col gap-4">
+							<div class="font-bold text-tan text-small">SEE IT IN ACTION</div>
+							<h2 class="text-white">Same ballot. One sentence changes everything.</h2>
+							<p class="max-w-full text-large text-white/85 lg:font-normal">
+								Try marking both ballots below with candidates you'd support in a five-way primary.
+								Notice how the first ballot forces a single choice and how the second one leaves you
+								free to choose one or several.
+							</p>
+							<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+								<!-- Today's ballot: choose one. -->
+								<caa-ballot mode="single" unit="vote" class="bg-schist-lower text-black rounded-md p-6 flex flex-col gap-4">
+									<span class="inline-block text-sm font-bold uppercase tracking-wide bg-tan text-orange px-3 py-1 rounded-full">Today: Choose One</span>
+									<h4 class="mb-1">Vote for one</h4>
+									<p class="text-lg text-schist-high">
+										Selecting a second candidate is not allowed.
+									</p>
+									<button type="button" data-candidate="Candidate A" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✕</div>
+										<div class="flex-1 text-bsm font-medium">
+											<span class="font-semibold">Candidate A </span>
+											<span class="block text-bsm text-schist-high">You don't agree on everything, but you trust their judgment</span>
+										</div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Candidate B" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✕</div>
+										<div class="flex-1 text-bsm font-medium">
+											<span class="font-semibold">Candidate B </span>
+											<span class="block text-bsm text-schist-high">Aligned with your values and seems to have a lot of momentum, even though they're not your favorite</span>
+										</div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Candidate C" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✕</div>
+										<div class="flex-1 text-bsm font-medium">
+											<span class="font-semibold">Candidate C </span>
+											<span class="block text-bsm text-schist-high">The one that excites you most and matches your values, but seems to have less support</span>
+										</div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Candidate D" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✕</div>
+										<div class="flex-1 text-bsm font-medium">
+											<span class="font-semibold">Candidate D </span>
+											<span class="block text-bsm text-schist-high">Strong at rallying supporters, doesn't share your values</span>
+										</div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Candidate E" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded-full border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✕</div>
+										<div class="flex-1 text-bsm font-medium">
+											<span class="font-semibold">Candidate E </span>
+											<span class="block text-bsm text-schist-high">Shares your goals, but prioritizes them differently than you would</span>
+										</div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<div data-summary class="py-3 border-t border-dashed border-schist text-small text-schist-higher">
+										Voters who back multiple candidates are divided across two or three names each, even
+										when they would be satisfied with more than one.
+									</div>
+									<template data-summary-marked>You marked <b class="text-green" data-summary-value></b>. Your support for anyone else on the ballot is invisible to the count.</template>
+								</caa-ballot>
+
+								<!-- Our reform: approve all you support. -->
+								<caa-ballot unit="approval" class="bg-schist-lower text-black rounded-md p-6 flex flex-col gap-4">
+									<span class="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full">Our Reform: Approve All You Support</span>
+									<h4>Vote for AS MANY as you approve of</h4>
+									<p class="text-lg text-schist-high">
+										No limit. Support as many as you genuinely want.
+									</p>
+									<button type="button" data-candidate="Candidate A" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
+										<div class="flex-1 text-bsm font-medium">
+											<span class="font-semibold">Candidate A </span>
+											<span class="block text-bsm text-schist-high">You don't agree on everything, but you trust their judgment</span>
+										</div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Candidate B" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
+										<div class="flex-1 text-bsm font-medium">
+											<span class="font-semibold">Candidate B </span>
+											<span class="block text-bsm text-schist-high">Aligned with your values and seems to have a lot of momentum, even though they're not your favorite</span>
+										</div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Candidate C" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
+										<div class="flex-1 text-bsm font-medium">
+											<span class="font-semibold">Candidate C </span>
+											<span class="block text-bsm text-schist-high">The one that excites you most and matches your values, but seems to have less support</span>
+										</div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Candidate D" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
+										<div class="flex-1 text-bsm font-medium">
+											<span class="font-semibold">Candidate D </span>
+											<span class="block text-bsm text-schist-high">Strong at rallying supporters, doesn't share your values</span>
+										</div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Candidate E" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist-low w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
+										<div class="flex-1 text-bsm font-medium">
+											<span class="font-semibold">Candidate E </span>
+											<span class="block text-bsm text-schist-high">Shares your goals, but prioritizes them differently than you would</span>
+										</div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<div data-summary class="py-3 border-t border-dashed border-schist text-small text-schist-higher">
+										Overlapping support among candidates now adds up instead of dividing.
+									</div>
+									<template data-summary-marked>You approved <b class="text-green" data-summary-value></b>. Each one counted fully, with no tradeoff.</template>
+								</caa-ballot>
+							</div>
+							<p class="max-w-full italic text-base py-2 lg:font-normal">
+								In our current system, needing to guess who's “electable" can pressure any voter to
+								abandon their favorite candidates, even when they have no competition for their party's
+								support. Approval Voting removes that pressure everywhere.
+							</p>
+							<div class="border-t border-white/25 py-4 text-center">
+								<p class="text-large sm:text-3xl font-bold text-white">
+									Same ballot. More choice, that's it.
+								</p>
+								<p class="text-large sm:text-3xl font-bold text-tan">Mark all you support.</p>
+							</div>
+						</div>
+					</section>
+					<section aria-label="The solution">
+						<div class="max-w-[1120px] m-auto px-8">
+							<div class="max-w-full">
+								<h2 class="text-green py-2">
+									An election should measure how much support a candidate actually has.
+								</h2>
+								<p class="text-large py-2">
+									Approval Voting does exactly that. By measuring overlapping support, it provides
+									more choice, creates fair competition for broad support, and delivers better
+									representation.
+								</p>
+							</div>
+							<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 py-6">
+								<div class="border-t-2 border-orange-accent py-4">
+									<div class="font-mono text-orange-accent text-sm font-semibold">01</div>
+									<h4 class="text-green py-2">Mark every candidate you approve of</h4>
+									<p class="text-base leading-tight">
+										No limit, and no obligation. Just vote your conscience — mark one candidate
+										or several, whoever you genuinely want to support.
+									</p>
+								</div>
+								<div class="border-t-2 border-orange-accent py-4">
+									<div class="font-mono text-orange-accent text-sm font-semibold">02</div>
+									<h4 class="text-green py-2">Approvals add up, they don't divide</h4>
+									<p class="text-base leading-tight">
+										Overlapping support among candidates gets counted instead of split apart.
+										Candidates with real, broad appeal are no longer penalized just because their
+										support overlaps with others.
+									</p>
+								</div>
+								<div class="border-t-2 border-orange-accent py-4">
+									<div class="font-mono text-orange-accent text-sm font-semibold">03</div>
+									<h4 class="text-green py-2">The most-approved candidates advance</h4>
+									<p class="text-base leading-tight">
+										Because voters have unrestricted choice in the primary, the candidates with
+										the widest genuine voter support actually advance, and the winner arrives
+										with a real mandate to represent more than just their base.
+									</p>
+								</div>
+							</div>
+							<div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5 mt-2 py-6 border-t border-schist">
+								<div class="flex items-start gap-3.5">
+									<img src="/src/assets/icons/Individual%20Circles/California-Approves-Logo-Orange-Circle-w-Check-RGB.svg" alt="orange check" width="24" height="16" class="aspect-169/158 shrink-0 mt-1">
+									<div>
+										<b class="block text-green text-base font-bold mb-0.5">No Tradeoffs</b>
+										<span class="text-base text-schist-higher leading-[1]">You never have to abandon your favorite to block who you fear most</span>
+									</div>
+								</div>
+								<div class="flex items-start gap-3.5">
+									<img src="/src/assets/icons/Individual%20Circles/California-Approves-Logo-Orange-Circle-w-Check-RGB.svg" alt="orange check" width="24" height="16" class="aspect-169/158 shrink-0 mt-1">
+									<div>
+										<b class="block text-green text-base font-bold mb-0.5">Nothing New to Learn</b>
+										<span class="text-base text-schist-higher leading-[1]">Just mark all the candidates you approve of</span>
+									</div>
+								</div>
+								<div class="flex items-start gap-3.5">
+									<img src="/src/assets/icons/Individual%20Circles/California-Approves-Logo-Orange-Circle-w-Check-RGB.svg" alt="orange check" width="24" height="16" class="aspect-169/158 shrink-0 mt-1">
+									<div>
+										<b class="block text-green text-base font-bold mb-0.5">No Counting Delays</b>
+										<span class="text-base text-schist-higher leading-[1]">Simply sum every marking for each candidate, just as we do today</span>
+									</div>
+								</div>
+								<div class="flex items-start gap-3.5">
+									<img src="/src/assets/icons/Individual%20Circles/California-Approves-Logo-Orange-Circle-w-Check-RGB.svg" alt="orange check" width="24" height="16" class="aspect-169/158 shrink-0 mt-1">
+									<div>
+										<b class="block text-green text-base font-bold mb-0.5">Delivers Accurate Results</b>
+										<span class="text-base text-schist-higher leading-[1]">Reveals each candidate's full breadth of support within the electorate</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section aria-label="The problem" class="bg-purple text-white/85">
+						<div class="max-w-[1120px] m-auto px-8">
+							<div class="max-w-full">
+								<h2 class="text-tan pt-2">
+									Your vote should count for who you actually support, not just who you think can
+									win.
+								</h2>
+								<p class="text-large pt-3">
+									Too many people vote for whoever seems “safe,” afraid their real favorite doesn’t
+									stand a chance. That fear becomes the reason they lose. The result is a
+									self-fulfilling prophecy: elections that reflect who voters feared losing to, not
+									who they actually wanted.
+								</p>
+							</div>
+							<p class="font-semibold text-large text-white/85 pt-8 mb-6">
+								This isn't hypothetical. It happened in St. Louis, Missouri, before the city switched
+								to Approval Voting.
+							</p>
+							<div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-schist border border-schist rounded-md overflow-hidden">
+								<div class="bg-white p-6 flex flex-col gap-2">
+									<div class="font-mono text-4xl font-semibold text-orange">32%</div>
+									<p class="text-base text-schist-high leading-tight">
+										was enough to win St. Louis's 2017 “choose-one” mayoral primary outright,
+										with support fractured across three other candidates, who together may have
+										reflected what most voters actually wanted.
+									</p>
+								</div>
+								<div class="bg-white p-6 flex flex-col gap-2">
+									<div class="font-mono text-4xl font-semibold text-orange">1 in 3</div>
+									<p class="text-base text-schist-high leading-tight">
+										St. Louis primary voters approved more than one candidate in 2025, proof that
+										“just pick one” never captured the full picture of their support.
+									</p>
+								</div>
+								<div class="bg-white p-6 flex flex-col gap-2">
+									<div class="font-mono text-4xl font-semibold text-orange">84%</div>
+									<p class="text-base text-schist-high leading-tight">
+										of St. Louis voters who supported a lesser-known 2025 mayoral candidate also
+										approved of someone else — preferences the old system would have never let
+										them show.
+									</p>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section aria-label="Proven, not theoretical">
+						<div class="max-w-[1120px] m-auto px-8 flex flex-col gap-12">
+							<div class="max-w-full">
+								<h2 class="text-green pt-2 flex gap-3">Already proven to work.</h2>
+								<p class="text-large pt-3 leading-snug">
+									Approval Voting has already been used to elect leaders in multiple places across
+									the country, and it’s the way many people already make group decisions. When a
+									group picks a meeting time, nobody votes for just one slot. Everyone marks every
+									time that works, and the option most people can make wins. Approval Voting brings
+									that same simple logic to the ballot.
+								</p>
+								<p class="text-large pt-3 leading-snug">
+									Fargo, North Dakota adopted it for city elections in 2020. St. Louis followed
+									in 2021, using it for city primaries. In 2025, Utah’s Forward Party used it to
+									fill a vacant state Senate seat. Each time, the process was the same: mark every
+									candidate you support, and the most-approved candidates win.
+								</p>
+								<p class="text-large pt-3 leading-snug">
+									Here’s what that looked like in St. Louis:
+								</p>
+							</div>
+							<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+								<div>
+									<div class="font-mono text-sm font-semibold text-orange-accent mb-2.5">
+										2017 · Choose-One
+									</div>
+									<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" class="w-3 h-3 fill-orange-accent mb-2.5"><title>Star</title><path d="M12 0 L13.8 8.1 L18.6 1.4 L15.9 9.2 L22.6 5.4 L16.8 10.8 L24 12 L16.8 13.2 L22.6 18.6 L15.9 14.8 L18.6 22.6 L13.8 15.9 L12 24 L10.2 15.9 L5.4 22.6 L8.1 14.8 L1.4 18.6 L7.2 13.2 L0 12 L7.2 10.8 L1.4 5.4 L8.1 9.2 L5.4 1.4 L10.2 8.1 Z"></path></svg>
+									<div class="lg:border-t lg:border-schist lg:pt-3">
+										<div class="font-mono text-4xl font-semibold text-orange">32%</div>
+										<p class="text-base leading-normal">
+											Winning share of the vote in St. Louis's fractured, seven-candidate mayoral
+											primary.
+										</p>
+									</div>
+								</div>
+								<div>
+									<div class="font-mono text-sm font-semibold text-orange-accent mb-2.5">
+										2020 · Reform Passes
+									</div>
+									<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" class="w-3 h-3 fill-orange-accent mb-2.5"><title>Star</title><path d="M12 0 L13.8 8.1 L18.6 1.4 L15.9 9.2 L22.6 5.4 L16.8 10.8 L24 12 L16.8 13.2 L22.6 18.6 L15.9 14.8 L18.6 22.6 L13.8 15.9 L12 24 L10.2 15.9 L5.4 22.6 L8.1 14.8 L1.4 18.6 L7.2 13.2 L0 12 L7.2 10.8 L1.4 5.4 L8.1 9.2 L5.4 1.4 L10.2 8.1 Z"></path></svg>
+									<div class="lg:border-t lg:border-schist lg:pt-3">
+										<div class="font-mono text-4xl font-semibold text-orange">68%</div>
+										<p class="text-base leading-normal">
+											St. Louis voters approved switching their municipal primary elections to
+											Approval Voting.
+										</p>
+									</div>
+								</div>
+								<div>
+									<div class="font-mono text-sm font-semibold text-orange-accent mb-2.5">
+										2021 · First Use
+									</div>
+									<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" class="w-3 h-3 fill-orange-accent mb-2.5"><title>Star</title><path d="M12 0 L13.8 8.1 L18.6 1.4 L15.9 9.2 L22.6 5.4 L16.8 10.8 L24 12 L16.8 13.2 L22.6 18.6 L15.9 14.8 L18.6 22.6 L13.8 15.9 L12 24 L10.2 15.9 L5.4 22.6 L8.1 14.8 L1.4 18.6 L7.2 13.2 L0 12 L7.2 10.8 L1.4 5.4 L8.1 9.2 L5.4 1.4 L10.2 8.1 Z"></path></svg>
+									<div class="lg:border-t lg:border-schist lg:pt-3">
+										<div class="font-mono text-4xl font-semibold text-orange">57%</div>
+										<p class="text-base leading-normal">
+											The leading mayoral candidate advanced with broad approval, up from just 30%
+											in the fractured 2017 primary race she didn't win.
+										</p>
+									</div>
+								</div>
+								<div>
+									<div class="font-mono text-sm font-semibold text-orange-accent mb-2.5">
+										2021 · Voter Survey
+									</div>
+									<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" class="w-3 h-3 fill-orange-accent mb-2.5"><title>Star</title><path d="M12 0 L13.8 8.1 L18.6 1.4 L15.9 9.2 L22.6 5.4 L16.8 10.8 L24 12 L16.8 13.2 L22.6 18.6 L15.9 14.8 L18.6 22.6 L13.8 15.9 L12 24 L10.2 15.9 L5.4 22.6 L8.1 14.8 L1.4 18.6 L7.2 13.2 L0 12 L7.2 10.8 L1.4 5.4 L8.1 9.2 L5.4 1.4 L10.2 8.1 Z"></path></svg>
+									<div class="lg:border-t lg:border-schist lg:pt-3">
+										<div class="font-mono text-4xl font-semibold text-orange">81%</div>
+										<p class="text-base leading-normal">
+											St. Louis voters appreciated Approval Voting’s simplicity — clear and easy to
+											use, no learning curve.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section aria-label="What the reform does and does not do" class="bg-purple text-white">
+						<div class="max-w-[1120px] m-auto px-8">
+							<div class="max-w-full">
+								<h2 class="text-tan py-2">The simplest change that works.</h2>
+								<p class="text-large text-white/85 py-2 leading-snug">
+									Every candidate for state and congressional office still appears on one familiar
+									ballot. Every registered voter can still vote for any of them. This reform simply
+									gives voters the freedom to support all the candidates they like in the primary.
+									Nothing else about how elections are run has to change, and nothing new has to
+									be bought, built, or learned.
+								</p>
+							</div>
+							<div class="grid grid-cols-1 md:grid-cols-2 mt-11 border border-white/25 rounded-md overflow-hidden">
+								<div class="bg-purple-soft p-7">
+									<h4 class="text-purple mb-3">What this act does not do</h4>
+									<ul class="list-disc pl-5 space-y-2">
+										<li class="font-semibold text-base text-green leading-tight">Does not restrict who can run or who can vote</li>
+										<li class="font-semibold text-base text-green leading-tight">Does not change the ballot layout or how the general election works</li>
+										<li class="font-semibold text-base text-green leading-tight">Does not require new voting machines or software</li>
+										<li class="font-semibold text-base text-green leading-tight">Does not add cost for counties to administer</li>
+									</ul>
+								</div>
+								<div class="bg-white p-7">
+									<h4 class="text-purple mb-3">What this act does</h4>
+									<ul class="list-disc pl-5 space-y-2">
+										<li class="font-semibold text-base text-green leading-tight">Gives voters the freedom to mark every candidate they support</li>
+										<li class="font-semibold text-base text-green leading-tight">Reveals how much support each candidates really has, instead of hiding it</li>
+										<li class="font-semibold text-base text-green leading-tight">Advances the most widely approved candidates</li>
+										<li class="font-semibold text-base text-green leading-tight">Gives winners a stronger mandate to represent more voters</li>
+									</ul>
+								</div>
+							</div>
+							<div class="pt-8 text-center">
+								<p class="text-large sm:text-3xl font-bold text-white">
+									Same ballot. More choice, that's it.
+								</p>
+								<p class="text-large sm:text-3xl font-bold text-tan">Mark all you support.</p>
+							</div>
+						</div>
+					</section>
+					<section aria-label="Pledge your support" id="pledge" class="bg-green text-center lg:scroll-mt-36">
+						<div class="max-w-[700px] m-auto px-8">
+							<h2 class="text-white">Ready to bring Approval Voting to California?</h2>
+							<p class="text-base text-white/85 pt-3">
+								Every pledge moves our reform closer to the 2028 ballot. Add your name below, and
+								we'll follow up with next steps.
+							</p>
+							<caa-subscribe-form form-key="pledge" busy-label="Adding…" unavailable-message="Verification couldn't load, so we can't accept your pledge. Email pledge@californiaapproves.org and we'll add you." class="bg-white rounded-[24px] p-6 lg:p-10 mt-9 text-left">
+								<!-- Replaces the form once a pledge goes through. -->
+								<div data-success role="status" hidden class="text-center py-6">
+									<img src="/src/assets/icons/Individual%20Circles/California-Approves-Logo-Purple-Circle-w-Check-RGB.svg" alt="" width="72" height="72" class="mx-auto aspect-169/158 w-[72px] h-auto">
+									<h3 class="text-green pt-5">You're on the list.</h3>
+									<p data-success-message class="text-base text-schist-higher pt-3 leading-snug">
+										Thanks for pledging your support. Watch your inbox for the official petition.
+									</p>
+									<a href="#top" class="inline-block pt-7 text-bsm font-extrabold uppercase tracking-[-0.01rem] text-green underline underline-offset-4 hover:text-green-high">Back to top</a>
+								</div>
+								<!-- No native action: submissions go through /api/subscribe, which
+								     verifies the Turnstile token before forwarding to Mailchimp. A
+								     Mailchimp action here would let anyone post around that check. -->
+								<form id="mc-embedded-subscribe-form-final" name="mc-embedded-subscribe-form-final" class="validate">
+									<div class="flex flex-col gap-2">
+										<div id="mc-email-input-wrapper-final" class="mc-field-group">
+											<div class="caa-input w-full required email">
+												<label for="mce-EMAIL-final" class="sr-only">email</label>
+												<input id="mce-EMAIL-final" type="email" name="EMAIL" placeholder="Enter your email (required)" required class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset sm:text-sm lg:text-base sm:leading-6 ring-green focus:ring-green-high">
+											</div>
+										</div>
+										<div class="flex gap-2">
+											<div id="mc-fname-input-wrapper-final" class="mc-field-group w-full">
+												<div class="caa-input w-full">
+													<label for="mce-FNAME-final" class="sr-only">first name</label>
+													<input id="mce-FNAME-final" type="text" name="FNAME" placeholder="First name" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset sm:text-sm lg:text-base sm:leading-6 ring-green focus:ring-green-high">
+												</div>
+											</div>
+											<div id="mc-lname-input-wrapper-final" class="mc-field-group w-full">
+												<div class="caa-input w-full">
+													<label for="mce-LNAME-final" class="sr-only">last name</label>
+													<input id="mce-LNAME-final" type="text" name="LNAME" placeholder="Last name" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset sm:text-sm lg:text-base sm:leading-6 ring-green focus:ring-green-high">
+												</div>
+											</div>
+										</div>
+										<div id="mc-zip-input-wrapper-final" class="mc-field-group w-full">
+											<div class="caa-input w-full">
+												<label for="mce-ZIP-final" class="sr-only">zip code</label>
+												<input id="mce-ZIP-final" type="text" name="ZIP" placeholder="Zip code" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset sm:text-sm lg:text-base sm:leading-6 ring-green focus:ring-green-high">
+											</div>
+										</div>
+
+										<!-- Auto-tags every submission through this form as "Approval Primary Pledge" -->
+										<input type="hidden" name="tags" value="4527864">
+
+										<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+										<div style="position:absolute;left:-5000px;" aria-hidden="true">
+											<input type="text" name="b_b4aa7540a62457c043ff00e36_dddf3d641c" tabindex="-1" value="">
+										</div>
+
+										<!-- value="16" is required, not decorative: a checkbox with no
+										     value attribute submits "on", but Mailchimp identifies the
+										     interest group by its id (the 16 in the field name). Without
+										     it the volunteering opt-in is silently dropped.
+
+										     Known limitation: this is additive only. Ticking the box adds
+										     the interest; leaving it unticked does NOT remove it from
+										     someone who already has it, because an unchecked checkbox
+										     submits no field at all and Mailchimp cannot tell "cleared"
+										     from "not managed by this form".
+
+										     Tried against the post-json endpoint (2026-09-08), all
+										     no-ops — the interest stayed set and the endpoint returned
+										     "your profile has been updated" every time:
+										       group[384917][16]=        (empty)
+										       group[384917][16]=false
+										       group[384917][16]=0
+										     Removal needs Marketing API v3
+										     (PUT /lists/{id}/members/{hash} with interests:{"16":false}),
+										     which would mean an API key secret on the Worker. Deemed not
+										     worth it for a one-time signup: the label reads as an action,
+										     not a preference toggle. -->
+										<label class="flex items-start gap-2 pt-2 mb-1 cursor-pointer">
+											<input type="checkbox" name="group[384917][16]" value="16" id="mce-group-384917-0-final" class="mt-1 shrink-0 w-4 h-4 accent-green cursor-pointer">
+											<span class="text-bsm text-schist-higher leading-snug">I'm interested in volunteering to help gather signatures</span>
+										</label>
+										<div id="mc-why-input-wrapper-final" class="mc-field-group w-full">
+											<div class="caa-input w-full">
+												<label for="mce-WHY-final" class="sr-only">why does this matter to you</label>
+												<input id="mce-WHY-final" type="text" name="WHY" placeholder="Why does this matter to you?" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset sm:text-sm lg:text-base sm:leading-6 ring-green focus:ring-green-high">
+											</div>
+										</div>
+
+										<div data-turnstile class="flex justify-center empty:hidden pt-2"></div>
+										<p data-turnstile-unavailable role="alert" hidden class="text-bsm text-orange text-center mt-2 leading-snug">
+											We couldn't load the spam check that protects this form — an ad blocker or
+											privacy extension is the usual cause. Allow <span class="whitespace-nowrap">challenges.cloudflare.com</span>
+											and <button type="button" data-turnstile-retry class="underline font-semibold cursor-pointer">try again</button>,
+											or email <a class="underline font-semibold" href="mailto:pledge@californiaapproves.org">pledge@californiaapproves.org</a>
+											and we'll add you by hand.
+										</p>
+										<p data-message role="status" hidden class="text-bsm text-center pt-1 leading-snug text-green"></p>
+
+										<button type="submit" disabled class="caa-button rounded-2xl px-4 py-2 uppercase flex text-center tracking-[-0.01rem] justify-center items-center font-extrabold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-white bg-orange hover:bg-orange-high text-bsl h-[52px] w-[136px] mx-auto whitespace-nowrap px-20 bg-orange hover:bg-orange-accent">ADD MY PLEDGE</button>
+										<p class="italic text-center text-bsm pt-2 text-schist-higher leading-snug">
+											We won't spam you or share your data. You can unsubscribe anytime.
+										</p>
+									</div>
+									<noscript>
+										<p class="text-bsm text-orange text-center pt-2 leading-snug">
+											This form needs JavaScript for its spam check. Email pledge@californiaapproves.org
+											and we'll add your pledge.
+										</p>
+									</noscript>
+								</form>
+							</caa-subscribe-form>
+							<p class="text-base text-white/85 pt-8">
+								<a href="/faq" class="caa-link underline text-white">Still have questions? Check out our FAQs.</a>
+							</p>
+						</div>
+					</section>
+				</div>
+			</main>
+			<!--#include file="/src/partials/footer.html" -->
+		</div>
+	</body>
+</html>

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!--#include file="/src/partials/head.html" -->
+		<title>What is Approval Voting?</title>
+	</head>
+	<body>
+		<div class="text-black font-darker ca-approves-root max-w-(--breakpoint-2xl) m-auto">
+			<!--#include file="/src/partials/header.html" -->
+			<main>
+				<div class="approval-101-page">
+					<section aria-label="What is Approval Voting" style="background-image:url(/src/assets/images/Group-39.svg);background-size:cover;background-repeat:no-repeat;" id="top" class="caa-home-page-banner w-full grid grid-cols-1 lg:content-center">
+						<div class="max-w-[1150px] m-auto px-8 py-12 flex flex-col gap-4">
+							<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+								<div class="bg-schist-lower text-black rounded-md px-6 flex flex-col gap-4">
+									<h2 class="text-green banner-drop-shadow text-center pb-8">
+										What is Approval Voting?
+									</h2>
+									<p class="max-w-full text-4xl pb-4">
+										<span class="font-bold text-green">Approval Voting lets you vote for every
+										candidate you support</span>, not just one. The candidate with the most votes
+										wins. It's as simple as that!
+									</p>
+									<div class="border-t border-schist py-4 text-center">
+										<p class="text-large sm:text-3xl font-extrabold text-orange">
+											Same ballot. More choice, that's it.
+										</p>
+										<p class="text-large sm:text-3xl font-bold text-orange/85">
+											Mark all you support.
+										</p>
+									</div>
+								</div>
+
+								<!-- An Approval Voting ballot: mark every candidate you support. -->
+								<caa-ballot unit="approval" class="border-purple-high border-6 bg-white text-black rounded-md p-6 flex flex-col gap-4">
+									<span class="inline-block text-sm font-semibold uppercase tracking-wide bg-orange text-white px-3 py-1 rounded-full">Approval Voting Ballot</span>
+									<h4 class="text-green">Vote for AS MANY as you approve of</h4>
+									<p class="text-lg text-schist-higher">
+										No limit. Support as many as you genuinely want.
+									</p>
+									<button type="button" data-candidate="Hero 1" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
+										<div class="flex-1 text-bsm font-medium"><span class="font-semibold text-schist-high">Hero 1 </span></div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Hero 2" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
+										<div class="flex-1 text-bsm font-medium"><span class="font-semibold text-schist-high">Hero 2 </span></div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Acceptable" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
+										<div class="flex-1 text-bsm font-medium"><span class="font-semibold text-schist-high">Acceptable </span></div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Villain 1" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
+										<div class="flex-1 text-bsm font-medium"><span class="font-semibold text-schist-high">Villain 1 </span></div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<button type="button" data-candidate="Villain 2" aria-pressed="false" class="flex items-center gap-3 py-2 px-1 rounded cursor-pointer hover:bg-schist w-full text-left">
+										<div data-mark class="w-6 h-6 shrink-0 rounded border-2 flex items-center justify-center text-sm font-bold bg-white border-schist-medium text-transparent">✓</div>
+										<div class="flex-1 text-bsm font-medium"><span class="font-semibold text-schist-high">Villain 2 </span></div>
+										<div data-count class="text-xs font-mono text-schist-high">0</div>
+									</button>
+									<div data-summary class="py-3 border-t border-dashed border-schist text-small text-schist-higher">
+										Overlapping support among candidates now adds up instead of dividing.
+									</div>
+									<template data-summary-marked>You approved <b class="text-schist-higher" data-summary-value></b>. Each one counted fully, with no tradeoff.</template>
+								</caa-ballot>
+							</div>
+						</div>
+					</section>
+					<div class="flex flex-col px-8 py-12 bg-purple">
+						<div class="flex flex-col lg:flex-row lg:items-center">
+							<div class="lg:w-1/2 pb-8 lg:pb-0">
+								<div class="video-responsive">
+									<noscript><a href="https://www.youtube.com/watch?v=K7kDlctGsQM" aria-label="Watch What Is Approval Voting? on YouTube">Watch "What Is Approval Voting?" on YouTube</a></noscript>
+									<caa-youtube video-id="K7kDlctGsQM" video-title="What Is Approval Voting?"></caa-youtube>
+								</div>
+							</div>
+							<div class="lg:w-1/2 px-8">
+								<span class="text-4xl text-white font-semibold">Today, when you enter the polling
+								booth, you can only vote for one candidate. That single choice can cause lots of
+								problems:</span>
+								<ul class="list-disc pl-10 pt-4 text-base text-white/85">
+									<li>
+										<span class="font-semibold">You can't vote your conscience. </span>If your
+										favorite isn’t the front runner, voting for them risks helping the candidate
+										you like least win. This is called “the spoiler effect”.
+									</li>
+									<li>
+										<span class="font-semibold">Winners without broad support. </span>Winning
+										candidates often don’t represent a broad base of voters. It is common for
+										candidates to win with far less than 50% of the vote.
+									</li>
+									<li>
+										<span class="font-bold">A two-party lock. </span>The system rewards whoever's
+										already dominant, leaving little room for new ideas to break through.
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="py-12 px-8 flex flex-col lg:flex-row">
+						<div class="lg:w-1/2 pb-8 lg:pb-0">
+							<img src="/src/assets/images/vote-matters.webp" alt="your vote matters" class="rounded-2xl">
+						</div>
+						<div class="lg:w-1/2 lg:ml-4 my-auto px-4">
+							<div class="text-green text-4xl">
+								<span class="font-bold">Our elections don't have to be like this! </span>Approval
+								Voting is the simple tweak that offers enormous benefits:
+							</div>
+							<ul class="list-disc pl-10 text-base pt-4">
+								<li>
+									<span class="font-bold">No more spoiler effect. </span>Vote for every candidate
+									you want to support. Approving someone else never helps your least favorite win.
+								</li>
+								<li>
+									<span class="font-bold">More representative winners. </span>Because support adds
+									up instead of splitting apart, the winner reflects real, broad agreement, not
+									just whoever survived a divided field.
+								</li>
+								<li>
+									<span class="font-bold">Room for more than two. </span>Independent and new
+									candidates can build real support because every voter is free to support them.
+									They only have to earn support, not steal it from an established base.
+								</li>
+							</ul>
+						</div>
+					</div>
+					<section aria-label="Call to action" class="bg-green text-center">
+						<div class="max-w-[700px] m-auto px-12 py-16 flex flex-col gap-2">
+							<h2 class="text-white">Ready to bring Approval Voting to California?</h2>
+							<p class="text-base text-white/85 pt-3">
+								Pledge your support and we'll follow up with next steps. Still have questions about
+								our reform? Answers to the ones we hear most are just below.
+							</p>
+							<span class="flex gap-8 justify-center">
+								<a href="/our-reforms/approval-primary#pledge" class="caa-link"><button type="button" class="caa-button rounded-2xl px-4 py-2 uppercase flex text-center tracking-[-0.01rem] justify-center items-center font-extrabold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-white bg-orange hover:bg-orange-high text-bsl h-[52px] w-[136px] mx-auto whitespace-nowrap px-20 mt-9 bg-green hover:bg-green-high">ADD MY PLEDGE</button></a>
+								<a href="/our-reforms/approval-primary" class="caa-link"><button type="button" class="caa-button rounded-2xl px-4 py-2 uppercase flex text-center tracking-[-0.01rem] justify-center items-center font-extrabold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed border-[6px] border-orange hover:border-orange-high text-bsl h-[52px] w-[136px] mx-auto whitespace-nowrap px-20 mt-9 text-white">SEE THE PLAN</button></a>
+							</span>
+						</div>
+					</section>
+				</div>
+			</main>
+			<!--#include file="/src/partials/footer.html" -->
+		</div>
+	</body>
+</html>

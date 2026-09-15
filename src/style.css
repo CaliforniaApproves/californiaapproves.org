@@ -1,10 +1,28 @@
 @import "tailwindcss";
+@import "./elements/caa-youtube.css";
 
 @plugin "@tailwindcss/forms" {
 	strategy: "class";
 }
 
 @custom-variant dark (&:is(.dark *));
+
+@layer base {
+	/* Custom elements are inline by default. The ones that contain page
+	   content lay out like the <div>s they stand in for (utilities still
+	   override this); behaviour-only wrappers generate no box at all. */
+	caa-ballot,
+	caa-carousel,
+	caa-menu,
+	caa-subscribe-form {
+		display: block;
+	}
+
+	caa-popover,
+	caa-scroll-to {
+		display: contents;
+	}
+}
 
 @theme {
 	--color-transparent: transparent;
