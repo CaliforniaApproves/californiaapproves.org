@@ -20,7 +20,7 @@ The measure would change one thing about California's voter-nominated primaries 
 
 Sixty-one candidates appeared on the June 2, 2026 primary ballot for governor. Voters could mark exactly one of them. The two candidates who advanced to November had just 28% and 24.6% each; the rest of the vote was divided among candidates who were eliminated.
 
-By counting every approval instead of forcing voters to pick just one, the Approval Voting for Primary Elections Act advances candidates that are more broadly supported by the electorate.
+By counting every approval instead of forcing voters to pick just one, the Approval Voting for Primary Elections Act can surface support that choose-one voting hides, advancing candidates that are more broadly supported by the electorate.
 
 **Candidates have to win broadly, not just intensely.** Under a choose-one rule, a candidate can advance with a narrow, committed base while most voters are divided across other names. Today, we cannot distinguish between a candidate voters don’t want and one whose support was simply split. Approval voting closes that path. Once every approval counts, a candidate with  51 percent support and 49 percent opposition is no longer safe from a rival who can reach 55 or 60 percent approval. The winning strategy shifts from consolidating a narrow faction toward assembling the widest possible coalition, from dividing voters toward uniting them.
 
