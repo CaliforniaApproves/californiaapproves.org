@@ -59,7 +59,7 @@ test.describe("mobile menu", () => {
 	test.use({ viewport: { width: 390, height: 844 } });
 
 	test("opens, and closes on Escape or an outside click", async ({ page }) => {
-		await open(page, "/404");
+		await open(page, "/404/");
 		const button = page.locator("caa-menu > button");
 		const panel = page.locator("[data-menu-panel]");
 
@@ -120,7 +120,7 @@ test("campaigning popover toggles from its button", async ({ page }) => {
 test("approval-101 ballot approves any number of candidates", async ({
 	page,
 }) => {
-	await open(page, "/approval-101");
+	await open(page, "/approval-101/");
 	const section = page.locator('section[aria-label="What is Approval Voting"]');
 
 	await page.getByRole("button", { name: /Hero 1/ }).click();
@@ -143,7 +143,7 @@ test("approval-101 ballot approves any number of candidates", async ({
 test("approval-primary ballots: choose one vs. approve several", async ({
 	page,
 }) => {
-	await open(page, "/our-reforms/approval-primary");
+	await open(page, "/our-reforms/approval-primary/");
 	const section = page.locator('section[aria-label="See it in action"]');
 	const chooseOne = page.locator("caa-ballot").nth(0);
 	const approveAll = page.locator("caa-ballot").nth(1);
@@ -161,7 +161,7 @@ test("approval-primary ballots: choose one vs. approve several", async ({
 });
 
 test("faq accordion keeps one answer open at a time", async ({ page }) => {
-	await open(page, "/faq");
+	await open(page, "/faq/");
 	const section = page.locator(
 		'section[aria-label="Common questions about our reform"]',
 	);
@@ -184,7 +184,7 @@ test("pledge form submits and shows the success panel", async ({ page }) => {
 		ok: true,
 		message: "You're signed up — check your inbox to confirm.",
 	});
-	await open(page, "/our-reforms/approval-primary");
+	await open(page, "/our-reforms/approval-primary/");
 	const section = page.locator("section#pledge");
 	await expect(section.locator('button[type="submit"]')).toBeEnabled();
 	await expect(section).toHaveScreenshot("pledge-ready.png");
@@ -208,7 +208,7 @@ test("pledge form submits and shows the success panel", async ({ page }) => {
 
 test("pledge form shows server errors", async ({ page }) => {
 	await withTurnstile(page, { ok: false, message: "That email looks wrong." });
-	await open(page, "/our-reforms/approval-primary");
+	await open(page, "/our-reforms/approval-primary/");
 	const section = page.locator("section#pledge");
 
 	await section.locator('input[name="EMAIL"]').fill("voter@example.com");
@@ -222,7 +222,7 @@ test("contact form submits and clears", async ({ page }) => {
 		ok: true,
 		message: "You're signed up — check your inbox to confirm.",
 	});
-	await open(page, "/contact");
+	await open(page, "/contact/");
 	const area = page.locator("div.max-w-2xl");
 
 	await area.locator('input[name="EMAIL"]').fill("voter@example.com");
@@ -246,7 +246,7 @@ test("turnstile can be retried after a blocked load", async ({ page }) => {
 			? route.abort()
 			: route.fulfill({ contentType: "text/javascript", body: FAKE_TURNSTILE });
 	});
-	await open(page, "/contact");
+	await open(page, "/contact/");
 	const area = page.locator("div.max-w-2xl");
 
 	await expect(area.getByRole("alert")).toBeVisible();

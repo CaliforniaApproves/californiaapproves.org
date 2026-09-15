@@ -3,13 +3,13 @@ import { expect, type Page, test } from "@playwright/test";
 // One full-page screenshot per prerendered route.
 const routes: { path: string; name: string }[] = [
 	{ path: "/", name: "home" },
-	{ path: "/approval-101", name: "approval-101" },
-	{ path: "/our-reforms/approval-primary", name: "approval-primary" },
-	{ path: "/faq", name: "faq" },
-	{ path: "/about", name: "about" },
-	{ path: "/contact", name: "contact" },
-	{ path: "/donate", name: "donate" },
-	{ path: "/404", name: "404" },
+	{ path: "/approval-101/", name: "approval-101" },
+	{ path: "/our-reforms/approval-primary/", name: "approval-primary" },
+	{ path: "/faq/", name: "faq" },
+	{ path: "/about/", name: "about" },
+	{ path: "/contact/", name: "contact" },
+	{ path: "/donate/", name: "donate" },
+	{ path: "/404/", name: "404" },
 ];
 
 // Third-party embeds whose regions are dynamic and excluded from snapshots:
@@ -54,12 +54,12 @@ test.describe("mobile", () => {
 	// `md` (768px), so mobile-only branches of the layout are exercised.
 	test.use({ viewport: { width: 390, height: 844 } });
 
-	test("visual: approval-primary mobile (/our-reforms/approval-primary)", async ({
+	test("visual: approval-primary mobile (/our-reforms/approval-primary/)", async ({
 		page,
 	}) => {
 		await snapshotRoute(
 			page,
-			"/our-reforms/approval-primary",
+			"/our-reforms/approval-primary/",
 			"approval-primary-mobile",
 		);
 	});
