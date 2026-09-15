@@ -4,7 +4,7 @@ import voteMatters from "../../assets/images/vote-matters.webp";
 const Benefits = () => {
 	return (
 		<div className="py-12 px-8 flex flex-col lg:flex-row">
-			<div className="lg:w-1/2">
+			<div className="lg:w-1/2 pb-8 lg:pb-0">
 				<img
 					className="rounded-2xl"
 					src={voteMatters}
