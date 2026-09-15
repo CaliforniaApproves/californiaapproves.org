@@ -9,6 +9,11 @@ const routes: { path: string; name: string }[] = [
 	{ path: "/about/", name: "about" },
 	{ path: "/contact/", name: "contact" },
 	{ path: "/donate/", name: "donate" },
+	{ path: "/press/", name: "press" },
+	{
+		path: "/press/2026-09-15-approval-primary-measure-filed/",
+		name: "press-2026-09-15-approval-primary-measure-filed",
+	},
 	{ path: "/404/", name: "404" },
 ];
 

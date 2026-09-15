@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		{{> head}}
+		<title>Press Releases - California Approves</title>
+	</head>
+	<body>
+		<div class="text-black font-darker ca-approves-root max-w-(--breakpoint-2xl) m-auto">
+			{{> header}}
+			<main>
+				<div class="max-w-[850px] mx-auto px-8 py-12 lg:py-16">
+					<h5>CALIFORNIA APPROVES</h5>
+					<h1 class="text-purple">Press Releases</h1>
+					{{!-- Newest first. Each entry repeats its release's date, title, and subtitle. --}}
+					<ul class="mt-10 border-t border-schist">
+						<li class="py-8 border-b border-schist">
+							<time datetime="2026-09-15" class="text-small font-bold uppercase tracking-wide text-orange">September 15, 2026</time>
+							<h4 class="text-green mt-3">
+								<a href="/press/2026-09-15-approval-primary-measure-filed/" class="caa-link underline underline-offset-4 hover:text-green-high">Approval Voting Primary Measure Filed with California Attorney General; Public Comment Open Through October 12</a>
+							</h4>
+							<p class="text-base text-schist-high mt-4">
+								After a governor's primary that drew 61 candidates and allowed voters to pick just
+								one, a new statewide initiative would let them mark every candidate they approve of.
+							</p>
+						</li>
+					</ul>
+				</div>
+			</main>
+			{{> footer}}
+		</div>
+	</body>
+</html>

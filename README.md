@@ -30,6 +30,15 @@ few Web Components, built with Vite. There is no UI framework.
   `src/assets/icons/`, adding the given attributes, so it can be styled with
   Tailwind classes. Plain `<!-- -->` comments are published with the page;
   use `{{!-- --}}` for notes.
+- `press/` — the press release list (`press/index.html`) and a folder per
+  release, named for its date and subject
+  (`press/2026-09-15-approval-primary-measure-filed/`), holding its page and
+  the source document it was made from. A release's page wraps its body in the
+  `press-release` partial, which adds the headline, media contact, and
+  boilerplate (`press-release.html` documents its parameters). To publish a
+  new one, copy an existing release's folder, add it to the top of the list in
+  `press/index.html`, and list it in `pages` in `vite.config.ts` and in
+  `routes` in `tests/visual/routes.spec.ts`.
 - `src/elements/` — [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements)
   for the interactive parts (mobile menu, carousel, sample ballots, signup
   forms, …). They enhance markup that is already in the page, so all content
