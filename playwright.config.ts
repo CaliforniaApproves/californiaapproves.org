@@ -3,15 +3,16 @@ import { defineConfig } from "@playwright/test";
 const PORT = 4173;
 const BASE_URL = `http://127.0.0.1:${PORT}`;
 
-// Visual regression config for the static site: a full-page snapshot of every
-// route (routes.spec.ts) and the interaction states of its custom elements
-// (interactions.spec.ts).
+// Test config for the static site: a full-page snapshot of every route
+// (tests/visual/routes.spec.ts), the interaction states of its custom elements
+// (tests/visual/interactions.spec.ts), and content checks for the pages whose
+// text matters more than their pixels (tests/content/).
 // Baselines are environment-sensitive (font rendering differs across OSes), so
 // the authoritative snapshots are generated in CI inside the pinned Playwright
 // container (see .github/workflows/visual.yml). Locally, use
 // `npm run test:visual:update` to (re)generate snapshots for iteration.
 export default defineConfig({
-	testDir: "tests/visual",
+	testDir: "tests",
 	fullyParallel: true,
 	forbidOnly: !!process.env.CI,
 	retries: process.env.CI ? 1 : 0,

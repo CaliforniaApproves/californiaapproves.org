@@ -37,8 +37,7 @@ few Web Components, built with Vite. There is no UI framework.
   `press-release` partial, which adds the headline, media contact, and
   boilerplate (`press-release.html` documents its parameters). To publish a
   new one, copy an existing release's folder, add it to the top of the list in
-  `press/index.html`, and list it in `pages` in `vite.config.ts` and in
-  `routes` in `tests/visual/routes.spec.ts`.
+  `press/index.html`, and list it in `pages` in `vite.config.ts`.
 - `src/elements/` — [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements)
   for the interactive parts (mobile menu, carousel, sample ballots, signup
   forms, …). They enhance markup that is already in the page, so all content

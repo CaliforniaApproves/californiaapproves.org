@@ -10,7 +10,7 @@
 		"lint": "biome check .",
 		"lint:fix": "biome check . --write",
 		"lint:fix:unsafe": "biome check . --write --unsafe",
-		"test:visual": "playwright test",
+		"test": "playwright test",
 		"test:visual:update": "playwright test --update-snapshots",
 		"prepare": "husky"
 	},
