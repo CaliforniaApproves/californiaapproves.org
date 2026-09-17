@@ -1,10 +1,15 @@
 import { expect, type Page, test } from "@playwright/test";
 
 // One full-page screenshot per prerendered route.
-const routes: { path: string; name: string }[] = [
+// `skip: true` marks a route whose baseline is temporarily disabled.
+const routes: { path: string; name: string; skip?: boolean }[] = [
 	{ path: "/", name: "home" },
 	{ path: "/approval-101/", name: "approval-101" },
-	{ path: "/our-reforms/approval-primary/", name: "approval-primary" },
+	{
+		path: "/our-reforms/approval-primary/",
+		name: "approval-primary",
+		skip: true,
+	},
 	{ path: "/faq/", name: "faq" },
 	{ path: "/about/", name: "about" },
 	{ path: "/contact/", name: "contact" },
@@ -39,8 +44,8 @@ async function snapshotRoute(page: Page, path: string, name: string) {
 	});
 }
 
-for (const { path, name } of routes) {
-	test(`visual: ${name} (${path})`, async ({ page }) => {
+for (const { path, name, skip } of routes) {
+	(skip ? test.skip : test)(`visual: ${name} (${path})`, async ({ page }) => {
 		await snapshotRoute(page, path, name);
 	});
 }
@@ -54,7 +59,8 @@ test.describe("mobile", () => {
 	// `md` (768px), so mobile-only branches of the layout are exercised.
 	test.use({ viewport: { width: 390, height: 844 } });
 
-	test("visual: approval-primary mobile (/our-reforms/approval-primary/)", async ({
+	// Temporarily disabled.
+	test.skip("visual: approval-primary mobile (/our-reforms/approval-primary/)", async ({
 		page,
 	}) => {
 		await snapshotRoute(

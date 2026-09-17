@@ -1,4 +1,4 @@
-name: Visual regression
+name: Regression tests
 
 on:
   pull_request:
@@ -16,10 +16,10 @@ jobs:
       # Build and run inside the project's devcontainer so the rendering
       # environment (Chromium + fonts) is byte-identical to local development,
       # which keeps the committed screenshot baselines reproducible.
-      - name: Run visual tests in the devcontainer
+      - name: Run tests in the devcontainer
         uses: devcontainers/ci@v0.3
         with:
-          runCmd: CI=true npm run test:visual
+          runCmd: CI=true npm run test
           push: never
 
       - name: Upload Playwright report
