@@ -75,8 +75,8 @@
 									</p>
 									{{> candidates}}
 									<div data-summary class="py-3 border-t border-dashed border-schist text-small text-schist-higher">
-										Voters who back multiple candidates are divided across two or three names each, even
-										when they would be satisfied with more than one.
+										Limiting voters to picking one candidate means taking support away from every other candidate 
+										they might want to support.
 									</div>
 									<template data-summary-marked>You marked <b class="text-green" data-summary-value></b>. Your support for anyone else on the ballot is invisible to the count.</template>
 								{{/ballot}}
@@ -90,7 +90,8 @@
 									</p>
 									{{> candidates}}
 									<div data-summary class="py-3 border-t border-dashed border-schist text-small text-schist-higher">
-										Overlapping support among candidates now adds up instead of dividing.
+										Approving a candidate never takes support away from any other candidate voters 
+										want to support. They can only add support.
 									</div>
 									<template data-summary-marked>You approved <b class="text-green" data-summary-value></b>. Each one counted fully, with no tradeoff.</template>
 								{{/ballot}}
@@ -108,16 +109,19 @@
 							</div>
 						</div>
 					</section>
-					<section aria-label="The solution">
+					<section aria-label="Measure overall support">
 						<div class="max-w-[1120px] m-auto px-8">
 							<div class="max-w-full">
 								<h2 class="text-green py-2">
-									An election should measure how much support a candidate actually has.
+									An election should measure how many people actually support a candidate.
 								</h2>
 								<p class="text-large py-2">
-									Approval Voting does exactly that. By measuring overlapping support, it provides
-									more choice, creates fair competition for broad support, and delivers better
-									representation.
+									When voters can only pick one candidate, we can't know who else they'd support, 
+									so we never really know how many people actually support <em>any</em> candidate. Approval 
+									Voting fixes that. By giving voters the freedom to approve every candidate they 
+									want, all support can be added up, revealing how much overall support each 
+									candidate truly has. Giving voters more freedom creates fair competition for 
+									broad support and delivers better representation.
 								</p>
 							</div>
 							<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 py-6">
@@ -125,26 +129,27 @@
 									<div class="font-mono text-orange-accent text-sm font-semibold">01</div>
 									<h4 class="text-green py-2">Mark every candidate you approve of</h4>
 									<p class="text-base leading-tight">
-										No limit, and no obligation. Just vote your conscience — mark one candidate
-										or several, whoever you genuinely want to support.
+										No limit, and no obligation. Mark one candidate or several. Just vote your 
+										conscience. No pressure to pick only one “electable" candidate.
 									</p>
 								</div>
 								<div class="border-t-2 border-orange-accent py-4">
 									<div class="font-mono text-orange-accent text-sm font-semibold">02</div>
 									<h4 class="text-green py-2">Approvals add up, they don't divide</h4>
 									<p class="text-base leading-tight">
-										Overlapping support among candidates gets counted instead of split apart.
-										Candidates with real, broad appeal are no longer penalized just because their
-										support overlaps with others.
+										Approving one candidate never takes away from another. The election is no longer 
+										a zero-sum game. Candidates can share good ideas because they can share 
+										supporters, focusing them on values that speak to most of the electorate.
 									</p>
 								</div>
 								<div class="border-t-2 border-orange-accent py-4">
 									<div class="font-mono text-orange-accent text-sm font-semibold">03</div>
 									<h4 class="text-green py-2">The most-approved candidates advance</h4>
 									<p class="text-base leading-tight">
-										Because voters have unrestricted choice in the primary, the candidates with
-										the widest genuine voter support actually advance, and the winner arrives
-										with a real mandate to represent more than just their base.
+										Because voters have unrestricted choice in the primary, broad support is no 
+										longer punished just for overlapping with others. The candidates with the 
+										widest genuine support actually advance, and the winner arrives with a real 
+										mandate to represent more than just their base.
 									</p>
 								</div>
 							</div>
@@ -180,7 +185,34 @@
 							</div>
 						</div>
 					</section>
-					<section aria-label="The problem" class="bg-purple text-white/85">
+					<section aria-label="Solving problems" class="bg-green text-white/85">
+						<div class="max-w-[1120px] m-auto px-8">
+							<div class="max-w-full">
+								<h2 class="text-white pt-2">
+									Picking sides shouldn't come before solving problems.
+								</h2>
+								<p class="text-large pt-3">
+									Today, every voter who picks one candidate is a voter that's off the table for 
+									another. Instead of focusing on the issues voters actually care about, campaigns 
+									are built around convincing voters that the other candidates are bad, or 
+									dangerous. That's what a zero-sum election does: it rewards attacking competitors 
+									more than it rewards good ideas, because you can't earn a voter's support 
+									without first convincing them not to vote for anyone else.
+								</p>
+								<p class="text-large pt-3">
+									Approval Voting removes that pressure. Because voters are free to support more 
+									than one, candidates can earn support from any of them without first having to  
+									convince them away from others. Campaigns are incentivized to focus on addressing 
+									the issues that matter to voters, instead of tearing each other down. Candidates 
+									who can provide strong solutions to those problems are rewarded with broad support.
+								</p>
+								<p class="text-large text-tan font-semibold pt-3">
+									The result: less division, more progress on what we actually agree on.
+								</p>
+							</div>
+						</div>
+					</section>
+					<section aria-label="Your vote should count" class="bg-purple text-white/85">
 						<div class="max-w-[1120px] m-auto px-8">
 							<div class="max-w-full">
 								<h2 class="text-tan pt-2">
@@ -198,29 +230,35 @@
 								This isn't hypothetical. It happened in St. Louis, Missouri, before the city switched
 								to Approval Voting.
 							</p>
-							<div class="grid grid-cols-1 lg:grid-cols-3 gap-px bg-schist border border-schist rounded-md overflow-hidden">
-								<div class="bg-white p-6 flex flex-col gap-2">
+							<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+								<div class="bg-white p-6 flex flex-col gap-2 border border-schist rounded-md">
+									<div class="text-small font-bold text-orange-accent uppercase">Before Approval</div>
 									<div class="font-mono text-4xl font-semibold text-orange">32%</div>
 									<p class="text-base text-schist-high leading-tight">
-										was enough to win St. Louis's 2017 “choose-one” mayoral primary outright,
+										was enough to win St. Louis's 2017 mayoral primary outright,
 										with support fractured across three other candidates, who together may have
 										reflected what most voters actually wanted.
 									</p>
 								</div>
-								<div class="bg-white p-6 flex flex-col gap-2">
-									<div class="font-mono text-4xl font-semibold text-orange">1 in 3</div>
-									<p class="text-base text-schist-high leading-tight">
-										St. Louis primary voters approved more than one candidate in 2025, proof that
-										“just pick one” never captured the full picture of their support.
-									</p>
-								</div>
-								<div class="bg-white p-6 flex flex-col gap-2">
-									<div class="font-mono text-4xl font-semibold text-orange">84%</div>
-									<p class="text-base text-schist-high leading-tight">
-										of St. Louis voters who supported a lesser-known 2025 mayoral candidate also
-										approved of someone else — preferences the old system would have never let
-										them show.
-									</p>
+
+								<div class="grid grid-cols-1 lg:grid-cols-2 lg:col-span-2 gap-px bg-schist border border-schist rounded-md overflow-hidden">
+									<div class="bg-white p-6 flex flex-col gap-2">
+										<div class="text-small font-bold text-orange-accent uppercase">After Approval</div>
+										<div class="font-mono text-4xl font-semibold text-orange">1 in 3</div>
+										<p class="text-base text-schist-high leading-tight">
+											St. Louis primary voters approved more than one candidate in 2025, proof that
+											"just pick one" never captured the full picture of their support.
+										</p>
+									</div>
+									<div class="bg-white p-6 flex flex-col gap-2">
+										<div class="hidden lg:block font-bold text-orange-accent uppercase">&nbsp;</div>
+										<div class="font-mono text-4xl font-semibold text-orange">84%</div>
+										<p class="text-base text-schist-high leading-tight">
+											of St. Louis voters who supported a lesser-known 2025 mayoral candidate also
+											approved of someone else — preferences the old system would have never let
+											them show.
+										</p>
+									</div>
 								</div>
 							</div>
 						</div>

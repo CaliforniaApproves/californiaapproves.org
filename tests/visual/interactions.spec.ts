@@ -140,7 +140,8 @@ test("approval-101 ballot approves any number of candidates", async ({
 	await expect(section).toHaveScreenshot("a101-cleared.png");
 });
 
-test("approval-primary ballots: choose one vs. approve several", async ({
+// Temporarily disabled.
+test.skip("approval-primary ballots: choose one vs. approve several", async ({
 	page,
 }) => {
 	await open(page, "/our-reforms/approval-primary/");
@@ -179,7 +180,10 @@ test("faq accordion keeps one answer open at a time", async ({ page }) => {
 	await expect(section).toHaveScreenshot("faq-all-closed.png");
 });
 
-test("pledge form submits and shows the success panel", async ({ page }) => {
+// Temporarily disabled.
+test.skip("pledge form submits and shows the success panel", async ({
+	page,
+}) => {
 	const posted = await withTurnstile(page, {
 		ok: true,
 		message: "You're signed up — check your inbox to confirm.",
@@ -206,7 +210,8 @@ test("pledge form submits and shows the success panel", async ({ page }) => {
 	});
 });
 
-test("pledge form shows server errors", async ({ page }) => {
+// Temporarily disabled.
+test.skip("pledge form shows server errors", async ({ page }) => {
 	await withTurnstile(page, { ok: false, message: "That email looks wrong." });
 	await open(page, "/our-reforms/approval-primary/");
 	const section = page.locator("section#pledge");

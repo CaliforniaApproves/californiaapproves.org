@@ -9,7 +9,7 @@ const BASE_URL = `http://127.0.0.1:${PORT}`;
 // text matters more than their pixels (tests/content/).
 // Baselines are environment-sensitive (font rendering differs across OSes), so
 // the authoritative snapshots are generated in CI inside the pinned Playwright
-// container (see .github/workflows/visual.yml). Locally, use
+// container (see .github/workflows/tests.yml). Locally, use
 // `npm run test:visual:update` to (re)generate snapshots for iteration.
 export default defineConfig({
 	testDir: "tests",
