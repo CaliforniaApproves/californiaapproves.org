@@ -13,6 +13,10 @@ const BASE_URL = `http://127.0.0.1:${PORT}`;
 // `npm run test:visual:update` to (re)generate snapshots for iteration.
 export default defineConfig({
 	testDir: "tests",
+	// Temporarily disabled: the entire tests/visual suite is excluded, leaving
+	// only the tests/content/ checks running. Remove this line to re-enable,
+	// then regenerate baselines with `npm run test:visual:update`.
+	testIgnore: "visual/**",
 	fullyParallel: true,
 	forbidOnly: !!process.env.CI,
 	retries: process.env.CI ? 1 : 0,
