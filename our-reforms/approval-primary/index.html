@@ -185,33 +185,95 @@
 							</div>
 						</div>
 					</section>
-					<section aria-label="Picking sides" class="bg-purple-soft">
+					<section aria-label="Picking sides" class="bg-purple text-white/85">
 						<div class="max-w-[1120px] m-auto px-8">
-							<div>
-								<h2 class="text-purple pb-8">
-									Picking sides shouldn't come before solving problems.
-								</h2>
-								<div class="grid grid-cols-1 lg:col-span-2 gap-px bg-purple-high border border-purple-high rounded-md overflow-hidden">
-									<div class="bg-purple-soft p-6 text-large pt-3">
-										<span class="font-bold text-purple">Today, every voter who picks one candidate is a voter that's off the table for 
-										another.</span> Instead of focusing on the issues voters actually care about, campaigns 
-										are built around convincing voters that the other candidates are bad, or 
-										dangerous. That's what a zero-sum election does: it rewards attacking competitors 
-										more than it rewards good ideas, because you can't earn a voter's support 
-										without first convincing them not to vote for anyone else.
-									</div>
-									<div class="bg-white p-6 text-large pt-3">
-										<span class="font-bold text-purple">Approval Voting removes that pressure. Because voters are free to support more 
-										than one, candidates can earn support from any of them without first having to  
-										convince them away from others.</span> Campaigns are incentivized to focus on addressing 
-										the issues that matter to voters, instead of tearing each other down. Candidates 
-										who can provide strong solutions to those problems are rewarded with broad support.
-										<p class="text-large font-bold pt-3 text-green">
-											The result: less division, more progress on what we actually agree on.
-										</p>
-									</div>
+							<h2 class="text-tan pb-8">
+								Picking sides shouldn't come before solving problems.
+							</h2>
+
+							<div class="flex flex-col md:flex-row items-center gap-6">
+								<div class="hidden md:flex md:w-36 sm:flex-shrink-0 flex-col gap-2 bg-white border border-purple-high rounded-md p-4">
+									<label class="flex items-center gap-2 text-sm font-semibold text-schist-high">
+										<input type="radio" name="mini-today" disabled class="accent-schist">
+										Candidate A
+									</label>
+									<label class="flex items-center gap-2 text-sm font-bold text-schist-higher">
+										<input type="radio" name="mini-today" checked disabled class="accent-schist-higher">
+										Candidate B
+									</label>
+									<label class="flex items-center gap-2 text-sm font-semibold text-schist-high">
+										<input type="radio" name="mini-today" disabled class="accent-schist">
+										Candidate C
+									</label>
+									<label class="flex items-center gap-2 text-sm font-semibold text-schist-high">
+										<input type="radio" name="mini-today" disabled class="accent-schist">
+										Candidate D
+									</label>
+									<label class="flex items-center gap-2 text-sm font-semibold text-schist-high">
+										<input type="radio" name="mini-today" disabled class="accent-schist">
+										Candidate E
+									</label>
+								</div>
+								<div class="text-large text-white">
+									<span class="font-semibold">Today, every voter who picks one candidate is a voter that's off the table for
+									another.</span> Instead of focusing on the issues voters actually care about, campaigns
+									are built around convincing voters that the other candidates are bad, or
+									dangerous. That's what a zero-sum election does: it rewards attacking competitors
+									more than it rewards good ideas, because you can't earn a voter's support
+									without first convincing them not to vote for anyone else.
 								</div>
 							</div>
+
+							<div class="flex flex-col md:flex-row-reverse items-center gap-6 pt-6">
+								<div class="text-large text-white">
+									<span class="font-semibold">Approval Voting removes that pressure. Because voters are free to support more
+									than one, candidates can earn support from any of them without first having to
+									convince them away from others.</span> Campaigns are incentivized to focus on addressing
+									the issues that matter to voters, instead of tearing each other down. Candidates
+									who can provide strong solutions to those problems are rewarded with broad support.
+								</div>
+								<div class="hidden md:flex md:w-36 sm:flex-shrink-0 flex-col gap-2 bg-white border border-purple-high rounded-md p-4">
+									<label class="flex items-center gap-2 text-sm font-semibold text-schist-high">
+										<input type="checkbox" disabled class="accent-schist-high">
+										Candidate A
+									</label>
+									<label class="flex items-center gap-2 text-sm font-semibold text-schist-higher">
+										<input type="checkbox" checked disabled class="accent-schist-higher">
+										Candidate B
+									</label>
+									<label class="flex items-center gap-2 text-sm font-bold text-schist-higher">
+										<input type="checkbox" checked disabled class="accent-schist-higher">
+										Candidate C
+									</label>
+									<label class="flex items-center gap-2 text-sm font-semibold text-schist-high">
+										<input type="checkbox" disabled class="accent-schist">
+										Candidate D
+									</label>
+									<label class="flex items-center gap-2 text-sm font-bold text-schist-higher">
+										<input type="checkbox" checked disabled class="accent-schist-higher">
+										Candidate E
+									</label>
+								</div>
+							</div>
+
+							<p class="text-large font-bold pt-6 text-tan">
+								The result: less division, more progress on what we actually agree on.
+							</p>
+						</div>
+					</section>
+					<section aria-label="Call to action" class="bg-orange text-center">
+						<div class="max-w-[650px] m-auto px-16">
+							<h2 class="text-white">Help bring Approval Voting to California.</h2>
+							<p class="text-base text-white/85 pt-3">
+								Pledge your support and we'll follow up with next steps.
+							</p>
+							<span class="flex gap-8 justify-center">
+								<caa-scroll-to target="pledge">
+									<button type="button" class="caa-button rounded-2xl px-4 py-2 uppercase flex text-center tracking-[-0.01rem] justify-center items-center font-extrabold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-white text-bsl h-[52px] w-[136px] mx-auto whitespace-nowrap px-20 mt-9 bg-green hover:bg-green-high">
+										ADD MY PLEDGE
+									</button>
+								</caa-scroll-to>
+							</span>
 						</div>
 					</section>
 					<section aria-label="Your vote should count" class="bg-purple text-white/85">
