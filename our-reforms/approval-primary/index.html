@@ -3,7 +3,11 @@
 	<head>
 		{{> head}}
 		<title>Approval Primary Reform - California Approves</title>
+		<style>
+			#team-track::-webkit-scrollbar{ display:none; }
+		</style>
 	</head>
+
 	<body>
 		<div class="text-black font-darker ca-approves-root max-w-(--breakpoint-2xl) m-auto">
 			{{> header}}
@@ -194,7 +198,7 @@
 							<div class="flex flex-col md:flex-row items-center gap-6">
 								<div class="hidden md:flex md:w-36 sm:flex-shrink-0 flex-col gap-2 bg-white border border-purple-high rounded-md p-4">
 									<label class="flex items-center gap-2 text-sm font-semibold text-schist-high">
-										<input type="radio" name="mini-today" disabled class="accent-orange">
+										<input type="radio" name="mini-today" disabled class="accent-schist-high">
 										Candidate A
 									</label>
 									<label class="flex items-center gap-2 text-sm font-bold text-schist-higher">
@@ -246,7 +250,7 @@
 										Candidate C
 									</label>
 									<label class="flex items-center gap-2 text-sm font-semibold text-schist-high">
-										<input type="checkbox" disabled class="accent-schist">
+										<input type="checkbox" disabled class="accent-schist-high">
 										Candidate D
 									</label>
 									<label class="flex items-center gap-2 text-sm font-bold text-schist-higher">
@@ -562,9 +566,122 @@
 							</p>
 						</div>
 					</section>
+					<!-- 
+					PLACEHOLDER CONTENT — replace [bracketed] text and photo placeholders 
+					with real names, photos, and quotes once the team has opted in. 
+					Do not publish with placeholder text still in place.
+					-->
+					<section aria-label="The people behind this" class="bg-purple-soft">
+						<div class="max-w-[1120px] m-auto px-8">
+							<h2 class="text-purple pb-2">The People Behind This</h2>
+							<p class="text-schist-higher text-small pb-8 max-w-[70ch]">
+								California Approves is powered by volunteers, organizers, and everyday voters
+								who believe our primaries can work better. Here's why some of us got involved.
+							</p>
+
+							<div class="relative">
+								<div id="team-track" class="flex overflow-x-auto snap-x snap-mandatory gap-8 pb-4 scroll-smooth" style="scrollbar-width:none;-ms-overflow-style:none;">
+									<div class="flex-none w-full snap-center">
+										<div class="max-w-[750px] mx-auto flex flex-col sm:flex-row gap-6 sm:gap-10 items-center sm:items-start">
+											<div class="flex flex-col items-center gap-3 flex-shrink-0 w-32">
+												<div class="w-36 h-36 rounded-full bg-purple-soft border border-purple-high flex items-center justify-center text-xs text-schist text-center p-2">[Photo]</div>
+												<span class="font-semibold text-ink text-sm text-center">Amanda Mahlendorf</span>
+											</div>
+											<blockquote class="flex-1">
+												<span class="text-purple text-large leading-none font-serif">&ldquo;</span>
+												<span class="text-base text-schist-higher italic">
+													I believe elections should invite competition without making voters fear that 
+													more choice will allow less representative candidates to succeed. And when 
+													voters support more than one candidate, our system should be able to count that 
+													plainly, so we can elect officeholders who represent more of us. Democracy is 
+													strongest when voters can understand the outcome of elections and accept it as 
+													fair, even when their favorite loses.
+												</span>
+												<span class="text-purple text-large leading-none font-serif">&rdquo;</span>
+											</blockquote>
+										</div>
+									</div>
+									<div class="flex-none w-full snap-center">
+										<div class="max-w-[750px] mx-auto flex flex-col sm:flex-row gap-6 sm:gap-10 items-center sm:items-start">
+											<div class="flex flex-col items-center gap-3 flex-shrink-0 w-32">
+												<div class="w-36 h-36 rounded-full bg-purple-soft border border-purple-high flex items-center justify-center text-xs text-schist text-center p-2">[Photo]</div>
+												<span class="font-semibold text-ink text-sm text-center">Taylor Fisher</span>
+											</div>
+											<blockquote class="flex-1">
+												<span class="text-purple text-large leading-none font-serif">&ldquo;</span>
+												<span class="text-base text-schist-higher italic">
+													As a mathematician, I know that the most revolutionary innovations are often 
+													based on the simplest of ideas. Instead of "choose one", Approval voting's 
+													&lsquo;choose all you like&rsquo; will advance candidates who unite us, rather than divide 
+													us. I want every Californian to have a meaningful choice in who represents 
+													them, and this initiative finally delivers that.
+												</span>
+												<span class="text-purple text-large leading-none font-serif">&rdquo;</span>
+											</blockquote>
+										</div>
+									</div>
+									<div class="flex-none w-full snap-center">
+										<div class="max-w-[750px] mx-auto flex flex-col sm:flex-row gap-6 sm:gap-10 items-center sm:items-start">
+											<div class="flex flex-col items-center gap-3 flex-shrink-0 w-32">
+												<div class="w-36 h-36 rounded-full bg-purple-soft border border-purple-high flex items-center justify-center text-xs text-schist text-center p-2">[Photo]</div>
+												<span class="font-semibold text-schist-higher text-sm text-center">Arend Peter Castelein</span>
+											</div>
+											<blockquote class="flex-1">
+												<span class="text-purple text-large leading-none font-serif">&ldquo;</span>
+												<span class="text-base text-ink italic">
+													I became a voting advocate because too much of our politics is focused on which 
+													candidates are "electable" rather than who has the best ideas. The California 
+													Approves Initiative fixes that problem in the simplest way possible, and allows 
+													us to finally have politicians who represent the people.
+												</span>
+												<span class="text-purple text-large leading-none font-serif">&rdquo;</span>
+											</blockquote>
+										</div>
+									</div>
+									<div class="flex-none w-full snap-center">
+										<div class="max-w-[750px] mx-auto flex flex-col sm:flex-row gap-6 sm:gap-10 items-center sm:items-start">
+											<div class="flex flex-col items-center gap-3 flex-shrink-0 w-32">
+												<div class="w-36 h-36 rounded-full bg-purple-soft border border-purple-high flex items-center justify-center text-xs text-schist text-center p-2">[Photo]</div>
+												<span class="font-semibold text-schist-higher text-sm text-center">Nikolas Hall</span>
+											</div>
+											<blockquote class="flex-1">
+												<span class="text-purple text-large leading-none font-serif">&ldquo;</span>
+												<span class="text-base text-ink italic">
+													Fair elections start with honest votes and end with unifying leaders.
+												</span>
+												<span class="text-purple text-large leading-none font-serif">&rdquo;</span>
+											</blockquote>
+										</div>
+									</div>
+								</div>
+
+								<button id="team-prev" aria-label="Previous person" class="hidden sm:flex absolute left-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-purple-high items-center justify-center text-purple hover:bg-purple-soft">‹</button>
+								<button id="team-next" aria-label="Next person" class="hidden sm:flex absolute right-[-20px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white border border-purple-high items-center justify-center text-purple hover:bg-purple-soft">›</button>
+							</div>
+						</div>
+					</section>
 				</div>
 			</main>
 			{{> footer}}
 		</div>
+		<script>
+		(function(){
+			var track = document.getElementById('team-track');
+			var prev = document.getElementById('team-prev');
+			var next = document.getElementById('team-next');
+			if(!track || !prev || !next) return;
+
+			function slideWidth(){
+				var first = track.children[0];
+				return first ? first.getBoundingClientRect().width + 32 : 0; // 32 = gap-8
+			}
+			prev.addEventListener('click', function(){
+				track.scrollBy({ left: -slideWidth(), behavior: 'smooth' });
+			});
+			next.addEventListener('click', function(){
+				track.scrollBy({ left: slideWidth(), behavior: 'smooth' });
+			});
+		})();
+		</script>
 	</body>
 </html>
