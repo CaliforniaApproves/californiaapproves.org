@@ -109,12 +109,38 @@ is rejected with a 403 — `*.californiaapproves.workers.dev` passes by default;
 
 The newsletter, pledge, and contact forms are protected by Cloudflare Turnstile
 and submit through `/api/subscribe` (`src/worker/subscribe.ts`), which verifies
-the token server-side before forwarding to Mailchimp. Set these on the Worker
-(Settings → Variables and Secrets), for both production and preview:
+the token server-side before adding the signup to
+[listmonk](https://lists.californiaapproves.org/admin) through its API. Set these
+on the Worker (Settings → Variables and Secrets), for both production and preview:
 
 | Variable | Required | Notes |
 | --- | --- | --- |
 | `TURNSTILE_SECRET_KEY` | yes | Secret key paired with the widget site key in `src/lib/turnstile.ts`. |
+| `LISTMONK_API_USER` | yes | listmonk API user the Worker signs in as. See below. |
+| `LISTMONK_API_TOKEN` | yes | That user's token. Store it as a secret. |
 | `TURNSTILE_ALLOWED_HOSTNAMES` | no | Comma-separated hostname allowlist. Defaults to `californiaapproves.org,www.californiaapproves.org` plus any `*.californiaapproves.workers.dev` preview. |
 | `ENVIRONMENT` | no | Any value other than `production` also accepts `localhost` Turnstile tokens. Note that **unset** counts as `production`, so local runs must set it explicitly. |
+
+## listmonk
+
+Signups join these listmonk lists, whose IDs are in `LISTS` in
+`src/worker/subscribe.ts`:
+
+| Form | Lists |
+| --- | --- |
+| Contact (`/contact/`) | Newsletter |
+| Pledge (`/our-reforms/approval-primary/#pledge`) | Newsletter, Approval primary pledge |
+
+The pledge form's name, zip code, "why" answer and volunteering checkbox are
+stored as subscriber attributes (`first_name`, `last_name`, `zip`, `why`,
+`volunteer`). To find volunteers, search subscribers in the listmonk admin with
+the query `subscribers.attribs->>'volunteer' = 'true'`. Make the Newsletter and
+pledge lists double opt-in so new signups get a confirmation email. If someone
+is already a subscriber, the Worker adds them to the form's lists and merges
+the new attributes; blocklisted subscribers are left alone.
+
+Give the Worker its own API user rather than an admin one. In the listmonk
+admin, create a user role with the **subscribers:get_all** and
+**subscribers:manage** permissions, a list role that can manage the two lists
+above, and an API user with both roles.
 

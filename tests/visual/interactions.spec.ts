@@ -193,20 +193,19 @@ test.skip("pledge form submits and shows the success panel", async ({
 	await expect(section.locator('button[type="submit"]')).toBeEnabled();
 	await expect(section).toHaveScreenshot("pledge-ready.png");
 
-	await section.locator('input[name="EMAIL"]').fill("voter@example.com");
-	await section.locator('input[name="FNAME"]').fill("Ada");
+	await section.locator('input[name="email"]').fill("voter@example.com");
+	await section.locator('input[name="first_name"]').fill("Ada");
 	await section.locator('input[type="checkbox"]').check();
 	await section.locator('button[type="submit"]').click();
 	await expect(section.getByText("You're on the list.")).toBeVisible();
 	await expect(section).toHaveScreenshot("pledge-success.png");
 
 	expect(Object.fromEntries(posted[0])).toMatchObject({
-		EMAIL: "voter@example.com",
-		FNAME: "Ada",
+		email: "voter@example.com",
+		first_name: "Ada",
 		form: "pledge",
 		"cf-turnstile-response": "fake-token",
-		tags: "4527864",
-		"group[384917][16]": "16",
+		volunteer: "yes",
 	});
 });
 
@@ -216,7 +215,7 @@ test.skip("pledge form shows server errors", async ({ page }) => {
 	await open(page, "/our-reforms/approval-primary/");
 	const section = page.locator("section#pledge");
 
-	await section.locator('input[name="EMAIL"]').fill("voter@example.com");
+	await section.locator('input[name="email"]').fill("voter@example.com");
 	await section.locator('button[type="submit"]').click();
 	await expect(section.getByText("That email looks wrong.")).toBeVisible();
 	await expect(section).toHaveScreenshot("pledge-error.png");
@@ -230,14 +229,14 @@ test("contact form submits and clears", async ({ page }) => {
 	await open(page, "/contact/");
 	const area = page.locator("div.max-w-2xl");
 
-	await area.locator('input[name="EMAIL"]').fill("voter@example.com");
+	await area.locator('input[name="email"]').fill("voter@example.com");
 	await area.locator('button[type="submit"]').click();
 	await expect(area.getByText("check your inbox")).toBeVisible();
-	await expect(area.locator('input[name="EMAIL"]')).toHaveValue("");
+	await expect(area.locator('input[name="email"]')).toHaveValue("");
 	await expect(area).toHaveScreenshot("contact-success.png");
 
 	expect(Object.fromEntries(posted[0])).toMatchObject({
-		EMAIL: "voter@example.com",
+		email: "voter@example.com",
 		form: "contact",
 		"cf-turnstile-response": "fake-token",
 	});

@@ -1,11 +1,14 @@
 // Handler for POST /api/subscribe, routed from src/worker/index.ts.
 //
 // Verifies a Cloudflare Turnstile token server-side, then (and only then)
-// forwards the submission to the correct Mailchimp audience. No form posts to
-// Mailchimp directly, so the Turnstile check cannot be bypassed.
+// adds the submission to listmonk (lists.californiaapproves.org) through its
+// API. No form posts to listmonk directly, so the Turnstile check cannot be
+// bypassed.
 //
-// Required Worker environment variable:
+// Required Worker environment variables:
 //   TURNSTILE_SECRET_KEY        - secret key paired with the widget site key
+//   LISTMONK_API_USER           - listmonk API user (Users in the listmonk admin)
+//   LISTMONK_API_TOKEN          - that user's token
 // Optional:
 //   TURNSTILE_ALLOWED_HOSTNAMES - comma-separated hostname allowlist
 //                                 (defaults to the production domains below)
@@ -16,6 +19,8 @@
 
 export interface Env {
 	TURNSTILE_SECRET_KEY?: string;
+	LISTMONK_API_USER?: string;
+	LISTMONK_API_TOKEN?: string;
 	TURNSTILE_ALLOWED_HOSTNAMES?: string;
 	ENVIRONMENT?: string;
 }
@@ -27,23 +32,25 @@ interface SiteVerifyResponse {
 	"error-codes"?: string[];
 }
 
-// The `c` (JSONP callback) parameter is REQUIRED: without it post-json renders
-// the hosted signup page as HTML instead of answering with JSON, and every
-// submission looks like a failure. The wrapper it adds is stripped by
-// parseMailchimp below.
-const MAILCHIMP_BASE =
-	"https://californiaapproves.us5.list-manage.com/subscribe/post-json";
-const MAILCHIMP_CALLBACK = "c=cb";
+const LISTMONK_URL = "https://lists.californiaapproves.org";
 
-// Client form id -> the Turnstile action it must carry and its Mailchimp form.
+// listmonk list IDs (Lists in the listmonk admin). The newsletter and pledge
+// lists are double opt-in, so new signups get a confirmation email.
+// TODO: set these to the real IDs once the lists exist in listmonk.
+const LISTS = {
+	newsletter: 0,
+	approvalPrimaryPledge: 0,
+} as const;
+
+// Client form id -> the Turnstile action it must carry and the lists it joins.
 const FORMS = {
 	pledge: {
 		action: "pledge",
-		mailchimp: `${MAILCHIMP_BASE}?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=004f43edf0&${MAILCHIMP_CALLBACK}`,
+		lists: [LISTS.newsletter, LISTS.approvalPrimaryPledge],
 	},
 	contact: {
 		action: "contact",
-		mailchimp: `${MAILCHIMP_BASE}?u=b4aa7540a62457c043ff00e36&id=dddf3d641c&f_id=003abee6f0&${MAILCHIMP_CALLBACK}`,
+		lists: [LISTS.newsletter],
 	},
 } as const;
 
@@ -99,52 +106,175 @@ async function readParams(request: Request): Promise<URLSearchParams | null> {
 	return null;
 }
 
-// Mailchimp's post-json endpoint answers with bare JSON, a JSONP wrapper like
-// `/**/typeof cb === 'function' && cb({...});`, or — when it rejects a
-// submission — several such wrappers concatenated. Scan for the first balanced
-// object rather than matching from the first `{` to the last `}`, which spans
-// two payloads and parses as nothing.
-function parseMailchimp(text: string): { result?: string; msg?: string } {
-	for (
-		let start = text.indexOf("{");
-		start !== -1;
-		start = text.indexOf("{", start + 1)
-	) {
-		let depth = 0;
-		let inString = false;
-		let escaped = false;
+// Longest value kept from a free-text field.
+const MAX_FIELD_LENGTH = 500;
 
-		for (let i = start; i < text.length; i++) {
-			const ch = text[i];
-			if (escaped) {
-				escaped = false;
-			} else if (ch === "\\" && inString) {
-				escaped = true;
-			} else if (ch === '"') {
-				inString = !inString;
-			} else if (!inString && ch === "{") {
-				depth++;
-			} else if (!inString && ch === "}") {
-				depth--;
-				if (depth === 0) {
-					try {
-						return JSON.parse(text.slice(start, i + 1));
-					} catch {
-						break; // Not JSON; try the next `{`.
-					}
-				}
-			}
-		}
+function field(params: URLSearchParams, name: string): string {
+	return (params.get(name) ?? "").trim().slice(0, MAX_FIELD_LENGTH);
+}
+
+type Signup = {
+	email: string;
+	name: string;
+	lists: number[];
+	attribs: Record<string, string | boolean>;
+};
+
+// Builds the listmonk subscriber from the form fields. Only these fields are
+// kept, so a client can't write arbitrary attributes.
+function toSignup(params: URLSearchParams, lists: readonly number[]): Signup {
+	const firstName = field(params, "first_name");
+	const lastName = field(params, "last_name");
+	const attribs: Signup["attribs"] = {};
+	if (firstName) attribs.first_name = firstName;
+	if (lastName) attribs.last_name = lastName;
+	const zip = field(params, "zip");
+	if (zip) attribs.zip = zip;
+	const why = field(params, "why");
+	if (why) attribs.why = why;
+	// Like the old Mailchimp form, this is additive: leaving the box unticked
+	// never clears it for someone who ticked it before.
+	if (params.get("volunteer") === "yes") attribs.volunteer = true;
+
+	return {
+		email: field(params, "email"),
+		// listmonk fills in a name from the email address when this is empty.
+		name: [firstName, lastName].filter(Boolean).join(" "),
+		lists: [...lists],
+		attribs,
+	};
+}
+
+type Subscriber = {
+	id: number;
+	email: string;
+	status: "enabled" | "disabled" | "blocklisted";
+	attribs: Record<string, unknown>;
+};
+
+class ListmonkError extends Error {
+	readonly status: number;
+
+	constructor(status: number, message: string) {
+		super(message);
+		this.status = status;
 	}
-	return {};
+}
+
+async function listmonk<T>(
+	env: Env,
+	method: string,
+	path: string,
+	body?: unknown,
+): Promise<T> {
+	const response = await fetch(`${LISTMONK_URL}${path}`, {
+		method,
+		headers: {
+			authorization: `token ${env.LISTMONK_API_USER}:${env.LISTMONK_API_TOKEN}`,
+			...(body === undefined ? {} : { "content-type": "application/json" }),
+		},
+		body: body === undefined ? undefined : JSON.stringify(body),
+	});
+	const text = await response.text();
+	let data: { data?: T; message?: string } = {};
+	try {
+		data = JSON.parse(text);
+	} catch {
+		// Not JSON; reported below.
+	}
+	if (!response.ok) {
+		throw new ListmonkError(
+			response.status,
+			data.message ?? `listmonk returned ${response.status}`,
+		);
+	}
+	return data.data as T;
+}
+
+// listmonk's subscriber search is a case-insensitive regex over names and
+// emails, so escape the address and anchor it to match only that email.
+function emailPattern(email: string): string {
+	return `^${email.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`;
+}
+
+async function findSubscriber(
+	env: Env,
+	email: string,
+): Promise<Subscriber | undefined> {
+	const query = new URLSearchParams({
+		search: emailPattern(email),
+		per_page: "10",
+	});
+	const page = await listmonk<{ results: Subscriber[] }>(
+		env,
+		"GET",
+		`/api/subscribers?${query}`,
+	);
+	return page.results.find(
+		(sub) => sub.email.toLowerCase() === email.toLowerCase(),
+	);
+}
+
+type Outcome = "created" | "updated" | "blocklisted";
+
+// Creates the subscriber, or adds an existing one to the form's lists and
+// merges in the new attributes. Either way listmonk emails a confirmation
+// link for any double opt-in list they haven't confirmed yet.
+async function subscribe(env: Env, signup: Signup): Promise<Outcome> {
+	try {
+		await listmonk(env, "POST", "/api/subscribers", {
+			email: signup.email,
+			name: signup.name,
+			status: "enabled",
+			lists: signup.lists,
+			attribs: signup.attribs,
+			preconfirm_subscriptions: false,
+		});
+		return "created";
+	} catch (error) {
+		// 409: the email is already a subscriber.
+		if (!(error instanceof ListmonkError) || error.status !== 409) throw error;
+	}
+
+	const existing = await findSubscriber(env, signup.email);
+	if (!existing) throw new Error("subscriber exists but was not found");
+	// Someone who unsubscribed everywhere or marked us as spam. Don't mail them.
+	if (existing.status === "blocklisted") return "blocklisted";
+
+	// Without a status, new subscriptions start unconfirmed and existing ones
+	// keep theirs.
+	await listmonk(env, "PUT", "/api/subscribers/lists", {
+		ids: [existing.id],
+		action: "add",
+		target_list_ids: signup.lists,
+	});
+	// Rebuild the name from the merged attributes, so a form that only sends a
+	// last name doesn't drop the first name given earlier.
+	const attribs = { ...existing.attribs, ...signup.attribs };
+	const name = [attribs.first_name, attribs.last_name]
+		.filter((part) => typeof part === "string" && part)
+		.join(" ");
+	// PATCH keeps fields it isn't sent, and sends the opt-in email for the
+	// unconfirmed double opt-in lists.
+	await listmonk(env, "PATCH", `/api/subscribers/${existing.id}`, {
+		...(signup.name && name ? { name } : {}),
+		attribs,
+	});
+	return "updated";
 }
 
 export async function handleSubscribe(
 	request: Request,
 	env: Env,
 ): Promise<Response> {
-	if (!env.TURNSTILE_SECRET_KEY) {
-		console.error("subscribe: TURNSTILE_SECRET_KEY is not configured");
+	if (
+		!env.TURNSTILE_SECRET_KEY ||
+		!env.LISTMONK_API_USER ||
+		!env.LISTMONK_API_TOKEN
+	) {
+		console.error(
+			"subscribe: TURNSTILE_SECRET_KEY, LISTMONK_API_USER or LISTMONK_API_TOKEN is not configured",
+		);
 		return json(
 			{ ok: false, message: "Sign-up is temporarily unavailable." },
 			500,
@@ -173,7 +303,7 @@ export async function handleSubscribe(
 		);
 	}
 
-	// Mailchimp bot honeypot: any field named b_* must stay empty. Pretend it
+	// Bot honeypot: any field named b_* must stay empty. Pretend it
 	// worked so bots get no signal, but don't forward anything.
 	for (const [key, value] of params.entries()) {
 		if (key.startsWith("b_") && value.trim() !== "") {
@@ -226,29 +356,25 @@ export async function handleSubscribe(
 		return json({ ok: false, message: GENERIC_REJECTION }, 403);
 	}
 
-	// --- Gate passed: forward to Mailchimp ---------------------------------
-	// Note: interest groups are additive through this endpoint. An unticked
-	// checkbox sends no field, and no false-y value removes an existing
-	// interest — see the comment on the volunteer checkbox in
-	// our-reforms/approval-primary/index.html for what was tried.
-	const mailchimpBody = new URLSearchParams();
-	for (const [key, value] of params.entries()) {
-		// `c` is ours, set on the URL above; don't let a client override it.
-		if (key === "form" || key === "cf-turnstile-response" || key === "c") {
-			continue;
-		}
-		mailchimpBody.append(key, value);
+	// --- Gate passed: add to listmonk ---------------------------------------
+	const signup = toSignup(params, config.lists);
+	if (!signup.email) {
+		return json(
+			{ ok: false, message: "Please enter your email address." },
+			400,
+		);
 	}
 
-	let result: { result?: string; msg?: string };
+	let result: Outcome;
 	try {
-		const mcRes = await fetch(config.mailchimp, {
-			method: "POST",
-			headers: { "content-type": "application/x-www-form-urlencoded" },
-			body: mailchimpBody.toString(),
-		});
-		result = parseMailchimp(await mcRes.text());
-	} catch {
+		result = await subscribe(env, signup);
+	} catch (error) {
+		// listmonk's 400s are about the submitted details, such as an invalid
+		// email address, and are safe to show.
+		if (error instanceof ListmonkError && error.status === 400) {
+			return json({ ok: false, message: error.message }, 400);
+		}
+		console.error("subscribe: listmonk request failed", error);
 		return json(
 			{
 				ok: false,
@@ -258,28 +384,14 @@ export async function handleSubscribe(
 		);
 	}
 
-	// Mailchimp prefixes field errors with the field index ("0 - An email
-	// address must contain a single @."); strip it along with any markup.
-	const cleanMsg = (result.msg ?? "")
-		.replace(/<[^>]*>/g, "")
-		.replace(/^\s*\d{1,2}\s*-\s*/, "")
-		.trim();
-
-	if (result.result === "success") {
-		return json({
-			ok: true,
-			message: cleanMsg || "You're signed up — check your inbox to confirm.",
-		});
+	if (result === "blocklisted") {
+		console.warn("subscribe: ignored a signup from a blocklisted subscriber");
 	}
-	if (/already subscribed/i.test(cleanMsg)) {
-		return json({ ok: true, message: "You're already on the list — thanks!" });
-	}
-	return json(
-		{
-			ok: false,
-			message:
-				cleanMsg || "Sign-up failed. Please check your details and try again.",
-		},
-		400,
-	);
+	return json({
+		ok: true,
+		message:
+			result === "created"
+				? "You're signed up — check your inbox to confirm."
+				: "Thanks — you're on the list!",
+	});
 }
