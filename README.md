@@ -129,16 +129,18 @@ Signups join these listmonk lists, whose IDs are in `LISTS` in
 | Form | Lists |
 | --- | --- |
 | Contact (`/contact/`) | Newsletter |
-| Pledge (`/our-reforms/approval-primary/#pledge`) | Newsletter, Approval primary pledge, plus Signature volunteers if the box is ticked |
+| Pledge (`/our-reforms/approval-primary/#pledge`) | Newsletter, Approval primary pledge |
 
-The pledge form's name, zip code and "why" answer are stored as subscriber
-attributes (`first_name`, `last_name`, `zip`, `why`). Make the Newsletter and
+The pledge form's name, zip code, "why" answer and volunteering checkbox are
+stored as subscriber attributes (`first_name`, `last_name`, `zip`, `why`,
+`volunteer`). To find volunteers, search subscribers in the listmonk admin with
+the query `subscribers.attribs->>'volunteer' = 'true'`. Make the Newsletter and
 pledge lists double opt-in so new signups get a confirmation email. If someone
 is already a subscriber, the Worker adds them to the form's lists and merges
 the new attributes; blocklisted subscribers are left alone.
 
 Give the Worker its own API user rather than an admin one. In the listmonk
 admin, create a user role with the **subscribers:get_all** and
-**subscribers:manage** permissions, a list role that can manage the three lists
+**subscribers:manage** permissions, a list role that can manage the two lists
 above, and an API user with both roles.
 

@@ -40,7 +40,6 @@ const LISTMONK_URL = "https://lists.californiaapproves.org";
 const LISTS = {
 	newsletter: 0,
 	approvalPrimaryPledge: 0,
-	signatureVolunteers: 0,
 } as const;
 
 // Client form id -> the Turnstile action it must carry and the lists it joins.
@@ -133,19 +132,15 @@ function toSignup(params: URLSearchParams, lists: readonly number[]): Signup {
 	if (zip) attribs.zip = zip;
 	const why = field(params, "why");
 	if (why) attribs.why = why;
-
-	// Ticking the box joins the volunteers list. Like the old Mailchimp form,
-	// this is additive: leaving it unticked never removes anyone.
-	const allLists = [...lists];
-	if (params.get("volunteer") === "yes") {
-		allLists.push(LISTS.signatureVolunteers);
-	}
+	// Like the old Mailchimp form, this is additive: leaving the box unticked
+	// never clears it for someone who ticked it before.
+	if (params.get("volunteer") === "yes") attribs.volunteer = true;
 
 	return {
 		email: field(params, "email"),
 		// listmonk fills in a name from the email address when this is empty.
 		name: [firstName, lastName].filter(Boolean).join(" "),
-		lists: allLists,
+		lists: [...lists],
 		attribs,
 	};
 }
