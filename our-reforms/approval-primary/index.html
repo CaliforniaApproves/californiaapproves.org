@@ -466,75 +466,52 @@
 									<a href="#top" class="inline-block pt-7 text-bsm font-extrabold uppercase tracking-[-0.01rem] text-green underline underline-offset-4 hover:text-green-high">Back to top</a>
 								</div>
 								{{!-- No native action: submissions go through /api/subscribe, which
-								     verifies the Turnstile token before forwarding to Mailchimp. A
-								     Mailchimp action here would let anyone post around that check. --}}
+								     verifies the Turnstile token before adding the pledge to listmonk. --}}
 								<form id="mc-embedded-subscribe-form-final" name="mc-embedded-subscribe-form-final" class="validate">
 									<div class="flex flex-col gap-2">
 										<div id="mc-email-input-wrapper-final" class="mc-field-group">
 											<div class="caa-input w-full required email">
 												<label for="mce-EMAIL-final" class="sr-only">email</label>
-												<input id="mce-EMAIL-final" type="email" name="EMAIL" placeholder="Enter your email (required)" required class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset lg:text-base lg:leading-6 ring-green focus:ring-green-high">
+												<input id="mce-EMAIL-final" type="email" name="email" placeholder="Enter your email (required)" required class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset lg:text-base lg:leading-6 ring-green focus:ring-green-high">
 											</div>
 										</div>
 										<div class="flex gap-2">
 											<div id="mc-fname-input-wrapper-final" class="mc-field-group w-full">
 												<div class="caa-input w-full">
 													<label for="mce-FNAME-final" class="sr-only">first name</label>
-													<input id="mce-FNAME-final" type="text" name="FNAME" placeholder="First name" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset lg:text-base lg:leading-6 ring-green focus:ring-green-high">
+													<input id="mce-FNAME-final" type="text" name="first_name" placeholder="First name" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset lg:text-base lg:leading-6 ring-green focus:ring-green-high">
 												</div>
 											</div>
 											<div id="mc-lname-input-wrapper-final" class="mc-field-group w-full">
 												<div class="caa-input w-full">
 													<label for="mce-LNAME-final" class="sr-only">last name</label>
-													<input id="mce-LNAME-final" type="text" name="LNAME" placeholder="Last name" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset lg:text-base lg:leading-6 ring-green focus:ring-green-high">
+													<input id="mce-LNAME-final" type="text" name="last_name" placeholder="Last name" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset lg:text-base lg:leading-6 ring-green focus:ring-green-high">
 												</div>
 											</div>
 										</div>
 										<div id="mc-zip-input-wrapper-final" class="mc-field-group w-full">
 											<div class="caa-input w-full">
 												<label for="mce-ZIP-final" class="sr-only">zip code</label>
-												<input id="mce-ZIP-final" type="text" name="ZIP" placeholder="Zip code" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset lg:text-base lg:leading-6 ring-green focus:ring-green-high">
+												<input id="mce-ZIP-final" type="text" name="zip" placeholder="Zip code" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset lg:text-base lg:leading-6 ring-green focus:ring-green-high">
 											</div>
 										</div>
 
-										{{!-- Auto-tags every submission through this form as "Approval Primary Pledge" --}}
-										<input type="hidden" name="tags" value="4527864">
-
 										{{!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups --}}
 										<div style="position:absolute;left:-5000px;" aria-hidden="true">
-											<input type="text" name="b_b4aa7540a62457c043ff00e36_dddf3d641c" tabindex="-1" value="">
+											<input type="text" name="b_website" tabindex="-1" value="">
 										</div>
 
-										{{!-- value="16" is required, not decorative: a checkbox with no
-										     value attribute submits "on", but Mailchimp identifies the
-										     interest group by its id (the 16 in the field name). Without
-										     it the volunteering opt-in is silently dropped.
-
-										     Known limitation: this is additive only. Ticking the box adds
-										     the interest; leaving it unticked does NOT remove it from
-										     someone who already has it, because an unchecked checkbox
-										     submits no field at all and Mailchimp cannot tell "cleared"
-										     from "not managed by this form".
-
-										     Tried against the post-json endpoint (2026-09-08), all
-										     no-ops — the interest stayed set and the endpoint returned
-										     "your profile has been updated" every time:
-										       group[384917][16]=        (empty)
-										       group[384917][16]=false
-										       group[384917][16]=0
-										     Removal needs Marketing API v3
-										     (PUT /lists/{id}/members/{hash} with interests:{"16":false}),
-										     which would mean an API key secret on the Worker. Deemed not
-										     worth it for a one-time signup: the label reads as an action,
-										     not a preference toggle. --}}
+										{{!-- Ticking this adds the pledge to the signature volunteers list in
+										     listmonk. Leaving it unticked never removes anyone already on it:
+										     the label reads as an action, not a preference toggle. --}}
 										<label class="flex items-start gap-2 pt-2 mb-1 cursor-pointer">
-											<input type="checkbox" name="group[384917][16]" value="16" id="mce-group-384917-0-final" class="mt-1 shrink-0 w-4 h-4 accent-green cursor-pointer">
+											<input type="checkbox" name="volunteer" value="yes" id="mce-group-384917-0-final" class="mt-1 shrink-0 w-4 h-4 accent-green cursor-pointer">
 											<span class="text-bsm text-schist-higher leading-snug">I'm interested in volunteering to help gather signatures</span>
 										</label>
 										<div id="mc-why-input-wrapper-final" class="mc-field-group w-full">
 											<div class="caa-input w-full">
 												<label for="mce-WHY-final" class="sr-only">why does this matter to you</label>
-												<input id="mce-WHY-final" type="text" name="WHY" placeholder="Why does this matter to you?" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset lg:text-base lg:leading-6 ring-green focus:ring-green-high">
+												<input id="mce-WHY-final" type="text" name="why" placeholder="Why does this matter to you?" class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset lg:text-base lg:leading-6 ring-green focus:ring-green-high">
 											</div>
 										</div>
 
@@ -716,10 +693,10 @@
 									</div>
 
 								</div>
-								<button id="team-prev" aria-label="Previous person" class="hidden sm:flex absolute left-[-20px] top-16 w-10 h-10 rounded-full bg-white border border-purple-high items-center justify-center text-purple hover:bg-purple hover:text-white">
+								<button type="button" id="team-prev" aria-label="Previous person" class="hidden sm:flex absolute left-[-20px] top-16 w-10 h-10 rounded-full bg-white border border-purple-high items-center justify-center text-purple hover:bg-purple hover:text-white">
 									{{svg "Arrow.svg" class="fill-current w-4 h-4 rotate-180"}}
 								</button>
-								<button id="team-next" aria-label="Next person" class="hidden sm:flex absolute right-[-20px] top-16 w-10 h-10 rounded-full bg-white border border-purple-high items-center justify-center text-purple hover:bg-purple hover:text-white">
+								<button type="button" id="team-next" aria-label="Next person" class="hidden sm:flex absolute right-[-20px] top-16 w-10 h-10 rounded-full bg-white border border-purple-high items-center justify-center text-purple hover:bg-purple hover:text-white">
 									{{svg "Arrow.svg" class="fill-current w-4 h-4"}}
 								</button>							
 							</div>
