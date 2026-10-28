@@ -22,7 +22,7 @@ Sixty-one candidates appeared on the June 2, 2026 primary ballot for governor. V
 
 By counting every approval instead of forcing voters to pick just one, the Approval Voting for Primary Elections Act can surface support that choose-one voting hides, advancing candidates that are more broadly supported by the electorate.
 
-**Candidates have to win broadly, not just intensely.** Under a choose-one rule, a candidate can advance with a narrow, committed base while most voters are divided across other names. Today, we cannot distinguish between a candidate voters don’t want and one whose support was simply split. Approval voting closes that path. Once every approval counts, a candidate with  51 percent support and 49 percent opposition is no longer safe from a rival who can reach 55 or 60 percent approval. The winning strategy shifts from consolidating a narrow faction toward assembling the widest possible coalition, from dividing voters toward uniting them.
+**Candidates have to win broadly, not just intensely.** Under a choose-one rule, a candidate can advance with a narrow, committed base while most voters are divided across other names. Today, we cannot distinguish between a candidate voters don’t want and one whose support was simply split. Approval voting closes that path. Once every approval counts, a candidate with 51 percent support and 49 percent opposition is no longer safe from a rival who can reach 55 or 60 percent approval. The winning strategy shifts from consolidating a narrow faction toward assembling the widest possible coalition, from dividing voters toward uniting them.
 
 **Nothing new to buy.** No new voting machines, no new software, no new ballot design. The instruction line changes from "vote for one" to "vote for as many as you approve of." Counties tally approvals by summing the marks for each candidate, the same arithmetic they perform today, so there is no added administrative cost and no delay in reporting results.
 
@@ -44,7 +44,6 @@ Thank you to all the volunteers who made this initiative possible.
 
 California Approves is a grassroots organization working to improve democracy, reduce political polarization, and make progress on the things Californians can agree on. It advances approval voting in California through ballot measures at the state and local level.
 
-*Paid for by California Approves. FPPC ID \#1440633.*
+_Paid for by California Approves. FPPC ID \#1440633._
 
 \#\#\#
-

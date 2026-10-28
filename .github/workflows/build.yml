@@ -1,7 +1,6 @@
 name: Build
 
-on:
-  push
+on: push
 
 jobs:
   build:
@@ -12,7 +11,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: ".node-version"
       - name: Install dependencies
         run: npm install
       - name: Build
