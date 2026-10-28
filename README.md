@@ -100,7 +100,18 @@ The app is hosted on Cloudflare Workers with static assets: `./dist` is
 served directly, and anything that doesn't match a file there is handled by
 `src/worker/index.ts` (see `wrangler.jsonc`).
 
-Deploy to prod by pushing to `main`.
+Pushing to `main` builds a new version but does not put it live. Deploy to prod
+by promoting that version, either in the Cloudflare dashboard ("Promote version"
+on the Worker's Deployments tab) or from the CLI:
+
+```sh
+npx wrangler versions list --name californiaapproves
+npx wrangler versions deploy <version-id>@100% --name californiaapproves
+```
+
+`npx wrangler deployments status --name californiaapproves` shows what is live,
+and `npx wrangler rollback --name californiaapproves` returns to the previous
+version.
 
 Pushing to any other branch creates a preview deployment. Preview hostnames
 have to be covered by the Turnstile hostname allowlist or every form submission
