@@ -1,6 +1,6 @@
 // A mailing-list signup form protected by Cloudflare Turnstile. It wraps a
 // static <form> with no action and submits it to /api/subscribe, which checks
-// the Turnstile token server-side before forwarding to Mailchimp (see
+// the Turnstile token server-side before adding the subscriber to listmonk (see
 // src/worker/subscribe.ts). There is deliberately no unverified fallback: if
 // the challenge can't be shown, visitors are offered an email address instead.
 //
@@ -16,8 +16,8 @@
 //                                 starts another attempt
 //   [data-message]                hidden status line for results and errors
 //   [data-success]                optional hidden panel that replaces the form
-//                                 after a successful submission; its
-//                                 [data-success-message] gets the server's reply
+//                                 after a successful submission; its own
+//                                 copy is shown as written
 
 import {
 	loadTurnstileScript,
@@ -147,7 +147,7 @@ export class CaaSubscribeForm extends HTMLElement {
 		this.#showMessage(result.message, !result.ok);
 		if (result.ok) {
 			form.reset();
-			this.#showSuccess(form, result.message);
+			this.#showSuccess(form);
 		}
 		// Tokens are single-use.
 		this.#token = null;
@@ -192,11 +192,9 @@ export class CaaSubscribeForm extends HTMLElement {
 		message.classList.toggle("text-green", !isError);
 	}
 
-	#showSuccess(form: HTMLFormElement, text: string) {
+	#showSuccess(form: HTMLFormElement) {
 		const panel = this.querySelector<HTMLElement>("[data-success]");
 		if (!panel) return;
-		const message = panel.querySelector("[data-success-message]");
-		if (message && text) message.textContent = text;
 		form.hidden = true;
 		panel.hidden = false;
 	}
