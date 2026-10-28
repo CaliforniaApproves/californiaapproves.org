@@ -104,8 +104,9 @@ class ListmonkError extends Error {}
 
 // The parts of listmonk's `{data: ...}` responses that this file reads.
 interface ListmonkBody {
+	message?: string;
 	data?: {
-		results?: { id: number; name: string; status?: string }[];
+		results?: { id: number; name: string; email?: string; status?: string }[];
 	};
 }
 
@@ -142,7 +143,8 @@ async function subscribe(
 	listNames: string[],
 ): Promise<boolean> {
 	const lists = await listmonk(env, "/api/lists?per_page=all&minimal=true");
-	if (lists.status !== 200) throw new ListmonkError("could not read lists");
+	if (lists.status !== 200)
+		throw new ListmonkError(`could not read lists (${lists.status})`);
 	const idByName = new Map(
 		(lists.body?.data?.results ?? []).map((l) => [l.name, l.id]),
 	);
@@ -164,17 +166,24 @@ async function subscribe(
 	});
 	if (created.status === 200) return true;
 	if (created.status !== 409) {
-		throw new ListmonkError(`create failed (${created.status})`);
+		throw new ListmonkError(
+			`create failed (${created.status}): ${created.body?.message}`,
+		);
 	}
 
-	const escaped = email.replaceAll("'", "''");
+	// `search` is a plain substring match, so keep only the exact address. The
+	// SQL `query` parameter would need the subscribers:sql_query permission.
 	const found = await listmonk(
 		env,
-		`/api/subscribers?per_page=1&query=${encodeURIComponent(`subscribers.email = '${escaped}'`)}`,
+		`/api/subscribers?per_page=20&search=${encodeURIComponent(email)}`,
 	);
-	const existing = found.body?.data?.results?.[0];
+	const existing = found.body?.data?.results?.find(
+		(subscriber) => subscriber.email?.toLowerCase() === email,
+	);
 	if (found.status !== 200 || !existing) {
-		throw new ListmonkError(`lookup failed (${found.status})`);
+		throw new ListmonkError(
+			`lookup failed (${found.status}): ${found.body?.message}`,
+		);
 	}
 	if (existing.status === "blocklisted") return false;
 
@@ -188,9 +197,83 @@ async function subscribe(
 		},
 	});
 	if (added.status !== 200) {
-		throw new ListmonkError(`add to lists failed (${added.status})`);
+		throw new ListmonkError(
+			`add to lists failed (${added.status}): ${added.body?.message}`,
+		);
 	}
 	return true;
+}
+
+// What Cloudflare's always-pass test widget (site key 1x00000000000000000000AA)
+// hands the browser. Its siteverify answer has a made-up hostname and action,
+// so it can't go through verifyTurnstile.
+const TURNSTILE_TEST_TOKEN = "XXXX.DUMMY.TOKEN.XXXX";
+
+// Local development only: skip Cloudflare's check for the test widget's token.
+// Needs ENVIRONMENT=development (unset counts as production) and a request that
+// really arrived on localhost, so no deployed Worker can take this path.
+function isLocalDevToken(request: Request, env: Env, token: string): boolean {
+	const host = new URL(request.url).hostname;
+	return (
+		env.ENVIRONMENT === "development" &&
+		(host === "localhost" || host === "127.0.0.1") &&
+		token === TURNSTILE_TEST_TOKEN
+	);
+}
+
+// Server-to-server Turnstile verification. Returns the response to send when
+// the token is rejected, or null when it passes.
+async function verifyTurnstile(
+	request: Request,
+	env: Env,
+	secret: string,
+	token: string,
+	action: string,
+): Promise<Response | null> {
+	const verifyBody = new URLSearchParams();
+	verifyBody.set("secret", secret);
+	verifyBody.set("response", token);
+	const remoteIp = request.headers.get("CF-Connecting-IP");
+	if (remoteIp) verifyBody.set("remoteip", remoteIp);
+
+	let outcome: SiteVerifyResponse;
+	try {
+		const verifyRes = await fetch(SITEVERIFY_URL, {
+			method: "POST",
+			headers: { "content-type": "application/x-www-form-urlencoded" },
+			body: verifyBody.toString(),
+		});
+		outcome = (await verifyRes.json()) as SiteVerifyResponse;
+	} catch {
+		return json(
+			{ ok: false, message: "Could not reach the verification service." },
+			502,
+		);
+	}
+
+	if (!outcome.success) {
+		console.warn("subscribe: siteverify rejected", outcome["error-codes"]);
+		return json({ ok: false, message: GENERIC_REJECTION }, 403);
+	}
+	if (outcome.action && outcome.action !== action) {
+		console.warn(
+			`subscribe: action mismatch (got ${outcome.action}, want ${action})`,
+		);
+		return json({ ok: false, message: GENERIC_REJECTION }, 403);
+	}
+	if (!outcome.hostname || !hostnameAllowed(outcome.hostname, env)) {
+		const isLocal =
+			outcome.hostname === "localhost" || outcome.hostname === "127.0.0.1";
+		// The response stays generic; only the log distinguishes the cases, so a
+		// local run doesn't look like a genuine bad-host rejection.
+		console.warn(
+			isLocal && !env.ENVIRONMENT
+				? `subscribe: rejected a ${outcome.hostname} token because ENVIRONMENT is unset, which counts as production. Set ENVIRONMENT=development in .dev.vars for local runs.`
+				: `subscribe: hostname not allowed (${outcome.hostname})`,
+		);
+		return json({ ok: false, message: GENERIC_REJECTION }, 403);
+	}
+	return null;
 }
 
 export async function handleSubscribe(
@@ -259,50 +342,16 @@ export async function handleSubscribe(
 		);
 	}
 
-	// --- Server-to-server Turnstile verification -----------------------------
-	const verifyBody = new URLSearchParams();
-	verifyBody.set("secret", env.TURNSTILE_SECRET_KEY);
-	verifyBody.set("response", token);
-	const remoteIp = request.headers.get("CF-Connecting-IP");
-	if (remoteIp) verifyBody.set("remoteip", remoteIp);
-
-	let outcome: SiteVerifyResponse;
-	try {
-		const verifyRes = await fetch(SITEVERIFY_URL, {
-			method: "POST",
-			headers: { "content-type": "application/x-www-form-urlencoded" },
-			body: verifyBody.toString(),
-		});
-		outcome = (await verifyRes.json()) as SiteVerifyResponse;
-	} catch {
-		return json(
-			{ ok: false, message: "Could not reach the verification service." },
-			502,
-		);
-	}
-
-	if (!outcome.success) {
-		console.warn("subscribe: siteverify rejected", outcome["error-codes"]);
-		return json({ ok: false, message: GENERIC_REJECTION }, 403);
-	}
-	if (outcome.action && outcome.action !== config.action) {
-		console.warn(
-			`subscribe: action mismatch (got ${outcome.action}, want ${config.action})`,
-		);
-		return json({ ok: false, message: GENERIC_REJECTION }, 403);
-	}
-	if (!outcome.hostname || !hostnameAllowed(outcome.hostname, env)) {
-		const isLocal =
-			outcome.hostname === "localhost" || outcome.hostname === "127.0.0.1";
-		// The response stays generic; only the log distinguishes the cases, so a
-		// local run doesn't look like a genuine bad-host rejection.
-		console.warn(
-			isLocal && !env.ENVIRONMENT
-				? `subscribe: rejected a ${outcome.hostname} token because ENVIRONMENT is unset, which counts as production. Set ENVIRONMENT=development in .dev.vars for local runs.`
-				: `subscribe: hostname not allowed (${outcome.hostname})`,
-		);
-		return json({ ok: false, message: GENERIC_REJECTION }, 403);
-	}
+	const rejection = isLocalDevToken(request, env, token)
+		? null
+		: await verifyTurnstile(
+				request,
+				env,
+				env.TURNSTILE_SECRET_KEY,
+				token,
+				config.action,
+			);
+	if (rejection) return rejection;
 
 	// --- Gate passed: add to listmonk --------------------------------------
 	const field = (key: string) => (params.get(key) ?? "").trim().slice(0, 500);

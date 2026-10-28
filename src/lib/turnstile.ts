@@ -4,7 +4,11 @@
 // browser). The matching secret key lives only in the Workers project as the
 // TURNSTILE_SECRET_KEY environment variable and is used by
 // src/worker/subscribe.ts for server-side verification.
-export const TURNSTILE_SITE_KEY = "0x4AAAAAAEshBKfGRpZh1De-";
+//
+// For local testing, build with VITE_TURNSTILE_SITE_KEY=1x00000000000000000000AA
+// (Cloudflare's always-pass test key); see the README.
+export const TURNSTILE_SITE_KEY: string =
+	import.meta.env.VITE_TURNSTILE_SITE_KEY || "0x4AAAAAAEshBKfGRpZh1De-";
 
 // Turnstile invokes this global once window.turnstile is populated. The
 // script's own "load" event fires before that, so resolving on "load" races

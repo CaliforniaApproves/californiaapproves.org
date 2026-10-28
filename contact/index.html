@@ -14,10 +14,10 @@
 					</div>
 					<div class="py-16 text-center flex flex-col">
 						{{svg "Circles/California-Approves-Logo-Circles-w-Checks-RGB.svg" class="w-40 m-auto"}}
-						<h2 class="m-auto">Effect Change</h2>
+						<h2 class="m-auto mt-6 mb-4">Effect Change</h2>
 						<br>
 						<div class="text-left m-auto max-w-2xl">
-							<p class="text-base">
+							<p class="text-base mb-8">
 								This is your first step to getting involved in Californian election reform. Sign up
 								for our mailing list with this form, or email
 								<a class="underline font-semibold" href="mailto:info@californiaapproves.org">info@californiaapproves.org</a>
@@ -35,12 +35,27 @@
 												<label for="email" class="sr-only">email</label>
 												<input id="email" type="email" name="email" placeholder="Enter your email (required)" required class="block w-full rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs placeholder:text-schist-high focus:ring-2 focus:ring-inset lg:text-base lg:leading-6 ring-purple focus:ring-purple-high">
 											</div>
-																					</div>
+										</div>
+										<fieldset class="mt-6 flex flex-col gap-3">
+											<legend class="sr-only">What would you like to hear about?</legend>
+											<label class="flex items-start gap-2 cursor-pointer">
+												<input type="checkbox" name="news" value="1" checked class="mt-1 shrink-0 w-4 h-4 accent-purple cursor-pointer">
+												<span class="text-bsm leading-snug">Send me California Approves newsletters</span>
+											</label>
+											<label class="flex items-start gap-2 cursor-pointer">
+												<input type="checkbox" name="pledge" value="1" class="mt-1 shrink-0 w-4 h-4 accent-purple cursor-pointer">
+												<span class="text-bsm leading-snug">Keep me updated on the Approval Primary pledge</span>
+											</label>
+											<label class="flex items-start gap-2 cursor-pointer">
+												<input type="checkbox" name="signature_gatherer" value="1" class="mt-1 shrink-0 w-4 h-4 accent-purple cursor-pointer">
+												<span class="text-bsm leading-snug">I'm interested in volunteering to help gather signatures</span>
+											</label>
+										</fieldset>
 										{{!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups --}}
 										<div style="position:absolute;left:-5000px;" aria-hidden="true">
 											<input type="text" name="website" tabindex="-1" value="" autocomplete="off">
 										</div>
-										<div data-turnstile class="flex justify-center empty:hidden mt-4"></div>
+										<div data-turnstile class="flex justify-center empty:hidden mt-6"></div>
 										<p data-turnstile-unavailable role="alert" hidden class="text-bsm text-orange text-center mt-2 leading-snug">
 											We couldn't load the spam check that protects this form — an ad blocker or
 											privacy extension is the usual cause. Allow <span class="whitespace-nowrap">challenges.cloudflare.com</span>
@@ -49,7 +64,7 @@
 											and we'll add you by hand.
 										</p>
 										<p data-message role="status" hidden class="text-small mt-3 text-center text-green"></p>
-										<div class="mt-4">
+										<div class="mt-6">
 											<button type="submit" disabled class="caa-button rounded-2xl px-4 py-2 uppercase flex text-center tracking-[-0.01rem] justify-center items-center font-extrabold cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed border-[6px] border-purple hover:border-purple-high text-bsl h-[52px] w-[136px] text-purple mx-auto">JOIN US</button>
 										</div>
 									</div>
@@ -61,9 +76,7 @@
 									</p>
 								</noscript>
 							</caa-subscribe-form>
-							<br>
-							<br>
-							<p class="italic text-small">
+							<p class="italic text-small mt-10">
 								By subscribing you agree to our Privacy Policy and provide consent to receive
 								updates from our organization.
 							</p>
