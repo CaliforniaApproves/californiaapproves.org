@@ -118,7 +118,7 @@ the token server-side before adding the subscriber to listmonk. Set these on the
 | ----------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `TURNSTILE_SECRET_KEY`        | yes      | Secret key paired with the widget site key in `src/lib/turnstile.ts`.                                                                                          |
 | `LISTMONK_URL`                | yes      | Base URL of listmonk, e.g. `https://lists.californiaapproves.org`.                                                                                             |
-| `LISTMONK_API_USER`           | yes      | listmonk API user for the site (permissions: `subscribers:manage`, `lists:get_all`).                                                                           |
+| `LISTMONK_API_USER`           | yes      | listmonk API user for the site.                                                                                                                                |
 | `LISTMONK_API_TOKEN`          | yes      | Secret. That API user's token.                                                                                                                                 |
 | `TURNSTILE_ALLOWED_HOSTNAMES` | no       | Comma-separated hostname allowlist. Defaults to `californiaapproves.org,www.californiaapproves.org` plus any `*.californiaapproves.workers.dev` preview.       |
 | `ENVIRONMENT`                 | no       | Any value other than `production` also accepts `localhost` Turnstile tokens. Note that **unset** counts as `production`, so local runs must set it explicitly. |
