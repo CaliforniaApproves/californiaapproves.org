@@ -1,6 +1,6 @@
 // A mailing-list signup form protected by Cloudflare Turnstile. It wraps a
 // static <form> with no action and submits it to /api/subscribe, which checks
-// the Turnstile token server-side before forwarding to Mailchimp (see
+// the Turnstile token server-side before adding the subscriber to listmonk (see
 // src/worker/subscribe.ts). There is deliberately no unverified fallback: if
 // the challenge can't be shown, visitors are offered an email address instead.
 //

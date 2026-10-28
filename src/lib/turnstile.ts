@@ -94,9 +94,9 @@ export type SubscribeResult = {
 };
 
 // POST a subscription form to the Turnstile-protected proxy at /api/subscribe,
-// which verifies the token server-side before forwarding to Mailchimp. Every
-// field currently on the form (including Mailchimp's hidden group/tag/honeypot
-// inputs) is forwarded as-is.
+// which verifies the token server-side before adding the subscriber to listmonk.
+// Every field currently on the form (including the hidden honeypot input) is
+// forwarded as-is.
 export async function submitSubscription(
 	form: SubscribeForm,
 	formEl: HTMLFormElement,
