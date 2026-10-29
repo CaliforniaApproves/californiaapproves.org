@@ -27,7 +27,7 @@ test("the press list links to a release, titled the same on both pages", async (
 	await page.goto("/press/", { waitUntil: "load" });
 
 	const link = page.locator("main li a").last();
-	const title = (await link.innerText()).replace(/\s+/g, " ").trim();
+	const title = (await link.textContent()).replace(/\s+/g, " ").trim();
 	expect(title).toEqual(OLDEST_RELEASE_TITLE);
 
 	await link.click();
