@@ -713,7 +713,7 @@
 			{{> footer}}
 		</div>
 		<script>
-		(function(){
+		(()=> {
 			var track = document.getElementById('team-track');
 			var prev = document.getElementById('team-prev');
 			var next = document.getElementById('team-next');
@@ -723,10 +723,10 @@
 				var first = track.children[0];
 				return first ? first.getBoundingClientRect().width + 32 : 0; // 32 = gap-8
 			}
-			prev.addEventListener('click', function(){
+			prev.addEventListener('click', ()=> {
 				track.scrollBy({ left: -slideWidth(), behavior: 'smooth' });
 			});
-			next.addEventListener('click', function(){
+			next.addEventListener('click', ()=> {
 				track.scrollBy({ left: slideWidth(), behavior: 'smooth' });
 			});
 		})();
