@@ -123,12 +123,13 @@ is rejected with a 403 — `*.californiaapproves.workers.dev` passes by default;
 After pledging, a visitor gets a personal link, `https://californiaapproves.org/r/CODE`.
 The Worker redirects it to the pledge form with `?ref=CODE`; `src/lib/referral.ts`
 remembers the code for 30 days, and the pledge form sends it as `ref`. After
-adding the subscriber, the Worker calls listmonk's `POST /api/referrals` so the
-referrer is credited (best effort: a failure never blocks the pledge). The
-codes, that endpoint, and the leaderboard come from the CaliforniaApproves
-listmonk fork (`ca/v*` branches of `CaliforniaApproves/listmonk`), so the
-listmonk behind `LISTMONK_URL` must be that fork; stock listmonk has no
-`/api/referrals` and referrals are silently not recorded.
+adding the subscriber, the Worker passes it to listmonk as `referred_by` on the
+same `POST /api/subscribers` (or `PUT /api/subscribers/lists`) call, so the
+referrer is credited with no extra request. The codes, `referred_by`, and the
+leaderboard come from the CaliforniaApproves listmonk fork (`ca/v*` branches of
+`CaliforniaApproves/listmonk`), so the listmonk behind `LISTMONK_URL` must be
+that fork; stock listmonk ignores `referred_by` and referrals are silently not
+recorded.
 
 ## Environment variables
 

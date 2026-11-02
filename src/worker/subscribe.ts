@@ -148,19 +148,20 @@ interface SubscribeOutcome {
 	added: boolean;
 	/** The subscriber's own referral code, for building their share link. */
 	referralCode?: string;
-	/** IDs of the lists the subscriber was added to. */
-	listIds: number[];
 }
 
 // Adds `email` to the named lists, creating the subscriber if needed. An
 // existing subscriber keeps their name and attributes and just gains the lists;
-// a blocklisted one is left alone.
+// a blocklisted one is left alone. `referredBy` is the referral code of whoever
+// shared the link, if any: listmonk credits them for subscriptions this call
+// creates (and ignores unknown codes, self-referrals and existing memberships).
 async function subscribe(
 	env: Env,
 	email: string,
 	name: string,
 	attribs: Record<string, string>,
 	listNames: string[],
+	referredBy?: string,
 ): Promise<SubscribeOutcome> {
 	const lists = await listmonk(env, "/api/lists?per_page=all&minimal=true");
 	if (lists.status !== 200)
@@ -186,13 +187,13 @@ async function subscribe(
 			lists: ids,
 			attribs,
 			preconfirm_subscriptions: true,
+			referred_by: referredBy,
 		},
 	});
 	if (created.status === 200) {
 		return {
 			added: true,
 			referralCode: created.body?.data?.referral_code,
-			listIds: ids,
 		};
 	}
 	if (created.status !== 409) {
@@ -215,7 +216,7 @@ async function subscribe(
 			`lookup failed (${found.status}): ${found.body?.message}`,
 		);
 	}
-	if (existing.status === "blocklisted") return { added: false, listIds: ids };
+	if (existing.status === "blocklisted") return { added: false };
 
 	const added = await listmonk(env, "/api/subscribers/lists", {
 		method: "PUT",
@@ -224,6 +225,7 @@ async function subscribe(
 			action: "add",
 			target_list_ids: ids,
 			status: "confirmed",
+			referred_by: referredBy,
 		},
 	});
 	if (added.status !== 200) {
@@ -231,32 +233,7 @@ async function subscribe(
 			`add to lists failed (${added.status}): ${added.body?.message}`,
 		);
 	}
-	return { added: true, referralCode: existing.referral_code, listIds: ids };
-}
-
-// Records who referred a new pledge. Best effort: a failure here is logged and
-// never fails the pledge itself. listmonk only attributes subscriptions created
-// in the last minute that have no referrer yet, and ignores unknown codes and
-// self-referrals.
-async function recordReferral(
-	env: Env,
-	email: string,
-	listIds: number[],
-	referredBy: string,
-): Promise<void> {
-	try {
-		const res = await listmonk(env, "/api/referrals", {
-			method: "POST",
-			body: { email, list_ids: listIds, referred_by: referredBy },
-		});
-		if (res.status !== 200) {
-			console.error(
-				`subscribe: referral failed (${res.status}): ${res.body?.message}`,
-			);
-		}
-	} catch (error) {
-		console.error("subscribe: referral request failed", error);
-	}
+	return { added: true, referralCode: existing.referral_code };
 }
 
 // What Cloudflare's always-pass test widget (site key 1x00000000000000000000AA)
@@ -417,11 +394,21 @@ export async function handleSubscribe(
 	if (field("zip")) attribs.zip = field("zip");
 	if (field("why")) attribs.reform_why = field("why");
 
-	const referredBy = (params.get("ref") ?? "").trim();
+	// Only the pledge form takes referrals, and only well-formed codes are sent.
+	const ref = (params.get("ref") ?? "").trim();
+	const referredBy =
+		formKey === "pledge" && REFERRAL_CODE_PATTERN.test(ref) ? ref : undefined;
 
 	let outcome: SubscribeOutcome;
 	try {
-		outcome = await subscribe(env, email, name, attribs, [...selected]);
+		outcome = await subscribe(
+			env,
+			email,
+			name,
+			attribs,
+			[...selected],
+			referredBy,
+		);
 	} catch (error) {
 		console.error("subscribe: listmonk request failed", error);
 		return json(
@@ -435,10 +422,6 @@ export async function handleSubscribe(
 	if (!outcome.added) {
 		// Don't reveal that an address is blocklisted.
 		return json({ ok: true, message: "Thanks — you're signed up!" });
-	}
-
-	if (formKey === "pledge" && REFERRAL_CODE_PATTERN.test(referredBy)) {
-		await recordReferral(env, email, outcome.listIds, referredBy);
 	}
 
 	return json({
