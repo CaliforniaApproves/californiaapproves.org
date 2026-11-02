@@ -531,6 +531,10 @@
 											<input type="checkbox" name="signature_gatherer" value="1" id="signature-gatherer-final" class="mt-1 shrink-0 w-4 h-4 accent-green cursor-pointer">
 											<span class="text-bsm text-schist-higher leading-snug">I'm interested in volunteering to help gather signatures</span>
 										</label>
+										<label class="flex items-start gap-2 mb-1 cursor-pointer">
+											<input type="checkbox" name="hide_from_leaderboard" value="1" id="hide-from-leaderboard-final" class="mt-1 shrink-0 w-4 h-4 accent-green cursor-pointer">
+											<span class="text-bsm text-schist-higher leading-snug">Don't show my name on the public leaderboard (I'll appear as "Anonymous")</span>
+										</label>
 										<div id="why-input-wrapper-final" class="field-group w-full">
 											<div class="caa-input w-full">
 												<label for="why-final" class="sr-only">why does this matter to you</label>
@@ -563,6 +567,26 @@
 							</caa-subscribe-form>
 							<p class="text-base text-white/85 pt-8">
 								<a href="/faq/" class="caa-link underline text-white">Still have questions? Check out our FAQs.</a>
+							</p>
+						</div>
+					</section>
+					{{!-- Filled in by the caa-leaderboard element; hides itself if the board cannot load. --}}
+					<section aria-label="Pledge leaderboard" class="bg-schist text-center">
+						<div class="max-w-[700px] m-auto px-8">
+							<h2 class="text-green">Pledge Leaderboard</h2>
+							<p class="text-base text-schist-higher pt-3">
+								These supporters have brought the most friends into the pledge with their personal links.
+								Pledge, then share your link to join them.
+							</p>
+							<caa-leaderboard class="block mt-8">
+								<ol data-leaderboard-list hidden class="flex flex-col gap-2"></ol>
+								<p data-leaderboard-empty hidden class="text-base text-schist-higher">
+									No referrals yet. Pledge, share your link, and be the first on the board.
+								</p>
+							</caa-leaderboard>
+							<p class="text-bsm text-schist-higher pt-6 leading-snug">
+								Names show as first name and last initial. To appear as "Anonymous", check the box when you
+								pledge, or email <a class="underline font-semibold" href="mailto:pledge@californiaapproves.org">pledge@californiaapproves.org</a>.
 							</p>
 						</div>
 					</section>
