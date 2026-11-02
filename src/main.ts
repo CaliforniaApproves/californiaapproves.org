@@ -3,6 +3,7 @@
 import { captureReferral } from "./lib/referral";
 import "./elements/caa-ballot";
 import "./elements/caa-carousel";
+import "./elements/caa-leaderboard";
 import "./elements/caa-menu";
 import "./elements/caa-popover";
 import "./elements/caa-scroll-to";

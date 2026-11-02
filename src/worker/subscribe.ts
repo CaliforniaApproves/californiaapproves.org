@@ -105,27 +105,31 @@ async function readParams(request: Request): Promise<URLSearchParams | null> {
 
 class ListmonkError extends Error {}
 
-// The parts of listmonk's `{data: ...}` responses that this file reads.
-interface ListmonkBody {
-	message?: string;
-	data?: {
-		// A single subscriber (from POST /api/subscribers).
+// The parts of listmonk's subscriber and list responses that this file reads.
+interface SubscribeData {
+	// A single subscriber (from POST /api/subscribers).
+	referral_code?: string;
+	results?: {
+		id: number;
+		name: string;
+		email?: string;
+		status?: string;
 		referral_code?: string;
-		results?: {
-			id: number;
-			name: string;
-			email?: string;
-			status?: string;
-			referral_code?: string;
-		}[];
-	};
+	}[];
 }
 
-async function listmonk(
+// listmonk wraps every response as `{data: ...}`; `T` is the shape of `data`.
+export interface ListmonkBody<T = SubscribeData> {
+	message?: string;
+	data?: T;
+}
+
+// Calls listmonk's API as the site's API user. Also used by leaderboard.ts.
+export async function listmonk<T = SubscribeData>(
 	env: Env,
 	path: string,
 	init: { method?: string; body?: unknown } = {},
-): Promise<{ status: number; body: ListmonkBody | null }> {
+): Promise<{ status: number; body: ListmonkBody<T> | null }> {
 	const res = await fetch(`${env.LISTMONK_URL}${path}`, {
 		method: init.method ?? "GET",
 		headers: {
@@ -134,9 +138,9 @@ async function listmonk(
 		},
 		body: init.body === undefined ? undefined : JSON.stringify(init.body),
 	});
-	let body: ListmonkBody | null = null;
+	let body: ListmonkBody<T> | null = null;
 	try {
-		body = (await res.json()) as ListmonkBody;
+		body = (await res.json()) as ListmonkBody<T>;
 	} catch {
 		// Non-JSON body; callers go by the status.
 	}
@@ -162,6 +166,7 @@ async function subscribe(
 	attribs: Record<string, string>,
 	listNames: string[],
 	referredBy?: string,
+	hideFromLeaderboard?: boolean,
 ): Promise<SubscribeOutcome> {
 	const lists = await listmonk(env, "/api/lists?per_page=all&minimal=true");
 	if (lists.status !== 200)
@@ -188,6 +193,7 @@ async function subscribe(
 			attribs,
 			preconfirm_subscriptions: true,
 			referred_by: referredBy,
+			hide_from_leaderboard: hideFromLeaderboard,
 		},
 	});
 	if (created.status === 200) {
@@ -226,6 +232,7 @@ async function subscribe(
 			target_list_ids: ids,
 			status: "confirmed",
 			referred_by: referredBy,
+			hide_from_leaderboard: hideFromLeaderboard,
 		},
 	});
 	if (added.status !== 200) {
@@ -398,6 +405,11 @@ export async function handleSubscribe(
 	const ref = (params.get("ref") ?? "").trim();
 	const referredBy =
 		formKey === "pledge" && REFERRAL_CODE_PATTERN.test(ref) ? ref : undefined;
+	// The pledge form's "don't show my name" checkbox.
+	const hideFromLeaderboard =
+		formKey === "pledge" && params.has("hide_from_leaderboard")
+			? true
+			: undefined;
 
 	let outcome: SubscribeOutcome;
 	try {
@@ -408,6 +420,7 @@ export async function handleSubscribe(
 			attribs,
 			[...selected],
 			referredBy,
+			hideFromLeaderboard,
 		);
 	} catch (error) {
 		console.error("subscribe: listmonk request failed", error);
