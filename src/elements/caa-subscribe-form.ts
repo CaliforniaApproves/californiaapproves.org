@@ -18,6 +18,14 @@
 //   [data-success]                optional hidden panel that replaces the form
 //                                 after a successful submission; its own
 //                                 copy is shown as written
+//   [data-share]                  optional hidden block inside [data-success],
+//                                 shown when the server returns the pledger's
+//                                 referral code. Contains [data-share-link]
+//                                 (input), [data-share-copy] (button),
+//                                 [data-share-native] (button, shown only where
+//                                 navigator.share exists), [data-share-email]
+//                                 and [data-share-sms] (links) and
+//                                 [data-share-status] (live message)
 
 import {
 	loadTurnstileScript,
@@ -147,7 +155,7 @@ export class CaaSubscribeForm extends HTMLElement {
 		this.#showMessage(result.message, !result.ok);
 		if (result.ok) {
 			form.reset();
-			this.#showSuccess(form);
+			this.#showSuccess(form, result.referral_code);
 		}
 		// Tokens are single-use.
 		this.#token = null;
@@ -192,11 +200,64 @@ export class CaaSubscribeForm extends HTMLElement {
 		message.classList.toggle("text-green", !isError);
 	}
 
-	#showSuccess(form: HTMLFormElement) {
+	#showSuccess(form: HTMLFormElement, referralCode?: string) {
 		const panel = this.querySelector<HTMLElement>("[data-success]");
 		if (!panel) return;
 		form.hidden = true;
 		panel.hidden = false;
+		if (referralCode) this.#showShare(referralCode);
+	}
+
+	// Fills in the pledger's personal link (served by the Worker's /r/CODE
+	// redirect) and wires up the copy / share controls.
+	#showShare(referralCode: string) {
+		const block = this.querySelector<HTMLElement>("[data-share]");
+		const input = this.querySelector<HTMLInputElement>("[data-share-link]");
+		if (!block || !input) return;
+
+		const url = `${window.location.origin}/r/${encodeURIComponent(referralCode)}`;
+		const text =
+			"I pledged my support for Approval Voting in California. Join me:";
+		input.value = url;
+
+		const status = this.querySelector<HTMLElement>("[data-share-status]");
+		const say = (message: string) => {
+			if (!status) return;
+			status.textContent = message;
+			status.hidden = false;
+		};
+
+		this.querySelector<HTMLButtonElement>(
+			"[data-share-copy]",
+		)?.addEventListener("click", async () => {
+			try {
+				await navigator.clipboard.writeText(url);
+				say("Link copied!");
+			} catch {
+				// No clipboard access (older browsers, insecure context).
+				input.select();
+				say("Press Ctrl+C (or ⌘C) to copy the link.");
+			}
+		});
+		input.addEventListener("focus", () => input.select());
+
+		const native = this.querySelector<HTMLButtonElement>("[data-share-native]");
+		if (native && typeof navigator.share === "function") {
+			native.hidden = false;
+			native.addEventListener("click", () => {
+				// Rejects if the person dismisses the share sheet; that's fine.
+				navigator.share({ title: document.title, text, url }).catch(() => {});
+			});
+		}
+
+		const email = this.querySelector<HTMLAnchorElement>("[data-share-email]");
+		if (email) {
+			email.href = `mailto:?subject=${encodeURIComponent("Pledge for Approval Voting")}&body=${encodeURIComponent(`${text} ${url}`)}`;
+		}
+		const sms = this.querySelector<HTMLAnchorElement>("[data-share-sms]");
+		if (sms) sms.href = `sms:?&body=${encodeURIComponent(`${text} ${url}`)}`;
+
+		block.hidden = false;
 	}
 }
 
