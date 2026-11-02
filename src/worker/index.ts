@@ -5,7 +5,11 @@
 // endpoint is handled below, and the rest is handed back to the asset server
 // so 404s and redirects keep their existing behaviour.
 
-import { handleSubscribe, type Env as SubscribeEnv } from "./subscribe";
+import {
+	handleSubscribe,
+	REFERRAL_CODE_PATTERN,
+	type Env as SubscribeEnv,
+} from "./subscribe";
 
 interface Env extends SubscribeEnv {
 	/** Static assets binding, declared as `assets.binding` in wrangler.jsonc. */
@@ -24,6 +28,16 @@ export default {
 				});
 			}
 			return handleSubscribe(request, env);
+		}
+
+		// Short personal pledge links: /r/AB12CD sends the visitor to the pledge
+		// form with the referral code attached (the page remembers it).
+		const referral = url.pathname.match(/^\/r\/([^/]+)\/?$/);
+		if (referral && REFERRAL_CODE_PATTERN.test(referral[1])) {
+			const target = new URL("/our-reforms/approval-primary/", url);
+			target.searchParams.set("ref", referral[1].toUpperCase());
+			target.hash = "pledge";
+			return Response.redirect(target.toString(), 302);
 		}
 
 		return env.ASSETS.fetch(request);

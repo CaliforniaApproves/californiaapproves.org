@@ -1,3 +1,5 @@
+import { getStoredReferral } from "./referral";
+
 // Cloudflare Turnstile and /api/subscribe helpers for <caa-subscribe-form>.
 
 // Public site key for the Cloudflare Turnstile widget (safe to ship to the
@@ -95,6 +97,8 @@ export type SubscribeForm = "pledge" | "contact";
 export type SubscribeResult = {
 	ok: boolean;
 	message: string;
+	/** The subscriber's own referral code (pledge form only). */
+	referral_code?: string;
 };
 
 // POST a subscription form to the Turnstile-protected proxy at /api/subscribe,
@@ -111,6 +115,8 @@ export async function submitSubscription(
 		if (typeof value === "string") body.append(key, value);
 	}
 	body.set("form", form);
+	const referral = getStoredReferral();
+	if (referral && form === "pledge") body.set("ref", referral);
 	body.set("cf-turnstile-response", token);
 
 	let response: Response;

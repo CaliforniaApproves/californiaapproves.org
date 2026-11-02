@@ -35,6 +35,9 @@ interface SiteVerifyResponse {
 	"error-codes"?: string[];
 }
 
+// Referral codes are short and alphanumeric (listmonk generates 6 characters).
+export const REFERRAL_CODE_PATTERN = /^[0-9A-Za-z]{4,12}$/;
+
 // Client form id -> the Turnstile action it must carry. Checkbox fields on the
 // form select the listmonk lists, which are looked up by name.
 const FORMS = {
@@ -106,7 +109,15 @@ class ListmonkError extends Error {}
 interface ListmonkBody {
 	message?: string;
 	data?: {
-		results?: { id: number; name: string; email?: string; status?: string }[];
+		// A single subscriber (from POST /api/subscribers).
+		referral_code?: string;
+		results?: {
+			id: number;
+			name: string;
+			email?: string;
+			status?: string;
+			referral_code?: string;
+		}[];
 	};
 }
 
@@ -132,25 +143,39 @@ async function listmonk(
 	return { status: res.status, body };
 }
 
+// What subscribe() reports back. `added` is false for a blocklisted address.
+interface SubscribeOutcome {
+	added: boolean;
+	/** The subscriber's own referral code, for building their share link. */
+	referralCode?: string;
+}
+
 // Adds `email` to the named lists, creating the subscriber if needed. An
 // existing subscriber keeps their name and attributes and just gains the lists;
-// a blocklisted one is left alone. Returns false for a blocklisted address.
+// a blocklisted one is left alone. `referredBy` is the referral code of whoever
+// shared the link, if any: listmonk credits them for subscriptions this call
+// creates (and ignores unknown codes, self-referrals and existing memberships).
 async function subscribe(
 	env: Env,
 	email: string,
 	name: string,
 	attribs: Record<string, string>,
 	listNames: string[],
-): Promise<boolean> {
+	referredBy?: string,
+): Promise<SubscribeOutcome> {
 	const lists = await listmonk(env, "/api/lists?per_page=all&minimal=true");
 	if (lists.status !== 200)
 		throw new ListmonkError(`could not read lists (${lists.status})`);
 	const idByName = new Map(
 		(lists.body?.data?.results ?? []).map((l) => [l.name, l.id]),
 	);
-	const ids = listNames.map((n) => idByName.get(n));
-	if (ids.some((id) => id === undefined)) {
-		throw new ListmonkError(`missing list in ${listNames.join(", ")}`);
+	const ids: number[] = [];
+	for (const n of listNames) {
+		const id = idByName.get(n);
+		if (id === undefined) {
+			throw new ListmonkError(`missing list in ${listNames.join(", ")}`);
+		}
+		ids.push(id);
 	}
 
 	const created = await listmonk(env, "/api/subscribers", {
@@ -162,9 +187,15 @@ async function subscribe(
 			lists: ids,
 			attribs,
 			preconfirm_subscriptions: true,
+			referred_by: referredBy,
 		},
 	});
-	if (created.status === 200) return true;
+	if (created.status === 200) {
+		return {
+			added: true,
+			referralCode: created.body?.data?.referral_code,
+		};
+	}
 	if (created.status !== 409) {
 		throw new ListmonkError(
 			`create failed (${created.status}): ${created.body?.message}`,
@@ -185,7 +216,7 @@ async function subscribe(
 			`lookup failed (${found.status}): ${found.body?.message}`,
 		);
 	}
-	if (existing.status === "blocklisted") return false;
+	if (existing.status === "blocklisted") return { added: false };
 
 	const added = await listmonk(env, "/api/subscribers/lists", {
 		method: "PUT",
@@ -194,6 +225,7 @@ async function subscribe(
 			action: "add",
 			target_list_ids: ids,
 			status: "confirmed",
+			referred_by: referredBy,
 		},
 	});
 	if (added.status !== 200) {
@@ -201,7 +233,7 @@ async function subscribe(
 			`add to lists failed (${added.status}): ${added.body?.message}`,
 		);
 	}
-	return true;
+	return { added: true, referralCode: existing.referral_code };
 }
 
 // What Cloudflare's always-pass test widget (site key 1x00000000000000000000AA)
@@ -362,12 +394,21 @@ export async function handleSubscribe(
 	if (field("zip")) attribs.zip = field("zip");
 	if (field("why")) attribs.reform_why = field("why");
 
+	// Only the pledge form takes referrals, and only well-formed codes are sent.
+	const ref = (params.get("ref") ?? "").trim();
+	const referredBy =
+		formKey === "pledge" && REFERRAL_CODE_PATTERN.test(ref) ? ref : undefined;
+
+	let outcome: SubscribeOutcome;
 	try {
-		const added = await subscribe(env, email, name, attribs, [...selected]);
-		if (!added) {
-			// Don't reveal that an address is blocklisted.
-			return json({ ok: true, message: "Thanks — you're signed up!" });
-		}
+		outcome = await subscribe(
+			env,
+			email,
+			name,
+			attribs,
+			[...selected],
+			referredBy,
+		);
 	} catch (error) {
 		console.error("subscribe: listmonk request failed", error);
 		return json(
@@ -378,5 +419,14 @@ export async function handleSubscribe(
 			502,
 		);
 	}
-	return json({ ok: true, message: "Thanks — you're signed up!" });
+	if (!outcome.added) {
+		// Don't reveal that an address is blocklisted.
+		return json({ ok: true, message: "Thanks — you're signed up!" });
+	}
+
+	return json({
+		ok: true,
+		message: "Thanks — you're signed up!",
+		referral_code: formKey === "pledge" ? outcome.referralCode : undefined,
+	});
 }

@@ -118,6 +118,19 @@ have to be covered by the Turnstile hostname allowlist or every form submission
 is rejected with a 403 — `*.californiaapproves.workers.dev` passes by default; set
 `TURNSTILE_ALLOWED_HOSTNAMES` if previews are served from anywhere else.
 
+## Referrals
+
+After pledging, a visitor gets a personal link, `https://californiaapproves.org/r/CODE`.
+The Worker redirects it to the pledge form with `?ref=CODE`; `src/lib/referral.ts`
+remembers the code for 30 days, and the pledge form sends it as `ref`. After
+adding the subscriber, the Worker passes it to listmonk as `referred_by` on the
+same `POST /api/subscribers` (or `PUT /api/subscribers/lists`) call, so the
+referrer is credited with no extra request. The codes, `referred_by`, and the
+leaderboard come from the CaliforniaApproves listmonk fork (`ca/v*` branches of
+`CaliforniaApproves/listmonk`), so the listmonk behind `LISTMONK_URL` must be
+that fork; stock listmonk ignores `referred_by` and referrals are silently not
+recorded.
+
 ## Environment variables
 
 The newsletter, pledge, and contact forms are protected by Cloudflare Turnstile
