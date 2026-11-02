@@ -142,7 +142,7 @@ which would replace a personal `/r/CODE` link with the plain page URL and lose
 the referral. After changing the tags or the image, re-scrape the URL in
 Facebook's Sharing Debugger, since it caches previews.
 
-The pledge success panel links to Facebook, X, Bluesky and WhatsApp (plain share
+The pledge success panel links to Facebook, Twitter (X), Bluesky and WhatsApp (plain share
 URLs, no third-party scripts), plus Email, Text and the browser's own Share sheet.
 Facebook ignores any prefilled text; it previews the tags above.
 
