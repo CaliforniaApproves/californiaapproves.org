@@ -131,6 +131,21 @@ leaderboard come from the CaliforniaApproves listmonk fork (`ca/v*` branches of
 that fork; stock listmonk ignores `referred_by` and referrals are silently not
 recorded.
 
+### Link previews and sharing
+
+`src/partials/head.html` adds the Open Graph and Twitter card tags, using
+`public/og-image.png` (1200x630, so keep it a PNG or JPEG: Facebook, X and
+LinkedIn don't render SVG). Pages can pass `title` and `description`
+(`{{> head title="..." description="..."}}`); the pledge page does. There is
+deliberately no `og:url`: Facebook uses it as the canonical link of a share,
+which would replace a personal `/r/CODE` link with the plain page URL and lose
+the referral. After changing the tags or the image, re-scrape the URL in
+Facebook's Sharing Debugger, since it caches previews.
+
+The pledge success panel links to Facebook, Twitter (X), Bluesky and WhatsApp (plain share
+URLs, no third-party scripts), plus Email, Text and the browser's own Share sheet.
+Facebook ignores any prefilled text; it previews the tags above.
+
 ### Leaderboard
 
 The pledge page shows the top 10 referrers (`<caa-leaderboard>`, filled from

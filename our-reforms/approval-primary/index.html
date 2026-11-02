@@ -4,7 +4,7 @@
      If it ever must change, add a permanent redirect from the old path first. --}}
 <html lang="en">
 	<head>
-		{{> head}}
+		{{> head title="Pledge to bring Approval Voting to California" description="Every pledge moves the Approval Primary reform closer to the 2028 ballot. Add your name, then share your link to bring friends in."}}
 		<title>Approval Primary Reform - California Approves</title>
 		<style>
 			#team-track::-webkit-scrollbar{ display:none; }
@@ -472,14 +472,19 @@
 											Know someone who'd pledge? Share your personal link. Every friend who pledges
 											through it counts as one of your referrals.
 										</p>
-										<div class="flex gap-2 pt-3">
-											<input data-share-link type="text" readonly aria-label="Your personal pledge link" class="block w-full min-w-0 rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs lg:text-base lg:leading-6 ring-green focus:ring-2 focus:ring-inset focus:ring-green-high">
-											<button type="button" data-share-copy class="caa-button rounded-2xl px-4 py-2 uppercase flex text-center tracking-[-0.01rem] justify-center items-center font-extrabold cursor-pointer text-white bg-orange hover:bg-orange-high text-bsl h-[52px] shrink-0 whitespace-nowrap">COPY</button>
-										</div>
-										<div class="flex flex-wrap justify-center gap-x-6 gap-y-2 pt-3 text-bsm font-extrabold uppercase tracking-[-0.01rem] text-green">
+										<h4 class="text-green uppercase pt-5">Share With</h4>
+										<div class="flex flex-wrap justify-center gap-x-6 gap-y-2 pt-2 text-bsm font-extrabold uppercase tracking-[-0.01rem] text-green">
 											<button type="button" data-share-native hidden class="underline underline-offset-4 hover:text-green-high cursor-pointer">Share</button>
 											<a data-share-email href="mailto:" class="underline underline-offset-4 hover:text-green-high">Email</a>
 											<a data-share-sms href="sms:" class="underline underline-offset-4 hover:text-green-high">Text</a>
+											<a data-share-facebook href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-green-high">Facebook</a>
+											<a data-share-x href="https://x.com/intent/post" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-green-high">Twitter</a>
+											<a data-share-bluesky href="https://bsky.app/intent/compose" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-green-high">Bluesky</a>
+											<a data-share-whatsapp href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 hover:text-green-high">WhatsApp</a>
+										</div>
+										<div class="flex gap-2 pt-4">
+											<input data-share-link type="text" readonly aria-label="Your personal pledge link" class="block w-full min-w-0 rounded-2xl border-0 bg-schist p-3 text-center text-black shadow-xs lg:text-base lg:leading-6 ring-green focus:ring-2 focus:ring-inset focus:ring-green-high">
+											<button type="button" data-share-copy class="caa-button rounded-2xl px-4 py-2 uppercase flex text-center tracking-[-0.01rem] justify-center items-center font-extrabold cursor-pointer text-white bg-orange hover:bg-orange-high text-bsl h-[52px] shrink-0 whitespace-nowrap">COPY</button>
 										</div>
 										<p data-share-status role="status" hidden class="text-bsm text-green pt-2 leading-snug"></p>
 									</div>
