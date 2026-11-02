@@ -7,8 +7,8 @@
 //   [data-leaderboard-list]   <ol> that rows are added to
 //   [data-leaderboard-empty]  hidden message shown when there are no referrals yet
 //
-// If the board can't be loaded, the whole enclosing <section> is hidden rather
-// than showing a broken or empty board.
+// If the board can't be loaded, the enclosing [data-leaderboard-section] (the
+// heading and intro too) is hidden rather than showing a broken or empty board.
 
 interface Entry {
 	rank: number;
@@ -35,7 +35,10 @@ export class CaaLeaderboard extends HTMLElement {
 			entries = data.entries;
 		} catch (error) {
 			console.error("leaderboard: could not load", error);
-			this.closest("section")?.setAttribute("hidden", "");
+			(this.closest("[data-leaderboard-section]") ?? this).setAttribute(
+				"hidden",
+				"",
+			);
 			return;
 		}
 		this.#render(entries);
