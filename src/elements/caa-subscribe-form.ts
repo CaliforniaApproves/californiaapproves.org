@@ -23,8 +23,10 @@
 //                                 referral code. Contains [data-share-link]
 //                                 (input), [data-share-copy] (button),
 //                                 [data-share-native] (button, shown only where
-//                                 navigator.share exists), [data-share-email]
-//                                 and [data-share-sms] (links) and
+//                                 navigator.share exists), [data-share-email],
+//                                 [data-share-sms], [data-share-facebook],
+//                                 [data-share-x], [data-share-bluesky] and
+//                                 [data-share-whatsapp] (links) and
 //                                 [data-share-status] (live message)
 
 import {
@@ -256,6 +258,20 @@ export class CaaSubscribeForm extends HTMLElement {
 		}
 		const sms = this.querySelector<HTMLAnchorElement>("[data-share-sms]");
 		if (sms) sms.href = `sms:?&body=${encodeURIComponent(`${text} ${url}`)}`;
+
+		// Social networks: each takes its share URL as a plain link. Facebook
+		// ignores any text (it previews the page's Open Graph tags instead).
+		const message = encodeURIComponent(`${text} ${url}`);
+		const links: Record<string, string> = {
+			"[data-share-facebook]": `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+			"[data-share-x]": `https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
+			"[data-share-bluesky]": `https://bsky.app/intent/compose?text=${message}`,
+			"[data-share-whatsapp]": `https://wa.me/?text=${message}`,
+		};
+		for (const [selector, href] of Object.entries(links)) {
+			const link = this.querySelector<HTMLAnchorElement>(selector);
+			if (link) link.href = href;
+		}
 
 		block.hidden = false;
 	}
