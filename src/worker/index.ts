@@ -5,6 +5,7 @@
 // endpoint is handled below, and the rest is handed back to the asset server
 // so 404s and redirects keep their existing behaviour.
 
+import { handleLeaderboard } from "./leaderboard";
 import {
 	handleSubscribe,
 	REFERRAL_CODE_PATTERN,
@@ -28,6 +29,16 @@ export default {
 				});
 			}
 			return handleSubscribe(request, env);
+		}
+
+		if (url.pathname === "/api/leaderboard") {
+			if (request.method !== "GET") {
+				return new Response("Method Not Allowed", {
+					status: 405,
+					headers: { allow: "GET" },
+				});
+			}
+			return handleLeaderboard(env);
 		}
 
 		// Short personal pledge links: /r/AB12CD sends the visitor to the pledge
