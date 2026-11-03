@@ -405,9 +405,10 @@ export async function handleSubscribe(
 	const ref = (params.get("ref") ?? "").trim();
 	const referredBy =
 		formKey === "pledge" && REFERRAL_CODE_PATTERN.test(ref) ? ref : undefined;
-	// The pledge form's "don't show my name" checkbox.
+	// The pledge form's "show my name" checkbox is checked by default, so a
+	// pledge without it (unticked, or a client that doesn't send it) is hidden.
 	const hideFromLeaderboard =
-		formKey === "pledge" && params.has("hide_from_leaderboard")
+		formKey === "pledge" && !params.has("show_on_leaderboard")
 			? true
 			: undefined;
 
