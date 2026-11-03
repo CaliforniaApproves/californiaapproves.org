@@ -151,8 +151,9 @@ Facebook ignores any prefilled text; it previews the tags above.
 The pledge page shows the top 10 referrers (`<caa-leaderboard>`, filled from
 `GET /api/leaderboard` in `src/worker/leaderboard.ts`, which relays listmonk's
 `/api/lists/:id/leaderboard/public`). Only a rank, a display name and a count
-leave listmonk: names are "First L.", and anyone who ticked "Don't show my
-name" on the pledge form (sent as `hide_from_leaderboard`), has no name, or only
+leave listmonk: names are "First L.", and anyone who unticked "Show my name
+on the leaderboard" (checked by default; sent as `show_on_leaderboard`, and the
+Worker passes listmonk `hide_from_leaderboard` when it is absent), has no name, or only
 gave an e-mail address appears as "Anonymous" and keeps their rank. An admin can
 change that per subscriber in listmonk's subscriber popup. The board is not
 cached yet, so each page view makes one listmonk request; if listmonk can't be
