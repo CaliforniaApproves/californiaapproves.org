@@ -780,16 +780,57 @@
 			var next = document.getElementById('team-next');
 			if(!track || !prev || !next) return;
 
+			var slides = Array.from(track.children);
+			var total = slides.length;
+			if (total < 2) return;
+
+			// Add a copy of the last slide at the start and a copy of the first
+			// slide at the end, so the loop has no visible seam.
+			var firstClone = slides[0].cloneNode(true);
+			var lastClone = slides[total - 1].cloneNode(true);
+			firstClone.setAttribute('aria-hidden', 'true');
+			lastClone.setAttribute('aria-hidden', 'true');
+			track.appendChild(firstClone);
+			track.insertBefore(lastClone, track.firstChild);
+
 			function slideWidth(){
-				var first = track.children[0];
-				return first ? first.getBoundingClientRect().width + 32 : 0; // 32 = gap-8
+				return track.children[0].getBoundingClientRect().width + 32; // 32 = gap-8
 			}
+			// 'instant' overrides the track's scroll-smooth so the jump is invisible.
+			function jumpTo(index){
+				track.scrollTo({ left: index * slideWidth(), behavior: 'instant' });
+			}
+
+			// Start on the first real slide (index 1, after the leading copy).
+			var current = 1;
+			jumpTo(current);
+
 			prev.addEventListener('click', ()=> {
 				track.scrollBy({ left: -slideWidth(), behavior: 'smooth' });
 			});
 			next.addEventListener('click', ()=> {
 				track.scrollBy({ left: slideWidth(), behavior: 'smooth' });
 			});
+
+			// When scrolling settles on a copy, jump to the matching real slide.
+			var timer;
+			track.addEventListener('scroll', ()=> {
+				clearTimeout(timer);
+				timer = setTimeout(()=> {
+					var index = Math.round(track.scrollLeft / slideWidth());
+					if (index === total + 1) {
+						index = 1;
+						jumpTo(index);
+					} else if (index === 0) {
+						index = total;
+						jumpTo(index);
+					}
+					current = index;
+				}, 120);
+			});
+
+			// Keep the current slide in place if the window is resized.
+			window.addEventListener('resize', ()=> jumpTo(current));
 		})();
 		</script>
 	</body>
