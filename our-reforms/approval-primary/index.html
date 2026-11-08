@@ -780,12 +780,13 @@
 			var next = document.getElementById('team-next');
 			if(!track || !prev || !next) return;
 
+			var AUTO_ROTATE_MS = 15000; // 15 seconds. Change this number to adjust.
+
 			var slides = Array.from(track.children);
 			var total = slides.length;
 			if (total < 2) return;
 
-			// Add a copy of the last slide at the start and a copy of the first
-			// slide at the end, so the loop has no visible seam.
+			// Copies of the last and first slides at the ends make the loop seamless.
 			var firstClone = slides[0].cloneNode(true);
 			var lastClone = slides[total - 1].cloneNode(true);
 			firstClone.setAttribute('aria-hidden', 'true');
@@ -796,23 +797,42 @@
 			function slideWidth(){
 				return track.children[0].getBoundingClientRect().width + 32; // 32 = gap-8
 			}
-			// 'instant' overrides the track's scroll-smooth so the jump is invisible.
 			function jumpTo(index){
 				track.scrollTo({ left: index * slideWidth(), behavior: 'instant' });
 			}
 
-			// Start on the first real slide (index 1, after the leading copy).
 			var current = 1;
 			jumpTo(current);
 
+			// --- Auto-rotate ---
+			var autoTimer = null;
+			var paused = false;
+			var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+			function advance(){
+				track.scrollBy({ left: slideWidth(), behavior: 'smooth' });
+			}
+			function stopAuto(){
+				clearInterval(autoTimer);
+				autoTimer = null;
+			}
+			function startAuto(){
+				stopAuto();
+				if (reduceMotion || paused || document.hidden) return;
+				autoTimer = setInterval(advance, AUTO_ROTATE_MS);
+			}
+
+			// --- Arrow buttons (also restart the timer so it doesn't fire right after a click) ---
 			prev.addEventListener('click', ()=> {
 				track.scrollBy({ left: -slideWidth(), behavior: 'smooth' });
+				startAuto();
 			});
 			next.addEventListener('click', ()=> {
-				track.scrollBy({ left: slideWidth(), behavior: 'smooth' });
+				advance();
+				startAuto();
 			});
 
-			// When scrolling settles on a copy, jump to the matching real slide.
+			// --- Seamless loop: when scrolling settles on a copy, jump to the real slide ---
 			var timer;
 			track.addEventListener('scroll', ()=> {
 				clearTimeout(timer);
@@ -829,8 +849,23 @@
 				}, 120);
 			});
 
-			// Keep the current slide in place if the window is resized.
+			// --- Pause while someone is reading or interacting ---
+			var wrapper = track.parentElement;
+			function pause(){ paused = true; stopAuto(); }
+			function resume(){ paused = false; startAuto(); }
+			wrapper.addEventListener('mouseenter', pause);
+			wrapper.addEventListener('mouseleave', resume);
+			wrapper.addEventListener('focusin', pause);
+			wrapper.addEventListener('focusout', resume);
+			wrapper.addEventListener('touchstart', pause, { passive: true });
+			wrapper.addEventListener('touchend', resume, { passive: true });
+			document.addEventListener('visibilitychange', ()=> {
+				if (document.hidden) stopAuto(); else startAuto();
+			});
+
 			window.addEventListener('resize', ()=> jumpTo(current));
+
+			startAuto();
 		})();
 		</script>
 	</body>
