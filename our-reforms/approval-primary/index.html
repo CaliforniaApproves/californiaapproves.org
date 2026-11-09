@@ -810,6 +810,7 @@
 			// --- Auto-rotate ---
 			var autoTimer = null;
 			var paused = false;
+			var inView = !('IntersectionObserver' in window); // if unsupported, assume visible
 			var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 			function advance(){
@@ -821,11 +822,11 @@
 			}
 			function startAuto(){
 				stopAuto();
-				if (reduceMotion || paused || document.hidden) return;
+				if (reduceMotion || paused || !inView || document.hidden) return;
 				autoTimer = setInterval(advance, AUTO_ROTATE_MS);
 			}
 
-			// --- Arrow buttons (also restart the timer so it doesn't fire right after a click) ---
+			// --- Arrow buttons (also restart the timer) ---
 			prev.addEventListener('click', ()=> {
 				track.scrollBy({ left: -slideWidth(), behavior: 'smooth' });
 				startAuto();
@@ -852,7 +853,7 @@
 				}, 120);
 			});
 
-			// --- Pause while someone is reading or interacting ---
+			// --- Pause while someone is hovering or interacting ---
 			var wrapper = track.parentElement;
 			function pause(){ paused = true; stopAuto(); }
 			function resume(){ paused = false; startAuto(); }
@@ -865,6 +866,14 @@
 			document.addEventListener('visibilitychange', ()=> {
 				if (document.hidden) stopAuto(); else startAuto();
 			});
+
+			// --- Only rotate while the carousel is actually on screen ---
+			if ('IntersectionObserver' in window) {
+				new IntersectionObserver((entries)=> {
+					inView = entries[0].isIntersecting;
+					if (inView) startAuto(); else stopAuto();
+				}, { threshold: 0.5 }).observe(wrapper);
+			}
 
 			window.addEventListener('resize', ()=> jumpTo(current));
 
