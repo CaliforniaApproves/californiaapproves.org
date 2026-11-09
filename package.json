@@ -22,7 +22,7 @@
 		"tailwindcss": "^4.3.4"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.6.4",
+		"@biomejs/biome": "2.6.6",
 		"@playwright/test": "^1.65.0",
 		"handlebars": "^4.7.10",
 		"husky": "^9.1.7",
