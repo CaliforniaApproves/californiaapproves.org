@@ -877,7 +877,7 @@
 
 			function grow(){
 				why.style.height = 'auto';
-				why.style.height = why.scrollHeight + 'px';
+				why.style.height = `${why.scrollHeight}px`;
 			}
 			why.addEventListener('input', grow);
 			if (why.form) {
