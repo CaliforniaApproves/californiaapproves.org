@@ -5,7 +5,7 @@
 <html lang="en">
 	<head>
 		{{> head title="Pledge to bring Approval Voting to California" description="Every pledge moves the Approval Primary reform closer to the 2028 ballot. Add your name, then share your link to bring friends in."}}
-		<title>Approval Statewide Reform - California Approves</title>
+		<title>Approval Voting Statewide Reform - California Approves</title>
 		<style>
 			#team-track::-webkit-scrollbar{ display:none; }
 		</style>
@@ -420,7 +420,8 @@
 								<p class="text-large text-white/85 py-2 leading-snug">
 									Every candidate for state and congressional office still appears on one familiar
 									ballot. Every registered voter can still vote for any of them. This reform simply
-									gives voters the freedom to support all the candidates they like.
+									gives voters the freedom to support all the candidates they like, in primaries as 
+									well as special and recall elections. 
 									There's nothing new to learn: just mark one or more.
 								</p>
 							</div>
@@ -809,6 +810,7 @@
 			// --- Auto-rotate ---
 			var autoTimer = null;
 			var paused = false;
+			var inView = !('IntersectionObserver' in window); // if unsupported, assume visible
 			var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 			function advance(){
@@ -820,11 +822,11 @@
 			}
 			function startAuto(){
 				stopAuto();
-				if (reduceMotion || paused || document.hidden) return;
+				if (reduceMotion || paused || !inView || document.hidden) return;
 				autoTimer = setInterval(advance, AUTO_ROTATE_MS);
 			}
 
-			// --- Arrow buttons (also restart the timer so it doesn't fire right after a click) ---
+			// --- Arrow buttons (also restart the timer) ---
 			prev.addEventListener('click', ()=> {
 				track.scrollBy({ left: -slideWidth(), behavior: 'smooth' });
 				startAuto();
@@ -851,7 +853,7 @@
 				}, 120);
 			});
 
-			// --- Pause while someone is reading or interacting ---
+			// --- Pause while someone is hovering or interacting ---
 			var wrapper = track.parentElement;
 			function pause(){ paused = true; stopAuto(); }
 			function resume(){ paused = false; startAuto(); }
@@ -864,6 +866,14 @@
 			document.addEventListener('visibilitychange', ()=> {
 				if (document.hidden) stopAuto(); else startAuto();
 			});
+
+			// --- Only rotate while the carousel is actually on screen ---
+			if ('IntersectionObserver' in window) {
+				new IntersectionObserver((entries)=> {
+					inView = entries[0].isIntersecting;
+					if (inView) startAuto(); else stopAuto();
+				}, { threshold: 0.5 }).observe(wrapper);
+			}
 
 			window.addEventListener('resize', ()=> jumpTo(current));
 
