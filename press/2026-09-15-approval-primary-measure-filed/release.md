@@ -1,6 +1,6 @@
 # **FOR IMMEDIATE RELEASE**
 
-**Contact:** Amanda Mahlendorf, California Approves amanda@californiaapproves.org · (408) 660-3958 · californiaapproves.org
+**Contact:** Amanda Mahlendorf, California Approves amanda@californiaapproves.org · californiaapproves.org
 
 ---
 

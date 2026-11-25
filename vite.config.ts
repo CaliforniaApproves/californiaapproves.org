@@ -22,6 +22,8 @@ const pages = {
 	press: "press/index.html",
 	pressApprovalPrimaryFiled:
 		"press/2026-09-15-approval-primary-measure-filed/index.html",
+	pressApprovalMeasureOneStepCloser:
+		"press/2026-11-24-approval-voting-measure-one-step-closer/index.html",
 };
 
 /**
