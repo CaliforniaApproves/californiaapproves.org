@@ -4,15 +4,17 @@
 
 ---
 
-# **Approval Voting Primary Measure Filed with California Attorney General; Public Comment Open Through October 12**
+# **Approval Voting Measure Filed with California Attorney General; Public Comment Open Through October 12**
 
 ## **After a governor's primary that drew 61 candidates and allowed voters to pick just one, a new statewide initiative would let them mark every candidate they approve of**
 
-**SACRAMENTO, Calif. — September 15, 2026** — California Approves announced that the **Approval Voting for Primary Elections Act** was submitted to the California Attorney General's Office on **September 11, 2026** with a request for a circulating title and summary. The measure has been assigned tracking number **26-0006**, with Amanda Mahlendorf as proponent.
+**Updated November 23, 2026:** Since this release was published, the initiative has been amended (now Initiative 26-0006A2) to also apply to special and recall elections. This release has been revised to reflect that change.
+
+**SACRAMENTO, Calif. — September 15, 2026** — California Approves announced that the **Approval Voting Act** was submitted to the California Attorney General's Office on **September 11, 2026** with a request for a circulating title and summary. The measure has been assigned tracking number **26-0006**, with Amanda Mahlendorf as proponent.
 
 The filing opens a 30-day public review period under Elections Code § 9002\. The full text is posted on the Attorney General's Active Measures page, where any member of the public may submit written comments through **October 12, 2026** using the "Submit Comment" link beside initiative 26-0006: [oag.ca.gov/initiatives/active-measures](https://oag.ca.gov/initiatives/active-measures). An overview of the reform is available at [californiaapproves.org/our-reforms/approval-primary](https://californiaapproves.org/our-reforms/approval-primary/).
 
-The measure would change one thing about California's voter-nominated primaries for state and congressional office: instead of marking a single candidate, voters could mark **every** candidate they approve of. The two candidates with the most approvals would advance to the general election, as they do today.
+The measure would change how Californians vote for state and congressional offices in primary, special, and recall elections: instead of marking a single candidate, voters could mark **every** candidate they approve of. In primaries, the two candidates with the most approvals would advance to the general election, as they do today. Recall elections would keep their current format, with the candidate receiving the most approvals replacing the recalled official. Special elections to fill vacancies in the U.S. House and State Legislature would follow that same single-election model, eliminating the separate special primary. General elections would not change.
 
 "This act is about improving California politics by finding the representatives we agree on. Californians should be free to like as many candidates as they want. When a group picks a restaurant, nobody names just one place they'd want to go. We say what works for us and find where we overlap," said **Alan Savage**, founder of California Approves.
 
@@ -20,13 +22,13 @@ The measure would change one thing about California's voter-nominated primaries 
 
 Sixty-one candidates appeared on the June 2, 2026 primary ballot for governor. Voters could mark exactly one of them. The two candidates who advanced to November had just 28% and 24.6% each; the rest of the vote was divided among candidates who were eliminated.
 
-By counting every approval instead of forcing voters to pick just one, the Approval Voting for Primary Elections Act can surface support that choose-one voting hides, advancing candidates that are more broadly supported by the electorate.
+By counting every approval instead of forcing voters to pick just one, the Approval Voting Act can surface support that choose-one voting hides, advancing candidates that are more broadly supported by the electorate.
 
 **Candidates have to win broadly, not just intensely.** Under a choose-one rule, a candidate can advance with a narrow, committed base while most voters are divided across other names. Today, we cannot distinguish between a candidate voters don’t want and one whose support was simply split. Approval voting closes that path. Once every approval counts, a candidate with 51 percent support and 49 percent opposition is no longer safe from a rival who can reach 55 or 60 percent approval. The winning strategy shifts from consolidating a narrow faction toward assembling the widest possible coalition, from dividing voters toward uniting them.
 
-**Nothing new to buy.** No new voting machines, no new software, no new ballot design. The instruction line changes from "vote for one" to "vote for as many as you approve of." Counties tally approvals by summing the marks for each candidate, the same arithmetic they perform today, so there is no added administrative cost and no delay in reporting results.
+**No new equipment.** No new voting machines and no new ballot design. The instruction line changes from "vote for one" to "vote for one or more." Counties tally approvals by summing the marks for each candidate, the same arithmetic they perform today, so once implemented there is no added ongoing administrative cost and no delay in reporting results.
 
-**Nothing new to learn.** Groups settle questions this way millions of times a day, all over the world. Whenever a group has more than two options, people naturally say which ones work for them, and the option with the broadest support wins. The act brings that ordinary logic to the primary ballot.
+**Nothing new to learn.** Groups settle questions this way millions of times a day, all over the world. Whenever a group has more than two options, people naturally say which ones work for them, and the option with the broadest support wins. The act brings that ordinary logic to the ballot.
 
 Approval voting has already been used in public elections in Fargo, North Dakota, and in St. Louis, Missouri, where voters adopted it in 2020 and have used it for municipal primaries since 2021\. Before adopting approval voting in St. Louis, mayoral candidates advanced from the primary with just 32%, after adoption they advanced with 57% in the first election and 68% in the following election.
 

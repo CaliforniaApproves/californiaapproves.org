@@ -9,7 +9,7 @@ import { expect, test } from "@playwright/test";
 // can be named here.
 const OLDEST_RELEASE = "/press/2026-09-15-approval-primary-measure-filed/";
 const OLDEST_RELEASE_TITLE =
-	"Approval Voting Primary Measure Filed with California Attorney General; Public Comment Open Through October 12";
+	"Approval Voting Measure Filed with California Attorney General; Public Comment Open Through October 12";
 
 test.beforeEach(async ({ page }) => {
 	// Same hermetic setup as the visual tests: only the site's own origin loads,

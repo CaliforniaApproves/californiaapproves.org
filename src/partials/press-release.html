@@ -11,6 +11,8 @@
 	  subtitle      The subheadline.
 	  contactName   Media contact for this release, with their
 	  contactEmail  email address
+	  updatedLabel  Optional: the date of a later revision, as it's written, and
+	  updateNote    a sentence saying what changed, shown above the contact line.
 
 	{{#> press-release date="2026-09-14" dateLabel="September 14, 2026" title="…" …}}
 		<p><strong>SACRAMENTO, Calif. — September 14, 2026</strong> — …</p>
@@ -26,6 +28,9 @@
 		</p>
 		<h1 class="text-green mt-3">{{title}}</h1>
 		<p class="text-large text-schist-high mt-5 leading-snug">{{subtitle}}</p>
+		{{#if updateNote}}
+		<p class="text-small text-schist-higher mt-8 italic"><strong>Updated {{updatedLabel}}:</strong> {{updateNote}}</p>
+		{{/if}}
 		<p class="text-small text-schist-higher mt-8 py-4 border-y border-schist">
 			<b>Contact:</b> {{contactName}}, California Approves ·
 			<a href="mailto:{{contactEmail}}" class="caa-link underline underline-offset-2 hover:text-purple">{{contactEmail}}</a>
